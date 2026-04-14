@@ -121,8 +121,8 @@ export default function Hero() {
 
           {/* ── LEFT column — portrait + floating badges ── */}
           <div style={{
-            flex: isLg ? '0 0 clamp(220px, 28%, 340px)' : '0 0 auto',
-            width: isLg ? undefined : 'clamp(200px, 55vw, 280px)',
+            flex: isLg ? '0 0 clamp(260px, 33%, 400px)' : '0 0 auto',
+            width: isLg ? undefined : 'clamp(220px, 62vw, 310px)',
             position: 'relative',
             opacity: vis ? 1 : 0,
             transform: vis ? 'none' : (isLg ? 'translateX(-24px)' : 'translateY(16px)'),
@@ -223,7 +223,7 @@ export default function Hero() {
               <div style={{ height: 1, width: 40, background: 'linear-gradient(90deg, #1a6fff, transparent)' }} />
             </div>
 
-            {/* H1 — SEO-optimized: primary keyword-first, outcome-focused */}
+            {/* H1 */}
             <h1
               className="font-black leading-tight"
               style={{
@@ -233,9 +233,9 @@ export default function Hero() {
                 lineHeight: 1.12,
               }}
             >
-              שיווק דיגיטלי לעסקים בישראל —{' '}
-              <span className="gradient-text">תוכן, אתרים ופרסום</span>
-              {' '}שמביאים לקוחות
+              שיווק דיגיטלי לעסקים,{' '}
+              <span className="gradient-text">תוכן אתרים ופרסום</span>
+              {' '}שמביאים תוצאות
             </h1>
 
             {/* Subtitle */}
@@ -246,7 +246,7 @@ export default function Hero() {
               marginBottom: 32,
               maxWidth: isLg ? 520 : 'none',
             }}>
-              VELO Studio בונה מערכת שיווק שלמה לעסקים — תוכן AI, אתרים ממירים, ניהול קמפיינים וקידום SEO. הכל עובד ביחד, הכל ניתן למדידה.
+              אנחנו ב־VELO DIGITAL בונים מערכות שיווק שלמות לעסקים — תוכן AI, אתרים וחנויות ממירות, ניהול קמפיינים וקידום ממומן. הכל עובד ביחד.
             </p>
 
             {/* Service pills */}
@@ -286,25 +286,6 @@ export default function Hero() {
               </a>
             </div>
 
-            {/* Social proof nudge */}
-            <div style={{
-              display: 'flex', alignItems: 'center', gap: 10,
-              justifyContent: isLg ? 'flex-start' : 'center',
-            }}>
-              <div style={{ display: 'flex' }}>
-                {['#0d2a4e', '#0a3028', '#251050'].map((bg, i) => (
-                  <div key={i} style={{
-                    width: 26, height: 26, borderRadius: '50%',
-                    background: `linear-gradient(135deg, ${bg} 0%, ${bg}dd 100%)`,
-                    border: '2px solid #060b14',
-                    marginLeft: i > 0 ? -8 : 0,
-                  }} />
-                ))}
-              </div>
-              <span style={{ color: 'rgba(140,170,210,0.6)', fontSize: '0.76rem', fontWeight: 500 }}>
-                60+ עסקים שצמחו איתנו
-              </span>
-            </div>
           </div>
 
         </div>
