@@ -1,36 +1,65 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { BeamsBackground } from './ui/beams-background'
 import portraitSrc from '../assets/portrait.png'
 
-/* ── Floating stat badge ── */
-function StatBadge({ value, label, color, animDelay, style }) {
+/* ── SVG icons for growth badges ── */
+const TrendUpIcon = () => (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+    <polyline points="16 7 22 7 22 13"/>
+  </svg>
+)
+const UsersIcon = () => (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+    <circle cx="9" cy="7" r="4"/>
+    <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+    <path d="M16 3.13a4 4 0 010 7.75"/>
+  </svg>
+)
+const ZapIcon = () => (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+  </svg>
+)
+
+/* ── Floating growth-indicator badge ── */
+function GrowthBadge({ icon, label, sublabel, color, animDelay, style }) {
   return (
     <div style={{
       position: 'absolute',
       background: 'linear-gradient(160deg, rgba(10,18,40,0.96) 0%, rgba(6,11,22,0.98) 100%)',
-      border: `1px solid ${color}28`,
-      borderTopColor: `${color}50`,
-      borderRadius: 12,
+      border: `1px solid ${color}22`,
+      borderTopColor: `${color}45`,
+      borderRadius: 14,
       padding: '10px 14px',
-      boxShadow: `0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px ${color}10`,
-      backdropFilter: 'blur(16px)',
-      WebkitBackdropFilter: 'blur(16px)',
+      boxShadow: `0 8px 32px rgba(0,0,0,0.48), 0 0 0 1px ${color}08`,
+      backdropFilter: 'blur(20px)',
+      WebkitBackdropFilter: 'blur(20px)',
       animation: 'phoneFloat 4s ease-in-out infinite',
       animationDelay: animDelay,
       zIndex: 10,
-      minWidth: 120,
       ...style,
     }}>
-      <div style={{
-        fontSize: 'clamp(1.05rem,2vw,1.25rem)', fontWeight: 900,
-        color, lineHeight: 1, marginBottom: 3,
-        fontFamily: 'Inter, sans-serif', letterSpacing: '-0.04em',
-      }}>
-        {value}
-      </div>
-      <div style={{ fontSize: '0.62rem', color: 'rgba(160,185,215,0.65)', fontWeight: 600, whiteSpace: 'nowrap' }}>
-        {label}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 9 }}>
+        <div style={{
+          width: 30, height: 30, borderRadius: 8,
+          background: `${color}14`,
+          border: `1px solid ${color}25`,
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          color, flexShrink: 0,
+        }}>
+          {icon}
+        </div>
+        <div>
+          <div style={{ color: 'rgba(225,238,255,0.9)', fontWeight: 700, fontSize: '0.76rem', lineHeight: 1.2, whiteSpace: 'nowrap' }}>
+            {label}
+          </div>
+          <div style={{ color, fontSize: '0.6rem', fontWeight: 600, marginTop: 2, opacity: 0.75, whiteSpace: 'nowrap' }}>
+            {sublabel}
+          </div>
+        </div>
       </div>
     </div>
   )
@@ -39,7 +68,6 @@ function StatBadge({ value, label, color, animDelay, style }) {
 export default function Hero() {
   const [vis, setVis] = useState(false)
 
-  /* ── Responsive: stack on mobile ── */
   const [isLg, setIsLg] = useState(
     () => typeof window !== 'undefined' && window.matchMedia('(min-width: 1024px)').matches
   )
@@ -50,7 +78,6 @@ export default function Hero() {
     return () => mq.removeEventListener('change', upd)
   }, [])
 
-  /* ── Entrance animation trigger ── */
   useEffect(() => {
     const t = setTimeout(() => setVis(true), 80)
     return () => clearTimeout(t)
@@ -101,54 +128,57 @@ export default function Hero() {
             transition: 'opacity 0.75s ease 0.15s, transform 0.75s cubic-bezier(0.16,1,0.3,1) 0.15s',
           }}>
 
-            {/* Ambient glow behind portrait */}
+            {/* Ambient glow — stays behind portrait, no visible box */}
             <div style={{
-              position: 'absolute', inset: '-12% -18%',
-              background: 'radial-gradient(ellipse at 50% 60%, rgba(26,100,220,0.32) 0%, rgba(0,160,255,0.1) 50%, transparent 70%)',
-              filter: 'blur(48px)', pointerEvents: 'none', zIndex: 0,
+              position: 'absolute', inset: '-15% -20%',
+              background: 'radial-gradient(ellipse at 50% 55%, rgba(26,100,220,0.26) 0%, rgba(0,160,255,0.07) 55%, transparent 72%)',
+              filter: 'blur(56px)', pointerEvents: 'none', zIndex: 0,
               animation: 'orbPulse 6s ease-in-out infinite',
             }} />
 
-            {/* Portrait image */}
+            {/* Portrait — no border-radius box, fades into background on all edges */}
             <img
               src={portraitSrc}
               alt="ליאור וליקין — מייסד VELO Studio, סוכנות שיווק דיגיטלי"
               style={{
                 width: '100%', display: 'block',
                 objectFit: 'cover', objectPosition: 'top center',
-                borderRadius: 24, position: 'relative', zIndex: 1,
-                maskImage: 'linear-gradient(to bottom, black 52%, transparent 100%)',
-                WebkitMaskImage: 'linear-gradient(to bottom, black 52%, transparent 100%)',
+                position: 'relative', zIndex: 1,
+                /* Multi-directional blend: fades bottom + right edge into background */
+                maskImage: [
+                  'linear-gradient(to bottom, black 42%, transparent 88%)',
+                  'linear-gradient(to right, rgba(0,0,0,0.6) 0%, black 18%, black 55%, transparent 86%)',
+                ].join(', '),
+                WebkitMaskImage: [
+                  'linear-gradient(to bottom, black 42%, transparent 88%)',
+                  'linear-gradient(to right, rgba(0,0,0,0.6) 0%, black 18%, black 55%, transparent 86%)',
+                ].join(', '),
+                maskComposite: 'intersect',
+                WebkitMaskComposite: 'source-in',
               }}
             />
 
-            {/* Right-edge gradient — blends into background */}
-            {isLg && (
-              <div style={{
-                position: 'absolute', top: 0, right: 0, bottom: 0, width: '40%',
-                background: 'linear-gradient(to right, transparent, #060b14)',
-                pointerEvents: 'none', zIndex: 2,
-              }} />
-            )}
-
-            {/* ── Floating stat badges ── */}
-            <StatBadge
-              value="x4.8"
-              label="ROAS ממוצע — Shopify"
+            {/* ── Floating growth-indicator badges ── */}
+            <GrowthBadge
+              icon={<TrendUpIcon />}
+              label="ROAS גבוה"
+              sublabel="תוצאות פרסום מדידות"
               color="#00d478"
               animDelay="0s"
               style={{ top: '16%', right: isLg ? '-32px' : '-12px' }}
             />
-            <StatBadge
-              value="320"
-              label="לידים בחודש — נדלן"
+            <GrowthBadge
+              icon={<UsersIcon />}
+              label="לידים איכותיים"
+              sublabel="לקוחות חדשים כל חודש"
               color="#4d9fff"
               animDelay="1.3s"
-              style={{ top: '44%', left: isLg ? '-16px' : '-8px' }}
+              style={{ top: '45%', left: isLg ? '-16px' : '-8px' }}
             />
-            <StatBadge
-              value="+180%"
-              label="גידול בהמרות — 90 יום"
+            <GrowthBadge
+              icon={<ZapIcon />}
+              label="המרות גבוהות"
+              sublabel="אתר שמוכר בשבילכם"
               color="#a07dff"
               animDelay="0.7s"
               style={{ bottom: '24%', right: isLg ? '-24px' : '-8px' }}
@@ -192,7 +222,7 @@ export default function Hero() {
               <div style={{ height: 1, width: 40, background: 'linear-gradient(90deg, #1a6fff, transparent)' }} />
             </div>
 
-            {/* H1 — SEO-optimized, short, punchy */}
+            {/* H1 — SEO-optimized: primary keyword-first, outcome-focused */}
             <h1
               className="font-black leading-tight"
               style={{
@@ -202,9 +232,9 @@ export default function Hero() {
                 lineHeight: 1.12,
               }}
             >
-              תוכן, אתר ופרסום{' '}
-              <span className="gradient-text">שמביאים לקוחות</span>
-              {' '}— לא רק תנועה
+              שיווק דיגיטלי לעסקים בישראל —{' '}
+              <span className="gradient-text">תוכן, אתרים ופרסום</span>
+              {' '}שמביאים לקוחות
             </h1>
 
             {/* Subtitle */}
@@ -215,7 +245,7 @@ export default function Hero() {
               marginBottom: 32,
               maxWidth: isLg ? 520 : 'none',
             }}>
-              VELO Studio בונה עבורכם מערכת שיווק שלמה לעסקים בישראל — תוכן AI, אתרים ממירים, ניהול קמפיינים וקידום SEO. הכל עובד ביחד, הכל ניתן למדידה.
+              VELO Studio בונה מערכת שיווק שלמה לעסקים — תוכן AI, אתרים ממירים, ניהול קמפיינים וקידום SEO. הכל עובד ביחד, הכל ניתן למדידה.
             </p>
 
             {/* Service pills */}
@@ -260,7 +290,6 @@ export default function Hero() {
               display: 'flex', alignItems: 'center', gap: 10,
               justifyContent: isLg ? 'flex-start' : 'center',
             }}>
-              {/* Avatar stack */}
               <div style={{ display: 'flex' }}>
                 {['#0d2a4e', '#0a3028', '#251050'].map((bg, i) => (
                   <div key={i} style={{
