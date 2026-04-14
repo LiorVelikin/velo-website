@@ -168,9 +168,13 @@ export default function AiContentPage() {
   return (
     <>
       <Helmet>
-        <title>יצירת תוכן AI לעסקים | VELO Studio — הפקה פרופסיונלית בשבריר המחיר</title>
-        <meta name="description" content="יצירת תוכן שיווקי AI לעסקים בישראל — UGC, פרסומות, תמונות מותג ותוכן לרשתות חברתיות. הפקה פרופסיונלית במחיר נגיש. VELO Studio." />
-        <meta name="keywords" content="תוכן AI לעסקים, יצירת תוכן שיווקי, UGC ישראל, תמונות AI למותג, תוכן לרשתות חברתיות" />
+        <title>תוכן AI לעסקים | יצירת תוכן שיווקי עם בינה מלאכותית | VELO Studio</title>
+        <meta name="description" content="יצירת תוכן שיווקי AI לעסקים בישראל — UGC, פרסומות וידאו, תמונות מותג ותוכן לאינסטגרם ו-TikTok. הפקה פרופסיונלית בשבריר העלות הרגילה. VELO Studio." />
+        <meta name="keywords" content="תוכן AI לעסקים, יצירת תוכן שיווקי, UGC ישראל, תוכן לאינסטגרם, פרסומות AI, תמונות AI למותג, תוכן לרשתות חברתיות, הפקת תוכן מהיר, וידאו AI לעסקים, תוכן TikTok, AI לשיווק, תוכן ממותג AI" />
+        <meta property="og:title" content="תוכן AI לעסקים | VELO Studio" />
+        <meta property="og:description" content="UGC, פרסומות וידאו ותמונות מותג עם AI — הפקה פרופסיונלית בשבריר העלות. לעסקים בישראל." />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="he_IL" />
         <link rel="canonical" href="https://liorvelikin.github.io/velo-website/services/ai-content" />
       </Helmet>
 

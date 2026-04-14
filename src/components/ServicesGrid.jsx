@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import veloLogoSrc from '../assets/velo_logo.png'
 
 /* ══════════════════════════════════════════════════════════════
@@ -61,27 +62,27 @@ const SERVICES = [
   {
     icon: <MonitorIcon />, name: 'עיצוב אתרים לעסקים וחברות', tag: 'עיצוב',
     desc: 'אתרים שנבנים מתוך חשיבה מותגית עם דגש על עיצוב וחווית לקוח פרימיום.',
-    col: 1, row: 1,
+    col: 1, row: 1, path: '/services/web-design',
   },
   {
     icon: <LayoutIcon />, name: 'עיצוב דפי נחיתה', tag: 'עיצוב',
     desc: 'דפי נחיתה ממותגים וממוקדים להמרות ויצירת לידים רלוונטיים ואיכותיים.',
-    col: 2, row: 1,
+    col: 2, row: 1, path: '/services/landing-pages',
   },
   {
     icon: <ShoppingBagIcon />, name: 'עיצוב חנויות איקומרס - shopify', tag: 'איקומרס',
     desc: 'חנויות Shopify שמוכרות. מהמבנה ועד לחוויית הקנייה, תהליך ממוקד להמרות ברווחיות גבוהה.',
-    col: 3, row: 1,
+    col: 3, row: 1, path: '/services/ecommerce',
   },
   {
     icon: <SparklesIcon />, name: 'יצירת תוכן AI מתקדם', tag: 'תוכן',
     desc: 'תוכן איכותי שמיוצר בקצב גבוה, בלי תלות בהפקות יקרות, ומותאם לתחום ולקהל שלכם. מוצר, תדמית, פרסומות ו-UGC — ליצירת מיתוג פרימיום.',
-    col: 1, row: 2,
+    col: 1, row: 2, path: '/services/ai-content',
   },
   {
     icon: <TrendingUpIcon />, name: 'ניהול קמפיינים', tag: 'פרסום',
     desc: 'ניהול הפרסום בפלטפורמות הרלוונטיות מקצה לקצה, יצירת אוטומציות לניהול לידים ולקוחות.',
-    col: 3, row: 2,
+    col: 3, row: 2, path: '/services/paid-ads',
   },
 ]
 
@@ -96,7 +97,7 @@ const TAG_COLORS = {
 
 /* ── Single service card ── */
 function ServiceCard({ svc, visible, index, isLg }) {
-  const { icon, name, desc, tag, col, row } = svc
+  const { icon, name, desc, tag, col, row, path } = svc
   const tc = TAG_COLORS[tag] ?? TAG_COLORS['עיצוב']
 
   return (
@@ -148,7 +149,12 @@ function ServiceCard({ svc, visible, index, isLg }) {
             {desc}
           </p>
 
-          <div style={{ marginTop: 'auto' }}>
+          {/* Tag + CTA row */}
+          <div style={{
+            marginTop: 'auto',
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+            paddingTop: 4,
+          }}>
             <span style={{
               display: 'inline-block',
               background: tc.bg, border: `1px solid ${tc.border}`,
@@ -158,6 +164,27 @@ function ServiceCard({ svc, visible, index, isLg }) {
             }}>
               {tag}
             </span>
+
+            <Link
+              to={path}
+              style={{ textDecoration: 'none' }}
+            >
+              <span style={{
+                display: 'inline-flex', alignItems: 'center', gap: 4,
+                color: tc.text, fontSize: '0.75rem', fontWeight: 700,
+                opacity: 0.8,
+                transition: 'opacity 0.2s ease',
+              }}
+                onMouseEnter={e => e.currentTarget.style.opacity = '1'}
+                onMouseLeave={e => e.currentTarget.style.opacity = '0.8'}
+              >
+                למידע נוסף
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M19 12H5M12 5l-7 7 7 7"/>
+                </svg>
+              </span>
+            </Link>
           </div>
         </div>
       </div>

@@ -124,9 +124,13 @@ export default function SeoPage() {
   return (
     <>
       <Helmet>
-        <title>קידום אתרים SEO | VELO Studio — להופיע ראשון בגוגל</title>
-        <meta name="description" content="קידום אתרים אורגני SEO לעסקים בישראל — מחקר מילות מפתח, תוכן SEO, אופטימיזציה טכנית ו-GEO לאתרי AI. VELO Studio מביא תנועה אורגנית שממירה ללקוחות." />
-        <meta name="keywords" content="קידום אתרים SEO, קידום בגוגל, SEO ישראל, קידום אורגני, מחקר מילות מפתח" />
+        <title>קידום אתרים SEO | להופיע ראשון בגוגל בישראל | VELO Studio</title>
+        <meta name="description" content="קידום אתרים אורגני SEO לעסקים בישראל — מחקר מילות מפתח, תוכן SEO, אופטימיזציה טכנית ו-GEO לאתרי AI. VELO Studio מביא תנועה אורגנית חינמית שממירה ללקוחות." />
+        <meta name="keywords" content="קידום אתרים SEO, קידום בגוגל, SEO ישראל, קידום אורגני, מחקר מילות מפתח, אופטימיזציה לגוגל, SEO לעסקים, כתיבת תוכן SEO, קידום אתר חדש, GEO בינה מלאכותית, SEO טכני, לינק בילדינג ישראל" />
+        <meta property="og:title" content="קידום אתרים SEO | VELO Studio" />
+        <meta property="og:description" content="קידום אורגני SEO לעסקים בישראל — מחקר מילות מפתח, תוכן, SEO טכני ו-GEO. תנועה חינמית שממירה." />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="he_IL" />
         <link rel="canonical" href="https://liorvelikin.github.io/velo-website/services/seo" />
       </Helmet>
 

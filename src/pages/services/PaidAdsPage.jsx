@@ -132,9 +132,13 @@ export default function PaidAdsPage() {
   return (
     <>
       <Helmet>
-        <title>ניהול קמפיינים ממומנים | VELO Studio — Meta Ads וGoogle Ads שמביאים לידים</title>
-        <meta name="description" content="ניהול קמפיינים ממומנים ב-Meta Ads וGoogle Ads לעסקים בישראל. לידים איכותיים, מעקב מלא, ואופטימיזציה שוטפת. VELO Studio — תוצאות לא הבטחות." />
-        <meta name="keywords" content="ניהול קמפיינים ממומנים, Meta Ads ישראל, Google Ads ישראל, פרסום ממומן, לידים ממומנים" />
+        <title>ניהול פרסום ממומן | Meta Ads ו-Google Ads בישראל | VELO Studio</title>
+        <meta name="description" content="ניהול קמפיינים ממומנים ב-Meta Ads וGoogle Ads לעסקים בישראל — לידים איכותיים, ROAS מוכח ואופטימיזציה שוטפת. VELO Studio מביא תוצאות מדידות, לא הבטחות." />
+        <meta name="keywords" content="ניהול קמפיינים ממומנים, Meta Ads ישראל, Google Ads ישראל, פרסום ממומן לעסקים, לידים ממומנים, ניהול פייסבוק אדס, ניהול גוגל אדס, פרסום בפייסבוק, פרסום בגוגל, ROAS גבוה, ניהול תקציב פרסום, ריטארגטינג" />
+        <meta property="og:title" content="ניהול פרסום ממומן | VELO Studio" />
+        <meta property="og:description" content="Meta Ads ו-Google Ads לעסקים בישראל — לידים איכותיים, ROAS מוכח ואופטימיזציה שוטפת." />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="he_IL" />
         <link rel="canonical" href="https://liorvelikin.github.io/velo-website/services/paid-ads" />
       </Helmet>
 

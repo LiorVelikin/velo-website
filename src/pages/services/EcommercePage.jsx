@@ -143,9 +143,13 @@ export default function EcommercePage() {
   return (
     <>
       <Helmet>
-        <title>בניית חנות Shopify | VELO Studio — חנות שמוכרת לא רק נראית טוב</title>
-        <meta name="description" content="בניית חנות Shopify מקצועית לעסקים ישראלים — עיצוב מותאם אישית, UX שמוריד נטישת עגלה, ו-SEO לאיקומרס. VELO Studio מלווה מהגדרת החנות ועד הגדילה." />
-        <meta name="keywords" content="Shopify ישראל, בניית חנות אינטרנטית, חנות Shopify מקצועית, עיצוב חנות אונליין, איקומרס ישראל" />
+        <title>בניית חנות Shopify | איקומרס מקצועי בישראל | VELO Studio</title>
+        <meta name="description" content="בניית חנות Shopify מקצועית לעסקים ישראלים — עיצוב מותאם, UX שמוריד נטישת עגלה ו-SEO לאיקומרס. VELO Studio מביא ROAS גבוה ומלווה מהגדרת החנות ועד הגדילה." />
+        <meta name="keywords" content="בניית חנות Shopify, חנות אינטרנטית ישראל, Shopify ישראל, עיצוב חנות אונליין, איקומרס ישראל, חנות Shopify מקצועית, פתיחת חנות אינטרנטית, Shopify בעברית, עיצוב חנות למוצרים, ROAS Shopify, הורדת נטישת עגלה" />
+        <meta property="og:title" content="בניית חנות Shopify | VELO Studio" />
+        <meta property="og:description" content="חנות Shopify מקצועית לעסקים ישראלים — UX ממיר, ROAS גבוה ו-SEO לאיקומרס. מהגדרה ועד גדילה." />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="he_IL" />
         <link rel="canonical" href="https://liorvelikin.github.io/velo-website/services/ecommerce" />
       </Helmet>
 

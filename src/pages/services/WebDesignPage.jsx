@@ -129,9 +129,13 @@ export default function WebDesignPage() {
   return (
     <>
       <Helmet>
-        <title>עיצוב אתרים לעסקים | VELO Studio — בניית אתר שמביא לקוחות</title>
-        <meta name="description" content="בניית אתרים לעסקים שמביאים לקוחות — לא סתם אתרים יפים. עיצוב ממוקד המרות, מהיר, מותאם למובייל ו-SEO. VELO Studio מלווה עסקים בישראל מהאסטרטגיה ועד ההשקה." />
-        <meta name="keywords" content="בניית אתר לעסק, עיצוב אתרים ישראל, אתר שמביא לקוחות, בניית אתר מקצועי, עיצוב אתרים ממוקד המרות" />
+        <title>בניית אתר לעסק | עיצוב אתרים מקצועי בישראל | VELO Studio</title>
+        <meta name="description" content="בניית אתרים מקצועית לעסקים — עיצוב ממוקד המרות, מהיר ומותאם למובייל. VELO Studio בונה אתרי עסק, קטלוגים ואתרי שירות שמביאים לקוחות ולא רק נראים טוב." />
+        <meta name="keywords" content="בניית אתר לעסק, עיצוב אתרים מקצועי, בניית אתרים בישראל, אתר עסקי, עיצוב אתרים ממוקד המרות, אתר מהיר לגוגל, בניית אתר WordPress, בניית אתר React, עיצוב אתרים תל אביב, אתר קטלוג לעסק, בניית אתר לעסק קטן" />
+        <meta property="og:title" content="בניית אתר לעסק | VELO Studio" />
+        <meta property="og:description" content="עיצוב אתרים מקצועי לעסקים בישראל — ממוקד המרות, מהיר ומותאם למובייל. מהאסטרטגיה ועד ההשקה." />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="he_IL" />
         <link rel="canonical" href="https://liorvelikin.github.io/velo-website/services/web-design" />
       </Helmet>
 

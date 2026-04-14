@@ -120,9 +120,13 @@ export default function LandingPagesPage() {
   return (
     <>
       <Helmet>
-        <title>עיצוב דפי נחיתה | VELO Studio — דפים שהופכים קליקים ללידים</title>
-        <meta name="description" content="עיצוב דפי נחיתה ממוקדי המרות לעסקים בישראל. מבנה CRO, A/B testing, ומהירות טעינה שמורידה עלות לליד. VELO Studio בונה דפים שמביאים לקוחות." />
-        <meta name="keywords" content="דף נחיתה, עיצוב דף נחיתה, דפי נחיתה ממירים, landing page ישראל, הורדת עלות ליד" />
+        <title>עיצוב דף נחיתה | דפי נחיתה ממירים לעסקים | VELO Studio</title>
+        <meta name="description" content="עיצוב דפי נחיתה ממוקדי המרות לעסקים בישראל — CRO, A/B testing ומהירות טעינה שמורידים עלות לליד. VELO Studio בונה דפי נחיתה שהופכים קליקים ללידים איכותיים." />
+        <meta name="keywords" content="עיצוב דף נחיתה, דפי נחיתה ממירים, דף נחיתה לעסק, landing page ישראל, הורדת עלות לליד, דף נחיתה ממוקד המרות, CRO ישראל, בניית דף נחיתה, דף נחיתה לקמפיין, דף נחיתה לנדלן, דף נחיתה לפרסום" />
+        <meta property="og:title" content="עיצוב דפי נחיתה | VELO Studio" />
+        <meta property="og:description" content="דפי נחיתה ממוקדי המרות — CRO, A/B testing ומהירות שמורידים עלות לליד. לעסקים בישראל." />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="he_IL" />
         <link rel="canonical" href="https://liorvelikin.github.io/velo-website/services/landing-pages" />
       </Helmet>
 
