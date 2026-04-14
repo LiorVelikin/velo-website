@@ -3,41 +3,128 @@ import { Link } from 'react-router-dom'
 import { useReveal } from '../../hooks/useReveal'
 import PageHero from '../../components/shared/PageHero'
 import ContactForm from '../../components/shared/ContactForm'
+import BrowserMockup from '../../components/shared/BrowserMockup'
+
+/* ── SVG Icons ── */
+const IconMonitor = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+  </svg>
+)
+const IconZap = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+  </svg>
+)
+const IconTarget = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+  </svg>
+)
+const IconSmartphone = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
+  </svg>
+)
+const IconBarChart = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+  </svg>
+)
+const IconSearch = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+  </svg>
+)
+const IconLayers = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>
+  </svg>
+)
+const IconLink = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/>
+  </svg>
+)
 
 const painPoints = [
-  { icon: '😤', text: 'יש לכם אתר שנראה טוב — אבל לא מביא לקוחות' },
-  { icon: '💸', text: 'שילמתם הרבה לעיצוב שכבר לא מייצג אתכם' },
-  { icon: '🐌', text: 'האתר שלכם איטי, לא מותאם למובייל, ולא נמצא בגוגל' },
-  { icon: '🤷', text: 'אין לכם מושג כמה גולשים מגיעים ומה הם עושים שם' },
+  { icon: <IconMonitor />, text: 'יש לכם אתר שנראה טוב — אבל לא מביא לקוחות' },
+  { icon: <IconZap />,     text: 'האתר שלכם איטי, לא מותאם למובייל, ולא נמצא בגוגל' },
+  { icon: <IconTarget />,  text: 'שילמתם הרבה לעיצוב שלא מייצג את מה שהעסק שלכם שווה' },
+  { icon: <IconBarChart />, text: 'אין לכם מושג כמה גולשים מגיעים ומה הם עושים שם' },
 ]
 
 const features = [
-  { title: 'עיצוב ממוקד המרות', desc: 'כל עמוד נבנה עם מסלול ברור לפעולה — מהכניסה ועד ליצירת הקשר. לא רק יפה, אלא עובד.' },
-  { title: 'מותאם לכל מכשיר', desc: 'מובייל-פירסט. 70% מהגולשים שלכם מגיעים מהטלפון — האתר שלכם חייב להיראות מושלם שם.' },
-  { title: 'מהיר כמו ברק', desc: 'זמן טעינה מתחת ל-2 שניות. כל שנייה שהאתר לוקח — אתם מאבדים לקוחות לטובת המתחרים.' },
-  { title: 'SEO מובנה מהיסוד', desc: 'מבנה נכון, מטא-תגים, ומהירות — כדי שגוגל יאהב אתכם מהיום הראשון.' },
-  { title: 'מחובר לכלי ניתוח', desc: 'Google Analytics, הפיקסל של Meta, וכלי חום (heatmaps) — כדי שתדעו בדיוק מה עובד.' },
-  { title: 'מוכן לצמיחה', desc: 'אתר שאפשר להוסיף לו דפים, שפות ופיצ\'רים בלי לבנות מחדש.' },
+  { icon: <IconTarget />,     color: '#4d9fff', title: 'עיצוב ממוקד המרות',   desc: 'כל עמוד נבנה עם מסלול ברור לפעולה — מהכניסה ועד ליצירת הקשר. לא רק יפה, אלא עובד.' },
+  { icon: <IconSmartphone />, color: '#00c8ff', title: 'מובייל-פירסט',        desc: '70% מהגולשים מגיעים מהטלפון. האתר שלכם חייב להיראות ולעבוד מושלם על כל מסך.' },
+  { icon: <IconZap />,        color: '#00d4b8', title: 'מהירות קריטית',       desc: 'זמן טעינה מתחת ל-2 שניות. כל שנייה שהאתר לוקח — אתם מאבדים 20% מהגולשים.' },
+  { icon: <IconSearch />,     color: '#a07dff', title: 'SEO מובנה מהיסוד',    desc: 'מבנה נכון, מטא-תגים, schema markup ומהירות — גוגל יאהב אתכם מהיום הראשון.' },
+  { icon: <IconBarChart />,   color: '#ffb347', title: 'מחובר לכלי ניתוח',    desc: 'Google Analytics, Meta Pixel וכלי חום — תדעו בדיוק מה עובד ומה לא.' },
+  { icon: <IconLayers />,     color: '#00d478', title: 'מוכן לצמיחה',         desc: 'אפשר להוסיף דפים, שפות ופיצ\'רים בלי לבנות מחדש. נבנה כדי לגדול איתכם.' },
 ]
 
 const processSteps = [
-  { num: '01', title: 'גילוי ואסטרטגיה', desc: 'מבינים את הקהל שלכם, המתחרים, ומה שמייחד אתכם. בונים אסטרטגיה לפני שנוגעים בעיצוב.' },
-  { num: '02', title: 'ארכיטקטורה ו-Wireframes', desc: 'מגדירים את המבנה, הפלואו, וה-CTA לפי שיטת CRO — לפני שמשקיעים בעיצוב.' },
-  { num: '03', title: 'עיצוב ויזואלי', desc: 'עיצוב שמשקף את המותג שלכם ויוצר אמון מהשנייה הראשונה.' },
-  { num: '04', title: 'פיתוח ואינטגרציות', desc: 'קוד נקי, אופטימיזציית מהירות, וחיבור לכל הכלים שאתם צריכים.' },
-  { num: '05', title: 'השקה ומעקב', desc: 'השקה מבוקרת, בדיקות ב-A/B, ומדידה — כי לא עוצרים בהשקה.' },
+  { num: '01', title: 'גילוי ואסטרטגיה',        desc: 'מבינים את הקהל שלכם, המתחרים, ומה שמייחד אתכם. בונים אסטרטגיה לפני שנוגעים בעיצוב.' },
+  { num: '02', title: 'ארכיטקטורה ו-Wireframes', desc: 'מגדירים את המבנה, הפלואו, וה-CTA לפי שיטת CRO — לפני שמשקיעים בעיצוב ויזואלי.' },
+  { num: '03', title: 'עיצוב ויזואלי',           desc: 'עיצוב שמשקף את המותג שלכם ויוצר אמון מהשנייה הראשונה.' },
+  { num: '04', title: 'פיתוח ואינטגרציות',       desc: 'קוד נקי, אופטימיזציית מהירות, וחיבור לכל הכלים שאתם צריכים.' },
+  { num: '05', title: 'השקה ומעקב',              desc: 'השקה מבוקרת, בדיקות, ומדידה — כי לא עוצרים בהשקה.' },
+  { num: '06', title: 'אופטימיזציה שוטפת',       desc: 'ניתוח נתונים, A/B testing ושיפורים מתמשכים להגדלת ההמרות.' },
 ]
 
 const faqs = [
-  { q: 'כמה זמן לוקח לבנות אתר?', a: 'בדרך כלל 3-6 שבועות, תלוי בגודל הפרויקט. דפי נחיתה פשוטים יכולים להיות מוכנים תוך שבוע.' },
-  { q: 'מה ההבדל בין אתר "רגיל" לאתר שמביא לקוחות?', a: 'אתר "רגיל" מציג מידע. אתר שמביא לקוחות בנוי עם מסלול שמוביל את הגולש לפעולה — יצירת קשר, קנייה, או הרשמה.' },
-  { q: 'מה הפלטפורמות שאתם עובדים איתן?', a: 'React/Next.js לאתרים מתקדמים, WordPress עם Elementor לאתרי תוכן, Shopify לאיקומרס.' },
-  { q: 'האם תעזרו לנו גם לאחר ההשקה?', a: 'כן. מציעים חבילות תחזוקה חודשיות — עדכונים, שינויים, ומעקב על הביצועים.' },
+  { q: 'כמה זמן לוקח לבנות אתר?',           a: 'בדרך כלל 3-6 שבועות, תלוי בגודל הפרויקט. דפי נחיתה פשוטים יכולים להיות מוכנים תוך שבוע.' },
+  { q: 'מה ההבדל בין אתר "רגיל" לאתר שמביא לקוחות?', a: 'אתר "רגיל" מציג מידע. אתר שמביא לקוחות בנוי עם מסלול שמוביל את הגולש לפעולה — יצירת קשר, קנייה, או הרשמה. כל רכיב בדף משרת מטרה.' },
+  { q: 'מה הפלטפורמות שאתם עובדים איתן?',   a: 'React/Next.js לאתרים מתקדמים, WordPress עם Elementor לאתרי תוכן, Shopify לאיקומרס.' },
+  { q: 'האם תעזרו לנו גם לאחר ההשקה?',      a: 'כן. מציעים חבילות תחזוקה חודשיות — עדכונים, שינויים, ומעקב על הביצועים.' },
 ]
 
+/* ── Mock project for showcase ── */
+function WebsiteShowcase() {
+  return (
+    <BrowserMockup url="velo-client.com" accentColor="#1a6fff">
+      <div style={{ height: 320, background: 'linear-gradient(160deg, #060d1f 0%, #0a1628 60%, #071020 100%)', position: 'relative', overflow: 'hidden' }}>
+        {/* Decorative grid */}
+        <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(26,111,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(26,111,255,0.04) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+        {/* Fake nav */}
+        <div style={{ height: 44, borderBottom: '1px solid rgba(255,255,255,0.06)', display: 'flex', alignItems: 'center', padding: '0 24px', gap: 24 }}>
+          <div style={{ width: 60, height: 10, borderRadius: 4, background: 'rgba(255,255,255,0.15)' }} />
+          <div style={{ display: 'flex', gap: 16, marginRight: 'auto' }}>
+            {[40,36,44,38].map((w,i) => <div key={i} style={{ width: w, height: 8, borderRadius: 3, background: 'rgba(255,255,255,0.08)' }} />)}
+          </div>
+          <div style={{ width: 72, height: 28, borderRadius: 14, background: 'linear-gradient(135deg, #0055ff, #00c8ff)' }} />
+        </div>
+        {/* Hero content */}
+        <div style={{ padding: '28px 24px', display: 'flex', flexDirection: 'column', gap: 12 }}>
+          <div style={{ width: 48, height: 20, borderRadius: 10, background: 'rgba(26,111,255,0.2)', border: '1px solid rgba(26,111,255,0.3)' }} />
+          <div style={{ width: '70%', height: 18, borderRadius: 4, background: 'rgba(255,255,255,0.18)' }} />
+          <div style={{ width: '85%', height: 14, borderRadius: 4, background: 'rgba(255,255,255,0.1)' }} />
+          <div style={{ width: '60%', height: 14, borderRadius: 4, background: 'rgba(255,255,255,0.07)' }} />
+          <div style={{ display: 'flex', gap: 10, marginTop: 8 }}>
+            <div style={{ width: 100, height: 34, borderRadius: 17, background: 'linear-gradient(135deg, #0055ff, #00c8ff)' }} />
+            <div style={{ width: 88, height: 34, borderRadius: 17, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }} />
+          </div>
+        </div>
+        {/* Stats row */}
+        <div style={{ position: 'absolute', bottom: 20, left: 24, right: 24, display: 'flex', gap: 12 }}>
+          {['220%','3×','< 2s'].map((v,i) => (
+            <div key={i} style={{ flex: 1, background: 'rgba(26,111,255,0.08)', border: '1px solid rgba(26,111,255,0.18)', borderRadius: 10, padding: '10px 12px', textAlign: 'center' }}>
+              <div style={{ color: '#4d9fff', fontWeight: 800, fontSize: '1rem' }}>{v}</div>
+              <div style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.6rem', marginTop: 2 }}>
+                {['צמיחה בלידים', 'שיפור המרות', 'זמן טעינה'][i]}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </BrowserMockup>
+  )
+}
+
 export default function WebDesignPage() {
-  const [ref, visible] = useReveal()
-  const [processRef, processVisible] = useReveal()
+  const [featuresRef, featuresVis] = useReveal()
+  const [processRef, processVis] = useReveal()
+  const [metricsRef, metricsVis] = useReveal()
 
   return (
     <>
@@ -55,54 +142,117 @@ export default function WebDesignPage() {
         subtitle="לא רק אתר יפה. אתר שמבין את הלקוח שלכם, מוביל אותו לפעולה, ומדיד מהיום הראשון."
       />
 
-      {/* Pain Points */}
-      <section style={{ padding: 'clamp(40px,6vw,72px) 0', direction: 'rtl' }}>
+      {/* Metrics strip */}
+      <section ref={metricsRef} style={{ padding: 'clamp(24px,4vw,48px) 0', direction: 'rtl', borderTop: '1px solid rgba(255,255,255,0.04)', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
         <div className="max-w-5xl mx-auto px-6">
-          <div style={{ textAlign: 'center', marginBottom: 40 }}>
-            <h2 className="font-black" style={{ fontSize: 'clamp(1.5rem,3vw,2.2rem)', letterSpacing: '-0.02em', marginBottom: 12 }}>
-              מכירים את <span className="gradient-text">התסכול הזה?</span>
-            </h2>
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 16 }}>
-            {painPoints.map((p, i) => (
-              <div key={i} className="glass-card" style={{ padding: '20px 22px', display: 'flex', gap: 14, alignItems: 'flex-start' }}>
-                <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>{p.icon}</span>
-                <p style={{ color: '#8ba3c7', fontSize: '0.9rem', lineHeight: 1.6, margin: 0 }}>{p.text}</p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 0 }}>
+            {[
+              { num: '3×',   label: 'עלייה ממוצעת בהמרות' },
+              { num: '< 2s', label: 'זמן טעינה יעד' },
+              { num: '60+',  label: 'פרויקטים הושלמו' },
+              { num: '95+',  label: 'PageSpeed Score' },
+            ].map((m, i) => (
+              <div
+                key={i}
+                style={{
+                  textAlign: 'center', padding: '20px 16px',
+                  borderLeft: i < 3 ? '1px solid rgba(255,255,255,0.06)' : 'none',
+                  opacity: metricsVis ? 1 : 0,
+                  transform: metricsVis ? 'none' : 'translateY(12px)',
+                  transition: `opacity 0.5s ease ${i * 80}ms, transform 0.5s ease ${i * 80}ms`,
+                }}
+              >
+                <div style={{ color: '#4d9fff', fontSize: 'clamp(1.6rem,3vw,2.4rem)', fontWeight: 900, letterSpacing: '-0.03em', lineHeight: 1 }}>{m.num}</div>
+                <div style={{ color: '#6a88ad', fontSize: '0.78rem', marginTop: 6 }}>{m.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Features */}
-      <section
-        ref={ref}
-        style={{ padding: 'clamp(40px,6vw,72px) 0', direction: 'rtl' }}
-      >
-        <div className="max-w-6xl mx-auto px-6">
+      {/* Pain Points */}
+      <section style={{ padding: 'clamp(48px,7vw,80px) 0', direction: 'rtl' }}>
+        <div className="max-w-5xl mx-auto px-6">
           <div style={{ textAlign: 'center', marginBottom: 48 }}>
+            <div className="tag-pill" style={{ marginBottom: 16, display: 'inline-flex' }}>המצב הנוכחי</div>
+            <h2 className="font-black" style={{ fontSize: 'clamp(1.5rem,3vw,2.2rem)', letterSpacing: '-0.02em' }}>
+              מכירים את <span className="gradient-text">התסכול הזה?</span>
+            </h2>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16 }}>
+            {painPoints.map((p, i) => (
+              <div key={i} className="glass-card" style={{ padding: '22px 24px', display: 'flex', gap: 16, alignItems: 'flex-start' }}>
+                <div style={{ width: 40, height: 40, borderRadius: 10, background: 'rgba(26,111,255,0.1)', border: '1px solid rgba(26,111,255,0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#4d9fff', flexShrink: 0 }}>
+                  {p.icon}
+                </div>
+                <p style={{ color: '#8ba3c7', fontSize: '0.9rem', lineHeight: 1.65, margin: 0 }}>{p.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Showcase */}
+      <section style={{ padding: 'clamp(32px,5vw,60px) 0', direction: 'rtl' }}>
+        <div className="max-w-6xl mx-auto px-6">
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'clamp(32px,5vw,64px)', alignItems: 'center' }}>
+            <div style={{ flex: '1 1 340px', minWidth: 0 }}>
+              <div className="tag-pill" style={{ marginBottom: 20, display: 'inline-flex' }}>פרויקט לדוגמה</div>
+              <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,2.5vw,2rem)', letterSpacing: '-0.02em', marginBottom: 16 }}>
+                אתר שמביא <span className="gradient-text">לידים יומיים</span>
+              </h2>
+              <p style={{ color: '#8ba3c7', fontSize: '0.95rem', lineHeight: 1.75, marginBottom: 24 }}>
+                כל פרויקט שאנחנו בונים מחבר בין עיצוב מותגי, מבנה CRO, ומהירות טעינה — שלושת הגורמים שקובעים אם גולש יהפוך ללקוח.
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+                {[
+                  { label: 'עלייה בהמרות', value: '+220%', color: '#4d9fff' },
+                  { label: 'PageSpeed Mobile', value: '96/100', color: '#00d4b8' },
+                  { label: 'זמן עד לתוצאות', value: '30 יום', color: '#a07dff' },
+                ].map((stat, i) => (
+                  <div key={i} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 16px', background: 'rgba(255,255,255,0.03)', borderRadius: 10, border: '1px solid rgba(255,255,255,0.06)' }}>
+                    <span style={{ color: '#8ba3c7', fontSize: '0.88rem' }}>{stat.label}</span>
+                    <span style={{ color: stat.color, fontWeight: 800, fontSize: '1rem' }}>{stat.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div style={{ flex: '1 1 400px', minWidth: 0 }}>
+              <WebsiteShowcase />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section ref={featuresRef} style={{ padding: 'clamp(48px,7vw,80px) 0', direction: 'rtl', background: 'rgba(26,111,255,0.02)', borderTop: '1px solid rgba(26,111,255,0.08)', borderBottom: '1px solid rgba(26,111,255,0.08)' }}>
+        <div className="max-w-6xl mx-auto px-6">
+          <div style={{ textAlign: 'center', marginBottom: 52 }}>
             <div className="tag-pill" style={{ marginBottom: 16, display: 'inline-flex' }}>מה כולל הפרויקט</div>
             <h2 className="font-black" style={{ fontSize: 'clamp(1.5rem,3vw,2.2rem)', letterSpacing: '-0.02em' }}>
               אתר שבנוי <span className="gradient-text">לתוצאות</span>
             </h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20 }}>
             {features.map((f, i) => (
               <div
                 key={i}
                 className="glass-card"
                 style={{
-                  padding: '26px 24px',
-                  opacity: visible ? 1 : 0,
-                  transform: visible ? 'none' : 'translateY(20px)',
-                  transition: `opacity 0.5s ease ${i * 80}ms, transform 0.5s ease ${i * 80}ms`,
+                  padding: '28px 26px',
+                  display: 'flex', gap: 18, alignItems: 'flex-start',
+                  opacity: featuresVis ? 1 : 0,
+                  transform: featuresVis ? 'none' : 'translateY(20px)',
+                  transition: `opacity 0.5s ease ${i * 70}ms, transform 0.5s ease ${i * 70}ms`,
                 }}
               >
-                <div style={{ width: 36, height: 36, borderRadius: 8, background: 'rgba(26,111,255,0.12)', border: '1px solid rgba(26,111,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16 }}>
-                  <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#4d9fff' }} />
+                <div style={{ width: 44, height: 44, borderRadius: 12, background: `${f.color}15`, border: `1px solid ${f.color}30`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: f.color, flexShrink: 0 }}>
+                  {f.icon}
                 </div>
-                <h3 style={{ color: '#fff', fontWeight: 700, fontSize: '1rem', marginBottom: 8 }}>{f.title}</h3>
-                <p style={{ color: '#8ba3c7', fontSize: '0.88rem', lineHeight: 1.65, margin: 0 }}>{f.desc}</p>
+                <div>
+                  <h3 style={{ color: '#fff', fontWeight: 700, fontSize: '1rem', marginBottom: 6 }}>{f.title}</h3>
+                  <p style={{ color: '#8ba3c7', fontSize: '0.87rem', lineHeight: 1.65, margin: 0 }}>{f.desc}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -110,31 +260,33 @@ export default function WebDesignPage() {
       </section>
 
       {/* Process */}
-      <section ref={processRef} style={{ padding: 'clamp(40px,6vw,72px) 0', direction: 'rtl' }}>
-        <div className="max-w-4xl mx-auto px-6">
-          <div style={{ textAlign: 'center', marginBottom: 48 }}>
-            <h2 className="font-black" style={{ fontSize: 'clamp(1.5rem,3vw,2.2rem)', letterSpacing: '-0.02em', marginBottom: 12 }}>
-              איך זה <span className="gradient-text">עובד?</span>
+      <section ref={processRef} style={{ padding: 'clamp(48px,7vw,80px) 0', direction: 'rtl' }}>
+        <div className="max-w-5xl mx-auto px-6">
+          <div style={{ textAlign: 'center', marginBottom: 52 }}>
+            <div className="tag-pill" style={{ marginBottom: 16, display: 'inline-flex' }}>תהליך העבודה</div>
+            <h2 className="font-black" style={{ fontSize: 'clamp(1.5rem,3vw,2.2rem)', letterSpacing: '-0.02em' }}>
+              מהאסטרטגיה <span className="gradient-text">עד לתוצאות</span>
             </h2>
-            <p style={{ color: '#8ba3c7', fontSize: '0.95rem' }}>5 שלבים מוכחים מהאסטרטגיה ועד השקה</p>
+            <p style={{ color: '#8ba3c7', fontSize: '0.95rem', marginTop: 12 }}>6 שלבים מוכחים — שקיפות מלאה בכל אחד מהם</p>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20 }}>
             {processSteps.map((step, i) => (
               <div
                 key={i}
+                className="glass-card"
                 style={{
-                  display: 'flex', gap: 20, alignItems: 'flex-start',
-                  opacity: processVisible ? 1 : 0,
-                  transform: processVisible ? 'none' : 'translateX(16px)',
-                  transition: `opacity 0.5s ease ${i * 100}ms, transform 0.5s ease ${i * 100}ms`,
+                  padding: '24px 22px', display: 'flex', gap: 16, alignItems: 'flex-start',
+                  opacity: processVis ? 1 : 0,
+                  transform: processVis ? 'none' : 'translateY(16px)',
+                  transition: `opacity 0.5s ease ${i * 80}ms, transform 0.5s ease ${i * 80}ms`,
                 }}
               >
-                <div style={{ width: 48, height: 48, borderRadius: 12, background: 'rgba(26,111,255,0.1)', border: '1px solid rgba(26,111,255,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '0.85rem', color: '#4d9fff', flexShrink: 0 }}>
+                <div style={{ width: 44, height: 44, borderRadius: 12, background: 'rgba(26,111,255,0.1)', border: '1px solid rgba(26,111,255,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '0.82rem', color: '#4d9fff', flexShrink: 0, letterSpacing: '0.02em' }}>
                   {step.num}
                 </div>
                 <div>
-                  <h3 style={{ color: '#fff', fontWeight: 700, fontSize: '1rem', marginBottom: 6 }}>{step.title}</h3>
-                  <p style={{ color: '#8ba3c7', fontSize: '0.88rem', lineHeight: 1.65, margin: 0 }}>{step.desc}</p>
+                  <h3 style={{ color: '#fff', fontWeight: 700, fontSize: '0.95rem', marginBottom: 5 }}>{step.title}</h3>
+                  <p style={{ color: '#8ba3c7', fontSize: '0.85rem', lineHeight: 1.6, margin: 0 }}>{step.desc}</p>
                 </div>
               </div>
             ))}
@@ -148,7 +300,7 @@ export default function WebDesignPage() {
           <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,3vw,2rem)', letterSpacing: '-0.02em', marginBottom: 32, textAlign: 'center' }}>
             שאלות <span className="gradient-text">נפוצות</span>
           </h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
             {faqs.map((faq, i) => (
               <div key={i} className="glass-card" style={{ padding: '22px 24px' }}>
                 <h3 style={{ color: '#fff', fontWeight: 700, fontSize: '0.95rem', marginBottom: 8 }}>{faq.q}</h3>

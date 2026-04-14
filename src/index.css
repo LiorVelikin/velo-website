@@ -487,6 +487,26 @@ body {
   to   { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
+/* ─── 2-col responsive grid ─── */
+.grid-2col {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+@media (max-width: 640px) {
+  .grid-2col {
+    grid-template-columns: 1fr;
+  }
+  /* metrics strip: 2x2 on mobile */
+  .grid-4col-metrics {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .grid-4col-metrics > div {
+    border-left: none !important;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+}
+
 /* ─── Dividers ─── */
 .section-divider {
   height: 1px;
