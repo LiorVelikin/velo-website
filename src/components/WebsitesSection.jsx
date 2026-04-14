@@ -237,9 +237,9 @@ function Thumbnail({ project, isActive, onClick, isShopify, visible, delay }) {
       style={{
         flex: '0 0 clamp(150px, 22%, 200px)',
         borderRadius: 12,
-        border: `1.5px solid ${isActive ? 'rgba(26,111,255,0.65)' : 'rgba(255,255,255,0.08)'}`,
-        background: isActive ? 'rgba(26,111,255,0.07)' : 'rgba(255,255,255,0.02)',
-        boxShadow: isActive ? '0 0 20px rgba(26,111,255,0.22), 0 0 0 1px rgba(26,111,255,0.15)' : 'none',
+        border: `1.5px solid ${isActive ? 'rgba(26,111,255,0.65)' : 'rgba(255,255,255,0.1)'}`,
+        background: isActive ? 'rgba(26,111,255,0.10)' : 'linear-gradient(160deg, rgba(14,22,44,0.85) 0%, rgba(8,12,24,0.9) 100%)',
+        boxShadow: isActive ? '0 0 20px rgba(26,111,255,0.22), 0 0 0 1px rgba(26,111,255,0.15)' : '0 4px 24px rgba(0,0,0,0.4), 0 0 0 1px rgba(26,111,255,0.04)',
         transform: isActive ? 'scale(1.04)' : 'scale(1)',
         transition: 'all 0.25s cubic-bezier(0.16,1,0.3,1)',
         cursor: 'pointer',

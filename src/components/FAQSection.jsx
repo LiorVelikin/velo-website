@@ -38,10 +38,10 @@ const faqs = [
 function FAQItem({ faq, index, isOpen, onToggle }) {
   return (
     <div style={{
-      borderBottom: '1px solid rgba(255,255,255,0.06)',
-      borderRight: isOpen ? '2px solid #1a6fff' : '2px solid transparent',
-      transition: 'border-color 0.3s ease',
-      background: isOpen ? 'rgba(26,111,255,0.025)' : 'transparent',
+      borderBottom: '1px solid rgba(255,255,255,0.07)',
+      borderRight: isOpen ? '3px solid #4d9fff' : '3px solid transparent',
+      transition: 'border-color 0.3s ease, background 0.3s ease',
+      background: isOpen ? 'rgba(26,111,255,0.06)' : 'rgba(255,255,255,0.01)',
     }}>
       <button
         onClick={() => onToggle(index)}
@@ -169,11 +169,13 @@ export default function FAQSection() {
         {/* ── Accordion ── */}
         <div style={{
           maxWidth: 720, margin: '0 auto',
-          border: '1px solid rgba(255,255,255,0.06)',
+          border: '1px solid rgba(255,255,255,0.1)',
+          borderTopColor: 'rgba(77,159,255,0.25)',
           borderRadius: 16,
           overflow: 'hidden',
-          background: 'rgba(255,255,255,0.018)',
+          background: 'linear-gradient(160deg, rgba(14,22,44,0.9) 0%, rgba(8,12,24,0.95) 100%)',
           backdropFilter: 'blur(12px)',
+          boxShadow: '0 8px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(26,111,255,0.06)',
         }}>
           {faqs.map((faq, i) => (
             <FAQItem

@@ -100,8 +100,9 @@ function ResultCard({ card, triggered, index, visible }) {
     <div
       style={{
         flex: '0 0 clamp(268px, 30vw, 320px)',
-        background: 'rgba(255,255,255,0.025)',
-        border: '1px solid rgba(255,255,255,0.07)',
+        background: 'linear-gradient(160deg, rgba(14,24,46,0.92) 0%, rgba(8,13,28,0.96) 100%)',
+        border: '1px solid rgba(255,255,255,0.1)',
+        borderTopColor: 'rgba(77,159,255,0.28)',
         borderRadius: 18,
         padding: '28px 26px 24px',
         display: 'flex',
@@ -110,15 +111,16 @@ function ResultCard({ card, triggered, index, visible }) {
         direction: 'rtl',
         position: 'relative',
         overflow: 'hidden',
+        boxShadow: '0 8px 40px rgba(0,0,0,0.45), 0 0 0 1px rgba(26,111,255,0.05)',
         opacity: visible ? 1 : 0,
         transform: visible ? 'none' : 'translateX(36px)',
         transition: `opacity 0.55s ease ${index * 90}ms, transform 0.55s cubic-bezier(0.16,1,0.3,1) ${index * 90}ms`,
       }}
     >
-      {/* Subtle top-edge highlight */}
+      {/* Top accent line */}
       <div style={{
-        position: 'absolute', top: 0, left: '20%', right: '20%', height: 1,
-        background: 'linear-gradient(90deg, transparent, rgba(26,111,255,0.35), transparent)',
+        position: 'absolute', top: 0, left: '15%', right: '15%', height: 2,
+        background: 'linear-gradient(90deg, transparent, rgba(26,111,255,0.55), transparent)',
         pointerEvents: 'none',
       }} />
 
@@ -443,7 +445,7 @@ export default function ResultsFlowSection() {
         {/* ── Project cards grid ── */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gridTemplateColumns: 'repeat(3, 1fr)',
           gap: 20,
           marginBottom: 72,
         }}>
@@ -451,11 +453,13 @@ export default function ResultsFlowSection() {
             <div
               key={i}
               style={{
-                background: 'rgba(255,255,255,0.025)',
-                border: '1px solid rgba(255,255,255,0.07)',
+                background: 'linear-gradient(160deg, rgba(14,24,46,0.92) 0%, rgba(8,13,28,0.96) 100%)',
+                border: '1px solid rgba(255,255,255,0.1)',
+                borderTopColor: 'rgba(77,159,255,0.28)',
                 borderRadius: 16,
                 overflow: 'hidden',
                 direction: 'rtl',
+                boxShadow: '0 8px 40px rgba(0,0,0,0.45), 0 0 0 1px rgba(26,111,255,0.05)',
                 opacity: cardsVis ? 1 : 0,
                 transform: cardsVis ? 'none' : 'translateY(20px)',
                 transition: `opacity 0.55s ease ${0.45 + i * 0.1}s, transform 0.55s ease ${0.45 + i * 0.1}s`,

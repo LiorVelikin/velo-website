@@ -50,13 +50,15 @@ function StepCard({ step, index, visible }) {
     <div style={{
       flex: '1 1 0',
       minWidth: 0,
-      background: 'rgba(255,255,255,0.025)',
-      border: '1px solid rgba(255,255,255,0.07)',
+      background: 'linear-gradient(160deg, rgba(14,24,48,0.9) 0%, rgba(8,12,26,0.95) 100%)',
+      border: '1px solid rgba(255,255,255,0.1)',
+      borderTopColor: 'rgba(77,159,255,0.3)',
       borderRadius: 16,
       padding: '36px 28px 28px',
       position: 'relative',
       overflow: 'hidden',
       direction: 'rtl',
+      boxShadow: '0 8px 40px rgba(0,0,0,0.45), 0 0 0 1px rgba(26,111,255,0.06)',
       opacity: visible ? 1 : 0,
       transform: visible ? 'none' : 'translateY(28px)',
       transition: `opacity 0.6s ease ${index * 150}ms, transform 0.6s cubic-bezier(0.16,1,0.3,1) ${index * 150}ms`,
@@ -64,8 +66,8 @@ function StepCard({ step, index, visible }) {
 
       {/* Top-edge highlight */}
       <div style={{
-        position: 'absolute', top: 0, left: '15%', right: '15%', height: 1,
-        background: 'linear-gradient(90deg, transparent, rgba(26,111,255,0.3), transparent)',
+        position: 'absolute', top: 0, left: '10%', right: '10%', height: 2,
+        background: 'linear-gradient(90deg, transparent, rgba(26,111,255,0.55), transparent)',
         pointerEvents: 'none',
       }} />
 
@@ -75,7 +77,7 @@ function StepCard({ step, index, visible }) {
         top: 8, right: 16,
         fontSize: 'clamp(72px, 8vw, 96px)',
         fontWeight: 900,
-        color: 'rgba(255,255,255,0.06)',
+        color: 'rgba(77,159,255,0.1)',
         lineHeight: 1,
         userSelect: 'none',
         pointerEvents: 'none',
@@ -88,8 +90,9 @@ function StepCard({ step, index, visible }) {
       {/* Icon */}
       <div style={{
         width: 52, height: 52, borderRadius: 14,
-        background: 'rgba(26,111,255,0.1)',
-        border: '1px solid rgba(26,111,255,0.2)',
+        background: 'rgba(26,111,255,0.14)',
+        border: '1px solid rgba(26,111,255,0.3)',
+        boxShadow: '0 0 20px rgba(26,111,255,0.15)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         marginBottom: 20,
       }}>
@@ -118,9 +121,9 @@ function StepCard({ step, index, visible }) {
         {step.tags.map(tag => (
           <span key={tag} style={{
             fontSize: '0.68rem', fontWeight: 700,
-            color: 'rgba(100,160,220,0.65)',
-            background: 'rgba(26,111,255,0.07)',
-            border: '1px solid rgba(26,111,255,0.14)',
+            color: '#4d9fff',
+            background: 'rgba(26,111,255,0.12)',
+            border: '1px solid rgba(26,111,255,0.25)',
             borderRadius: 100, padding: '3px 10px',
             letterSpacing: '0.03em',
           }}>

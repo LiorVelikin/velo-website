@@ -110,6 +110,12 @@ function ServiceCard({ svc, visible, index, isLg }) {
       }}
     >
       <div className="svc-card" style={{ height: '100%', cursor: 'default' }}>
+        {/* Colored top accent stripe */}
+        <div style={{
+          position: 'absolute', top: 1, left: '20%', right: '20%', height: 2,
+          background: `linear-gradient(90deg, transparent, ${tc.text}60, transparent)`,
+          zIndex: 3, borderRadius: 1,
+        }} />
         <div style={{
           position: 'relative', zIndex: 2,
           padding: '28px 26px 24px',
@@ -118,10 +124,11 @@ function ServiceCard({ svc, visible, index, isLg }) {
         }}>
           <div className="svc-icon-wrap" style={{
             width: 48, height: 48, borderRadius: 12, flexShrink: 0,
-            background: 'rgba(26,111,255,0.1)',
-            border: '1px solid rgba(26,111,255,0.2)',
+            background: `${tc.text}18`,
+            border: `1px solid ${tc.text}35`,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            color: '#4d9fff',
+            color: tc.text,
+            boxShadow: `0 0 16px ${tc.text}20`,
           }}>
             {icon}
           </div>
@@ -135,7 +142,7 @@ function ServiceCard({ svc, visible, index, isLg }) {
           </h3>
 
           <p className="svc-desc" style={{
-            color: '#8ba3c7', fontSize: '0.84rem',
+            color: '#a0b8d0', fontSize: '0.84rem',
             lineHeight: 1.65, margin: 0, flex: 1,
           }}>
             {desc}
@@ -173,9 +180,10 @@ function LogoCard({ visible, index, isLg }) {
       <div style={{
         height: '100%',
         borderRadius: 16,
-        border: '1px solid rgba(99,179,255,0.15)',
-        background: 'radial-gradient(circle at 50% 45%, #0d1e38 0%, #050810 100%)',
-        boxShadow: '0 0 48px rgba(26,111,255,0.12), inset 0 1px 0 rgba(255,255,255,0.06)',
+        border: '1px solid rgba(99,179,255,0.22)',
+        borderTopColor: 'rgba(77,159,255,0.35)',
+        background: 'radial-gradient(circle at 50% 45%, #0d2040 0%, #060d20 100%)',
+        boxShadow: '0 0 60px rgba(26,111,255,0.18), inset 0 1px 0 rgba(255,255,255,0.1), 0 0 0 1px rgba(26,111,255,0.08)',
         display: 'flex', flexDirection: 'column',
         alignItems: 'center', justifyContent: 'center',
         padding: '28px 20px',
