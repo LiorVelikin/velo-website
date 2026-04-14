@@ -111,6 +111,7 @@ export default function Hero() {
           padding: '0 clamp(20px, 5vw, 48px)',
           display: 'flex',
           flexDirection: isLg ? 'row' : 'column-reverse',
+          direction: 'ltr',
           gap: isLg ? 'clamp(32px, 5vw, 64px)' : 40,
           alignItems: isLg ? 'center' : 'center',
           width: '100%',
@@ -120,8 +121,8 @@ export default function Hero() {
 
           {/* ── LEFT column — portrait + floating badges ── */}
           <div style={{
-            flex: isLg ? '0 0 clamp(280px, 38%, 440px)' : '0 0 auto',
-            width: isLg ? undefined : 'clamp(240px, 70vw, 340px)',
+            flex: isLg ? '0 0 clamp(220px, 28%, 340px)' : '0 0 auto',
+            width: isLg ? undefined : 'clamp(200px, 55vw, 280px)',
             position: 'relative',
             opacity: vis ? 1 : 0,
             transform: vis ? 'none' : (isLg ? 'translateX(-24px)' : 'translateY(16px)'),
