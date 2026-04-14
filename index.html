@@ -2,10 +2,31 @@
 <html lang="he" dir="rtl">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/velo-v.png" />
+    <link rel="icon" type="image/png" href="/velo-website/velo-v.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="VELO Studio - סוכנות שיווק דיגיטלי מבוסס AI. יצירת תוכן, מיתוג ועיצוב לעסקים בישראל ובארה״ב." />
-    <title>VELO Studio | סוכנות שיווק דיגיטלי AI</title>
+
+    <!-- Fallback meta (overridden per-page by react-helmet-async) -->
+    <title>VELO Studio | שיווק דיגיטלי לעסקים — תוכן, אתרים ופרסום</title>
+    <meta name="description" content="VELO Studio בונה מערכות שיווק שלמות לעסקים — תוכן AI, אתרים ממירים, ניהול קמפיינים וקידום SEO. הכל עובד ביחד." />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="he" href="https://liorvelikin.github.io/velo-website/" />
+    <link rel="alternate" hreflang="x-default" href="https://liorvelikin.github.io/velo-website/" />
+
+    <!-- Open Graph fallback -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="he_IL" />
+    <meta property="og:site_name" content="VELO Studio" />
+    <meta property="og:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter / X card fallback -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@velostudio_il" />
+    <meta name="twitter:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
+
     <!-- GitHub Pages SPA routing fix -->
     <script>
       (function() {
@@ -16,8 +37,11 @@
         }
       })();
     </script>
+
+    <!-- Font preload for critical Heebo weight -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;900&family=Inter:wght@400;700&display=swap" />
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   </head>
   <body>

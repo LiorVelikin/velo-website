@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useReveal } from '../../hooks/useReveal'
 import PageHero from '../../components/shared/PageHero'
 import ContactForm from '../../components/shared/ContactForm'
+import { serviceSchema, breadcrumbSchema } from '../../components/shared/SchemaOrg'
 
 /* ── SVG Icons ── */
 const IconSearch = () => (
@@ -131,7 +132,15 @@ export default function SeoPage() {
         <meta property="og:description" content="קידום אורגני SEO לעסקים בישראל — מחקר מילות מפתח, תוכן, SEO טכני ו-GEO. תנועה חינמית שממירה." />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="he_IL" />
+        <meta property="og:url" content="https://liorvelikin.github.io/velo-website/services/seo" />
+        <meta property="og:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="קידום אתרים SEO | VELO Studio" />
+        <meta name="twitter:description" content="קידום אורגני SEO לעסקים — מחקר מילות מפתח, תוכן, SEO טכני ו-GEO. תנועה חינמית שממירה." />
+        <meta name="twitter:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
         <link rel="canonical" href="https://liorvelikin.github.io/velo-website/services/seo" />
+        <script type="application/ld+json">{serviceSchema('קידום אתרים SEO', 'קידום אורגני SEO לעסקים בישראל — מחקר מילות מפתח, תוכן SEO ואופטימיזציה טכנית.', '/services/seo')}</script>
+        <script type="application/ld+json">{breadcrumbSchema([{name:'ראשי',path:'/'},{name:'שירותים',path:'/services'},{name:'קידום SEO',path:'/services/seo'}])}</script>
       </Helmet>
 
       <PageHero

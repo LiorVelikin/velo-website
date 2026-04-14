@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useReveal } from '../../hooks/useReveal'
 import PageHero from '../../components/shared/PageHero'
 import ContactForm from '../../components/shared/ContactForm'
+import { serviceSchema, breadcrumbSchema } from '../../components/shared/SchemaOrg'
 
 /* ── SVG Icons ── */
 const IconTrendingUp = () => (
@@ -139,7 +140,15 @@ export default function PaidAdsPage() {
         <meta property="og:description" content="Meta Ads ו-Google Ads לעסקים בישראל — לידים איכותיים, ROAS מוכח ואופטימיזציה שוטפת." />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="he_IL" />
+        <meta property="og:url" content="https://liorvelikin.github.io/velo-website/services/paid-ads" />
+        <meta property="og:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="ניהול פרסום ממומן | VELO Studio" />
+        <meta name="twitter:description" content="Meta Ads ו-Google Ads לעסקים — לידים איכותיים, ROAS מוכח ואופטימיזציה שוטפת." />
+        <meta name="twitter:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
         <link rel="canonical" href="https://liorvelikin.github.io/velo-website/services/paid-ads" />
+        <script type="application/ld+json">{serviceSchema('ניהול קמפיינים ממומנים', 'Meta Ads ו-Google Ads לעסקים בישראל — לידים איכותיים ו-ROAS מוכח.', '/services/paid-ads')}</script>
+        <script type="application/ld+json">{breadcrumbSchema([{name:'ראשי',path:'/'},{name:'שירותים',path:'/services'},{name:'ניהול קמפיינים',path:'/services/paid-ads'}])}</script>
       </Helmet>
 
       <PageHero

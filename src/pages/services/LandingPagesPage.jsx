@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async'
+import { serviceSchema, breadcrumbSchema } from '../../components/shared/SchemaOrg'
 import { Link } from 'react-router-dom'
 import { useReveal } from '../../hooks/useReveal'
 import PageHero from '../../components/shared/PageHero'
@@ -127,7 +128,15 @@ export default function LandingPagesPage() {
         <meta property="og:description" content="דפי נחיתה ממוקדי המרות — CRO, A/B testing ומהירות שמורידים עלות לליד. לעסקים בישראל." />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="he_IL" />
+        <meta property="og:url" content="https://liorvelikin.github.io/velo-website/services/landing-pages" />
+        <meta property="og:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="עיצוב דפי נחיתה | VELO Studio" />
+        <meta name="twitter:description" content="דפי נחיתה ממוקדי המרות — CRO, A/B testing ומהירות שמורידים עלות לליד." />
+        <meta name="twitter:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
         <link rel="canonical" href="https://liorvelikin.github.io/velo-website/services/landing-pages" />
+        <script type="application/ld+json">{serviceSchema('עיצוב דפי נחיתה', 'דפי נחיתה ממוקדי המרות שהופכים קליקים ללידים — CRO ו-A/B testing.', '/services/landing-pages')}</script>
+        <script type="application/ld+json">{breadcrumbSchema([{name:'ראשי',path:'/'},{name:'שירותים',path:'/services'},{name:'דפי נחיתה',path:'/services/landing-pages'}])}</script>
       </Helmet>
 
       <PageHero

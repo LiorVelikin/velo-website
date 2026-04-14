@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useReveal } from '../../hooks/useReveal'
 import PageHero from '../../components/shared/PageHero'
 import ContactForm from '../../components/shared/ContactForm'
+import { serviceSchema, breadcrumbSchema } from '../../components/shared/SchemaOrg'
 
 /* ── SVG Icons ── */
 const IconFilm = () => (
@@ -175,7 +176,15 @@ export default function AiContentPage() {
         <meta property="og:description" content="UGC, פרסומות וידאו ותמונות מותג עם AI — הפקה פרופסיונלית בשבריר העלות. לעסקים בישראל." />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="he_IL" />
+        <meta property="og:url" content="https://liorvelikin.github.io/velo-website/services/ai-content" />
+        <meta property="og:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="תוכן AI לעסקים | VELO Studio" />
+        <meta name="twitter:description" content="UGC, פרסומות וידאו ותמונות מותג עם AI — הפקה פרופסיונלית בשבריר העלות." />
+        <meta name="twitter:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
         <link rel="canonical" href="https://liorvelikin.github.io/velo-website/services/ai-content" />
+        <script type="application/ld+json">{serviceSchema('יצירת תוכן AI', 'UGC, פרסומות וידאו ותמונות מותג עם AI — הפקה פרופסיונלית בשבריר העלות.', '/services/ai-content')}</script>
+        <script type="application/ld+json">{breadcrumbSchema([{name:'ראשי',path:'/'},{name:'שירותים',path:'/services'},{name:'תוכן AI',path:'/services/ai-content'}])}</script>
       </Helmet>
 
       <PageHero

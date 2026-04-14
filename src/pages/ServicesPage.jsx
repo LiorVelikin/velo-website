@@ -92,10 +92,20 @@ export default function ServicesPage() {
   return (
     <>
       <Helmet>
-        <title>השירותים שלנו | VELO Studio — עיצוב, תוכן, פרסום ו-SEO</title>
-        <meta name="description" content="כל השירותים שאתם צריכים תחת קורת גג אחת: עיצוב אתרים, דפי נחיתה, חנויות Shopify, יצירת תוכן AI, ניהול קמפיינים וקידום SEO — שיטת Velocity." />
-        <meta name="keywords" content="שירותי שיווק דיגיטלי, עיצוב אתרים, דפי נחיתה, Shopify ישראל, תוכן AI, ניהול קמפיינים, קידום SEO" />
+        <title>שירותי שיווק דיגיטלי | עיצוב אתרים, תוכן AI, פרסום ו-SEO | VELO Studio</title>
+        <meta name="description" content="כל שירותי השיווק הדיגיטלי תחת קורת גג אחת — עיצוב אתרים, דפי נחיתה, חנויות Shopify, תוכן AI, ניהול קמפיינים וקידום SEO. הכל עובד ביחד." />
+        <meta name="keywords" content="שירותי שיווק דיגיטלי, עיצוב אתרים לעסקים, דפי נחיתה, Shopify ישראל, תוכן AI, ניהול קמפיינים, קידום SEO" />
         <link rel="canonical" href="https://liorvelikin.github.io/velo-website/services" />
+        <meta property="og:title" content="שירותי שיווק דיגיטלי | VELO Studio" />
+        <meta property="og:description" content="עיצוב אתרים, דפי נחיתה, Shopify, תוכן AI, קמפיינים ו-SEO — הכל עובד ביחד." />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="he_IL" />
+        <meta property="og:url" content="https://liorvelikin.github.io/velo-website/services" />
+        <meta property="og:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="שירותי שיווק דיגיטלי | VELO Studio" />
+        <meta name="twitter:description" content="עיצוב אתרים, דפי נחיתה, Shopify, תוכן AI, קמפיינים ו-SEO — הכל עובד ביחד." />
+        <meta name="twitter:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
       </Helmet>
 
       <PageHero

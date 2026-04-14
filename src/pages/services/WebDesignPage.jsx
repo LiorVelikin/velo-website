@@ -4,6 +4,7 @@ import { useReveal } from '../../hooks/useReveal'
 import PageHero from '../../components/shared/PageHero'
 import ContactForm from '../../components/shared/ContactForm'
 import BrowserMockup from '../../components/shared/BrowserMockup'
+import { serviceSchema, breadcrumbSchema } from '../../components/shared/SchemaOrg'
 
 /* ── SVG Icons ── */
 const IconMonitor = () => (
@@ -136,7 +137,15 @@ export default function WebDesignPage() {
         <meta property="og:description" content="עיצוב אתרים מקצועי לעסקים בישראל — ממוקד המרות, מהיר ומותאם למובייל. מהאסטרטגיה ועד ההשקה." />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="he_IL" />
+        <meta property="og:url" content="https://liorvelikin.github.io/velo-website/services/web-design" />
+        <meta property="og:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="בניית אתר לעסק | VELO Studio" />
+        <meta name="twitter:description" content="עיצוב אתרים מקצועי לעסקים בישראל — ממוקד המרות, מהיר ומותאם למובייל." />
+        <meta name="twitter:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
         <link rel="canonical" href="https://liorvelikin.github.io/velo-website/services/web-design" />
+        <script type="application/ld+json">{serviceSchema('עיצוב אתרים לעסקים', 'בניית אתרים מקצועית לעסקים — עיצוב ממוקד המרות, מהיר ומותאם למובייל.', '/services/web-design')}</script>
+        <script type="application/ld+json">{breadcrumbSchema([{name:'ראשי',path:'/'},{name:'שירותים',path:'/services'},{name:'עיצוב אתרים',path:'/services/web-design'}])}</script>
       </Helmet>
 
       <PageHero

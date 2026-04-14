@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async'
+import { serviceSchema, breadcrumbSchema } from '../../components/shared/SchemaOrg'
 import { Link } from 'react-router-dom'
 import { useReveal } from '../../hooks/useReveal'
 import PageHero from '../../components/shared/PageHero'
@@ -150,7 +151,15 @@ export default function EcommercePage() {
         <meta property="og:description" content="חנות Shopify מקצועית לעסקים ישראלים — UX ממיר, ROAS גבוה ו-SEO לאיקומרס. מהגדרה ועד גדילה." />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="he_IL" />
+        <meta property="og:url" content="https://liorvelikin.github.io/velo-website/services/ecommerce" />
+        <meta property="og:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="בניית חנות Shopify | VELO Studio" />
+        <meta name="twitter:description" content="חנות Shopify מקצועית לעסקים — UX ממיר, ROAS גבוה ו-SEO לאיקומרס." />
+        <meta name="twitter:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
         <link rel="canonical" href="https://liorvelikin.github.io/velo-website/services/ecommerce" />
+        <script type="application/ld+json">{serviceSchema('בניית חנות Shopify', 'חנות Shopify מקצועית לעסקים — עיצוב מותאם, UX ממיר ו-SEO לאיקומרס.', '/services/ecommerce')}</script>
+        <script type="application/ld+json">{breadcrumbSchema([{name:'ראשי',path:'/'},{name:'שירותים',path:'/services'},{name:'חנויות Shopify',path:'/services/ecommerce'}])}</script>
       </Helmet>
 
       <PageHero

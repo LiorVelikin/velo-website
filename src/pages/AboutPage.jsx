@@ -53,10 +53,20 @@ export default function AboutPage() {
   return (
     <>
       <Helmet>
-        <title>על ליאור וליקין ו-VELO Studio | סוכנות שיווק דיגיטלי AI</title>
-        <meta name="description" content="הכירו את ליאור וליקין, מייסד VELO Studio — סוכנות שיווק דיגיטלי מבוסס AI לעסקים בישראל. שיטת Velocity: תוכן, אתר, פרסום ואוטומציה — מערכת אחת שעובדת." />
-        <meta name="keywords" content="ליאור וליקין, VELO Studio, סוכנות שיווק דיגיטלי, שיווק AI ישראל, שיטת Velocity" />
+        <title>על ליאור וליקין ו-VELO Studio | שיווק דיגיטלי לעסקים</title>
+        <meta name="description" content="הכירו את ליאור וליקין, מייסד VELO Studio — בונים מערכות שיווק שלמות לעסקים. תוכן AI, אתרים ממירים, ניהול קמפיינים וקידום SEO." />
+        <meta name="keywords" content="ליאור וליקין, VELO Studio, סוכנות שיווק דיגיטלי, שיווק דיגיטלי לעסקים" />
         <link rel="canonical" href="https://liorvelikin.github.io/velo-website/about" />
+        <meta property="og:title" content="על VELO Studio | שיווק דיגיטלי לעסקים" />
+        <meta property="og:description" content="הכירו את ליאור וליקין ו-VELO Studio — בונים מערכות שיווק שלמות לעסקים." />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="he_IL" />
+        <meta property="og:url" content="https://liorvelikin.github.io/velo-website/about" />
+        <meta property="og:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="על VELO Studio | שיווק דיגיטלי לעסקים" />
+        <meta name="twitter:description" content="הכירו את ליאור וליקין ו-VELO Studio — בונים מערכות שיווק שלמות לעסקים." />
+        <meta name="twitter:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
       </Helmet>
 
       <PageHero
