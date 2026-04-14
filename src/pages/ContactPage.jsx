@@ -43,18 +43,18 @@ export default function ContactPage() {
   return (
     <>
       <Helmet>
-        <title>צור קשר | VELO Studio — אבחון שיווקי חינם לעסקים</title>
+        <title>צור קשר | VELO DIGITAL — אבחון שיווקי חינם לעסקים</title>
         <meta name="description" content="השאירו פרטים וקבלו אבחון שיווקי חינם מליאור וליקין. שיחת ייעוץ ישירה ללא התחייבות — מבינים את העסק שלכם ומציגים תוכנית ברורה." />
-        <meta name="keywords" content="צור קשר VELO Studio, אבחון שיווקי חינם, ייעוץ שיווק דיגיטלי, ליאור וליקין" />
+        <meta name="keywords" content="צור קשר VELO DIGITAL, אבחון שיווקי חינם, ייעוץ שיווק דיגיטלי, ליאור וליקין" />
         <link rel="canonical" href="https://liorvelikin.github.io/velo-website/contact" />
-        <meta property="og:title" content="צור קשר | VELO Studio — אבחון שיווקי חינם" />
+        <meta property="og:title" content="צור קשר | VELO DIGITAL — אבחון שיווקי חינם" />
         <meta property="og:description" content="קבלו אבחון שיווקי חינם — שיחת ייעוץ ישירה עם ליאור וליקין, ללא התחייבות." />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="he_IL" />
         <meta property="og:url" content="https://liorvelikin.github.io/velo-website/contact" />
         <meta property="og:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="צור קשר | VELO Studio — אבחון שיווקי חינם" />
+        <meta name="twitter:title" content="צור קשר | VELO DIGITAL — אבחון שיווקי חינם" />
         <meta name="twitter:description" content="קבלו אבחון שיווקי חינם — שיחת ייעוץ ישירה עם ליאור וליקין, ללא התחייבות." />
         <meta name="twitter:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
       </Helmet>
@@ -110,7 +110,7 @@ export default function ContactPage() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
                 <h3 style={{ color: '#fff', fontWeight: 700, fontSize: '1rem', marginBottom: 6 }}>פרטי יצירת קשר</h3>
                 {[
-                  { icon: <PhoneIcon />,   text: '050-0000000',            label: 'טלפון'   },
+                  { icon: <PhoneIcon />,   text: '054-4286018',            label: 'טלפון'   },
                   { icon: <MailIcon />,    text: 'hello@velo-studio.com',  label: 'אימייל'  },
                   { icon: <MessageIcon />, text: 'WhatsApp זמין',          label: 'ווטסאפ' },
                 ].map((item, i) => (

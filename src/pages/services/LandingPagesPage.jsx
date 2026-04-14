@@ -121,17 +121,17 @@ export default function LandingPagesPage() {
   return (
     <>
       <Helmet>
-        <title>עיצוב דף נחיתה | דפי נחיתה ממירים לעסקים | VELO Studio</title>
-        <meta name="description" content="עיצוב דפי נחיתה ממוקדי המרות לעסקים בישראל — CRO, A/B testing ומהירות טעינה שמורידים עלות לליד. VELO Studio בונה דפי נחיתה שהופכים קליקים ללידים איכותיים." />
+        <title>עיצוב דף נחיתה | דפי נחיתה ממירים לעסקים | VELO DIGITAL</title>
+        <meta name="description" content="עיצוב דפי נחיתה ממוקדי המרות לעסקים בישראל — CRO, A/B testing ומהירות טעינה שמורידים עלות לליד. VELO DIGITAL בונה דפי נחיתה שהופכים קליקים ללידים איכותיים." />
         <meta name="keywords" content="עיצוב דף נחיתה, דפי נחיתה ממירים, דף נחיתה לעסק, landing page ישראל, הורדת עלות לליד, דף נחיתה ממוקד המרות, CRO ישראל, בניית דף נחיתה, דף נחיתה לקמפיין, דף נחיתה לנדלן, דף נחיתה לפרסום" />
-        <meta property="og:title" content="עיצוב דפי נחיתה | VELO Studio" />
+        <meta property="og:title" content="עיצוב דפי נחיתה | VELO DIGITAL" />
         <meta property="og:description" content="דפי נחיתה ממוקדי המרות — CRO, A/B testing ומהירות שמורידים עלות לליד. לעסקים בישראל." />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="he_IL" />
         <meta property="og:url" content="https://liorvelikin.github.io/velo-website/services/landing-pages" />
         <meta property="og:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="עיצוב דפי נחיתה | VELO Studio" />
+        <meta name="twitter:title" content="עיצוב דפי נחיתה | VELO DIGITAL" />
         <meta name="twitter:description" content="דפי נחיתה ממוקדי המרות — CRO, A/B testing ומהירות שמורידים עלות לליד." />
         <meta name="twitter:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
         <link rel="canonical" href="https://liorvelikin.github.io/velo-website/services/landing-pages" />

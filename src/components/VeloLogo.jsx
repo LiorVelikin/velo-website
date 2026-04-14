@@ -9,7 +9,7 @@ export default function VeloLogo({ className, style = {} }) {
   return (
     <img
       src={veloLogoSrc}
-      alt="VELO Studio"
+      alt="VELO DIGITAL"
       className={className}
       style={{
         objectFit: 'contain',

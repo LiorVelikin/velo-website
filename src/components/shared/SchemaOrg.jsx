@@ -11,8 +11,8 @@ const BASE_URL = 'https://liorvelikin.github.io/velo-website'
 const ORGANIZATION = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
-  name: 'VELO Studio',
-  alternateName: 'VELO DIGITAL',
+  name: 'VELO DIGITAL',
+  
   url: BASE_URL + '/',
   logo: BASE_URL + '/velo-v.png',
   image: BASE_URL + '/og-image.png',
@@ -68,7 +68,7 @@ function buildServiceSchema(name, description, url) {
     url: BASE_URL + url,
     provider: {
       '@type': 'Organization',
-      name: 'VELO Studio',
+      name: 'VELO DIGITAL',
       url: BASE_URL + '/',
     },
     areaServed: { '@type': 'Country', name: 'Israel' },

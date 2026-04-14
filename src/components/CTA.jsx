@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import portraitSrc from '../assets/portrait.png'
+import portraitSrc from '../assets/portrait.webp'
 
 /* ── Trust signal data ── */
 const TRUST = [
@@ -96,7 +96,7 @@ export default function CTA() {
 
   const fields = [
     { key: 'name',     label: 'שם מלא',        placeholder: 'איך קוראים לך?',           type: 'text' },
-    { key: 'phone',    label: 'מספר טלפון',    placeholder: '050-0000000',               type: 'tel'  },
+    { key: 'phone',    label: 'מספר טלפון',    placeholder: '054-4286018',               type: 'tel'  },
     { key: 'business', label: 'תחום עיסוק',    placeholder: 'מה תחום הפעילות שלך?',     type: 'text' },
   ]
 

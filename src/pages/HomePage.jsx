@@ -34,11 +34,11 @@ export default function HomePage() {
   return (
     <>
       <Helmet>
-        <title>VELO Studio | שיווק דיגיטלי לעסקים — תוכן, אתרים ופרסום שמביאים תוצאות</title>
-        <meta name="description" content="VELO Studio בונה מערכות שיווק שלמות לעסקים — תוכן AI, אתרים ממירים, ניהול קמפיינים וקידום SEO. הכל עובד ביחד, הכל ניתן למדידה." />
+        <title>VELO DIGITAL | שיווק דיגיטלי לעסקים — תוכן, אתרים ופרסום שמביאים תוצאות</title>
+        <meta name="description" content="VELO DIGITAL בונה מערכות שיווק שלמות לעסקים — תוכן AI, אתרים ממירים, ניהול קמפיינים וקידום SEO. הכל עובד ביחד, הכל ניתן למדידה." />
         <meta name="keywords" content="שיווק דיגיטלי לעסקים, סוכנות שיווק דיגיטלי, עיצוב אתרים, תוכן AI, דפי נחיתה ממירים, חנות Shopify, ניהול קמפיינים ממומנים, קידום SEO, לידים, מכירות" />
         <link rel="canonical" href="https://liorvelikin.github.io/velo-website/" />
-        <meta property="og:title" content="VELO Studio | שיווק דיגיטלי לעסקים — תוכן, אתרים ופרסום" />
+        <meta property="og:title" content="VELO DIGITAL | שיווק דיגיטלי לעסקים — תוכן, אתרים ופרסום" />
         <meta property="og:description" content="בונים מערכת שיווק שלמה לעסקים — תוכן AI, אתרים ממירים, ניהול קמפיינים וקידום SEO. הכל עובד ביחד." />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="he_IL" />
@@ -47,7 +47,7 @@ export default function HomePage() {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="VELO Studio | שיווק דיגיטלי לעסקים" />
+        <meta name="twitter:title" content="VELO DIGITAL | שיווק דיגיטלי לעסקים" />
         <meta name="twitter:description" content="בונים מערכת שיווק שלמה לעסקים — תוכן AI, אתרים ממירים, ניהול קמפיינים וקידום SEO." />
         <meta name="twitter:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
         <script type="application/ld+json">{orgSchema()}</script>

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import portraitSrc from '../assets/portrait.png'
+import portraitSrc from '../assets/portrait.webp'
 
 /* Graceful logo import — renders text fallback if file not yet placed */
 const _vl = import.meta.glob('../assets/Velocity-logo.png', { eager: true })
@@ -278,7 +278,7 @@ export default function MethodSection() {
               flexShrink: 0,
             }} />
             <span style={{ color: '#c8dcf5', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.02em' }}>
-              ליאור וליקין — מייסד VELO Studio
+              ליאור וליקין — מייסד VELO DIGITAL
             </span>
           </div>
 

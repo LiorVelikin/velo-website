@@ -130,17 +130,17 @@ export default function WebDesignPage() {
   return (
     <>
       <Helmet>
-        <title>בניית אתר לעסק | עיצוב אתרים מקצועי בישראל | VELO Studio</title>
-        <meta name="description" content="בניית אתרים מקצועית לעסקים — עיצוב ממוקד המרות, מהיר ומותאם למובייל. VELO Studio בונה אתרי עסק, קטלוגים ואתרי שירות שמביאים לקוחות ולא רק נראים טוב." />
+        <title>בניית אתר לעסק | עיצוב אתרים מקצועי בישראל | VELO DIGITAL</title>
+        <meta name="description" content="בניית אתרים מקצועית לעסקים — עיצוב ממוקד המרות, מהיר ומותאם למובייל. VELO DIGITAL בונה אתרי עסק, קטלוגים ואתרי שירות שמביאים לקוחות ולא רק נראים טוב." />
         <meta name="keywords" content="בניית אתר לעסק, עיצוב אתרים מקצועי, בניית אתרים בישראל, אתר עסקי, עיצוב אתרים ממוקד המרות, אתר מהיר לגוגל, בניית אתר WordPress, בניית אתר React, עיצוב אתרים תל אביב, אתר קטלוג לעסק, בניית אתר לעסק קטן" />
-        <meta property="og:title" content="בניית אתר לעסק | VELO Studio" />
+        <meta property="og:title" content="בניית אתר לעסק | VELO DIGITAL" />
         <meta property="og:description" content="עיצוב אתרים מקצועי לעסקים בישראל — ממוקד המרות, מהיר ומותאם למובייל. מהאסטרטגיה ועד ההשקה." />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="he_IL" />
         <meta property="og:url" content="https://liorvelikin.github.io/velo-website/services/web-design" />
         <meta property="og:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="בניית אתר לעסק | VELO Studio" />
+        <meta name="twitter:title" content="בניית אתר לעסק | VELO DIGITAL" />
         <meta name="twitter:description" content="עיצוב אתרים מקצועי לעסקים בישראל — ממוקד המרות, מהיר ומותאם למובייל." />
         <meta name="twitter:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
         <link rel="canonical" href="https://liorvelikin.github.io/velo-website/services/web-design" />

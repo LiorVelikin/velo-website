@@ -125,17 +125,17 @@ export default function SeoPage() {
   return (
     <>
       <Helmet>
-        <title>קידום אתרים SEO | להופיע ראשון בגוגל בישראל | VELO Studio</title>
-        <meta name="description" content="קידום אתרים אורגני SEO לעסקים בישראל — מחקר מילות מפתח, תוכן SEO, אופטימיזציה טכנית ו-GEO לאתרי AI. VELO Studio מביא תנועה אורגנית חינמית שממירה ללקוחות." />
+        <title>קידום אתרים SEO | להופיע ראשון בגוגל בישראל | VELO DIGITAL</title>
+        <meta name="description" content="קידום אתרים אורגני SEO לעסקים בישראל — מחקר מילות מפתח, תוכן SEO, אופטימיזציה טכנית ו-GEO לאתרי AI. VELO DIGITAL מביא תנועה אורגנית חינמית שממירה ללקוחות." />
         <meta name="keywords" content="קידום אתרים SEO, קידום בגוגל, SEO ישראל, קידום אורגני, מחקר מילות מפתח, אופטימיזציה לגוגל, SEO לעסקים, כתיבת תוכן SEO, קידום אתר חדש, GEO בינה מלאכותית, SEO טכני, לינק בילדינג ישראל" />
-        <meta property="og:title" content="קידום אתרים SEO | VELO Studio" />
+        <meta property="og:title" content="קידום אתרים SEO | VELO DIGITAL" />
         <meta property="og:description" content="קידום אורגני SEO לעסקים בישראל — מחקר מילות מפתח, תוכן, SEO טכני ו-GEO. תנועה חינמית שממירה." />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="he_IL" />
         <meta property="og:url" content="https://liorvelikin.github.io/velo-website/services/seo" />
         <meta property="og:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="קידום אתרים SEO | VELO Studio" />
+        <meta name="twitter:title" content="קידום אתרים SEO | VELO DIGITAL" />
         <meta name="twitter:description" content="קידום אורגני SEO לעסקים — מחקר מילות מפתח, תוכן, SEO טכני ו-GEO. תנועה חינמית שממירה." />
         <meta name="twitter:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
         <link rel="canonical" href="https://liorvelikin.github.io/velo-website/services/seo" />

@@ -133,17 +133,17 @@ export default function PaidAdsPage() {
   return (
     <>
       <Helmet>
-        <title>ניהול פרסום ממומן | Meta Ads ו-Google Ads בישראל | VELO Studio</title>
-        <meta name="description" content="ניהול קמפיינים ממומנים ב-Meta Ads וGoogle Ads לעסקים בישראל — לידים איכותיים, ROAS מוכח ואופטימיזציה שוטפת. VELO Studio מביא תוצאות מדידות, לא הבטחות." />
+        <title>ניהול פרסום ממומן | Meta Ads ו-Google Ads בישראל | VELO DIGITAL</title>
+        <meta name="description" content="ניהול קמפיינים ממומנים ב-Meta Ads וGoogle Ads לעסקים בישראל — לידים איכותיים, ROAS מוכח ואופטימיזציה שוטפת. VELO DIGITAL מביא תוצאות מדידות, לא הבטחות." />
         <meta name="keywords" content="ניהול קמפיינים ממומנים, Meta Ads ישראל, Google Ads ישראל, פרסום ממומן לעסקים, לידים ממומנים, ניהול פייסבוק אדס, ניהול גוגל אדס, פרסום בפייסבוק, פרסום בגוגל, ROAS גבוה, ניהול תקציב פרסום, ריטארגטינג" />
-        <meta property="og:title" content="ניהול פרסום ממומן | VELO Studio" />
+        <meta property="og:title" content="ניהול פרסום ממומן | VELO DIGITAL" />
         <meta property="og:description" content="Meta Ads ו-Google Ads לעסקים בישראל — לידים איכותיים, ROAS מוכח ואופטימיזציה שוטפת." />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="he_IL" />
         <meta property="og:url" content="https://liorvelikin.github.io/velo-website/services/paid-ads" />
         <meta property="og:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="ניהול פרסום ממומן | VELO Studio" />
+        <meta name="twitter:title" content="ניהול פרסום ממומן | VELO DIGITAL" />
         <meta name="twitter:description" content="Meta Ads ו-Google Ads לעסקים — לידים איכותיים, ROAS מוכח ואופטימיזציה שוטפת." />
         <meta name="twitter:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
         <link rel="canonical" href="https://liorvelikin.github.io/velo-website/services/paid-ads" />

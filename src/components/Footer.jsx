@@ -103,7 +103,7 @@ export default function Footer() {
                       <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.63A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.16a16 16 0 006.93 6.93l1.52-1.52a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
                     </svg>
                   ),
-                  text: '050-0000000',
+                  text: '054-4286018',
                 },
                 {
                   icon: (
@@ -140,7 +140,7 @@ export default function Footer() {
 
         <div style={{ height: 1, background: 'rgba(255,255,255,0.06)', marginBottom: 24 }} />
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: 8, paddingBottom: 8 }}>
-          <p style={{ color: 'rgba(255,255,255,0.22)', fontSize: '0.72rem' }}>© 2026 VELO Studio. כל הזכויות שמורות.</p>
+          <p style={{ color: 'rgba(255,255,255,0.22)', fontSize: '0.72rem' }}>© 2026 VELO DIGITAL. כל הזכויות שמורות.</p>
           <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
             <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#22c55e', boxShadow: '0 0 6px #22c55e', animation: 'orbPulse 2s ease-in-out infinite' }} />
             <span style={{ color: 'rgba(255,255,255,0.22)', fontSize: '0.72rem' }}>כל המערכות פעילות</span>

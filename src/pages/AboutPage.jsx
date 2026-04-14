@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useReveal } from '../hooks/useReveal'
 import PageHero from '../components/shared/PageHero'
 import ContactForm from '../components/shared/ContactForm'
-import portraitSrc from '../assets/portrait.png'
+import portraitSrc from '../assets/portrait.webp'
 
 const IconTarget = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -53,19 +53,19 @@ export default function AboutPage() {
   return (
     <>
       <Helmet>
-        <title>על ליאור וליקין ו-VELO Studio | שיווק דיגיטלי לעסקים</title>
-        <meta name="description" content="הכירו את ליאור וליקין, מייסד VELO Studio — בונים מערכות שיווק שלמות לעסקים. תוכן AI, אתרים ממירים, ניהול קמפיינים וקידום SEO." />
-        <meta name="keywords" content="ליאור וליקין, VELO Studio, סוכנות שיווק דיגיטלי, שיווק דיגיטלי לעסקים" />
+        <title>על ליאור וליקין ו-VELO DIGITAL | שיווק דיגיטלי לעסקים</title>
+        <meta name="description" content="הכירו את ליאור וליקין, מייסד VELO DIGITAL — בונים מערכות שיווק שלמות לעסקים. תוכן AI, אתרים ממירים, ניהול קמפיינים וקידום SEO." />
+        <meta name="keywords" content="ליאור וליקין, VELO DIGITAL, סוכנות שיווק דיגיטלי, שיווק דיגיטלי לעסקים" />
         <link rel="canonical" href="https://liorvelikin.github.io/velo-website/about" />
-        <meta property="og:title" content="על VELO Studio | שיווק דיגיטלי לעסקים" />
-        <meta property="og:description" content="הכירו את ליאור וליקין ו-VELO Studio — בונים מערכות שיווק שלמות לעסקים." />
+        <meta property="og:title" content="על VELO DIGITAL | שיווק דיגיטלי לעסקים" />
+        <meta property="og:description" content="הכירו את ליאור וליקין ו-VELO DIGITAL — בונים מערכות שיווק שלמות לעסקים." />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="he_IL" />
         <meta property="og:url" content="https://liorvelikin.github.io/velo-website/about" />
         <meta property="og:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="על VELO Studio | שיווק דיגיטלי לעסקים" />
-        <meta name="twitter:description" content="הכירו את ליאור וליקין ו-VELO Studio — בונים מערכות שיווק שלמות לעסקים." />
+        <meta name="twitter:title" content="על VELO DIGITAL | שיווק דיגיטלי לעסקים" />
+        <meta name="twitter:description" content="הכירו את ליאור וליקין ו-VELO DIGITAL — בונים מערכות שיווק שלמות לעסקים." />
         <meta name="twitter:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
       </Helmet>
 
@@ -73,7 +73,7 @@ export default function AboutPage() {
         tag="הסיפור שלנו"
         title="שותפים לצמיחה — לא עוד סוכנות"
         accent="שותפים לצמיחה"
-        subtitle="VELO Studio נוסדה מתוך אמונה אחת פשוטה: עסקים מגיעים לשיווק שמביא תוצאות אמיתיות, לא פעולות מנותקות ותקציבים שנשרפים."
+        subtitle="VELO DIGITAL נוסדה מתוך אמונה אחת פשוטה: עסקים מגיעים לשיווק שמביא תוצאות אמיתיות, לא פעולות מנותקות ותקציבים שנשרפים."
       />
 
       {/* Founder section */}
@@ -97,13 +97,13 @@ export default function AboutPage() {
                 <div style={{ position: 'absolute', bottom: '-10%', left: '-15%', right: '-15%', height: '60%', background: 'radial-gradient(ellipse at 50% 100%, rgba(26,100,220,0.38) 0%, rgba(0,160,255,0.14) 50%, transparent 75%)', filter: 'blur(28px)', pointerEvents: 'none', zIndex: 0 }} />
                 <img
                   src={portraitSrc}
-                  alt="ליאור וליקין — מייסד VELO Studio"
+                  alt="ליאור וליקין — מייסד VELO DIGITAL"
                   style={{ width: '100%', display: 'block', objectFit: 'cover', objectPosition: 'top', borderRadius: 20, position: 'relative', zIndex: 1, WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)', maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)' }}
                 />
               </div>
               <div style={{ textAlign: 'center', marginTop: 16 }}>
                 <p style={{ color: '#fff', fontWeight: 700, fontSize: '1.1rem', marginBottom: 4 }}>ליאור וליקין</p>
-                <p style={{ color: '#4d9fff', fontSize: '0.85rem', fontWeight: 600 }}>מייסד ומנכ"ל — VELO Studio</p>
+                <p style={{ color: '#4d9fff', fontSize: '0.85rem', fontWeight: 600 }}>מייסד ומנכ"ל — VELO DIGITAL</p>
               </div>
             </div>
 

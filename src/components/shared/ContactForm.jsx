@@ -62,7 +62,7 @@ export default function ContactForm({ source = 'website' }) {
 
   const fields = [
     { key: 'name',     label: 'שם מלא',     placeholder: 'איך קוראים לך?',       type: 'text' },
-    { key: 'phone',    label: 'טלפון',       placeholder: '050-0000000',           type: 'tel'  },
+    { key: 'phone',    label: 'טלפון',       placeholder: '054-4286018',           type: 'tel'  },
     { key: 'business', label: 'תחום עיסוק',  placeholder: 'מה תחום הפעילות שלך?', type: 'text' },
   ]
 

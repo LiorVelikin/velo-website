@@ -169,17 +169,17 @@ export default function AiContentPage() {
   return (
     <>
       <Helmet>
-        <title>תוכן AI לעסקים | יצירת תוכן שיווקי עם בינה מלאכותית | VELO Studio</title>
-        <meta name="description" content="יצירת תוכן שיווקי AI לעסקים בישראל — UGC, פרסומות וידאו, תמונות מותג ותוכן לאינסטגרם ו-TikTok. הפקה פרופסיונלית בשבריר העלות הרגילה. VELO Studio." />
+        <title>תוכן AI לעסקים | יצירת תוכן שיווקי עם בינה מלאכותית | VELO DIGITAL</title>
+        <meta name="description" content="יצירת תוכן שיווקי AI לעסקים בישראל — UGC, פרסומות וידאו, תמונות מותג ותוכן לאינסטגרם ו-TikTok. הפקה פרופסיונלית בשבריר העלות הרגילה. VELO DIGITAL." />
         <meta name="keywords" content="תוכן AI לעסקים, יצירת תוכן שיווקי, UGC ישראל, תוכן לאינסטגרם, פרסומות AI, תמונות AI למותג, תוכן לרשתות חברתיות, הפקת תוכן מהיר, וידאו AI לעסקים, תוכן TikTok, AI לשיווק, תוכן ממותג AI" />
-        <meta property="og:title" content="תוכן AI לעסקים | VELO Studio" />
+        <meta property="og:title" content="תוכן AI לעסקים | VELO DIGITAL" />
         <meta property="og:description" content="UGC, פרסומות וידאו ותמונות מותג עם AI — הפקה פרופסיונלית בשבריר העלות. לעסקים בישראל." />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="he_IL" />
         <meta property="og:url" content="https://liorvelikin.github.io/velo-website/services/ai-content" />
         <meta property="og:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="תוכן AI לעסקים | VELO Studio" />
+        <meta name="twitter:title" content="תוכן AI לעסקים | VELO DIGITAL" />
         <meta name="twitter:description" content="UGC, פרסומות וידאו ותמונות מותג עם AI — הפקה פרופסיונלית בשבריר העלות." />
         <meta name="twitter:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
         <link rel="canonical" href="https://liorvelikin.github.io/velo-website/services/ai-content" />

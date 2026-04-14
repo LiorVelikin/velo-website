@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { BeamsBackground } from './ui/beams-background'
-import portraitSrc from '../assets/portrait.png'
+import portraitSrc from '../assets/portrait.webp'
 
 /* ── SVG icons for growth badges ── */
 const TrendUpIcon = () => (
@@ -140,7 +140,7 @@ export default function Hero() {
             {/* Portrait — no border-radius box, fades into background on all edges */}
             <img
               src={portraitSrc}
-              alt="ליאור וליקין — מייסד VELO Studio, סוכנות שיווק דיגיטלי"
+              alt="ליאור וליקין — מייסד VELO DIGITAL, סוכנות שיווק דיגיטלי"
               style={{
                 width: '100%', display: 'block',
                 objectFit: 'cover', objectPosition: 'top center',
@@ -199,7 +199,7 @@ export default function Hero() {
                 flexShrink: 0,
               }} />
               <span style={{ color: '#c8dcf5', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.02em' }}>
-                ליאור וליקין — מייסד VELO Studio
+                ליאור וליקין — מייסד VELO DIGITAL
               </span>
             </div>
           </div>

@@ -144,17 +144,17 @@ export default function EcommercePage() {
   return (
     <>
       <Helmet>
-        <title>בניית חנות Shopify | איקומרס מקצועי בישראל | VELO Studio</title>
-        <meta name="description" content="בניית חנות Shopify מקצועית לעסקים ישראלים — עיצוב מותאם, UX שמוריד נטישת עגלה ו-SEO לאיקומרס. VELO Studio מביא ROAS גבוה ומלווה מהגדרת החנות ועד הגדילה." />
+        <title>בניית חנות Shopify | איקומרס מקצועי בישראל | VELO DIGITAL</title>
+        <meta name="description" content="בניית חנות Shopify מקצועית לעסקים ישראלים — עיצוב מותאם, UX שמוריד נטישת עגלה ו-SEO לאיקומרס. VELO DIGITAL מביא ROAS גבוה ומלווה מהגדרת החנות ועד הגדילה." />
         <meta name="keywords" content="בניית חנות Shopify, חנות אינטרנטית ישראל, Shopify ישראל, עיצוב חנות אונליין, איקומרס ישראל, חנות Shopify מקצועית, פתיחת חנות אינטרנטית, Shopify בעברית, עיצוב חנות למוצרים, ROAS Shopify, הורדת נטישת עגלה" />
-        <meta property="og:title" content="בניית חנות Shopify | VELO Studio" />
+        <meta property="og:title" content="בניית חנות Shopify | VELO DIGITAL" />
         <meta property="og:description" content="חנות Shopify מקצועית לעסקים ישראלים — UX ממיר, ROAS גבוה ו-SEO לאיקומרס. מהגדרה ועד גדילה." />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="he_IL" />
         <meta property="og:url" content="https://liorvelikin.github.io/velo-website/services/ecommerce" />
         <meta property="og:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="בניית חנות Shopify | VELO Studio" />
+        <meta name="twitter:title" content="בניית חנות Shopify | VELO DIGITAL" />
         <meta name="twitter:description" content="חנות Shopify מקצועית לעסקים — UX ממיר, ROAS גבוה ו-SEO לאיקומרס." />
         <meta name="twitter:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
         <link rel="canonical" href="https://liorvelikin.github.io/velo-website/services/ecommerce" />
