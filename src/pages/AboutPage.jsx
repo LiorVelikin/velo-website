@@ -5,19 +5,36 @@ import PageHero from '../components/shared/PageHero'
 import ContactForm from '../components/shared/ContactForm'
 import portraitSrc from '../assets/portrait.png'
 
+const IconTarget = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+  </svg>
+)
+const IconUsers = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/>
+    <path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
+  </svg>
+)
+const IconZap = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+  </svg>
+)
+
 const values = [
   {
-    icon: '🎯',
+    icon: <IconTarget />, color: '#4d9fff',
     title: 'תוצאות, לא הבטחות',
     desc: 'כל פרויקט מתחיל ממטרה עסקית ברורה ומסתיים במדידה. לא מוכרים "נוכחות דיגיטלית" — מוכרים לידים, מכירות וצמיחה.',
   },
   {
-    icon: '🤝',
+    icon: <IconUsers />, color: '#00d4b8',
     title: 'שקיפות מלאה',
     desc: 'אתם יודעים כל מה שאנחנו יודעים. דוחות ברורים, גישה לכל הכלים, ושיחות ישירות עם האנשים שמבצעים את העבודה.',
   },
   {
-    icon: '⚡',
+    icon: <IconZap />, color: '#a07dff',
     title: 'מחויבות אמיתית',
     desc: 'אנחנו עובדים עם מספר מוגבל של לקוחות בכל פעם — כדי שכל עסק יקבל את הקשב, הזמן והאנרגיה שמגיעים לו.',
   },
@@ -131,7 +148,15 @@ export default function AboutPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 24 }}>
             {values.map((v, i) => (
               <div key={i} className="glass-card" style={{ padding: '28px 24px' }}>
-                <div style={{ fontSize: '2rem', marginBottom: 16 }}>{v.icon}</div>
+                <div style={{
+                  width: 44, height: 44, borderRadius: 12,
+                  background: `${v.color}18`, border: `1px solid ${v.color}35`,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  color: v.color, marginBottom: 16,
+                  boxShadow: `0 0 14px ${v.color}20`,
+                }}>
+                  {v.icon}
+                </div>
                 <h3 style={{ color: '#fff', fontWeight: 700, fontSize: '1.1rem', marginBottom: 10 }}>{v.title}</h3>
                 <p style={{ color: '#8ba3c7', fontSize: '0.9rem', lineHeight: 1.7 }}>{v.desc}</p>
               </div>

@@ -2,10 +2,41 @@ import { Helmet } from 'react-helmet-async'
 import PageHero from '../components/shared/PageHero'
 import ContactForm from '../components/shared/ContactForm'
 
+const ShieldIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+  </svg>
+)
+const StarIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+  </svg>
+)
+const ZapIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+  </svg>
+)
+const PhoneIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.63A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.16a16 16 0 006.93 6.93l1.52-1.52a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+  </svg>
+)
+const MailIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+  </svg>
+)
+const MessageIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+  </svg>
+)
+
 const trustItems = [
-  { icon: '🛡️', title: 'ללא התחייבות', desc: 'האבחון שלנו הוא שלכם, תעשו איתו מה שתרצו.' },
-  { icon: '⭐', title: 'ייעוץ אמיתי', desc: 'שיחה עם ליאור ישירות — לא עם מוקד מכירות.' },
-  { icon: '⚡', title: 'מחזירים מהר', desc: 'בדרך כלל בתוך כמה שעות, לכל היותר יום עסקים.' },
+  { icon: <ShieldIcon />, color: '#4d9fff', title: 'ללא התחייבות', desc: 'האבחון שלנו הוא שלכם, תעשו איתו מה שתרצו.' },
+  { icon: <StarIcon />,   color: '#ffb347', title: 'ייעוץ אמיתי',   desc: 'שיחה עם ליאור ישירות — לא עם מוקד מכירות.' },
+  { icon: <ZapIcon />,   color: '#a07dff', title: 'מחזירים מהר',   desc: 'בדרך כלל בתוך כמה שעות, לכל היותר יום עסקים.' },
 ]
 
 export default function ContactPage() {
@@ -47,7 +78,12 @@ export default function ContactPage() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
                   {trustItems.map((item, i) => (
                     <div key={i} style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
-                      <div style={{ width: 40, height: 40, borderRadius: 10, background: 'rgba(26,111,255,0.1)', border: '1px solid rgba(26,111,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.1rem', flexShrink: 0 }}>
+                      <div style={{
+                        width: 40, height: 40, borderRadius: 10,
+                        background: `${item.color}18`, border: `1px solid ${item.color}30`,
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        color: item.color, flexShrink: 0,
+                      }}>
                         {item.icon}
                       </div>
                       <div>
@@ -64,12 +100,12 @@ export default function ContactPage() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
                 <h3 style={{ color: '#fff', fontWeight: 700, fontSize: '1rem', marginBottom: 6 }}>פרטי יצירת קשר</h3>
                 {[
-                  { icon: '📞', text: '050-0000000', label: 'טלפון' },
-                  { icon: '✉️', text: 'hello@velo-studio.com', label: 'אימייל' },
-                  { icon: '💬', text: 'WhatsApp זמין', label: 'ווטסאפ' },
+                  { icon: <PhoneIcon />,   text: '050-0000000',            label: 'טלפון'   },
+                  { icon: <MailIcon />,    text: 'hello@velo-studio.com',  label: 'אימייל'  },
+                  { icon: <MessageIcon />, text: 'WhatsApp זמין',          label: 'ווטסאפ' },
                 ].map((item, i) => (
                   <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                    <span style={{ fontSize: '1rem' }}>{item.icon}</span>
+                    <div style={{ color: '#4d9fff', opacity: 0.8, flexShrink: 0 }}>{item.icon}</div>
                     <div>
                       <span style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.7rem', display: 'block' }}>{item.label}</span>
                       <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.88rem' }}>{item.text}</span>

@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import Hero from '../components/Hero'
-import MethodSection from '../components/MethodSection'
 import ServicesGrid from '../components/ServicesGrid'
 import ContentSection from '../components/ContentSection'
 import WebsitesSection from '../components/WebsitesSection'
@@ -26,13 +25,16 @@ export default function HomePage() {
   return (
     <>
       <Helmet>
-        <title>VELO Studio | סוכנות שיווק דיגיטלי AI לעסקים בישראל</title>
-        <meta name="description" content="סוכנות שיווק דיגיטלי מבוסס AI לעסקים בישראל. עיצוב אתרים, דפי נחיתה, תוכן AI, ניהול קמפיינים וקידום SEO — הכל תחת קורת גג אחת." />
-        <meta name="keywords" content="סוכנות שיווק דיגיטלי ישראל, עיצוב אתרים, דפי נחיתה, תוכן AI, ניהול קמפיינים, קידום SEO, שיווק דיגיטלי עסקים" />
+        <title>VELO Studio | סוכנות שיווק דיגיטלי — תוכן, אתרים ופרסום שמביאים לקוחות</title>
+        <meta name="description" content="VELO Studio — סוכנות שיווק דיגיטלי לעסקים בישראל. עיצוב אתרים ממירים, תוכן AI, דפי נחיתה, חנויות Shopify, ניהול קמפיינים וקידום SEO. הכל עובד ביחד." />
+        <meta name="keywords" content="סוכנות שיווק דיגיטלי ישראל, עיצוב אתרים לעסקים, תוכן AI, דפי נחיתה ממירים, חנות Shopify, ניהול קמפיינים ממומנים, קידום SEO, שיווק דיגיטלי, לידים, מכירות" />
+        <meta property="og:title" content="VELO Studio | סוכנות שיווק דיגיטלי לעסקים" />
+        <meta property="og:description" content="תוכן, אתרים ופרסום שמביאים לקוחות — לא רק תנועה. VELO Studio בונה מערכת שיווק שלמה לעסקים בישראל." />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="he_IL" />
         <link rel="canonical" href="https://liorvelikin.github.io/velo-website/" />
       </Helmet>
       <Hero />
-      <MethodSection />
       <ServicesGrid />
       <ContentSection />
       <WebsitesSection />

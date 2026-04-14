@@ -31,9 +31,14 @@ export default function BrowserMockup({ url, children, accentColor = '#1a6fff' }
           color: 'rgba(255,255,255,0.35)',
           textAlign: 'center',
           fontFamily: 'monospace',
+          display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5,
           direction: 'ltr',
         }}>
-          🔒 {url}
+          <svg width="9" height="10" viewBox="0 0 9 10" fill="none" style={{ opacity: 0.38, flexShrink: 0 }}>
+              <rect x="1" y="4" width="7" height="6" rx="1.5" stroke="white" strokeWidth="1.2"/>
+              <path d="M2.5 4V3a2 2 0 014 0v1" stroke="white" strokeWidth="1.2" strokeLinecap="round"/>
+            </svg>
+            {url}
         </div>
       </div>
       {children}
