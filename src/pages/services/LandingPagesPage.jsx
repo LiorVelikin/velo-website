@@ -1,40 +1,14 @@
 import { Helmet } from 'react-helmet-async'
-import { serviceSchema, breadcrumbSchema } from '../../components/shared/SchemaOrg'
 import { Link } from 'react-router-dom'
 import { useReveal } from '../../hooks/useReveal'
 import PageHero from '../../components/shared/PageHero'
 import ContactForm from '../../components/shared/ContactForm'
-import BrowserMockup from '../../components/shared/BrowserMockup'
+import { serviceSchema, breadcrumbSchema } from '../../components/shared/SchemaOrg'
 
-/* ── SVG Icons ── */
-const IconTarget = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
-  </svg>
-)
-const IconTrendingDown = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    <polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/>
-  </svg>
-)
+/* ── Icons ── */
 const IconLayers = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
     <polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>
-  </svg>
-)
-const IconZap = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-  </svg>
-)
-const IconBarChart = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
-  </svg>
-)
-const IconCode = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
   </svg>
 )
 const IconMessageCircle = () => (
@@ -42,217 +16,242 @@ const IconMessageCircle = () => (
     <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
   </svg>
 )
-const IconDollarSign = () => (
+const IconTarget = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+    <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/>
+  </svg>
+)
+const IconBarChart = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+  </svg>
+)
+const IconZap = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+  </svg>
+)
+const IconCode = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
   </svg>
 )
 
-const painPoints = [
-  { icon: <IconTrendingDown />, text: 'מביאים תנועה — אבל אף אחד לא ממיר ללידים' },
-  { icon: <IconDollarSign />,  text: 'תקציב פרסום שנשרף כי הדף לא עושה את העבודה' },
-  { icon: <IconMessageCircle />, text: 'המסר הכללי של הדף לא פוגע ב"כאב" של הלקוח' },
-  { icon: <IconZap />,         text: 'הדף איטי — מאבד 20% מהגולשים כל שנייה נוספת' },
-]
-
 const features = [
-  { icon: <IconLayers />,     color: '#00c8ff', title: 'מבנה CRO מוכח',           desc: 'כותרת שתופסת → כאב → הבטחה → הוכחה → CTA. מבנה שנבדק על אלפי עמודים.' },
-  { icon: <IconMessageCircle />, color: '#4d9fff', title: 'כותרת שתופסת תוך 3 שניות', desc: '3 שניות להשאיר גולש. הכותרת שלנו עושה את זה — עם מסר שישיר לכאב של הקהל.' },
-  { icon: <IconTarget />,     color: '#a07dff', title: 'Social Proof חזקה',        desc: 'ביקורות, תוצאות, ולוגואים — ישראלים קונים מ"ראיתי שהם עשו לחבר שלי".' },
-  { icon: <IconBarChart />,   color: '#00d478', title: 'A/B Testing מובנה',        desc: 'בודקים כותרות, CTAs ותמונות — ומשאירים רק מה שממיר יותר.' },
-  { icon: <IconZap />,        color: '#ffb347', title: 'מהירות טעינה קריטית',      desc: '95+ ב-PageSpeed. כל שנייה שלא נטענת = עוד 20% נטישה.' },
-  { icon: <IconCode />,       color: '#00d4b8', title: 'Pixel ו-Tracking מלא',    desc: 'Meta Pixel, GTM — כל ליד נמדד ומיוחס לקמפיין הנכון.' },
+  { icon: <IconLayers />,        color: '#00c8ff', title: 'מבנה CRO מוכח',             desc: 'כותרת → כאב → הבטחה → הוכחה → CTA. מבנה שנבדק על אלפי עמודים.' },
+  { icon: <IconMessageCircle />, color: '#4d9fff', title: 'כותרת שפוגעת בכאב',         desc: '3 שניות להחליט אם להישאר — הכותרת שלנו מדברת ישיר לקהל.' },
+  { icon: <IconTarget />,        color: '#a07dff', title: 'Social Proof ישראלית',       desc: 'ביקורות, תוצאות, ולוגואים — ישראלים קונים מ"ראיתי שהם עשו לחבר שלי".' },
+  { icon: <IconBarChart />,      color: '#00d478', title: 'A/B Testing',                desc: 'בודקים כותרות ו-CTAs עד שמוצאים מה עובד יותר.' },
+  { icon: <IconZap />,           color: '#ffb347', title: 'מהירות קריטית',              desc: '95+ PageSpeed — לא מאבדים גולשים בגלל טעינה איטית.' },
+  { icon: <IconCode />,          color: '#00d4b8', title: 'Tracking מלא',               desc: 'Meta Pixel, GTM — כל ליד מיוחס לקמפיין הנכון.' },
 ]
 
-const results = [
-  { metric: '3.2×', label: 'עלייה ממוצעת בשיעור ההמרה', color: '#00c8ff' },
-  { metric: '-41%', label: 'ירידה בעלות לליד', color: '#00d478' },
-  { metric: '< 2s', label: 'זמן טעינה ממוצע', color: '#4d9fff' },
-  { metric: '95+', label: 'ציון PageSpeed', color: '#a07dff' },
+const processSteps = [
+  { num: '01', title: 'הבנת הקמפיין וקהל היעד',    desc: 'מבינים מה הקמפיין מבטיח, מי הקהל, ומה הכאב שצריך לפגוע.' },
+  { num: '02', title: 'כתיבת קופי וארכיטקטורה',    desc: 'כותבים את הטקסט ומגדירים את המבנה לפי מסגרת AIDA.' },
+  { num: '03', title: 'עיצוב ופיתוח',               desc: 'עיצוב ויזואלי שתומך במסר, ובנייה מהירה ונקייה.' },
+  { num: '04', title: 'חיבור לקמפיין + A/B Testing', desc: 'מחברים לפיקסל ולקמפיין, ומריצים בדיקות על הכותרת וה-CTA.' },
+]
+
+const businessTypes = [
+  { icon: '🏥', label: 'קליניקות ורופאים' },
+  { icon: '⚖️', label: 'עורכי דין' },
+  { icon: '🏠', label: 'סוכני נדל"ן' },
+  { icon: '🍽️', label: 'מסעדות ובתי קפה' },
+  { icon: '🛋️', label: 'מעצבי פנים' },
+  { icon: '💼', label: 'יועצי עסקים' },
+  { icon: '💄', label: 'קוסמטיקה ויופי' },
+  { icon: '🏗️', label: 'חברות בנייה' },
+  { icon: '📚', label: 'בתי ספר וקורסים' },
+  { icon: '📐', label: 'אדריכלים' },
+  { icon: '🧘', label: 'פיזיותרפיסטים ומאמנים' },
+  { icon: '✂️', label: 'מספרות וסטודיו יופי' },
+  { icon: '🔨', label: 'שיפוצים וקבלנות' },
+  { icon: '📸', label: 'צלמים ואירועים' },
+  { icon: '🌿', label: 'טיפול ורפואה אלטרנטיבית' },
+]
+
+const projects = [
+  {
+    niche: 'נדל"ן',
+    title: 'דף לידים לפרויקט חדש',
+    desc: 'דף נחיתה ממוקד לייצור פניות לפרויקט נדל"ן — כותרת חזקה, גלריית תמונות, וטופס ליד פשוט.',
+  },
+  {
+    niche: 'קליניקה',
+    title: 'דף לטיפולים ממומנים',
+    desc: 'דף נחיתה לקמפיין Meta לקליניקה — מבנה CRO, social proof, וטופס תור ישיר.',
+  },
+  {
+    niche: 'קורס דיגיטלי',
+    title: 'דף הרשמה לקורס',
+    desc: 'דף נחיתה לקורס אונליין — מבנה AIDA, ביקורות משתתפים, ו-CTA ברור להרשמה.',
+  },
 ]
 
 const faqs = [
-  { q: 'מה ההבדל בין דף נחיתה לאתר רגיל?', a: 'דף נחיתה מיועד לפעולה אחת ספציפית — מילוי טופס, שיחת טלפון, או רכישה. אין תפריט, אין הסחות דעת. רק המסר ה-CTA.' },
+  { q: 'מה ההבדל בין דף נחיתה לאתר?', a: 'דף נחיתה מיועד לפעולה אחת ספציפית — מילוי טופס, שיחת טלפון, או רכישה. אין תפריט, אין הסחות דעת. רק המסר וה-CTA.' },
   { q: 'כמה זמן לוקח לבנות דף נחיתה?', a: 'דף נחיתה סטנדרטי — 5-10 ימים עסקיים מהאישור ועד ההשקה.' },
-  { q: 'האם אתם כותבים את הטקסט?', a: 'כן. הקופי הוא חלק מהפרויקט. אנחנו כותבים עברית ואנגלית המותאמת לקהל היעד ולפלטפורמת הפרסום.' },
-  { q: 'האם אפשר לחבר לקמפיין Meta/Google?', a: 'בהחלט. זו המטרה. בונים את הדף כך שיהיה מסונכרן עם המסר של הקמפיין.' },
+  { q: 'האם אתם כותבים את הטקסט?', a: 'כן. הקופי הוא חלק מהפרויקט. אנחנו כותבים עברית המותאמת לקהל היעד ולפלטפורמת הפרסום.' },
+  { q: 'האם אפשר לחבר לקמפיין Meta/Google?', a: 'בהחלט. זו המטרה. בונים את הדף כך שיהיה מסונכרן עם המסר של הקמפיין ועם הפיקסל.' },
 ]
 
-/* ── Landing Page Mock ── */
-function LandingShowcase() {
-  return (
-    <BrowserMockup url="client-landing.velo-studio.com" accentColor="#00c8ff">
-      <div style={{ height: 340, background: 'linear-gradient(170deg, #050b18 0%, #080f20 60%, #060d1a 100%)', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '50%', background: 'radial-gradient(ellipse at 50% 0%, rgba(0,200,255,0.08) 0%, transparent 70%)' }} />
-        {/* Fake hero content */}
-        <div style={{ padding: '32px 28px', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: 14 }}>
-          <div style={{ background: 'rgba(0,200,255,0.1)', border: '1px solid rgba(0,200,255,0.25)', borderRadius: 100, padding: '4px 14px', width: 'fit-content' }}>
-            <div style={{ width: 80, height: 7, borderRadius: 3, background: 'rgba(0,200,255,0.5)' }} />
-          </div>
-          <div style={{ width: '80%', height: 20, borderRadius: 4, background: 'rgba(255,255,255,0.2)' }} />
-          <div style={{ width: '70%', height: 16, borderRadius: 4, background: 'rgba(255,255,255,0.13)' }} />
-          <div style={{ width: '60%', height: 12, borderRadius: 4, background: 'rgba(255,255,255,0.08)' }} />
-          {/* CTA button */}
-          <div style={{ width: 180, height: 42, borderRadius: 21, background: 'linear-gradient(135deg, #0055ff, #00c8ff)', boxShadow: '0 8px 32px rgba(0,200,255,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: 4 }}>
-            <div style={{ width: 100, height: 9, borderRadius: 4, background: 'rgba(255,255,255,0.7)' }} />
-          </div>
-          <div style={{ color: 'rgba(255,255,255,0.2)', fontSize: '0.65rem' }}>ללא התחייבות • תוך כמה שעות</div>
-        </div>
-        {/* Trust logos row */}
-        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '12px 28px', background: 'rgba(0,0,0,0.3)', borderTop: '1px solid rgba(255,255,255,0.05)', display: 'flex', gap: 16, justifyContent: 'center' }}>
-          {[56, 44, 60, 48, 52].map((w, i) => (
-            <div key={i} style={{ width: w, height: 16, borderRadius: 4, background: 'rgba(255,255,255,0.08)' }} />
-          ))}
-        </div>
-        {/* Conversion badge */}
-        <div style={{ position: 'absolute', top: 20, left: 20, background: 'rgba(0,212,120,0.15)', border: '1px solid rgba(0,212,120,0.3)', borderRadius: 8, padding: '6px 12px' }}>
-          <div style={{ color: '#00d478', fontSize: '0.7rem', fontWeight: 700 }}>CVR 8.4%</div>
-          <div style={{ color: 'rgba(0,212,120,0.5)', fontSize: '0.6rem' }}>שיעור המרה</div>
-        </div>
-      </div>
-    </BrowserMockup>
-  )
-}
-
 export default function LandingPagesPage() {
-  const [resultsRef, resultsVis] = useReveal()
   const [featuresRef, featuresVis] = useReveal()
+  const [processRef, processVis] = useReveal()
 
   return (
     <>
       <Helmet>
-        <title>עיצוב דף נחיתה | דפי נחיתה ממירים לעסקים | VELO DIGITAL</title>
-        <meta name="description" content="עיצוב דפי נחיתה ממוקדי המרות לעסקים בישראל — CRO, A/B testing ומהירות טעינה שמורידים עלות לליד. VELO DIGITAL בונה דפי נחיתה שהופכים קליקים ללידים איכותיים." />
-        <meta name="keywords" content="עיצוב דף נחיתה, דפי נחיתה ממירים, דף נחיתה לעסק, landing page ישראל, הורדת עלות לליד, דף נחיתה ממוקד המרות, CRO ישראל, בניית דף נחיתה, דף נחיתה לקמפיין, דף נחיתה לנדלן, דף נחיתה לפרסום" />
-        <meta property="og:title" content="עיצוב דפי נחיתה | VELO DIGITAL" />
-        <meta property="og:description" content="דפי נחיתה ממוקדי המרות — CRO, A/B testing ומהירות שמורידים עלות לליד. לעסקים בישראל." />
+        <title>עיצוב דף נחיתה | דפי נחיתה ממירים לקמפיינים | VELO DIGITAL</title>
+        <meta name="description" content="בניית דפי נחיתה ממוקדי המרות לעסקים בישראל — מבנה CRO, קופי ממיר ומהירות טעינה. מוריד עלות לליד ומגדיל המרות מקמפיינים ב-Meta ו-Google." />
+        <meta property="og:title" content="עיצוב דף נחיתה | דפי נחיתה ממירים לקמפיינים | VELO DIGITAL" />
+        <meta property="og:description" content="בניית דפי נחיתה ממוקדי המרות לעסקים בישראל — מבנה CRO, קופי ממיר ומהירות טעינה." />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="he_IL" />
         <meta property="og:url" content="https://liorvelikin.github.io/velo-website/services/landing-pages" />
         <meta property="og:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="עיצוב דפי נחיתה | VELO DIGITAL" />
-        <meta name="twitter:description" content="דפי נחיתה ממוקדי המרות — CRO, A/B testing ומהירות שמורידים עלות לליד." />
-        <meta name="twitter:image" content="https://liorvelikin.github.io/velo-website/og-image.png" />
         <link rel="canonical" href="https://liorvelikin.github.io/velo-website/services/landing-pages" />
-        <script type="application/ld+json">{serviceSchema('עיצוב דפי נחיתה', 'דפי נחיתה ממוקדי המרות שהופכים קליקים ללידים — CRO ו-A/B testing.', '/services/landing-pages')}</script>
-        <script type="application/ld+json">{breadcrumbSchema([{name:'ראשי',path:'/'},{name:'שירותים',path:'/services'},{name:'דפי נחיתה',path:'/services/landing-pages'}])}</script>
+        <script type="application/ld+json">{serviceSchema('עיצוב דפי נחיתה', 'דפי נחיתה ממוקדי המרות לעסקים בישראל — CRO, A/B testing ומהירות.', '/services/landing-pages')}</script>
+        <script type="application/ld+json">{breadcrumbSchema([{ name: 'ראשי', path: '/' }, { name: 'שירותים', path: '/services' }, { name: 'דפי נחיתה', path: '/services/landing-pages' }])}</script>
       </Helmet>
 
       <PageHero
         tag="דפי נחיתה"
-        title="קליקים שהופכים ללידים"
-        accent="ללידים"
-        subtitle="דף נחיתה טוב לא מחכה שהגולש יחליט — הוא מוביל אותו לפעולה. מבנה CRO, מהירות ומסר מדויק."
+        title="דף נחיתה שמוריד עלות לליד"
+        accent="מוריד עלות לליד"
+        subtitle="מבנה CRO מוכח, קופי שפוגע בכאב, ומהירות שלא מאבדת גולשים — כל דף נחיתה שאנחנו בונים עובד עם הקמפיין שלכם."
       />
 
-      {/* Results metrics */}
-      <section ref={resultsRef} style={{ padding: 'clamp(24px,4vw,48px) 0', direction: 'rtl', borderTop: '1px solid rgba(255,255,255,0.04)', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
-        <div className="max-w-5xl mx-auto px-6">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 0 }}>
-            {results.map((r, i) => (
-              <div
-                key={i}
-                style={{
-                  textAlign: 'center', padding: '20px 16px',
-                  borderLeft: i < 3 ? '1px solid rgba(10,15,30,0.08)' : 'none',
-                  opacity: resultsVis ? 1 : 0,
-                  transform: resultsVis ? 'none' : 'translateY(12px)',
-                  transition: `opacity 0.5s ease ${i * 80}ms, transform 0.5s ease ${i * 80}ms`,
-                }}
-              >
-                <div style={{ color: r.color, fontSize: 'clamp(1.6rem,3vw,2.4rem)', fontWeight: 900, letterSpacing: '-0.03em', lineHeight: 1 }}>{r.metric}</div>
-                <div style={{ color: '#6a88ad', fontSize: '0.78rem', marginTop: 6 }}>{r.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Pain Points */}
-      <section style={{ padding: 'clamp(48px,7vw,80px) 0', direction: 'rtl' }}>
-        <div className="max-w-5xl mx-auto px-6">
-          <div style={{ textAlign: 'center', marginBottom: 48 }}>
-            <div className="tag-pill" style={{ marginBottom: 16, display: 'inline-flex' }}>הבעיה</div>
-            <h2 className="font-black" style={{ fontSize: 'clamp(1.5rem,3vw,2.2rem)', letterSpacing: '-0.02em' }}>
-              למה הדף שלכם <span className="gradient-text">לא ממיר?</span>
-            </h2>
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 16 }}>
-            {painPoints.map((p, i) => (
-              <div key={i} className="glass-card" style={{ padding: '22px 24px', display: 'flex', gap: 16, alignItems: 'flex-start' }}>
-                <div style={{ width: 40, height: 40, borderRadius: 10, background: 'rgba(0,200,255,0.1)', border: '1px solid rgba(0,200,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#00c8ff', flexShrink: 0 }}>
-                  {p.icon}
-                </div>
-                <p style={{ color: '#4a5d7a', fontSize: '0.9rem', lineHeight: 1.65, margin: 0 }}>{p.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Showcase */}
-      <section style={{ padding: 'clamp(32px,5vw,60px) 0', direction: 'rtl' }}>
-        <div className="max-w-6xl mx-auto px-6">
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'clamp(32px,5vw,64px)', alignItems: 'center' }}>
-            <div style={{ flex: '1 1 340px', minWidth: 0 }}>
-              <div className="tag-pill" style={{ marginBottom: 20, display: 'inline-flex' }}>דף נחיתה לדוגמה</div>
-              <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,2.5vw,2rem)', letterSpacing: '-0.02em', marginBottom: 16 }}>
-                מבנה שמוביל <span className="gradient-text">לפעולה</span>
-              </h2>
-              <p style={{ color: '#4a5d7a', fontSize: '0.92rem', lineHeight: 1.75, marginBottom: 24 }}>
-                כל דף נחיתה שאנחנו בונים עומד בתבנית AIDA — Attention, Interest, Desire, Action. כל שורה כתובה עם מטרה. כל CTA מכוון.
-              </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 0, borderRadius: 14, overflow: 'hidden', border: '1px solid rgba(10,15,30,0.08)' }}>
-                {[
-                  { step: '1', label: 'כותרת שמדברת לכאב', color: '#00c8ff' },
-                  { step: '2', label: 'הוכחה חברתית ומספרים', color: '#4d9fff' },
-                  { step: '3', label: 'הצעת ערך ייחודית', color: '#a07dff' },
-                  { step: '4', label: 'CTA ברור ובלתי נמנע', color: '#00d478' },
-                ].map((item, i) => (
-                  <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 14, padding: '14px 18px', background: i % 2 === 0 ? 'rgba(255,255,255,0.02)' : 'rgba(255,255,255,0.01)', borderBottom: i < 3 ? '1px solid rgba(255,255,255,0.04)' : 'none' }}>
-                    <div style={{ width: 28, height: 28, borderRadius: '50%', background: `${item.color}15`, border: `1px solid ${item.color}30`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: item.color, fontWeight: 800, fontSize: '0.78rem' }}>{item.step}</div>
-                    <span style={{ color: '#4a5d7a', fontSize: '0.88rem' }}>{item.label}</span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={item.color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: 'auto', opacity: 0.6 }}><polyline points="20 6 9 17 4 12"/></svg>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div style={{ flex: '1 1 400px', minWidth: 0 }}>
-              <LandingShowcase />
-            </div>
-          </div>
+      {/* על השירות */}
+      <section style={{ padding: 'clamp(56px,8vw,96px) 0', direction: 'rtl' }}>
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="font-black" style={{ fontSize: 'clamp(1.5rem,3vw,2.2rem)', letterSpacing: '-0.02em', color: '#0a0f1e', marginBottom: 24 }}>
+            דף נחיתה לקמפיין Meta ו-Google — מה ההבדל?
+          </h2>
+          <p style={{ color: '#4a5d7a', fontSize: '1rem', lineHeight: 1.9, marginBottom: 32 }}>
+            עסקים רבים בישראל שולחים תנועה ממומנת — Meta Ads, Google Ads — ישירות לדף הבית שלהם. זה הטעות הנפוצה ביותר בפרסום דיגיטלי. דף הבית לא ממיר תנועה ממומנת כי הוא כללי מדי. landing page ישראל שעובד הוא דף שממוקד למסר אחד, לקהל אחד, ולפעולה אחת. הוא מוריד את עלות לליד כי שיעור ההמרה שלו גבוה יותר — ולכן אתם משלמים פחות על כל ליד שמגיע. כשמריצים קמפיין Meta Ads בישראל עם דף נחיתה ממוקד, ההבדל בעלות לליד יכול להיות משמעותי מאוד לעומת שליחה לדף כללי.
+          </p>
+          <h3 className="font-black" style={{ fontSize: 'clamp(1.2rem,2.2vw,1.7rem)', letterSpacing: '-0.02em', color: '#0a0f1e', marginBottom: 16 }}>
+            מבנה CRO שנבדק — מהכותרת ועד הטופס
+          </h3>
+          <p style={{ color: '#4a5d7a', fontSize: '1rem', lineHeight: 1.9 }}>
+            אנחנו בונים כל דף לפי מסגרת AIDA — Attention, Interest, Desire, Action. הכותרת תופסת את תשומת הלב, הגוף מדבר לכאב ומציג את הפתרון, ה-CTA מוביל לפעולה. אנחנו כותבים את הקופי בעברית שמדברת לקהל הישראלי — ישיר, ברור, וללא עודף מילים. בנוסף אנחנו מריצים A/B testing על הכותרת וה-CTA, ומתחברים לקמפיין כדי שהמסר בדף יהיה זהה למסר במודעה. זה מה שמוריד עלות לליד ומגדיל המרות.
+          </p>
         </div>
       </section>
 
       {/* Features */}
-      <section ref={featuresRef} style={{ padding: 'clamp(48px,7vw,80px) 0', direction: 'rtl', background: 'rgba(0,200,255,0.02)', borderTop: '1px solid rgba(0,200,255,0.07)', borderBottom: '1px solid rgba(0,200,255,0.07)' }}>
+      <section ref={featuresRef} style={{ padding: 'clamp(56px,8vw,96px) 0', direction: 'rtl', background: 'rgba(26,111,255,0.025)', borderTop: '1px solid rgba(26,111,255,0.07)', borderBottom: '1px solid rgba(26,111,255,0.07)' }}>
         <div className="max-w-6xl mx-auto px-6">
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
             <div className="tag-pill" style={{ marginBottom: 16, display: 'inline-flex' }}>מה כולל הפרויקט</div>
-            <h2 className="font-black" style={{ fontSize: 'clamp(1.5rem,3vw,2.2rem)', letterSpacing: '-0.02em' }}>
+            <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.2vw,2.4rem)', letterSpacing: '-0.02em', color: '#0a0f1e' }}>
               דף שבנוי <span className="gradient-text">להמרה</span>
             </h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
             {features.map((f, i) => (
               <div
                 key={i}
                 className="glass-card"
                 style={{
-                  padding: '28px 26px', display: 'flex', gap: 18, alignItems: 'flex-start',
+                  padding: '24px 22px',
                   opacity: featuresVis ? 1 : 0,
                   transform: featuresVis ? 'none' : 'translateY(20px)',
                   transition: `opacity 0.5s ease ${i * 70}ms, transform 0.5s ease ${i * 70}ms`,
                 }}
               >
-                <div style={{ width: 44, height: 44, borderRadius: 12, background: `${f.color}15`, border: `1px solid ${f.color}30`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: f.color, flexShrink: 0 }}>
+                <div style={{ width: 44, height: 44, borderRadius: 12, background: `${f.color}18`, border: `1px solid ${f.color}30`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: f.color, marginBottom: 16 }}>
                   {f.icon}
                 </div>
-                <div>
-                  <h3 style={{ color: '#0a0f1e', fontWeight: 700, fontSize: '1rem', marginBottom: 6 }}>{f.title}</h3>
-                  <p style={{ color: '#4a5d7a', fontSize: '0.87rem', lineHeight: 1.65, margin: 0 }}>{f.desc}</p>
+                <h3 style={{ color: '#ffffff', fontWeight: 700, fontSize: '1rem', marginBottom: 8 }}>{f.title}</h3>
+                <p style={{ color: '#8ba3c7', fontSize: '0.87rem', lineHeight: 1.65, margin: 0 }}>{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process */}
+      <section ref={processRef} style={{ padding: 'clamp(56px,8vw,96px) 0', direction: 'rtl' }}>
+        <div className="max-w-5xl mx-auto px-6">
+          <div style={{ textAlign: 'center', marginBottom: 52 }}>
+            <div className="tag-pill" style={{ marginBottom: 16, display: 'inline-flex' }}>תהליך העבודה</div>
+            <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.2vw,2.4rem)', letterSpacing: '-0.02em', color: '#0a0f1e' }}>
+              מהבריף <span className="gradient-text">עד ההשקה</span>
+            </h2>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20 }}>
+            {processSteps.map((step, i) => (
+              <div
+                key={i}
+                className="glass-card"
+                style={{
+                  padding: '24px 22px', display: 'flex', gap: 16, alignItems: 'flex-start',
+                  opacity: processVis ? 1 : 0,
+                  transform: processVis ? 'none' : 'translateY(16px)',
+                  transition: `opacity 0.5s ease ${i * 80}ms, transform 0.5s ease ${i * 80}ms`,
+                }}
+              >
+                <div style={{ width: 44, height: 44, borderRadius: 12, background: 'rgba(0,200,255,0.1)', border: '1px solid rgba(0,200,255,0.28)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '0.82rem', color: '#00c8ff', flexShrink: 0 }}>
+                  {step.num}
                 </div>
+                <div>
+                  <h3 style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.95rem', marginBottom: 5 }}>{step.title}</h3>
+                  <p style={{ color: '#8ba3c7', fontSize: '0.85rem', lineHeight: 1.6, margin: 0 }}>{step.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* מי מרוויח */}
+      <section style={{ padding: 'clamp(48px,7vw,80px) 0', direction: 'rtl', background: 'rgba(26,111,255,0.025)', borderTop: '1px solid rgba(26,111,255,0.07)', borderBottom: '1px solid rgba(26,111,255,0.07)' }}>
+        <div className="max-w-5xl mx-auto px-6">
+          <div style={{ textAlign: 'center', marginBottom: 40 }}>
+            <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,2.8vw,2rem)', letterSpacing: '-0.02em', color: '#0a0f1e', marginBottom: 12 }}>
+              מי נהנה מ<span className="gradient-text">השירות הזה?</span>
+            </h2>
+            <p style={{ color: '#4a5d7a', fontSize: '0.95rem' }}>כל עסק שמריץ פרסום ממומן — ייהנה מדף נחיתה ממוקד</p>
+          </div>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, justifyContent: 'center' }}>
+            {businessTypes.map((type, i) => (
+              <div key={i} style={{ padding: '10px 18px', borderRadius: 100, background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(10,15,30,0.1)', boxShadow: '0 2px 8px rgba(0,0,0,0.05)', fontSize: '0.88rem', fontWeight: 600, color: '#0a0f1e', display: 'flex', alignItems: 'center', gap: 8 }}>
+                <span style={{ color: '#1a6fff', fontSize: '1rem' }}>{type.icon}</span>
+                {type.label}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* פרויקטים נבחרים */}
+      <section style={{ padding: 'clamp(56px,8vw,96px) 0', direction: 'rtl' }}>
+        <div className="max-w-6xl mx-auto px-6">
+          <div style={{ textAlign: 'center', marginBottom: 52 }}>
+            <div className="tag-pill" style={{ marginBottom: 16, display: 'inline-flex' }}>עבודות</div>
+            <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.2vw,2.4rem)', letterSpacing: '-0.02em', color: '#0a0f1e' }}>
+              פרויקטים <span className="gradient-text">נבחרים</span>
+            </h2>
+            <p style={{ color: '#4a5d7a', fontSize: '0.98rem', lineHeight: 1.75, maxWidth: 580, margin: '16px auto 0' }}>
+              פרויקטים שאנחנו עובדים עליהם — יעודכנו בקרוב
+            </p>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
+            {projects.map((p, i) => (
+              <div key={i} className="glass-card" style={{ padding: '28px 26px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
+                  <div className="tag-pill">{p.niche}</div>
+                  <span style={{ color: '#4d9fff', fontSize: '0.72rem', fontWeight: 700, background: 'rgba(26,111,255,0.1)', border: '1px solid rgba(26,111,255,0.2)', padding: '3px 10px', borderRadius: 100 }}>בקרוב</span>
+                </div>
+                <div style={{ height: 140, borderRadius: 10, background: 'linear-gradient(135deg, rgba(0,200,255,0.08) 0%, rgba(26,111,255,0.05) 100%)', border: '1px dashed rgba(0,200,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16 }}>
+                  <span style={{ color: 'rgba(0,200,255,0.4)', fontSize: '0.8rem' }}>צילומי מסך בקרוב</span>
+                </div>
+                <h3 style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.98rem', marginBottom: 6 }}>{p.title}</h3>
+                <p style={{ color: '#8ba3c7', fontSize: '0.85rem', lineHeight: 1.6, margin: 0 }}>{p.desc}</p>
               </div>
             ))}
           </div>
@@ -262,14 +261,16 @@ export default function LandingPagesPage() {
       {/* FAQ */}
       <section style={{ padding: 'clamp(40px,6vw,72px) 0', direction: 'rtl' }}>
         <div className="max-w-3xl mx-auto px-6">
-          <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,3vw,2rem)', letterSpacing: '-0.02em', marginBottom: 32, textAlign: 'center' }}>
-            שאלות <span className="gradient-text">נפוצות</span>
-          </h2>
+          <div style={{ textAlign: 'center', marginBottom: 40 }}>
+            <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,3vw,2rem)', letterSpacing: '-0.02em', color: '#0a0f1e' }}>
+              שאלות <span className="gradient-text">נפוצות</span>
+            </h2>
+          </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
             {faqs.map((faq, i) => (
               <div key={i} className="glass-card" style={{ padding: '22px 24px' }}>
-                <h3 style={{ color: '#0a0f1e', fontWeight: 700, fontSize: '0.95rem', marginBottom: 8 }}>{faq.q}</h3>
-                <p style={{ color: '#4a5d7a', fontSize: '0.88rem', lineHeight: 1.65, margin: 0 }}>{faq.a}</p>
+                <h3 style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.95rem', marginBottom: 8 }}>{faq.q}</h3>
+                <p style={{ color: '#8ba3c7', fontSize: '0.88rem', lineHeight: 1.65, margin: 0 }}>{faq.a}</p>
               </div>
             ))}
           </div>
@@ -280,7 +281,7 @@ export default function LandingPagesPage() {
       <section style={{ padding: 'clamp(40px,6vw,72px) 0', direction: 'rtl' }}>
         <div className="max-w-3xl mx-auto px-6">
           <div style={{ textAlign: 'center', marginBottom: 36 }}>
-            <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,3vw,2rem)', letterSpacing: '-0.02em', marginBottom: 12 }}>
+            <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,3vw,2rem)', letterSpacing: '-0.02em', color: '#0a0f1e', marginBottom: 12 }}>
               רוצים דף שמוריד את <span className="gradient-text">עלות הליד?</span>
             </h2>
             <p style={{ color: '#4a5d7a', fontSize: '0.95rem', lineHeight: 1.65 }}>
