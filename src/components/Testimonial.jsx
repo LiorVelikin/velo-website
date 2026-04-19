@@ -13,7 +13,7 @@ export default function Testimonial() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="py-14 relative overflow-hidden">
+    <section ref={sectionRef} className="py-14 relative">
 
       <div className="orb orb-blue w-[700px] h-[700px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10" />
 
@@ -39,7 +39,7 @@ export default function Testimonial() {
         >
           {/* Inner shimmer line */}
           <div className="absolute top-0 left-0 right-0 h-px"
-            style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent)' }}
+            style={{ background: 'linear-gradient(90deg, transparent, rgba(26,111,255,0.25), transparent)' }}
           />
           {/* Big quote mark */}
           <span
@@ -52,7 +52,7 @@ export default function Testimonial() {
           >
             "
           </span>
-          <p className="relative z-10 text-xl md:text-2xl font-semibold text-white/90 leading-relaxed">
+          <p className="relative z-10 text-xl md:text-2xl font-semibold leading-relaxed" style={{ color: 'rgba(255,255,255,0.92)' }}>
             "VELO הביאה לנו תוצאות שלא האמנו שאפשריות כל כך מהר.
             הם הבינו את הקהל שלנו, יצרו תוכן שמדבר אליו,
             וכל הקמפיין הרגיש כמו שותף אמיתי ולא סוכנות."
@@ -81,7 +81,7 @@ export default function Testimonial() {
               className={`rounded-full transition-all duration-300 ${
                 i === 0
                   ? 'w-6 h-2 bg-gradient-to-r from-[#1a6fff] to-[#00d4ff]'
-                  : 'w-2 h-2 bg-white/15 hover:bg-white/35'
+                  : 'w-2 h-2 bg-[rgba(10,15,30,0.12)] hover:bg-[rgba(26,111,255,0.35)]'
               }`}
             />
           ))}

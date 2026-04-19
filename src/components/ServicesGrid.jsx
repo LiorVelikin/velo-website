@@ -135,7 +135,7 @@ function ServiceCard({ svc, visible, index, isLg }) {
           </div>
 
           <h3 style={{
-            color: '#fff', fontWeight: 700,
+            color: '#ffffff', fontWeight: 700,
             fontSize: 'clamp(1rem,1.6vw,1.18rem)',
             lineHeight: 1.25, margin: 0,
           }}>
@@ -143,7 +143,7 @@ function ServiceCard({ svc, visible, index, isLg }) {
           </h3>
 
           <p className="svc-desc" style={{
-            color: '#a0b8d0', fontSize: '0.84rem',
+            color: '#8ba3c7', fontSize: '0.84rem',
             lineHeight: 1.65, margin: 0, flex: 1,
           }}>
             {desc}
@@ -207,10 +207,10 @@ function LogoCard({ visible, index, isLg }) {
       <div style={{
         height: '100%',
         borderRadius: 16,
-        border: '1px solid rgba(99,179,255,0.22)',
-        borderTopColor: 'rgba(77,159,255,0.35)',
-        background: 'radial-gradient(circle at 50% 45%, #0d2040 0%, #060d20 100%)',
-        boxShadow: '0 0 60px rgba(26,111,255,0.18), inset 0 1px 0 rgba(255,255,255,0.1), 0 0 0 1px rgba(26,111,255,0.08)',
+        border: '1px solid rgba(255,255,255,0.09)',
+        borderTopColor: 'rgba(77,159,255,0.22)',
+        background: 'linear-gradient(160deg, rgba(13,22,44,0.94) 0%, rgba(7,11,24,0.97) 100%)',
+        boxShadow: '0 8px 40px rgba(0,0,0,0.35)',
         display: 'flex', flexDirection: 'column',
         alignItems: 'center', justifyContent: 'center',
         padding: '28px 20px',
@@ -227,7 +227,7 @@ function LogoCard({ visible, index, isLg }) {
         <img
           src={veloLogoSrc}
           alt="VELO"
-          style={{ width: 'clamp(100px, 68%, 140px)', objectFit: 'contain', position: 'relative', zIndex: 1 }}
+          style={{ width: 'clamp(100px, 68%, 140px)', objectFit: 'contain', position: 'relative', zIndex: 1, mixBlendMode: 'screen' }}
         />
 
         <p style={{
@@ -244,11 +244,11 @@ function LogoCard({ visible, index, isLg }) {
         }}>
           {['עיצוב', 'תוכן', 'פרסום'].map(cat => (
             <span key={cat} style={{
-              background: 'rgba(255,255,255,0.04)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              background: 'rgba(26,111,255,0.08)',
+              border: '1px solid rgba(26,111,255,0.18)',
               borderRadius: 100, padding: '2px 9px',
               fontSize: '0.64rem', fontWeight: 600,
-              color: 'rgba(150,185,220,0.5)',
+              color: '#1a6fff',
               letterSpacing: '0.04em',
             }}>
               {cat}
@@ -299,7 +299,7 @@ export default function ServicesGrid() {
   const gridCols = isLg ? 'repeat(3, 1fr)' : (isMd ? 'repeat(2, 1fr)' : '1fr')
 
   return (
-    <section id="services" ref={sectionRef} className="py-12 relative overflow-hidden">
+    <section id="services" ref={sectionRef} className="py-12 relative">
       <div className="orb orb-blue  w-[500px] h-[500px] -top-10 -right-32 opacity-10" />
       <div className="orb orb-cyan  w-[380px] h-[380px]  bottom-10 -left-20  opacity-8" />
 
@@ -324,7 +324,7 @@ export default function ServicesGrid() {
             <span className="gradient-text">השירותים</span> שלנו
           </h2>
 
-          <p style={{ color: '#8ba3c7', fontSize: '1.05rem', maxWidth: 480, margin: '0 auto', lineHeight: 1.65 }}>
+          <p style={{ color: '#4a5d7a', fontSize: '1.05rem', maxWidth: 480, margin: '0 auto', lineHeight: 1.65 }}>
             כל שירות נבנה כחלק מהמערכת, לא כפעולה עצמאית
           </p>
         </div>

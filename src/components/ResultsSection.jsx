@@ -134,7 +134,7 @@ function FollowersCard({ shouldStart }) {
 function CaseBadgeCard() {
   return (
     <div className="glass-card p-8 relative overflow-hidden group h-full"
-      style={{ background: 'linear-gradient(160deg, rgba(0,30,80,0.4) 0%, rgba(6,11,20,0.9) 100%)', borderColor: 'rgba(26,111,255,0.2)' }}
+      style={{ background: 'linear-gradient(160deg, rgba(10,22,52,0.96) 0%, rgba(6,11,24,0.98) 100%)', borderColor: 'rgba(26,111,255,0.22)' }}
     >
       <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{ background: 'radial-gradient(ellipse at 50% 0%, #1a6fff, transparent 60%)' }} />
       <div className="relative z-10">
@@ -189,7 +189,7 @@ export default function ResultsSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} id="results" className="py-14 relative overflow-hidden">
+    <section ref={sectionRef} id="results" className="py-14 relative">
       <div className="orb orb-blue w-[600px] h-[600px] top-0 right-0 opacity-15" />
       <div className="orb orb-cyan w-[400px] h-[400px] bottom-0 left-0 opacity-10" />
 
@@ -204,7 +204,7 @@ export default function ResultsSection() {
             ואלה התוצאות{' '}
             <span className="gradient-text">שהם מביאים</span>
           </h2>
-          <p className="text-[#8ba3c7] text-lg max-w-xl mr-auto">
+          <p className="text-lg max-w-xl mr-auto" style={{ color: '#4a5d7a' }}>
             עיצוב זה סובייקטיבי. ביצועים — לא.
             המספרים מדברים בעד עצמם.
           </p>

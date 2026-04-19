@@ -11,8 +11,8 @@ function SuccessState() {
           </svg>
         </div>
       </div>
-      <h3 style={{ color: '#fff', fontWeight: 800, fontSize: '1.4rem', marginBottom: 10 }}>תודה! נחזור אליך בהקדם</h3>
-      <p style={{ color: '#6a88ad', fontSize: '0.92rem' }}>בדרך כלל תוך כמה שעות</p>
+      <h3 style={{ color: '#ffffff', fontWeight: 800, fontSize: '1.4rem', marginBottom: 10 }}>תודה! נחזור אליך בהקדם</h3>
+      <p style={{ color: '#8ba3c7', fontSize: '0.92rem' }}>בדרך כלל תוך כמה שעות</p>
     </div>
   )
 }
@@ -67,7 +67,7 @@ export default function ContactForm({ source = 'website' }) {
   ]
 
   return (
-    <div style={{ background: 'rgba(255,255,255,0.025)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: 18, overflow: 'hidden' }}>
+    <div style={{ background: 'linear-gradient(160deg, rgba(13,22,44,0.96) 0%, rgba(7,11,24,0.98) 100%)', border: '1px solid rgba(255,255,255,0.09)', borderTopColor: 'rgba(77,159,255,0.22)', borderRadius: 18, overflow: 'hidden', boxShadow: '0 8px 48px rgba(0,0,0,0.4)' }}>
       {submitted ? <SuccessState /> : (
         <form onSubmit={handleSubmit} noValidate style={{ padding: '32px 28px' }}>
           {fields.map((f) => (
@@ -89,7 +89,7 @@ export default function ContactForm({ source = 'website' }) {
 
           {/* Optional message */}
           <div style={{ marginBottom: 20 }}>
-            <label style={{ display: 'block', color: 'rgba(160,190,220,0.65)', fontSize: '0.78rem', fontWeight: 600, marginBottom: 8, letterSpacing: '0.02em' }}>
+            <label style={{ display: 'block', color: '#4a5d7a', fontSize: '0.78rem', fontWeight: 600, marginBottom: 8, letterSpacing: '0.02em' }}>
               הערות (לא חובה)
             </label>
             <textarea
@@ -115,7 +115,7 @@ export default function ContactForm({ source = 'website' }) {
             </svg>
             <span>{loading ? 'שולח...' : 'קבעו שיחת ייעוץ חינם עם ליאור'}</span>
           </button>
-          <p style={{ textAlign: 'center', marginTop: 12, color: 'rgba(120,150,190,0.45)', fontSize: '0.74rem' }}>
+          <p style={{ textAlign: 'center', marginTop: 12, color: 'rgba(255,255,255,0.25)', fontSize: '0.74rem' }}>
             חינם וללא התחייבות · בדרך כלל מחזירים תוך כמה שעות
           </p>
         </form>

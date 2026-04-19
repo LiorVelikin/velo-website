@@ -38,10 +38,10 @@ const faqs = [
 function FAQItem({ faq, index, isOpen, onToggle }) {
   return (
     <div style={{
-      borderBottom: '1px solid rgba(255,255,255,0.07)',
-      borderRight: isOpen ? '3px solid #4d9fff' : '3px solid transparent',
+      borderBottom: '1px solid rgba(255,255,255,0.06)',
+      borderRight: isOpen ? '3px solid #1a6fff' : '3px solid transparent',
       transition: 'border-color 0.3s ease, background 0.3s ease',
-      background: isOpen ? 'rgba(26,111,255,0.06)' : 'rgba(255,255,255,0.01)',
+      background: isOpen ? 'rgba(26,111,255,0.08)' : 'transparent',
     }}>
       <button
         onClick={() => onToggle(index)}
@@ -74,11 +74,11 @@ function FAQItem({ faq, index, isOpen, onToggle }) {
         <div style={{
           width: 28, height: 28, flexShrink: 0,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          background: isOpen ? 'rgba(26,111,255,0.15)' : 'rgba(255,255,255,0.05)',
-          border: `1px solid ${isOpen ? 'rgba(26,111,255,0.35)' : 'rgba(255,255,255,0.08)'}`,
+          background: isOpen ? 'rgba(26,111,255,0.18)' : 'rgba(255,255,255,0.07)',
+          border: `1px solid ${isOpen ? 'rgba(26,111,255,0.4)' : 'rgba(255,255,255,0.12)'}`,
           borderRadius: '50%',
           transition: 'all 0.3s ease',
-          color: isOpen ? '#4d9fff' : 'rgba(255,255,255,0.5)',
+          color: isOpen ? '#1a6fff' : '#6a80a0',
         }}>
           <svg
             width="14" height="14" viewBox="0 0 24 24" fill="none"
@@ -132,7 +132,7 @@ export default function FAQSection() {
     <section
       id="faq"
       ref={sectionRef}
-      className="py-14 relative overflow-hidden"
+      className="py-14 relative"
       style={{ direction: 'rtl' }}
     >
       {/* Ambient glow */}
@@ -169,13 +169,12 @@ export default function FAQSection() {
         {/* ── Accordion ── */}
         <div style={{
           maxWidth: 720, margin: '0 auto',
-          border: '1px solid rgba(255,255,255,0.1)',
-          borderTopColor: 'rgba(77,159,255,0.25)',
+          border: '1px solid rgba(255,255,255,0.09)',
+          borderTopColor: 'rgba(26,111,255,0.28)',
           borderRadius: 16,
           overflow: 'hidden',
-          background: 'linear-gradient(160deg, rgba(14,22,44,0.9) 0%, rgba(8,12,24,0.95) 100%)',
-          backdropFilter: 'blur(12px)',
-          boxShadow: '0 8px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(26,111,255,0.06)',
+          background: 'linear-gradient(160deg, rgba(13,22,44,0.94) 0%, rgba(7,11,24,0.97) 100%)',
+          boxShadow: '0 8px 40px rgba(0,0,0,0.35)',
         }}>
           {faqs.map((faq, i) => (
             <FAQItem

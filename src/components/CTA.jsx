@@ -49,10 +49,10 @@ function SuccessState() {
           </svg>
         </div>
       </div>
-      <h3 style={{ color: '#fff', fontWeight: 800, fontSize: '1.4rem', marginBottom: 10 }}>
+      <h3 style={{ color: '#ffffff', fontWeight: 800, fontSize: '1.4rem', marginBottom: 10 }}>
         תודה! נחזור אליך בהקדם
       </h3>
-      <p style={{ color: '#6a88ad', fontSize: '0.92rem' }}>
+      <p style={{ color: '#6a80a0', fontSize: '0.92rem' }}>
         בדרך כלל תוך כמה שעות
       </p>
     </div>
@@ -104,7 +104,7 @@ export default function CTA() {
     <section
       id="contact"
       ref={sectionRef}
-      className="py-14 relative overflow-hidden"
+      className="py-14 relative"
       style={{ direction: 'rtl' }}
     >
       {/* Background radial bloom */}
@@ -112,7 +112,7 @@ export default function CTA() {
         position: 'absolute', top: '50%', left: '50%',
         transform: 'translate(-50%, -50%)',
         width: '90vw', height: '80vh', maxWidth: 1100,
-        background: 'radial-gradient(ellipse at 50% 50%, rgba(26,80,255,0.13) 0%, rgba(80,0,255,0.05) 45%, transparent 72%)',
+        background: 'radial-gradient(ellipse at 50% 50%, rgba(26,111,255,0.06) 0%, rgba(0,180,255,0.025) 45%, transparent 72%)',
         filter: 'blur(60px)',
         pointerEvents: 'none', zIndex: 0,
       }} />
@@ -160,17 +160,19 @@ export default function CTA() {
                 רוצים להתקדם לשיווק שעובד{' '}
                 <span className="gradient-text">בעידן החדש?</span>
               </h2>
-              <p style={{ color: '#8ba3c7', fontSize: '1rem', lineHeight: 1.65, maxWidth: 460 }}>
+              <p style={{ color: '#4a5d7a', fontSize: '1rem', lineHeight: 1.65, maxWidth: 460 }}>
                 אנחנו כאן כדי לבנות עבורכם תהליך ברור ומחושב, שמייצר תוצאות וגדילה לאורך זמן.
               </p>
             </div>
 
             {/* Form card */}
             <div style={{
-              background: 'rgba(255,255,255,0.025)',
-              border: '1px solid rgba(255,255,255,0.07)',
+              background: 'linear-gradient(160deg, rgba(13,22,44,0.96) 0%, rgba(7,11,24,0.98) 100%)',
+              border: '1px solid rgba(255,255,255,0.09)',
+              borderTopColor: 'rgba(77,159,255,0.25)',
               borderRadius: 18,
               overflow: 'hidden',
+              boxShadow: '0 8px 48px rgba(0,0,0,0.45)',
             }}>
               {submitted ? (
                 <SuccessState />
@@ -228,7 +230,7 @@ export default function CTA() {
                     </button>
                     <p style={{
                       textAlign: 'center', marginTop: 12,
-                      color: 'rgba(120,150,190,0.45)',
+                      color: 'rgba(10,15,30,0.35)',
                       fontSize: '0.74rem',
                     }}>
                       חינם וללא התחייבות
@@ -311,10 +313,10 @@ export default function CTA() {
                   </div>
                   {/* Text */}
                   <div>
-                    <p style={{ color: '#fff', fontWeight: 700, fontSize: '0.9rem', marginBottom: 3 }}>
+                    <p style={{ color: '#0a0f1e', fontWeight: 700, fontSize: '0.9rem', marginBottom: 3 }}>
                       {item.title}
                     </p>
-                    <p style={{ color: '#6a88ad', fontSize: '0.78rem', lineHeight: 1.5 }}>
+                    <p style={{ color: '#6a80a0', fontSize: '0.78rem', lineHeight: 1.5 }}>
                       {item.sub}
                     </p>
                   </div>
@@ -328,9 +330,9 @@ export default function CTA() {
               opacity: visible ? 1 : 0,
               transition: 'opacity 0.5s ease 0.65s',
             }}>
-              <div style={{ height: 1, background: 'rgba(255,255,255,0.06)', marginBottom: 14 }} />
+              <div style={{ height: 1, background: 'rgba(10,15,30,0.07)', marginBottom: 14 }} />
               <p style={{
-                color: 'rgba(120,150,190,0.5)',
+                color: 'rgba(10,15,30,0.4)',
                 fontSize: '0.78rem',
                 textAlign: 'center',
               }}>

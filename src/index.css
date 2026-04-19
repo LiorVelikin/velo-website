@@ -6,23 +6,24 @@
 @tailwind utilities;
 
 :root {
-  --bg-primary: #060b14;
-  --bg-secondary: #0a1120;
+  --bg-primary: #e8edf6;
+  --bg-secondary: #dfe6f2;
+  --bg-tint: #d8e2f0;
   --blue-primary: #1a6fff;
   --blue-light: #00d4ff;
   --blue-mid: #4d9fff;
 
-  /* ── iOS 26 Liquid Glass tokens ── */
-  --glass-bg:           rgba(255, 255, 255, 0.055);
-  --glass-bg-hover:     rgba(255, 255, 255, 0.095);
-  --glass-border:       rgba(255, 255, 255, 0.11);
+  /* ── Dark glass tokens ── */
+  --glass-bg:           rgba(10, 17, 38, 0.94);
+  --glass-bg-hover:     rgba(14, 24, 50, 0.97);
+  --glass-border:       rgba(255, 255, 255, 0.09);
   --glass-border-hover: rgba(26, 111, 255, 0.45);
-  --glass-highlight:    rgba(255, 255, 255, 0.13);
+  --glass-highlight:    rgba(255, 255, 255, 0.06);
   --glass-shadow:       rgba(0, 0, 0, 0.45);
 
-  --text-primary: #ffffff;
-  --text-secondary: #8ba3c7;
-  --text-muted: #3d5070;
+  --text-primary: #0a0f1e;
+  --text-secondary: #4a5d7a;
+  --text-muted: #8094b4;
 }
 
 *, *::before, *::after {
@@ -44,10 +45,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   direction: rtl;
+}
+
+/* ─── Page grid background ─── */
+.page-grid {
+  background-color: var(--bg-primary);
   background-image:
-    linear-gradient(rgba(26, 111, 255, 0.032) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(26, 111, 255, 0.032) 1px, transparent 1px);
-  background-size: 80px 80px;
+    linear-gradient(to right, rgba(26, 111, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(26, 111, 255, 0.07) 1px, transparent 1px);
+  background-size: 5rem 4rem;
 }
 
 /* ═══════════════════════════════════════════════════
@@ -60,23 +66,22 @@ body {
   -webkit-backdrop-filter: blur(20px) saturate(160%);
   border: 1px solid var(--glass-border);
   box-shadow:
-    inset 0 1px 0 var(--glass-highlight),
-    0 2px 12px rgba(0, 0, 0, 0.25);
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    0 1px 0 rgba(255, 255, 255, 0.04) inset;
 }
 
 .glass-card {
-  background: linear-gradient(135deg, rgba(255,255,255,0.07) 0%, rgba(26,111,255,0.04) 100%);
-  backdrop-filter: blur(24px) saturate(170%);
-  -webkit-backdrop-filter: blur(24px) saturate(170%);
-  border: 1px solid rgba(255, 255, 255, 0.11);
-  border-top-color: rgba(255, 255, 255, 0.16);
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(160deg, rgba(13, 22, 44, 0.94) 0%, rgba(7, 11, 24, 0.97) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-top-color: rgba(77, 159, 255, 0.22);
   border-radius: 20px;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.14),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.15),
-    0 0 0 1px rgba(26, 111, 255, 0.06),
-    0 8px 32px rgba(0, 0, 0, 0.45),
-    0 2px 8px rgba(0, 0, 0, 0.3);
+    0 8px 40px rgba(0, 0, 0, 0.35),
+    0 1px 0 rgba(255, 255, 255, 0.05) inset;
   transition:
     background 0.3s ease,
     border-color 0.3s ease,
@@ -84,18 +89,30 @@ body {
     transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Gradient border layer — sits behind card background */
+.glass-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 21px;
+  background: linear-gradient(135deg, #1a6fff 0%, #00d4ff 50%, #1a4fff 100%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: -1;
+}
+
 .glass-card:hover {
-  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(26,111,255,0.07) 100%);
-  border-color: rgba(26, 111, 255, 0.32);
-  border-top-color: rgba(77, 159, 255, 0.4);
+  background: linear-gradient(160deg, rgba(16, 27, 55, 0.97) 0%, rgba(10, 15, 30, 0.99) 100%);
+  border-color: transparent;
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.2),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.1),
-    0 0 0 1px rgba(26, 111, 255, 0.14),
-    0 0 40px rgba(26, 111, 255, 0.12),
-    0 16px 48px rgba(0, 0, 0, 0.55),
-    0 2px 8px rgba(0, 0, 0, 0.3);
+    0 12px 48px rgba(0, 0, 0, 0.45),
+    0 0 28px rgba(26, 111, 255, 0.16),
+    0 1px 0 rgba(255, 255, 255, 0.07) inset;
   transform: translateY(-2px);
+}
+
+.glass-card:hover::before {
+  opacity: 1;
 }
 
 /* ─── Gradient Text ─── */
@@ -175,44 +192,25 @@ body {
 .btn-primary span, .btn-primary svg { position: relative; z-index: 1; }
 
 .btn-outline {
-  background: rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(32px) saturate(180%);
-  -webkit-backdrop-filter: blur(32px) saturate(180%);
-  color: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: #ffffff;
+  color: #0a0f1e;
+  border: 1.5px solid rgba(10, 15, 30, 0.14);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.2),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.15),
-    inset 1px 0 0 rgba(255, 255, 255, 0.06),
-    inset -1px 0 0 rgba(255, 255, 255, 0.06),
-    0 4px 24px rgba(0, 0, 0, 0.3),
-    0 1px 3px rgba(0, 0, 0, 0.2);
+    0 1px 3px rgba(0, 0, 0, 0.05),
+    0 4px 16px rgba(0, 0, 0, 0.05);
 }
 
 .btn-outline::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 999px;
-  background: linear-gradient(
-    160deg,
-    rgba(255, 255, 255, 0.12) 0%,
-    rgba(255, 255, 255, 0.03) 45%,
-    transparent 100%
-  );
-  pointer-events: none;
+  display: none;
 }
 
 .btn-outline:hover {
-  background: rgba(26, 111, 255, 0.12);
-  border-color: rgba(80, 160, 255, 0.35);
-  color: #fff;
+  background: rgba(26, 111, 255, 0.06);
+  border-color: rgba(26, 111, 255, 0.32);
+  color: #1a6fff;
   transform: translateY(-2px);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.22),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.1),
-    0 6px 28px rgba(26, 111, 255, 0.22),
-    0 1px 4px rgba(0, 0, 0, 0.2);
+    0 6px 28px rgba(26, 111, 255, 0.14);
 }
 
 .btn-outline:active { transform: translateY(0); }
@@ -245,7 +243,7 @@ body {
   line-height: 0.85;
   pointer-events: none;
   user-select: none;
-  background: linear-gradient(180deg, rgba(26,111,255,0.07) 0%, rgba(0,212,255,0.02) 100%);
+  background: linear-gradient(180deg, rgba(26,111,255,0.05) 0%, rgba(0,212,255,0.015) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -259,9 +257,9 @@ body {
   pointer-events: none;
   filter: blur(90px);
 }
-.orb-blue  { background: radial-gradient(circle, rgba(26,111,255,0.22) 0%, transparent 70%); }
-.orb-cyan  { background: radial-gradient(circle, rgba(0,212,255,0.15) 0%, transparent 70%); }
-.orb-deep  { background: radial-gradient(circle, rgba(77,159,255,0.13) 0%, transparent 70%); }
+.orb-blue  { background: radial-gradient(circle, rgba(26,111,255,0.10) 0%, transparent 70%); }
+.orb-cyan  { background: radial-gradient(circle, rgba(0,212,255,0.07) 0%, transparent 70%); }
+.orb-deep  { background: radial-gradient(circle, rgba(77,159,255,0.06) 0%, transparent 70%); }
 
 /* ─── Marquee ─── */
 .marquee-wrapper { overflow: hidden; position: relative; }
@@ -279,11 +277,11 @@ body {
 
 /* ─── Nav ─── */
 .nav-glass {
-  background: rgba(6, 11, 20, 0.75);
+  background: rgba(224, 231, 244, 0.92);
   backdrop-filter: blur(24px) saturate(160%);
   -webkit-backdrop-filter: blur(24px) saturate(160%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-  box-shadow: 0 1px 0 rgba(26, 111, 255, 0.08);
+  border-bottom: 1px solid rgba(10, 15, 30, 0.08);
+  box-shadow: 0 1px 0 rgba(26, 111, 255, 0.06);
 }
 
 /* ─── Process flow — dashed connecting line ─── */
@@ -334,12 +332,12 @@ body {
 /* ─── CTA form inputs ─── */
 .cta-input {
   width: 100%;
-  background: rgba(13, 17, 23, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #ffffff;
+  border: 1.5px solid rgba(10, 15, 30, 0.12);
   border-radius: 10px;
   padding: 14px 18px;
   font-size: 15px;
-  color: #fff;
+  color: #0a0f1e;
   font-family: inherit;
   direction: rtl;
   outline: none;
@@ -347,11 +345,11 @@ body {
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 .cta-input::placeholder {
-  color: rgba(140, 165, 200, 0.38);
+  color: rgba(10, 15, 30, 0.35);
 }
 .cta-input:focus {
-  border-color: rgba(26, 111, 255, 0.75);
-  box-shadow: 0 0 0 3px rgba(26, 111, 255, 0.12);
+  border-color: rgba(26, 111, 255, 0.6);
+  box-shadow: 0 0 0 3px rgba(26, 111, 255, 0.10);
 }
 
 /* ─── Checkmark draw-in animation ─── */
@@ -388,17 +386,16 @@ body {
 
 /* ─── Tag pill ─── */
 .tag-pill {
-  background: rgba(26, 111, 255, 0.1);
-  border: 1px solid rgba(26, 111, 255, 0.25);
+  background: rgba(26, 111, 255, 0.08);
+  border: 1px solid rgba(26, 111, 255, 0.18);
   border-radius: 100px;
   padding: 5px 14px;
   font-size: 0.75rem;
   font-weight: 600;
-  color: #4d9fff;
+  color: #1a6fff;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 .tag-dot {
@@ -421,10 +418,10 @@ body {
   overflow: hidden;
   isolation: isolate;
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-top-color: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-top-color: rgba(77, 159, 255, 0.22);
   background: transparent;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.35), 0 0 0 1px rgba(26,111,255,0.05);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.35), 0 1px 0 rgba(255,255,255,0.05) inset;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
               border-color 0.25s ease,
               box-shadow 0.25s ease;
@@ -457,7 +454,7 @@ body {
   content: '';
   position: absolute;
   inset: 1px;
-  background: linear-gradient(160deg, #0e1829 0%, #090e1a 100%);
+  background: linear-gradient(160deg, rgba(13,22,44,0.94) 0%, rgba(7,11,24,0.97) 100%);
   border-radius: 15px;
   z-index: 1;
 }
@@ -465,7 +462,7 @@ body {
 .svc-card:hover {
   transform: translateY(-4px);
   border-color: transparent;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.5), 0 0 60px rgba(26,111,255,0.1);
+  box-shadow: 0 12px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(26,111,255,0.25), 0 0 40px rgba(26,111,255,0.12);
 }
 
 .svc-card:hover::before {
@@ -481,11 +478,11 @@ body {
 }
 
 .svc-desc {
-  opacity: 0.6;
+  opacity: 0.75;
   transition: opacity 0.3s ease;
 }
 .svc-card:hover .svc-desc {
-  opacity: 0.88;
+  opacity: 1;
 }
 
 @keyframes svcBorderTrace {
@@ -509,14 +506,14 @@ body {
   }
   .grid-4col-metrics > div {
     border-left: none !important;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(10,15,30,0.07);
   }
 }
 
 /* ─── Dividers ─── */
 .section-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(26,111,255,0.16), transparent);
+  background: linear-gradient(90deg, transparent, rgba(10,15,30,0.08), transparent);
 }
 
 /* ─── Stat Line ─── */

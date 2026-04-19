@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { BeamsBackground } from './ui/beams-background'
 import portraitSrc from '../assets/portrait.webp'
 
 /* ── SVG icons for growth badges ── */
@@ -29,14 +28,11 @@ function GrowthBadge({ icon, label, sublabel, color, animDelay, style }) {
   return (
     <div style={{
       position: 'absolute',
-      background: 'linear-gradient(160deg, rgba(10,18,40,0.96) 0%, rgba(6,11,22,0.98) 100%)',
-      border: `1px solid ${color}22`,
-      borderTopColor: `${color}45`,
+      background: 'rgba(232,237,246,0.95)',
+      border: `1px solid rgba(10,15,30,0.1)`,
       borderRadius: 14,
       padding: '10px 14px',
-      boxShadow: `0 8px 32px rgba(0,0,0,0.48), 0 0 0 1px ${color}08`,
-      backdropFilter: 'blur(20px)',
-      WebkitBackdropFilter: 'blur(20px)',
+      boxShadow: '0 2px 8px rgba(0,0,0,0.08), 0 12px 32px rgba(0,0,0,0.1)',
       animation: 'phoneFloat 4s ease-in-out infinite',
       animationDelay: animDelay,
       zIndex: 10,
@@ -53,10 +49,10 @@ function GrowthBadge({ icon, label, sublabel, color, animDelay, style }) {
           {icon}
         </div>
         <div>
-          <div style={{ color: 'rgba(225,238,255,0.9)', fontWeight: 700, fontSize: '0.76rem', lineHeight: 1.2, whiteSpace: 'nowrap' }}>
+          <div style={{ color: '#0a0f1e', fontWeight: 700, fontSize: '0.76rem', lineHeight: 1.2, whiteSpace: 'nowrap' }}>
             {label}
           </div>
-          <div style={{ color, fontSize: '0.6rem', fontWeight: 600, marginTop: 2, opacity: 0.75, whiteSpace: 'nowrap' }}>
+          <div style={{ color, fontSize: '0.6rem', fontWeight: 600, marginTop: 2, whiteSpace: 'nowrap' }}>
             {sublabel}
           </div>
         </div>
@@ -86,7 +82,29 @@ export default function Hero() {
   const services = ['עיצוב אתרים', 'דפי נחיתה', 'Shopify', 'תוכן AI', 'קמפיינים', 'SEO']
 
   return (
-    <BeamsBackground className="w-full">
+    <div className="w-full" style={{ position: 'relative', overflow: 'hidden' }}>
+      {/* Dot grid */}
+      <div style={{
+        position: 'absolute', inset: 0, pointerEvents: 'none',
+        backgroundImage: 'radial-gradient(circle, rgba(26,111,255,0.08) 1px, transparent 1px)',
+        backgroundSize: '28px 28px',
+        maskImage: 'radial-gradient(ellipse 90% 80% at 50% 40%, black 0%, transparent 100%)',
+        WebkitMaskImage: 'radial-gradient(ellipse 90% 80% at 50% 40%, black 0%, transparent 100%)',
+      }} />
+      {/* Mesh orbs */}
+      <div style={{
+        position: 'absolute', top: '-10%', right: '-5%', pointerEvents: 'none',
+        width: 'clamp(300px,42vw,580px)', height: 'clamp(300px,42vw,580px)', borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(26,111,255,0.07) 0%, transparent 70%)',
+        filter: 'blur(40px)',
+      }} />
+      <div style={{
+        position: 'absolute', bottom: '0%', left: '5%', pointerEvents: 'none',
+        width: 'clamp(200px,28vw,360px)', height: 'clamp(200px,28vw,360px)', borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(0,200,255,0.05) 0%, transparent 70%)',
+        filter: 'blur(40px)',
+      }} />
+
       <section
         id="hero"
         style={{
@@ -101,8 +119,8 @@ export default function Hero() {
       >
         {/* Navbar top fade */}
         <div style={{
-          position: 'absolute', inset: '0 0 auto 0', height: 180,
-          background: 'linear-gradient(to bottom, rgba(6,11,20,0.6) 0%, transparent 100%)',
+          position: 'absolute', inset: '0 0 auto 0', height: 100,
+          background: 'linear-gradient(to bottom, rgba(255,255,255,0.5) 0%, transparent 100%)',
           zIndex: 4, pointerEvents: 'none',
         }} />
 
@@ -132,7 +150,7 @@ export default function Hero() {
             {/* Ambient glow — stays behind portrait, no visible box */}
             <div style={{
               position: 'absolute', inset: '-15% -20%',
-              background: 'radial-gradient(ellipse at 50% 55%, rgba(26,100,220,0.26) 0%, rgba(0,160,255,0.07) 55%, transparent 72%)',
+              background: 'radial-gradient(ellipse at 50% 55%, rgba(26,111,255,0.14) 0%, rgba(0,180,255,0.05) 55%, transparent 72%)',
               filter: 'blur(56px)', pointerEvents: 'none', zIndex: 0,
               animation: 'orbPulse 6s ease-in-out infinite',
             }} />
@@ -198,7 +216,7 @@ export default function Hero() {
                 animation: 'orbPulse 2s ease-in-out infinite',
                 flexShrink: 0,
               }} />
-              <span style={{ color: '#c8dcf5', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.02em' }}>
+              <span style={{ color: '#6a80a0', fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.02em' }}>
                 ליאור וליקין — מייסד VELO DIGITAL
               </span>
             </div>
@@ -233,14 +251,14 @@ export default function Hero() {
                 lineHeight: 1.12,
               }}
             >
-              שיווק דיגיטלי לעסקים,{' '}
+              שיווק דיגיטלי לעסקים,<br />
               <span className="gradient-text">תוכן אתרים ופרסום</span>
               {' '}שמביאים תוצאות
             </h1>
 
             {/* Subtitle */}
             <p style={{
-              color: '#8ba3c7',
+              color: '#4a5d7a',
               fontSize: 'clamp(0.95rem, 1.5vw, 1.08rem)',
               lineHeight: 1.75,
               marginBottom: 32,
@@ -258,9 +276,9 @@ export default function Hero() {
                 <span key={s} style={{
                   padding: '4px 12px', borderRadius: 100,
                   fontSize: '0.7rem', fontWeight: 700,
-                  color: '#4d9fff',
-                  background: 'rgba(26,111,255,0.1)',
-                  border: '1px solid rgba(26,111,255,0.22)',
+                  color: '#1a6fff',
+                  background: 'rgba(26,111,255,0.08)',
+                  border: '1px solid rgba(26,111,255,0.18)',
                 }}>
                   {s}
                 </span>
@@ -290,6 +308,6 @@ export default function Hero() {
 
         </div>
       </section>
-    </BeamsBackground>
+    </div>
   )
 }

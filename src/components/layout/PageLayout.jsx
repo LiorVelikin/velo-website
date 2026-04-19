@@ -13,7 +13,7 @@ export default function PageLayout() {
   }, [pathname, hash])
 
   return (
-    <div className="bg-[#060b14] text-white overflow-x-hidden font-heebo">
+    <div className="overflow-x-hidden font-heebo page-grid" style={{ color: '#0a0f1e' }}>
       <Navbar />
       <main>
         <Outlet />

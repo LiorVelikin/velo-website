@@ -50,15 +50,15 @@ function StepCard({ step, index, visible }) {
     <div style={{
       flex: '1 1 0',
       minWidth: 0,
-      background: 'linear-gradient(160deg, rgba(14,24,48,0.9) 0%, rgba(8,12,26,0.95) 100%)',
-      border: '1px solid rgba(255,255,255,0.1)',
-      borderTopColor: 'rgba(77,159,255,0.3)',
+      background: 'linear-gradient(160deg, rgba(14,24,48,0.92) 0%, rgba(8,12,26,0.96) 100%)',
+      border: '1px solid rgba(255,255,255,0.09)',
+      borderTopColor: 'rgba(77,159,255,0.28)',
       borderRadius: 16,
       padding: '36px 28px 28px',
       position: 'relative',
       overflow: 'hidden',
       direction: 'rtl',
-      boxShadow: '0 8px 40px rgba(0,0,0,0.45), 0 0 0 1px rgba(26,111,255,0.06)',
+      boxShadow: '0 8px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(26,111,255,0.06)',
       opacity: visible ? 1 : 0,
       transform: visible ? 'none' : 'translateY(28px)',
       transition: `opacity 0.6s ease ${index * 150}ms, transform 0.6s cubic-bezier(0.16,1,0.3,1) ${index * 150}ms`,
@@ -67,7 +67,7 @@ function StepCard({ step, index, visible }) {
       {/* Top-edge highlight */}
       <div style={{
         position: 'absolute', top: 0, left: '10%', right: '10%', height: 2,
-        background: 'linear-gradient(90deg, transparent, rgba(26,111,255,0.55), transparent)',
+        background: 'linear-gradient(90deg, transparent, rgba(26,111,255,0.35), transparent)',
         pointerEvents: 'none',
       }} />
 
@@ -101,7 +101,7 @@ function StepCard({ step, index, visible }) {
 
       {/* Step name */}
       <h3 style={{
-        color: '#fff', fontWeight: 700,
+        color: '#ffffff', fontWeight: 700,
         fontSize: 'clamp(1.05rem, 1.8vw, 1.2rem)',
         lineHeight: 1.25, marginBottom: 12,
       }}>
@@ -168,7 +168,7 @@ export default function VelocitySection() {
     <section
       ref={sectionRef}
       id="process"
-      className="py-14 relative overflow-hidden"
+      className="py-14 relative"
       style={{ direction: 'rtl' }}
     >
       {/* Ambient glow */}
@@ -200,7 +200,7 @@ export default function VelocitySection() {
             מה אנחנו <span className="gradient-text">עושים</span>
           </h2>
 
-          <p style={{ color: '#8ba3c7', fontSize: 'clamp(0.95rem,1.6vw,1.1rem)', maxWidth: 520, margin: '0 auto', lineHeight: 1.65 }}>
+          <p style={{ color: '#4a5d7a', fontSize: 'clamp(0.95rem,1.6vw,1.1rem)', maxWidth: 520, margin: '0 auto', lineHeight: 1.65 }}>
             תהליך ברור, תקשורת שקופה, תוצאות שאפשר למדוד — בכל שלב
           </p>
         </div>
@@ -253,7 +253,7 @@ export default function VelocitySection() {
             אין חוזים ארוכים. אין הפתעות. רק עבודה שמדברת בעד עצמה.
           </p>
           <p style={{
-            color: '#c8dcf5',
+            color: '#0a0f1e',
             fontSize: '1rem',
             fontWeight: 600,
             marginBottom: 16,

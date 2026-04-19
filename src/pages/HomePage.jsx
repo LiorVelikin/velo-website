@@ -5,7 +5,6 @@ import Hero from '../components/Hero'
 import ServicesGrid from '../components/ServicesGrid'
 import ContentSection from '../components/ContentSection'
 import WebsitesSection from '../components/WebsitesSection'
-import ResultsFlowSection from '../components/ResultsFlowSection'
 import VelocitySection from '../components/VelocitySection'
 import FAQSection from '../components/FAQSection'
 import CTA from '../components/CTA'
@@ -57,7 +56,6 @@ export default function HomePage() {
       <ServicesGrid />
       <ContentSection />
       <WebsitesSection />
-      <ResultsFlowSection />
       <VelocitySection />
       <FAQSection />
       <CTA />
