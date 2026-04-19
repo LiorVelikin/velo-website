@@ -168,7 +168,7 @@ export default function PaidAdsPage() {
               { num: '14 יום', label: 'עד לתוצאות ראשונות',     color: '#a07dff' },
               { num: '100%', label: 'שקיפות בכל ₪ שהוצא',       color: '#ffb347' },
             ].map((m, i) => (
-              <div key={i} style={{ textAlign: 'center', padding: '20px 16px', borderLeft: i < 3 ? '1px solid rgba(255,255,255,0.06)' : 'none', opacity: metricsVis ? 1 : 0, transform: metricsVis ? 'none' : 'translateY(12px)', transition: `opacity 0.5s ease ${i * 80}ms, transform 0.5s ease ${i * 80}ms` }}>
+              <div key={i} style={{ textAlign: 'center', padding: '20px 16px', borderLeft: i < 3 ? '1px solid rgba(10,15,30,0.08)' : 'none', opacity: metricsVis ? 1 : 0, transform: metricsVis ? 'none' : 'translateY(12px)', transition: `opacity 0.5s ease ${i * 80}ms, transform 0.5s ease ${i * 80}ms` }}>
                 <div style={{ color: m.color, fontSize: 'clamp(1.5rem,3vw,2.2rem)', fontWeight: 900, letterSpacing: '-0.03em', lineHeight: 1 }}>{m.num}</div>
                 <div style={{ color: '#6a88ad', fontSize: '0.78rem', marginTop: 6 }}>{m.label}</div>
               </div>
@@ -192,7 +192,7 @@ export default function PaidAdsPage() {
                 <div style={{ width: 40, height: 40, borderRadius: 10, background: 'rgba(0,212,120,0.1)', border: '1px solid rgba(0,212,120,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#00d478', flexShrink: 0 }}>
                   {p.icon}
                 </div>
-                <p style={{ color: '#8ba3c7', fontSize: '0.9rem', lineHeight: 1.65, margin: 0 }}>{p.text}</p>
+                <p style={{ color: '#4a5d7a', fontSize: '0.9rem', lineHeight: 1.65, margin: 0 }}>{p.text}</p>
               </div>
             ))}
           </div>
@@ -226,7 +226,7 @@ export default function PaidAdsPage() {
                   </div>
                   <h3 style={{ color: ch.colorPrimary, fontWeight: 800, fontSize: '1.05rem', margin: 0 }}>{ch.name}</h3>
                 </div>
-                <p style={{ color: '#8ba3c7', fontSize: '0.87rem', lineHeight: 1.65, marginBottom: 14 }}>{ch.desc}</p>
+                <p style={{ color: '#4a5d7a', fontSize: '0.87rem', lineHeight: 1.65, marginBottom: 14 }}>{ch.desc}</p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
                   {ch.tags.map((tag, j) => (
                     <span key={j} style={{ background: ch.colorBg, border: `1px solid ${ch.colorBorder}`, borderRadius: 100, padding: '3px 10px', fontSize: '0.7rem', color: ch.colorPrimary, fontWeight: 600 }}>
@@ -265,8 +265,8 @@ export default function PaidAdsPage() {
                   {step.num}
                 </div>
                 <div>
-                  <h3 style={{ color: '#fff', fontWeight: 700, fontSize: '0.95rem', marginBottom: 5 }}>{step.title}</h3>
-                  <p style={{ color: '#8ba3c7', fontSize: '0.85rem', lineHeight: 1.6, margin: 0 }}>{step.desc}</p>
+                  <h3 style={{ color: '#0a0f1e', fontWeight: 700, fontSize: '0.95rem', marginBottom: 5 }}>{step.title}</h3>
+                  <p style={{ color: '#4a5d7a', fontSize: '0.85rem', lineHeight: 1.6, margin: 0 }}>{step.desc}</p>
                 </div>
               </div>
             ))}
@@ -283,8 +283,8 @@ export default function PaidAdsPage() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
             {faqs.map((faq, i) => (
               <div key={i} className="glass-card" style={{ padding: '22px 24px' }}>
-                <h3 style={{ color: '#fff', fontWeight: 700, fontSize: '0.95rem', marginBottom: 8 }}>{faq.q}</h3>
-                <p style={{ color: '#8ba3c7', fontSize: '0.88rem', lineHeight: 1.65, margin: 0 }}>{faq.a}</p>
+                <h3 style={{ color: '#0a0f1e', fontWeight: 700, fontSize: '0.95rem', marginBottom: 8 }}>{faq.q}</h3>
+                <p style={{ color: '#4a5d7a', fontSize: '0.88rem', lineHeight: 1.65, margin: 0 }}>{faq.a}</p>
               </div>
             ))}
           </div>
@@ -298,7 +298,7 @@ export default function PaidAdsPage() {
             <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,3vw,2rem)', letterSpacing: '-0.02em', marginBottom: 12 }}>
               רוצים פרסום שמביא <span className="gradient-text">לידים — לא עלויות?</span>
             </h2>
-            <p style={{ color: '#8ba3c7', fontSize: '0.95rem', lineHeight: 1.65 }}>
+            <p style={{ color: '#4a5d7a', fontSize: '0.95rem', lineHeight: 1.65 }}>
               ספרו לנו על העסק — ונגיד לכם מה צריך לשנות בקמפיין.
             </p>
           </div>

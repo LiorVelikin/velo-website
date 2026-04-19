@@ -237,9 +237,9 @@ function Thumbnail({ project, isActive, onClick, isShopify, visible, delay }) {
       style={{
         flex: '0 0 clamp(150px, 22%, 200px)',
         borderRadius: 12,
-        border: `1.5px solid ${isActive ? 'rgba(26,111,255,0.65)' : 'rgba(255,255,255,0.1)'}`,
-        background: isActive ? 'rgba(26,111,255,0.10)' : 'linear-gradient(160deg, rgba(14,22,44,0.85) 0%, rgba(8,12,24,0.9) 100%)',
-        boxShadow: isActive ? '0 0 20px rgba(26,111,255,0.22), 0 0 0 1px rgba(26,111,255,0.15)' : '0 4px 24px rgba(0,0,0,0.4), 0 0 0 1px rgba(26,111,255,0.04)',
+        border: `1.5px solid ${isActive ? 'rgba(26,111,255,0.65)' : 'rgba(255,255,255,0.09)'}`,
+        background: isActive ? 'rgba(26,111,255,0.18)' : 'linear-gradient(160deg, rgba(14,22,44,0.88) 0%, rgba(8,12,24,0.94) 100%)',
+        boxShadow: isActive ? '0 0 20px rgba(26,111,255,0.25), 0 0 0 1px rgba(26,111,255,0.18)' : '0 4px 24px rgba(0,0,0,0.4)',
         transform: isActive ? 'scale(1.04)' : 'scale(1)',
         transition: 'all 0.25s cubic-bezier(0.16,1,0.3,1)',
         cursor: 'pointer',
@@ -280,9 +280,9 @@ function Thumbnail({ project, isActive, onClick, isShopify, visible, delay }) {
         </p>
         <span style={{
           fontSize: '9px', fontWeight: 700,
-          color: isActive ? '#1a6fff' : '#3d5070',
-          background: isActive ? 'rgba(26,111,255,0.15)' : 'rgba(255,255,255,0.04)',
-          border: `1px solid ${isActive ? 'rgba(26,111,255,0.35)' : 'rgba(255,255,255,0.08)'}`,
+          color: isActive ? '#1a6fff' : '#4d7aaa',
+          background: isActive ? 'rgba(26,111,255,0.15)' : 'rgba(255,255,255,0.06)',
+          border: `1px solid ${isActive ? 'rgba(26,111,255,0.35)' : 'rgba(255,255,255,0.1)'}`,
           borderRadius: 100, padding: '2px 8px',
           letterSpacing: '0.04em',
         }}>
@@ -386,7 +386,7 @@ export default function WebsitesSection() {
               <span className="gradient-text">שנבנו להמיר</span>
             </h2>
 
-            <p style={{ color: '#8ba3c7', fontSize: 'clamp(1rem,1.8vw,1.15rem)', maxWidth: 520, margin: '0 auto' }}>
+            <p style={{ color: '#4a5d7a', fontSize: 'clamp(1rem,1.8vw,1.15rem)', maxWidth: 520, margin: '0 auto' }}>
               כל התנועה שנוצרת מהתוכן והפרסום זורמת לאתר שנבנה בצורה מדויקת. עם מסר ברור, מבנה נכון וחוויית משתמש שמובילה לפעולה.
             </p>
           </div>
@@ -401,8 +401,8 @@ export default function WebsitesSection() {
           }}>
             <div style={{
               display: 'flex',
-              background: 'rgba(255,255,255,0.04)',
-              border: '1px solid rgba(255,255,255,0.09)',
+              background: 'rgba(10,15,30,0.12)',
+              border: '1px solid rgba(10,15,30,0.14)',
               borderRadius: 100,
               padding: 4,
               gap: 4,
@@ -485,7 +485,7 @@ export default function WebsitesSection() {
           }}>
             {/* Portfolio CTA */}
             <p style={{
-              color: '#8ba3c7',
+              color: '#4a5d7a',
               fontSize: '0.9rem',
               marginBottom: 10,
             }}>

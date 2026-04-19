@@ -175,7 +175,7 @@ function IPhoneMockup({ video, config, index, entered }) {
       }}>
         <span style={{
           fontSize: '10px', fontWeight: 700,
-          color: 'rgba(255,255,255,0.82)',
+          color: '#0a0f1e',
           letterSpacing: '0.04em',
           whiteSpace: 'nowrap',
         }}>
@@ -227,8 +227,8 @@ export default function ContentSection() {
       {/* Edge fades — fully transparent so global background shows through */}
       <div className="absolute inset-0 pointer-events-none" style={{
         background: `
-          radial-gradient(ellipse 35% 100% at 0% 50%, rgba(6,11,20,0.85) 0%, transparent 70%),
-          radial-gradient(ellipse 35% 100% at 100% 50%, rgba(6,11,20,0.85) 0%, transparent 70%)
+          radial-gradient(ellipse 35% 100% at 0% 50%, rgba(255,255,255,0.92) 0%, transparent 70%),
+          radial-gradient(ellipse 35% 100% at 100% 50%, rgba(255,255,255,0.92) 0%, transparent 70%)
         `,
         zIndex: 2,
       }} />
@@ -255,7 +255,7 @@ export default function ContentSection() {
             <span className="gradient-text">עסקים קדימה</span>
           </h2>
 
-          <p style={{ color: '#8ba3c7', fontSize: 'clamp(1rem,1.8vw,1.15rem)', maxWidth: 600, margin: '0 auto' }}>
+          <p style={{ color: '#4a5d7a', fontSize: 'clamp(1rem,1.8vw,1.15rem)', maxWidth: 600, margin: '0 auto' }}>
             היום תוכן הוא נקודת ההתחלה של כל מערכת שיווקית. אנחנו מתמחים ביצירת תוכן AI אותנטי שמושך תשומת לב, מייצר עניין ומחזק אמון, תוך שימוש בכלים שמאפשרים לייצר תוכן בכמות גדולה, במהירות ובעלות נמוכה יותר.
           </p>
         </div>

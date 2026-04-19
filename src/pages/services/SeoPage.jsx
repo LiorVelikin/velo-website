@@ -84,7 +84,7 @@ function SerpMockup() {
       {/* Search bar */}
       <div style={{ background: '#111622', padding: '14px 16px', borderBottom: '1px solid rgba(255,255,255,0.05)', display: 'flex', gap: 10, alignItems: 'center' }}>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.3)" strokeWidth="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-        <div style={{ flex: 1, background: 'rgba(255,255,255,0.06)', borderRadius: 20, padding: '7px 14px', display: 'flex', alignItems: 'center', gap: 8 }}>
+        <div style={{ flex: 1, background: 'rgba(10,15,30,0.08)', borderRadius: 20, padding: '7px 14px', display: 'flex', alignItems: 'center', gap: 8 }}>
           <span style={{ color: '#4d9fff', fontSize: '0.78rem', fontFamily: 'monospace', direction: 'ltr' }}>שירותי שיווק דיגיטלי ישראל</span>
           <div style={{ width: 1, height: 12, background: '#4d9fff', opacity: 0.7, animation: 'blink 1s step-end infinite' }} />
         </div>
@@ -155,7 +155,7 @@ export default function SeoPage() {
         <div className="max-w-5xl mx-auto px-6">
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 0 }}>
             {stats.map((s, i) => (
-              <div key={i} style={{ textAlign: 'center', padding: '20px 16px', borderLeft: i < 3 ? '1px solid rgba(255,255,255,0.06)' : 'none', opacity: statsVis ? 1 : 0, transform: statsVis ? 'none' : 'translateY(12px)', transition: `opacity 0.5s ease ${i * 80}ms, transform 0.5s ease ${i * 80}ms` }}>
+              <div key={i} style={{ textAlign: 'center', padding: '20px 16px', borderLeft: i < 3 ? '1px solid rgba(10,15,30,0.08)' : 'none', opacity: statsVis ? 1 : 0, transform: statsVis ? 'none' : 'translateY(12px)', transition: `opacity 0.5s ease ${i * 80}ms, transform 0.5s ease ${i * 80}ms` }}>
                 <div style={{ color: s.color, fontSize: 'clamp(1.4rem,3vw,2.2rem)', fontWeight: 900, letterSpacing: '-0.03em', lineHeight: 1 }}>{s.metric}</div>
                 <div style={{ color: '#6a88ad', fontSize: '0.78rem', marginTop: 6, lineHeight: 1.4 }}>{s.label}</div>
               </div>
@@ -179,7 +179,7 @@ export default function SeoPage() {
                 <div style={{ width: 40, height: 40, borderRadius: 10, background: 'rgba(255,179,71,0.1)', border: '1px solid rgba(255,179,71,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffb347', flexShrink: 0 }}>
                   {p.icon}
                 </div>
-                <p style={{ color: '#8ba3c7', fontSize: '0.9rem', lineHeight: 1.65, margin: 0 }}>{p.text}</p>
+                <p style={{ color: '#4a5d7a', fontSize: '0.9rem', lineHeight: 1.65, margin: 0 }}>{p.text}</p>
               </div>
             ))}
           </div>
@@ -195,7 +195,7 @@ export default function SeoPage() {
               <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,2.5vw,2rem)', letterSpacing: '-0.02em', marginBottom: 16 }}>
                 מיקום #1 בגוגל —<br /><span className="gradient-text">לא עוד תוצאה שנייה</span>
               </h2>
-              <p style={{ color: '#8ba3c7', fontSize: '0.92rem', lineHeight: 1.75, marginBottom: 24 }}>
+              <p style={{ color: '#4a5d7a', fontSize: '0.92rem', lineHeight: 1.75, marginBottom: 24 }}>
                 91.5% מהגולשים לא עוברים לעמוד השני. זה אומר שאם אתם לא בעמוד הראשון — אתם פשוט לא קיימים מבחינת הלקוחות שמחפשים אתכם.
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
@@ -207,7 +207,7 @@ export default function SeoPage() {
                 ].map((item, i) => (
                   <div key={i}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 5 }}>
-                      <span style={{ color: '#8ba3c7', fontSize: '0.82rem' }}>{item.label}</span>
+                      <span style={{ color: '#4a5d7a', fontSize: '0.82rem' }}>{item.label}</span>
                       <span style={{ color: item.color, fontWeight: 700, fontSize: '0.82rem' }}>CTR {item.ctr}</span>
                     </div>
                     <div style={{ height: 6, borderRadius: 3, background: 'rgba(255,255,255,0.05)' }}>
@@ -249,8 +249,8 @@ export default function SeoPage() {
                   {s.icon}
                 </div>
                 <div>
-                  <h3 style={{ color: '#fff', fontWeight: 700, fontSize: '1rem', marginBottom: 6 }}>{s.title}</h3>
-                  <p style={{ color: '#8ba3c7', fontSize: '0.87rem', lineHeight: 1.65, margin: 0 }}>{s.desc}</p>
+                  <h3 style={{ color: '#0a0f1e', fontWeight: 700, fontSize: '1rem', marginBottom: 6 }}>{s.title}</h3>
+                  <p style={{ color: '#4a5d7a', fontSize: '0.87rem', lineHeight: 1.65, margin: 0 }}>{s.desc}</p>
                 </div>
               </div>
             ))}
@@ -271,7 +271,7 @@ export default function SeoPage() {
               <h2 className="font-black" style={{ fontSize: 'clamp(1.3rem,2.5vw,1.8rem)', letterSpacing: '-0.02em', marginBottom: 16 }}>
                 האם העסק שלכם מופיע <span className="gradient-text">בתשובות AI?</span>
               </h2>
-              <p style={{ color: '#8ba3c7', fontSize: '0.95rem', lineHeight: 1.75, maxWidth: 560, margin: '0 auto 24px' }}>
+              <p style={{ color: '#4a5d7a', fontSize: '0.95rem', lineHeight: 1.75, maxWidth: 560, margin: '0 auto 24px' }}>
                 ChatGPT, Gemini ו-Perplexity מחליפים חיפוש מסורתי. GEO מוודא שהעסק שלכם מופיע כשהלקוחות שואלים AI — זה SEO של 2025-2026.
               </p>
               <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -295,8 +295,8 @@ export default function SeoPage() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
             {faqs.map((faq, i) => (
               <div key={i} className="glass-card" style={{ padding: '22px 24px' }}>
-                <h3 style={{ color: '#fff', fontWeight: 700, fontSize: '0.95rem', marginBottom: 8 }}>{faq.q}</h3>
-                <p style={{ color: '#8ba3c7', fontSize: '0.88rem', lineHeight: 1.65, margin: 0 }}>{faq.a}</p>
+                <h3 style={{ color: '#0a0f1e', fontWeight: 700, fontSize: '0.95rem', marginBottom: 8 }}>{faq.q}</h3>
+                <p style={{ color: '#4a5d7a', fontSize: '0.88rem', lineHeight: 1.65, margin: 0 }}>{faq.a}</p>
               </div>
             ))}
           </div>
@@ -310,7 +310,7 @@ export default function SeoPage() {
             <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,3vw,2rem)', letterSpacing: '-0.02em', marginBottom: 12 }}>
               רוצים להופיע ראשון <span className="gradient-text">בגוגל?</span>
             </h2>
-            <p style={{ color: '#8ba3c7', fontSize: '0.95rem', lineHeight: 1.65 }}>
+            <p style={{ color: '#4a5d7a', fontSize: '0.95rem', lineHeight: 1.65 }}>
               נעשה ביקורת SEO חינמית ונגיד בדיוק מה חסר לאתר שלכם.
             </p>
           </div>

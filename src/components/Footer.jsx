@@ -37,8 +37,8 @@ const linkStyle = { color: 'rgba(255,255,255,0.5)', fontSize: '0.88rem', textDec
 
 export default function Footer() {
   return (
-    <footer style={{ position: 'relative', overflow: 'hidden', direction: 'rtl' }}>
-      <div style={{ height: 1, background: 'rgba(255,255,255,0.06)' }} />
+    <footer style={{ position: 'relative', overflow: 'hidden', direction: 'rtl', background: '#0a0f1e' }}>
+      <div style={{ height: 1, background: 'rgba(255,255,255,0.08)' }} />
 
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(48px,6vw,80px) clamp(16px,4vw,48px) 40px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 'clamp(32px, 4vw, 56px)', marginBottom: 56 }}>
@@ -152,7 +152,7 @@ export default function Footer() {
         <div style={{ textAlign: 'center', fontWeight: 900, pointerEvents: 'none', userSelect: 'none', whiteSpace: 'nowrap', fontSize: 'clamp(60px, 14vw, 180px)', letterSpacing: '-0.04em', lineHeight: 0.9, background: 'linear-gradient(180deg, rgba(26,111,255,0.09) 0%, rgba(0,212,255,0.025) 60%, transparent 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', marginBottom: '-0.12em' }}>
           VELO STUDIO
         </div>
-        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '60%', background: 'linear-gradient(0deg, #060b14 0%, transparent 100%)' }} />
+        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '60%', background: 'linear-gradient(0deg, #0a0f1e 0%, transparent 100%)' }} />
       </div>
     </footer>
   )

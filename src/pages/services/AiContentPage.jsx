@@ -116,10 +116,10 @@ function ContentTypeCard({ ct, index, visible }) {
           <span style={{ background: `${ct.color}12`, border: `1px solid ${ct.color}25`, borderRadius: 100, padding: '2px 10px', fontSize: '0.68rem', fontWeight: 700, color: ct.color, display: 'inline-block', marginBottom: 6 }}>
             {ct.tag}
           </span>
-          <h3 style={{ color: '#fff', fontWeight: 700, fontSize: '1rem', margin: 0 }}>{ct.title}</h3>
+          <h3 style={{ color: '#0a0f1e', fontWeight: 700, fontSize: '1rem', margin: 0 }}>{ct.title}</h3>
         </div>
       </div>
-      <p style={{ color: '#8ba3c7', fontSize: '0.87rem', lineHeight: 1.65, marginBottom: 16 }}>{ct.desc}</p>
+      <p style={{ color: '#4a5d7a', fontSize: '0.87rem', lineHeight: 1.65, marginBottom: 16 }}>{ct.desc}</p>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
         {ct.platforms.map((p, j) => (
           <span key={j} style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 100, padding: '3px 10px', fontSize: '0.7rem', color: 'rgba(255,255,255,0.45)', fontWeight: 600 }}>
@@ -135,7 +135,7 @@ function ContentTypeCard({ ct, index, visible }) {
 function ContentPipelineVisual() {
   return (
     <div style={{ padding: 'clamp(24px,4vw,40px)', borderRadius: 20, background: 'rgba(160,125,255,0.04)', border: '1px solid rgba(160,125,255,0.14)' }}>
-      <h3 style={{ color: '#fff', fontWeight: 700, fontSize: '0.95rem', marginBottom: 20, textAlign: 'center' }}>Pipeline תוכן חודשי לדוגמה</h3>
+      <h3 style={{ color: '#0a0f1e', fontWeight: 700, fontSize: '0.95rem', marginBottom: 20, textAlign: 'center' }}>Pipeline תוכן חודשי לדוגמה</h3>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
         {[
           { label: 'Reels / TikToks', count: 8, color: '#a07dff', pct: 40 },
@@ -145,18 +145,18 @@ function ContentPipelineVisual() {
         ].map((item, i) => (
           <div key={i}>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 6 }}>
-              <span style={{ color: '#8ba3c7', fontSize: '0.82rem' }}>{item.label}</span>
+              <span style={{ color: '#4a5d7a', fontSize: '0.82rem' }}>{item.label}</span>
               <span style={{ color: item.color, fontWeight: 700, fontSize: '0.82rem' }}>{item.count} / חודש</span>
             </div>
-            <div style={{ height: 6, borderRadius: 3, background: 'rgba(255,255,255,0.06)', overflow: 'hidden' }}>
+            <div style={{ height: 6, borderRadius: 3, background: 'rgba(10,15,30,0.08)', overflow: 'hidden' }}>
               <div style={{ width: `${item.pct}%`, height: '100%', borderRadius: 3, background: `linear-gradient(90deg, ${item.color}cc, ${item.color}66)` }} />
             </div>
           </div>
         ))}
       </div>
-      <div style={{ marginTop: 20, padding: '12px 16px', background: 'rgba(255,255,255,0.03)', borderRadius: 10, border: '1px solid rgba(255,255,255,0.06)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+      <div style={{ marginTop: 20, padding: '12px 16px', background: 'rgba(10,15,30,0.04)', borderRadius: 10, border: '1px solid rgba(10,15,30,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <span style={{ color: '#6a88ad', fontSize: '0.8rem' }}>סה"כ קריאייטיבים</span>
-        <span style={{ color: '#fff', fontWeight: 800, fontSize: '1.1rem' }}>48 / חודש</span>
+        <span style={{ color: '#0a0f1e', fontWeight: 800, fontSize: '1.1rem' }}>48 / חודש</span>
       </div>
     </div>
   )
@@ -203,7 +203,7 @@ export default function AiContentPage() {
                 key={i}
                 style={{
                   textAlign: 'center', padding: '20px 14px',
-                  borderLeft: i < 3 ? '1px solid rgba(255,255,255,0.06)' : 'none',
+                  borderLeft: i < 3 ? '1px solid rgba(10,15,30,0.08)' : 'none',
                   opacity: benefitsVis ? 1 : 0,
                   transform: benefitsVis ? 'none' : 'translateY(10px)',
                   transition: `opacity 0.5s ease ${i * 80}ms, transform 0.5s ease ${i * 80}ms`,
@@ -212,7 +212,7 @@ export default function AiContentPage() {
                 <div style={{ width: 36, height: 36, borderRadius: 10, background: `${b.color}12`, border: `1px solid ${b.color}25`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: b.color, margin: '0 auto 10px' }}>
                   {b.icon}
                 </div>
-                <div style={{ color: '#fff', fontWeight: 700, fontSize: '0.88rem', marginBottom: 4 }}>{b.title}</div>
+                <div style={{ color: '#0a0f1e', fontWeight: 700, fontSize: '0.88rem', marginBottom: 4 }}>{b.title}</div>
                 <div style={{ color: '#6a88ad', fontSize: '0.76rem', lineHeight: 1.4 }}>{b.desc}</div>
               </div>
             ))}
@@ -246,7 +246,7 @@ export default function AiContentPage() {
               <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,2.5vw,2rem)', letterSpacing: '-0.02em', marginBottom: 16 }}>
                 מכונת תוכן <span className="gradient-text">שעובדת לבד</span>
               </h2>
-              <p style={{ color: '#8ba3c7', fontSize: '0.92rem', lineHeight: 1.75, marginBottom: 20 }}>
+              <p style={{ color: '#4a5d7a', fontSize: '0.92rem', lineHeight: 1.75, marginBottom: 20 }}>
                 אנחנו לא רק מייצרים תוכן — אנחנו בונים מערכת שמייצרת תוכן חודש אחרי חודש. לוח שנה, קריאייטיבים, scheduling — הכל מנוהל.
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -260,7 +260,7 @@ export default function AiContentPage() {
                     <div style={{ width: 20, height: 20, borderRadius: '50%', background: 'rgba(160,125,255,0.15)', border: '1px solid rgba(160,125,255,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 1 }}>
                       <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#a07dff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                     </div>
-                    <span style={{ color: '#8ba3c7', fontSize: '0.88rem', lineHeight: 1.5 }}>{item}</span>
+                    <span style={{ color: '#4a5d7a', fontSize: '0.88rem', lineHeight: 1.5 }}>{item}</span>
                   </div>
                 ))}
               </div>
@@ -281,8 +281,8 @@ export default function AiContentPage() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
             {faqs.map((faq, i) => (
               <div key={i} className="glass-card" style={{ padding: '22px 24px' }}>
-                <h3 style={{ color: '#fff', fontWeight: 700, fontSize: '0.95rem', marginBottom: 8 }}>{faq.q}</h3>
-                <p style={{ color: '#8ba3c7', fontSize: '0.88rem', lineHeight: 1.65, margin: 0 }}>{faq.a}</p>
+                <h3 style={{ color: '#0a0f1e', fontWeight: 700, fontSize: '0.95rem', marginBottom: 8 }}>{faq.q}</h3>
+                <p style={{ color: '#4a5d7a', fontSize: '0.88rem', lineHeight: 1.65, margin: 0 }}>{faq.a}</p>
               </div>
             ))}
           </div>
@@ -296,7 +296,7 @@ export default function AiContentPage() {
             <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,3vw,2rem)', letterSpacing: '-0.02em', marginBottom: 12 }}>
               רוצים תוכן שמייצר <span className="gradient-text">תשומת לב ומכירות?</span>
             </h2>
-            <p style={{ color: '#8ba3c7', fontSize: '0.95rem', lineHeight: 1.65 }}>
+            <p style={{ color: '#4a5d7a', fontSize: '0.95rem', lineHeight: 1.65 }}>
               ספרו לנו על המותג — ונגיד לכם איזה תוכן יעבוד הכי טוב עבורכם.
             </p>
           </div>

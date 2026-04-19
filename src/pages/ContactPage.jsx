@@ -75,7 +75,7 @@ export default function ContactPage() {
               <h2 className="font-black" style={{ fontSize: 'clamp(1.5rem,3vw,2.2rem)', letterSpacing: '-0.02em', marginBottom: 10 }}>
                 השאירו פרטים — נחזור אליכם <span className="gradient-text">היום</span>
               </h2>
-              <p style={{ color: '#8ba3c7', fontSize: '0.95rem', marginBottom: 28, lineHeight: 1.65 }}>
+              <p style={{ color: '#4a5d7a', fontSize: '0.95rem', marginBottom: 28, lineHeight: 1.65 }}>
                 ממלאים טופס פשוט, ואנחנו מתאמים שיחה שנוחה לכם.
               </p>
               <ContactForm source="contact-page" />
@@ -84,7 +84,7 @@ export default function ContactPage() {
             {/* Trust + contact info */}
             <div style={{ flex: '1 1 280px', minWidth: 0, paddingTop: 8 }}>
               <div style={{ marginBottom: 40 }}>
-                <h3 style={{ color: '#fff', fontWeight: 700, fontSize: '1rem', marginBottom: 20 }}>למה כדאי לדבר איתנו?</h3>
+                <h3 style={{ color: '#0a0f1e', fontWeight: 700, fontSize: '1rem', marginBottom: 20 }}>למה כדאי לדבר איתנו?</h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
                   {trustItems.map((item, i) => (
                     <div key={i} style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
@@ -97,7 +97,7 @@ export default function ContactPage() {
                         {item.icon}
                       </div>
                       <div>
-                        <p style={{ color: '#fff', fontWeight: 700, fontSize: '0.9rem', marginBottom: 3 }}>{item.title}</p>
+                        <p style={{ color: '#0a0f1e', fontWeight: 700, fontSize: '0.9rem', marginBottom: 3 }}>{item.title}</p>
                         <p style={{ color: '#6a88ad', fontSize: '0.8rem', lineHeight: 1.5 }}>{item.desc}</p>
                       </div>
                     </div>
@@ -105,10 +105,10 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div style={{ height: 1, background: 'rgba(255,255,255,0.06)', marginBottom: 24 }} />
+              <div style={{ height: 1, background: 'rgba(10,15,30,0.08)', marginBottom: 24 }} />
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-                <h3 style={{ color: '#fff', fontWeight: 700, fontSize: '1rem', marginBottom: 6 }}>פרטי יצירת קשר</h3>
+                <h3 style={{ color: '#0a0f1e', fontWeight: 700, fontSize: '1rem', marginBottom: 6 }}>פרטי יצירת קשר</h3>
                 {[
                   { icon: <PhoneIcon />,   text: '054-4286018',            label: 'טלפון'   },
                   { icon: <MailIcon />,    text: 'hello@velo-studio.com',  label: 'אימייל'  },
@@ -117,15 +117,15 @@ export default function ContactPage() {
                   <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                     <div style={{ color: '#4d9fff', opacity: 0.8, flexShrink: 0 }}>{item.icon}</div>
                     <div>
-                      <span style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.7rem', display: 'block' }}>{item.label}</span>
-                      <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.88rem' }}>{item.text}</span>
+                      <span style={{ color: 'rgba(10,15,30,0.45)', fontSize: '0.7rem', display: 'block' }}>{item.label}</span>
+                      <span style={{ color: '#0a0f1e', fontSize: '0.88rem' }}>{item.text}</span>
                     </div>
                   </div>
                 ))}
               </div>
 
               <div style={{ marginTop: 28, padding: '16px 20px', borderRadius: 12, background: 'rgba(26,111,255,0.07)', border: '1px solid rgba(26,111,255,0.18)' }}>
-                <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.78rem', marginBottom: 4, fontWeight: 600 }}>מקבלים לקוחות חדשים?</p>
+                <p style={{ color: '#4a5d7a', fontSize: '0.78rem', marginBottom: 4, fontWeight: 600 }}>מקבלים לקוחות חדשים?</p>
                 <p style={{ color: '#4d9fff', fontWeight: 700, fontSize: '0.9rem' }}>מספר הפרויקטים בחודש מוגבל</p>
               </div>
             </div>

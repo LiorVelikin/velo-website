@@ -184,7 +184,7 @@ export default function EcommercePage() {
                 <div style={{ width: 40, height: 40, borderRadius: 10, background: 'rgba(0,212,184,0.1)', border: '1px solid rgba(0,212,184,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#00d4b8', flexShrink: 0 }}>
                   {p.icon}
                 </div>
-                <p style={{ color: '#8ba3c7', fontSize: '0.9rem', lineHeight: 1.65, margin: 0 }}>{p.text}</p>
+                <p style={{ color: '#4a5d7a', fontSize: '0.9rem', lineHeight: 1.65, margin: 0 }}>{p.text}</p>
               </div>
             ))}
           </div>
@@ -206,7 +206,7 @@ export default function EcommercePage() {
               <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,2.5vw,2rem)', letterSpacing: '-0.02em', marginBottom: 14 }}>
                 Zenora Jewelry —<br /><span className="gradient-text">מהקמה ועד מכירות</span>
               </h2>
-              <p style={{ color: '#8ba3c7', fontSize: '0.92rem', lineHeight: 1.75, marginBottom: 24 }}>
+              <p style={{ color: '#4a5d7a', fontSize: '0.92rem', lineHeight: 1.75, marginBottom: 24 }}>
                 מותג תכשיטים שבנינו מהיסוד. עיצוב Shopify מותאם לקהל נשים, product pages שמכסים את כל ה-objections, ו-UX שמוריד נטישת עגלה מ-72% ל-38%.
               </p>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 12 }}>
@@ -216,7 +216,7 @@ export default function EcommercePage() {
                   { label: 'PageSpeed Mobile', value: '94/100', color: '#a07dff' },
                   { label: 'זמן עד להשקה', value: '21 יום', color: '#ffb347' },
                 ].map((s, i) => (
-                  <div key={i} style={{ padding: '14px 16px', background: 'rgba(255,255,255,0.03)', borderRadius: 12, border: '1px solid rgba(255,255,255,0.06)' }}>
+                  <div key={i} style={{ padding: '14px 16px', background: 'rgba(10,15,30,0.04)', borderRadius: 12, border: '1px solid rgba(10,15,30,0.08)' }}>
                     <div style={{ color: s.color, fontWeight: 800, fontSize: '1.2rem', lineHeight: 1 }}>{s.value}</div>
                     <div style={{ color: '#6a88ad', fontSize: '0.75rem', marginTop: 4 }}>{s.label}</div>
                   </div>
@@ -278,8 +278,8 @@ export default function EcommercePage() {
                   {f.icon}
                 </div>
                 <div>
-                  <h3 style={{ color: '#fff', fontWeight: 700, fontSize: '1rem', marginBottom: 6 }}>{f.title}</h3>
-                  <p style={{ color: '#8ba3c7', fontSize: '0.87rem', lineHeight: 1.65, margin: 0 }}>{f.desc}</p>
+                  <h3 style={{ color: '#0a0f1e', fontWeight: 700, fontSize: '1rem', marginBottom: 6 }}>{f.title}</h3>
+                  <p style={{ color: '#4a5d7a', fontSize: '0.87rem', lineHeight: 1.65, margin: 0 }}>{f.desc}</p>
                 </div>
               </div>
             ))}
@@ -296,8 +296,8 @@ export default function EcommercePage() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
             {faqs.map((faq, i) => (
               <div key={i} className="glass-card" style={{ padding: '22px 24px' }}>
-                <h3 style={{ color: '#fff', fontWeight: 700, fontSize: '0.95rem', marginBottom: 8 }}>{faq.q}</h3>
-                <p style={{ color: '#8ba3c7', fontSize: '0.88rem', lineHeight: 1.65, margin: 0 }}>{faq.a}</p>
+                <h3 style={{ color: '#0a0f1e', fontWeight: 700, fontSize: '0.95rem', marginBottom: 8 }}>{faq.q}</h3>
+                <p style={{ color: '#4a5d7a', fontSize: '0.88rem', lineHeight: 1.65, margin: 0 }}>{faq.a}</p>
               </div>
             ))}
           </div>
@@ -311,7 +311,7 @@ export default function EcommercePage() {
             <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,3vw,2rem)', letterSpacing: '-0.02em', marginBottom: 12 }}>
               רוצים חנות שמוכרת <span className="gradient-text">ב-Autopilot?</span>
             </h2>
-            <p style={{ color: '#8ba3c7', fontSize: '0.95rem', lineHeight: 1.65 }}>
+            <p style={{ color: '#4a5d7a', fontSize: '0.95rem', lineHeight: 1.65 }}>
               ספרו לנו על המוצרים שלכם — ונגיד לכם איך להפוך גולשים ללקוחות.
             </p>
           </div>

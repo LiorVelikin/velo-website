@@ -74,7 +74,7 @@ function Bullet({ icon, text, delay }) {
       }}>
         {ICONS[icon]}
       </div>
-      <p style={{ color: '#b8ccde', fontSize: '0.92rem', lineHeight: 1.7, paddingTop: 4 }}>
+      <p style={{ color: '#4a5d7a', fontSize: '0.92rem', lineHeight: 1.7, paddingTop: 4 }}>
         {text}
       </p>
     </div>
@@ -149,8 +149,7 @@ export default function MethodSection() {
                   width: 'auto',
                   objectFit: 'contain',
                   display: 'block',
-                  filter: 'drop-shadow(0 0 20px rgba(26,111,255,0.60)) drop-shadow(0 0 8px rgba(0,212,255,0.40))',
-                  mixBlendMode: 'screen',
+                  filter: 'drop-shadow(0 0 12px rgba(26,111,255,0.3))',
                 }}
               />
             ) : (
@@ -177,17 +176,17 @@ export default function MethodSection() {
               כל מה שהעסק שלכם צריך כדי לגדול{' '}
               <span className="gradient-text">בצורה חכמה ונכונה</span>
             </h2>
-            <p style={{ color: '#8ba3c7', fontSize: '0.95rem', lineHeight: 1.78 }}>
+            <p style={{ color: '#4a5d7a', fontSize: '0.95rem', lineHeight: 1.78 }}>
               רוב העסקים כבר משקיעים בתוכן, בפרסום ובאתר. אבל האם הם באמת יודעים אילו תוצאות הם מביאים?
               לרוב כל חלק עובד בנפרד, בלי חיבור אמיתי ביניהם — וזה יוצר חוסר עקביות, תוצאות לא יציבות ובזבוז של זמן ותקציב.
             </p>
-            <p style={{ color: '#8ba3c7', fontSize: '0.95rem', lineHeight: 1.78, marginTop: 12 }}>
+            <p style={{ color: '#4a5d7a', fontSize: '0.95rem', lineHeight: 1.78, marginTop: 12 }}>
               כדי לייצר צמיחה לאורך זמן, צריך לבנות מערכת שבה כל החלקים עובדים יחד — ולא עוד פעולה נקודתית ומנותקת.
             </p>
           </div>
 
           {/* bullets header */}
-          <p style={{ color: '#fff', fontWeight: 700, fontSize: '1rem', marginBottom: 20, letterSpacing: '-0.01em' }}>
+          <p style={{ color: '#0a0f1e', fontWeight: 700, fontSize: '1rem', marginBottom: 20, letterSpacing: '-0.01em' }}>
             המערכת כוללת
           </p>
 
@@ -205,7 +204,7 @@ export default function MethodSection() {
               fontWeight: 800,
               lineHeight: 1.45,
               letterSpacing: '-0.02em',
-              background: 'linear-gradient(90deg, #ffffff 0%, #7ec8ff 60%, #00d4ff 100%)',
+              background: 'linear-gradient(90deg, #0a0f1e 0%, #1a6fff 60%, #00d4ff 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -236,7 +235,7 @@ export default function MethodSection() {
             left: '-15%',
             right: '-15%',
             height: '70%',
-            background: 'radial-gradient(ellipse at 50% 100%, rgba(26,100,220,0.38) 0%, rgba(0,160,255,0.14) 50%, transparent 75%)',
+            background: 'radial-gradient(ellipse at 50% 100%, rgba(26,111,255,0.16) 0%, rgba(0,160,255,0.06) 50%, transparent 75%)',
             filter: 'blur(28px)',
             pointerEvents: 'none',
             zIndex: 0,
@@ -277,7 +276,7 @@ export default function MethodSection() {
               animation: 'orbPulse 2s ease-in-out infinite',
               flexShrink: 0,
             }} />
-            <span style={{ color: '#c8dcf5', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.02em' }}>
+            <span style={{ color: '#6a80a0', fontSize: '0.78rem', fontWeight: 600, letterSpacing: '0.02em' }}>
               ליאור וליקין — מייסד VELO DIGITAL
             </span>
           </div>

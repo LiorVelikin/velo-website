@@ -140,8 +140,8 @@ export default function ServicesPage() {
                     <div className="svc-icon-wrap" style={{ width: 48, height: 48, borderRadius: 12, background: 'rgba(26,111,255,0.1)', border: '1px solid rgba(26,111,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#4d9fff', flexShrink: 0 }}>
                       {svc.icon}
                     </div>
-                    <h3 style={{ color: '#fff', fontWeight: 700, fontSize: '1.1rem', lineHeight: 1.3, margin: 0 }}>{svc.title}</h3>
-                    <p className="svc-desc" style={{ color: '#8ba3c7', fontSize: '0.88rem', lineHeight: 1.65, margin: 0, flex: 1 }}>{svc.desc}</p>
+                    <h3 style={{ color: '#0a0f1e', fontWeight: 700, fontSize: '1.1rem', lineHeight: 1.3, margin: 0 }}>{svc.title}</h3>
+                    <p className="svc-desc" style={{ color: '#4a5d7a', fontSize: '0.88rem', lineHeight: 1.65, margin: 0, flex: 1 }}>{svc.desc}</p>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 'auto', paddingTop: 8 }}>
                       <span style={{ background: 'rgba(26,111,255,0.1)', border: '1px solid rgba(26,111,255,0.25)', borderRadius: 100, padding: '3px 11px', fontSize: '0.7rem', fontWeight: 700, color: svc.tagColor }}>
                         {svc.tag}
@@ -165,7 +165,7 @@ export default function ServicesPage() {
             <h2 className="font-black" style={{ fontSize: 'clamp(1.5rem,3vw,2.2rem)', letterSpacing: '-0.02em', marginBottom: 16 }}>
               למה <span className="gradient-text">מערכת</span> עובדת יותר מפעולות בודדות?
             </h2>
-            <p style={{ color: '#8ba3c7', fontSize: '1rem', lineHeight: 1.75, maxWidth: 620, margin: '0 auto 28px' }}>
+            <p style={{ color: '#4a5d7a', fontSize: '1rem', lineHeight: 1.75, maxWidth: 620, margin: '0 auto 28px' }}>
               כשהתוכן שלכם מחובר לאתר שמחובר לקמפיינים שמחוברים לאוטומציה — כל חלק מחזק את האחרים. זו ההבדל בין "להיות בדיגיטל" לבין שיווק שמייצר לקוחות.
             </p>
             <Link to="/contact" style={{ textDecoration: 'none' }}>
@@ -186,7 +186,7 @@ export default function ServicesPage() {
             <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,3vw,2rem)', letterSpacing: '-0.02em', marginBottom: 10 }}>
               לא בטוחים <span className="gradient-text">מאיפה להתחיל?</span>
             </h2>
-            <p style={{ color: '#8ba3c7', fontSize: '0.95rem', lineHeight: 1.65 }}>
+            <p style={{ color: '#4a5d7a', fontSize: '0.95rem', lineHeight: 1.65 }}>
               ספרו לנו על העסק — ואנחנו נגיד לכם בדיוק מה יביא לכם את התוצאות הכי מהירות.
             </p>
           </div>

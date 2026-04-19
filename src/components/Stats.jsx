@@ -96,7 +96,7 @@ function StatCard({ stat, index }) {
           position: 'absolute',
           right: 0, top: '20%', bottom: '20%',
           width: 1,
-          background: 'linear-gradient(180deg, transparent, rgba(255,255,255,0.07), transparent)',
+          background: 'linear-gradient(180deg, transparent, rgba(10,15,30,0.12), transparent)',
         }} />
       )}
 
@@ -120,7 +120,7 @@ function StatCard({ stat, index }) {
         letterSpacing: '-0.04em',
         lineHeight: 1,
         marginBottom: 8,
-        background: 'linear-gradient(135deg, #ffffff 0%, #7ec8ff 50%, #00d4ff 100%)',
+        background: 'linear-gradient(135deg, #1a6fff 0%, #00c8ff 100%)',
         WebkitBackgroundClip: 'text',
         WebkitTextFillColor: 'transparent',
         backgroundClip: 'text',
@@ -129,12 +129,12 @@ function StatCard({ stat, index }) {
       </div>
 
       {/* Label */}
-      <p style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.95rem', marginBottom: 4 }}>
+      <p style={{ color: '#0a0f1e', fontWeight: 700, fontSize: '0.95rem', marginBottom: 4 }}>
         {stat.label}
       </p>
 
       {/* Sub */}
-      <p style={{ color: '#5a7a9a', fontSize: '0.78rem', lineHeight: 1.4 }}>
+      <p style={{ color: '#6a80a0', fontSize: '0.78rem', lineHeight: 1.4 }}>
         {stat.sub}
       </p>
     </div>
@@ -146,13 +146,13 @@ export default function Stats() {
     <section style={{ padding: '0 0 16px', position: 'relative', overflow: 'hidden' }}>
       <div className="max-w-5xl mx-auto px-6">
         <div style={{
-          background: 'rgba(255,255,255,0.022)',
-          border: '1px solid rgba(255,255,255,0.07)',
+          background: 'linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(220,230,248,0.5) 100%)',
+          border: '1px solid rgba(255,255,255,0.55)',
           borderRadius: 20,
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
           overflow: 'hidden',
-          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.08), 0 4px 32px rgba(0,0,0,0.3)',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.06), 0 8px 32px rgba(26,111,255,0.08)',
         }}>
           {stats.map((stat, i) => (
             <StatCard key={stat.label} stat={stat} index={i} />

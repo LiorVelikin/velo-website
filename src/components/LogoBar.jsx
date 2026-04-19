@@ -25,7 +25,7 @@ export default function LogoBar() {
             >
               <div className="glass rounded-xl px-6 py-3 flex items-center gap-2 group transition-all duration-300 hover:border-[rgba(26,111,255,0.3)]">
                 <div className="w-1.5 h-1.5 rounded-full gradient-text-static opacity-60" style={{ background: 'linear-gradient(135deg,#1a6fff,#00d4ff)' }} />
-                <span className="text-[#8ba3c7] text-sm font-semibold tracking-wide group-hover:text-white transition-colors">
+                <span className="text-sm font-semibold tracking-wide transition-colors" style={{ color: '#4a5d7a' }}>
                   {name}
                 </span>
               </div>

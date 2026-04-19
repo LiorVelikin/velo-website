@@ -72,7 +72,7 @@ export default function PageHero({ tag, title, accent, subtitle, children }) {
 
         {subtitle && (
           <p style={{
-            color: '#8ba3c7', fontSize: 'clamp(1rem, 1.8vw, 1.2rem)',
+            color: '#4a5d7a', fontSize: 'clamp(1rem, 1.8vw, 1.2rem)',
             lineHeight: 1.65, maxWidth: 600, margin: '0 auto',
             opacity: visible ? 1 : 0,
             transform: visible ? 'none' : 'translateY(14px)',

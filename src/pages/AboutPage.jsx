@@ -94,7 +94,7 @@ export default function AboutPage() {
             {/* Portrait */}
             <div style={{ flexShrink: 0, width: 'clamp(200px, 30%, 320px)', margin: '0 auto' }}>
               <div style={{ position: 'relative', borderRadius: 20, overflow: 'hidden' }}>
-                <div style={{ position: 'absolute', bottom: '-10%', left: '-15%', right: '-15%', height: '60%', background: 'radial-gradient(ellipse at 50% 100%, rgba(26,100,220,0.38) 0%, rgba(0,160,255,0.14) 50%, transparent 75%)', filter: 'blur(28px)', pointerEvents: 'none', zIndex: 0 }} />
+                <div style={{ position: 'absolute', bottom: '-10%', left: '-15%', right: '-15%', height: '60%', background: 'radial-gradient(ellipse at 50% 100%, rgba(26,111,255,0.14) 0%, rgba(0,160,255,0.06) 50%, transparent 75%)', filter: 'blur(28px)', pointerEvents: 'none', zIndex: 0 }} />
                 <img
                   src={portraitSrc}
                   alt="ליאור וליקין — מייסד VELO DIGITAL"
@@ -102,7 +102,7 @@ export default function AboutPage() {
                 />
               </div>
               <div style={{ textAlign: 'center', marginTop: 16 }}>
-                <p style={{ color: '#fff', fontWeight: 700, fontSize: '1.1rem', marginBottom: 4 }}>ליאור וליקין</p>
+                <p style={{ color: '#0a0f1e', fontWeight: 700, fontSize: '1.1rem', marginBottom: 4 }}>ליאור וליקין</p>
                 <p style={{ color: '#4d9fff', fontSize: '0.85rem', fontWeight: 600 }}>מייסד ומנכ"ל — VELO DIGITAL</p>
               </div>
             </div>
@@ -114,7 +114,7 @@ export default function AboutPage() {
                 הבנתי שהדרך הנכונה לשיווק היא{' '}
                 <span className="gradient-text">מערכת, לא פעולות</span>
               </h2>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 16, color: '#8ba3c7', fontSize: '1rem', lineHeight: 1.75 }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 16, color: '#4a5d7a', fontSize: '1rem', lineHeight: 1.75 }}>
                 <p>
                   ראיתי עסקים רבים מוציאים הרבה כסף על שיווק — אתר כאן, קמפיין שם, תוכן מפה — ולא רואים תוצאות. לא כי המוצר שלהם לא טוב, אלא כי כל הפעולות האלה עובדות בנפרד ולא יוצרות זרימה שמייצרת לקוחות.
                 </p>
@@ -151,7 +151,7 @@ export default function AboutPage() {
             <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.5vw,2.6rem)', letterSpacing: '-0.02em', marginBottom: 12 }}>
               מה שמנחה אותנו
             </h2>
-            <p style={{ color: '#8ba3c7', fontSize: '1rem', maxWidth: 480, margin: '0 auto' }}>
+            <p style={{ color: '#4a5d7a', fontSize: '1rem', maxWidth: 480, margin: '0 auto' }}>
               שלושה עקרונות שנמצאים בבסיס כל פרויקט שאנחנו עושים
             </p>
           </div>
@@ -167,7 +167,7 @@ export default function AboutPage() {
                 }}>
                   {v.icon}
                 </div>
-                <h3 style={{ color: '#fff', fontWeight: 700, fontSize: '1.1rem', marginBottom: 10 }}>{v.title}</h3>
+                <h3 style={{ color: '#ffffff', fontWeight: 700, fontSize: '1.1rem', marginBottom: 10 }}>{v.title}</h3>
                 <p style={{ color: '#8ba3c7', fontSize: '0.9rem', lineHeight: 1.7 }}>{v.desc}</p>
               </div>
             ))}
@@ -182,7 +182,7 @@ export default function AboutPage() {
             {stats.map((s, i) => (
               <div key={i} style={{ opacity: statsVis ? 1 : 0, transform: statsVis ? 'none' : 'translateY(16px)', transition: `opacity 0.5s ease ${i * 100}ms, transform 0.5s ease ${i * 100}ms` }}>
                 <div style={{ color: '#1a6fff', fontSize: 'clamp(2.2rem, 4vw, 3.2rem)', fontWeight: 900, letterSpacing: '-0.03em', lineHeight: 1 }}>{s.num}</div>
-                <div style={{ color: '#8ba3c7', fontSize: '0.9rem', marginTop: 10, lineHeight: 1.5 }}>{s.label}</div>
+                <div style={{ color: '#4a5d7a', fontSize: '0.9rem', marginTop: 10, lineHeight: 1.5 }}>{s.label}</div>
               </div>
             ))}
           </div>
@@ -196,7 +196,7 @@ export default function AboutPage() {
             <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.5vw,2.6rem)', letterSpacing: '-0.02em', marginBottom: 14 }}>
               רוצים לדעת אם אנחנו <span className="gradient-text">מתאימים לכם?</span>
             </h2>
-            <p style={{ color: '#8ba3c7', fontSize: '1rem', lineHeight: 1.65 }}>
+            <p style={{ color: '#4a5d7a', fontSize: '1rem', lineHeight: 1.65 }}>
               שיחת היכרות של 30 דקות — ליאור יבין את העסק שלכם ויגיד לכם ישירות אם יש פה התאמה. ללא מצגת מכירה, ללא לחץ.
             </p>
           </div>

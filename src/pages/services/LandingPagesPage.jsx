@@ -155,7 +155,7 @@ export default function LandingPagesPage() {
                 key={i}
                 style={{
                   textAlign: 'center', padding: '20px 16px',
-                  borderLeft: i < 3 ? '1px solid rgba(255,255,255,0.06)' : 'none',
+                  borderLeft: i < 3 ? '1px solid rgba(10,15,30,0.08)' : 'none',
                   opacity: resultsVis ? 1 : 0,
                   transform: resultsVis ? 'none' : 'translateY(12px)',
                   transition: `opacity 0.5s ease ${i * 80}ms, transform 0.5s ease ${i * 80}ms`,
@@ -184,7 +184,7 @@ export default function LandingPagesPage() {
                 <div style={{ width: 40, height: 40, borderRadius: 10, background: 'rgba(0,200,255,0.1)', border: '1px solid rgba(0,200,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#00c8ff', flexShrink: 0 }}>
                   {p.icon}
                 </div>
-                <p style={{ color: '#8ba3c7', fontSize: '0.9rem', lineHeight: 1.65, margin: 0 }}>{p.text}</p>
+                <p style={{ color: '#4a5d7a', fontSize: '0.9rem', lineHeight: 1.65, margin: 0 }}>{p.text}</p>
               </div>
             ))}
           </div>
@@ -200,10 +200,10 @@ export default function LandingPagesPage() {
               <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,2.5vw,2rem)', letterSpacing: '-0.02em', marginBottom: 16 }}>
                 מבנה שמוביל <span className="gradient-text">לפעולה</span>
               </h2>
-              <p style={{ color: '#8ba3c7', fontSize: '0.92rem', lineHeight: 1.75, marginBottom: 24 }}>
+              <p style={{ color: '#4a5d7a', fontSize: '0.92rem', lineHeight: 1.75, marginBottom: 24 }}>
                 כל דף נחיתה שאנחנו בונים עומד בתבנית AIDA — Attention, Interest, Desire, Action. כל שורה כתובה עם מטרה. כל CTA מכוון.
               </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 0, borderRadius: 14, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.06)' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 0, borderRadius: 14, overflow: 'hidden', border: '1px solid rgba(10,15,30,0.08)' }}>
                 {[
                   { step: '1', label: 'כותרת שמדברת לכאב', color: '#00c8ff' },
                   { step: '2', label: 'הוכחה חברתית ומספרים', color: '#4d9fff' },
@@ -212,7 +212,7 @@ export default function LandingPagesPage() {
                 ].map((item, i) => (
                   <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 14, padding: '14px 18px', background: i % 2 === 0 ? 'rgba(255,255,255,0.02)' : 'rgba(255,255,255,0.01)', borderBottom: i < 3 ? '1px solid rgba(255,255,255,0.04)' : 'none' }}>
                     <div style={{ width: 28, height: 28, borderRadius: '50%', background: `${item.color}15`, border: `1px solid ${item.color}30`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: item.color, fontWeight: 800, fontSize: '0.78rem' }}>{item.step}</div>
-                    <span style={{ color: '#8ba3c7', fontSize: '0.88rem' }}>{item.label}</span>
+                    <span style={{ color: '#4a5d7a', fontSize: '0.88rem' }}>{item.label}</span>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={item.color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: 'auto', opacity: 0.6 }}><polyline points="20 6 9 17 4 12"/></svg>
                   </div>
                 ))}
@@ -250,8 +250,8 @@ export default function LandingPagesPage() {
                   {f.icon}
                 </div>
                 <div>
-                  <h3 style={{ color: '#fff', fontWeight: 700, fontSize: '1rem', marginBottom: 6 }}>{f.title}</h3>
-                  <p style={{ color: '#8ba3c7', fontSize: '0.87rem', lineHeight: 1.65, margin: 0 }}>{f.desc}</p>
+                  <h3 style={{ color: '#0a0f1e', fontWeight: 700, fontSize: '1rem', marginBottom: 6 }}>{f.title}</h3>
+                  <p style={{ color: '#4a5d7a', fontSize: '0.87rem', lineHeight: 1.65, margin: 0 }}>{f.desc}</p>
                 </div>
               </div>
             ))}
@@ -268,8 +268,8 @@ export default function LandingPagesPage() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
             {faqs.map((faq, i) => (
               <div key={i} className="glass-card" style={{ padding: '22px 24px' }}>
-                <h3 style={{ color: '#fff', fontWeight: 700, fontSize: '0.95rem', marginBottom: 8 }}>{faq.q}</h3>
-                <p style={{ color: '#8ba3c7', fontSize: '0.88rem', lineHeight: 1.65, margin: 0 }}>{faq.a}</p>
+                <h3 style={{ color: '#0a0f1e', fontWeight: 700, fontSize: '0.95rem', marginBottom: 8 }}>{faq.q}</h3>
+                <p style={{ color: '#4a5d7a', fontSize: '0.88rem', lineHeight: 1.65, margin: 0 }}>{faq.a}</p>
               </div>
             ))}
           </div>
@@ -283,7 +283,7 @@ export default function LandingPagesPage() {
             <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,3vw,2rem)', letterSpacing: '-0.02em', marginBottom: 12 }}>
               רוצים דף שמוריד את <span className="gradient-text">עלות הליד?</span>
             </h2>
-            <p style={{ color: '#8ba3c7', fontSize: '0.95rem', lineHeight: 1.65 }}>
+            <p style={{ color: '#4a5d7a', fontSize: '0.95rem', lineHeight: 1.65 }}>
               ספרו לנו על הקמפיין — ונגיד לכם מה הדף שלכם צריך לשנות.
             </p>
           </div>

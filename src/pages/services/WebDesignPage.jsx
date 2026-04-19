@@ -88,7 +88,7 @@ function WebsiteShowcase() {
         {/* Decorative grid */}
         <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(26,111,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(26,111,255,0.04) 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
         {/* Fake nav */}
-        <div style={{ height: 44, borderBottom: '1px solid rgba(255,255,255,0.06)', display: 'flex', alignItems: 'center', padding: '0 24px', gap: 24 }}>
+        <div style={{ height: 44, borderBottom: '1px solid rgba(10,15,30,0.08)', display: 'flex', alignItems: 'center', padding: '0 24px', gap: 24 }}>
           <div style={{ width: 60, height: 10, borderRadius: 4, background: 'rgba(255,255,255,0.15)' }} />
           <div style={{ display: 'flex', gap: 16, marginRight: 'auto' }}>
             {[40,36,44,38].map((w,i) => <div key={i} style={{ width: w, height: 8, borderRadius: 3, background: 'rgba(255,255,255,0.08)' }} />)}
@@ -103,7 +103,7 @@ function WebsiteShowcase() {
           <div style={{ width: '60%', height: 14, borderRadius: 4, background: 'rgba(255,255,255,0.07)' }} />
           <div style={{ display: 'flex', gap: 10, marginTop: 8 }}>
             <div style={{ width: 100, height: 34, borderRadius: 17, background: 'linear-gradient(135deg, #0055ff, #00c8ff)' }} />
-            <div style={{ width: 88, height: 34, borderRadius: 17, background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }} />
+            <div style={{ width: 88, height: 34, borderRadius: 17, background: 'rgba(10,15,30,0.08)', border: '1px solid rgba(10,15,30,0.09)' }} />
           </div>
         </div>
         {/* Stats row */}
@@ -169,7 +169,7 @@ export default function WebDesignPage() {
                 key={i}
                 style={{
                   textAlign: 'center', padding: '20px 16px',
-                  borderLeft: i < 3 ? '1px solid rgba(255,255,255,0.06)' : 'none',
+                  borderLeft: i < 3 ? '1px solid rgba(10,15,30,0.08)' : 'none',
                   opacity: metricsVis ? 1 : 0,
                   transform: metricsVis ? 'none' : 'translateY(12px)',
                   transition: `opacity 0.5s ease ${i * 80}ms, transform 0.5s ease ${i * 80}ms`,
@@ -198,7 +198,7 @@ export default function WebDesignPage() {
                 <div style={{ width: 40, height: 40, borderRadius: 10, background: 'rgba(26,111,255,0.1)', border: '1px solid rgba(26,111,255,0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#4d9fff', flexShrink: 0 }}>
                   {p.icon}
                 </div>
-                <p style={{ color: '#8ba3c7', fontSize: '0.9rem', lineHeight: 1.65, margin: 0 }}>{p.text}</p>
+                <p style={{ color: '#4a5d7a', fontSize: '0.9rem', lineHeight: 1.65, margin: 0 }}>{p.text}</p>
               </div>
             ))}
           </div>
@@ -214,7 +214,7 @@ export default function WebDesignPage() {
               <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,2.5vw,2rem)', letterSpacing: '-0.02em', marginBottom: 16 }}>
                 אתר שמביא <span className="gradient-text">לידים יומיים</span>
               </h2>
-              <p style={{ color: '#8ba3c7', fontSize: '0.95rem', lineHeight: 1.75, marginBottom: 24 }}>
+              <p style={{ color: '#4a5d7a', fontSize: '0.95rem', lineHeight: 1.75, marginBottom: 24 }}>
                 כל פרויקט שאנחנו בונים מחבר בין עיצוב מותגי, מבנה CRO, ומהירות טעינה — שלושת הגורמים שקובעים אם גולש יהפוך ללקוח.
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
@@ -223,8 +223,8 @@ export default function WebDesignPage() {
                   { label: 'PageSpeed Mobile', value: '96/100', color: '#00d4b8' },
                   { label: 'זמן עד לתוצאות', value: '30 יום', color: '#a07dff' },
                 ].map((stat, i) => (
-                  <div key={i} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 16px', background: 'rgba(255,255,255,0.03)', borderRadius: 10, border: '1px solid rgba(255,255,255,0.06)' }}>
-                    <span style={{ color: '#8ba3c7', fontSize: '0.88rem' }}>{stat.label}</span>
+                  <div key={i} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 16px', background: 'rgba(10,15,30,0.04)', borderRadius: 10, border: '1px solid rgba(10,15,30,0.08)' }}>
+                    <span style={{ color: '#4a5d7a', fontSize: '0.88rem' }}>{stat.label}</span>
                     <span style={{ color: stat.color, fontWeight: 800, fontSize: '1rem' }}>{stat.value}</span>
                   </div>
                 ))}
@@ -263,8 +263,8 @@ export default function WebDesignPage() {
                   {f.icon}
                 </div>
                 <div>
-                  <h3 style={{ color: '#fff', fontWeight: 700, fontSize: '1rem', marginBottom: 6 }}>{f.title}</h3>
-                  <p style={{ color: '#8ba3c7', fontSize: '0.87rem', lineHeight: 1.65, margin: 0 }}>{f.desc}</p>
+                  <h3 style={{ color: '#0a0f1e', fontWeight: 700, fontSize: '1rem', marginBottom: 6 }}>{f.title}</h3>
+                  <p style={{ color: '#4a5d7a', fontSize: '0.87rem', lineHeight: 1.65, margin: 0 }}>{f.desc}</p>
                 </div>
               </div>
             ))}
@@ -280,7 +280,7 @@ export default function WebDesignPage() {
             <h2 className="font-black" style={{ fontSize: 'clamp(1.5rem,3vw,2.2rem)', letterSpacing: '-0.02em' }}>
               מהאסטרטגיה <span className="gradient-text">עד לתוצאות</span>
             </h2>
-            <p style={{ color: '#8ba3c7', fontSize: '0.95rem', marginTop: 12 }}>6 שלבים מוכחים — שקיפות מלאה בכל אחד מהם</p>
+            <p style={{ color: '#4a5d7a', fontSize: '0.95rem', marginTop: 12 }}>6 שלבים מוכחים — שקיפות מלאה בכל אחד מהם</p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20 }}>
             {processSteps.map((step, i) => (
@@ -298,8 +298,8 @@ export default function WebDesignPage() {
                   {step.num}
                 </div>
                 <div>
-                  <h3 style={{ color: '#fff', fontWeight: 700, fontSize: '0.95rem', marginBottom: 5 }}>{step.title}</h3>
-                  <p style={{ color: '#8ba3c7', fontSize: '0.85rem', lineHeight: 1.6, margin: 0 }}>{step.desc}</p>
+                  <h3 style={{ color: '#0a0f1e', fontWeight: 700, fontSize: '0.95rem', marginBottom: 5 }}>{step.title}</h3>
+                  <p style={{ color: '#4a5d7a', fontSize: '0.85rem', lineHeight: 1.6, margin: 0 }}>{step.desc}</p>
                 </div>
               </div>
             ))}
@@ -316,8 +316,8 @@ export default function WebDesignPage() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
             {faqs.map((faq, i) => (
               <div key={i} className="glass-card" style={{ padding: '22px 24px' }}>
-                <h3 style={{ color: '#fff', fontWeight: 700, fontSize: '0.95rem', marginBottom: 8 }}>{faq.q}</h3>
-                <p style={{ color: '#8ba3c7', fontSize: '0.88rem', lineHeight: 1.65, margin: 0 }}>{faq.a}</p>
+                <h3 style={{ color: '#0a0f1e', fontWeight: 700, fontSize: '0.95rem', marginBottom: 8 }}>{faq.q}</h3>
+                <p style={{ color: '#4a5d7a', fontSize: '0.88rem', lineHeight: 1.65, margin: 0 }}>{faq.a}</p>
               </div>
             ))}
           </div>
@@ -331,7 +331,7 @@ export default function WebDesignPage() {
             <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,3vw,2rem)', letterSpacing: '-0.02em', marginBottom: 12 }}>
               מוכנים לאתר שמביא <span className="gradient-text">תוצאות אמיתיות?</span>
             </h2>
-            <p style={{ color: '#8ba3c7', fontSize: '0.95rem', lineHeight: 1.65 }}>
+            <p style={{ color: '#4a5d7a', fontSize: '0.95rem', lineHeight: 1.65 }}>
               ספרו לנו על העסק — ונגיד לכם בדיוק מה האתר שלכם צריך לשנות.
             </p>
           </div>

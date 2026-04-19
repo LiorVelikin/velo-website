@@ -100,9 +100,9 @@ function ResultCard({ card, triggered, index, visible }) {
     <div
       style={{
         flex: '0 0 clamp(268px, 30vw, 320px)',
-        background: 'linear-gradient(160deg, rgba(14,24,46,0.92) 0%, rgba(8,13,28,0.96) 100%)',
-        border: '1px solid rgba(255,255,255,0.1)',
-        borderTopColor: 'rgba(77,159,255,0.28)',
+        background: 'linear-gradient(160deg, rgba(13,22,44,0.95) 0%, rgba(7,11,24,0.97) 100%)',
+        border: '1px solid rgba(255,255,255,0.09)',
+        borderTopColor: 'rgba(26,111,255,0.3)',
         borderRadius: 18,
         padding: '28px 26px 24px',
         display: 'flex',
@@ -111,7 +111,7 @@ function ResultCard({ card, triggered, index, visible }) {
         direction: 'rtl',
         position: 'relative',
         overflow: 'hidden',
-        boxShadow: '0 8px 40px rgba(0,0,0,0.45), 0 0 0 1px rgba(26,111,255,0.05)',
+        boxShadow: '0 8px 40px rgba(0,0,0,0.4)',
         opacity: visible ? 1 : 0,
         transform: visible ? 'none' : 'translateX(36px)',
         transition: `opacity 0.55s ease ${index * 90}ms, transform 0.55s cubic-bezier(0.16,1,0.3,1) ${index * 90}ms`,
@@ -139,8 +139,8 @@ function ResultCard({ card, triggered, index, visible }) {
         <span style={{
           fontSize: '10px', fontWeight: 700,
           color: '#6a88ad',
-          background: 'rgba(255,255,255,0.05)',
-          border: '1px solid rgba(255,255,255,0.09)',
+          background: 'rgba(255,255,255,0.06)',
+          border: '1px solid rgba(255,255,255,0.1)',
           borderRadius: 100, padding: '3px 10px',
           letterSpacing: '0.04em',
         }}>
@@ -155,7 +155,7 @@ function ResultCard({ card, triggered, index, visible }) {
           fontWeight: 900,
           fontFamily: 'Inter, sans-serif',
           letterSpacing: '-0.04em',
-          background: 'linear-gradient(135deg, #ffffff 0%, #7ec8ff 50%, #00d4ff 100%)',
+          background: 'linear-gradient(135deg, #1a6fff 0%, #00c8ff 100%)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
           backgroundClip: 'text',
@@ -188,7 +188,7 @@ function ResultCard({ card, triggered, index, visible }) {
       {/* 5 — Divider */}
       <div style={{
         height: 1,
-        background: 'rgba(255,255,255,0.06)',
+        background: 'rgba(255,255,255,0.07)',
         marginBottom: 16,
       }} />
 
@@ -205,7 +205,7 @@ function ResultCard({ card, triggered, index, visible }) {
             <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
           </svg>
         </div>
-        <span style={{ color: '#5a7a9a', fontSize: '0.75rem', fontWeight: 600 }}>
+        <span style={{ color: '#6a88ad', fontSize: '0.75rem', fontWeight: 600 }}>
           {card.service}
         </span>
       </div>
@@ -377,7 +377,7 @@ export default function ResultsFlowSection() {
             <span className="gradient-text">רואים תוצאות מהר</span>
           </h2>
 
-          <p style={{ color: '#8ba3c7', fontSize: 'clamp(1rem,1.8vw,1.15rem)', maxWidth: 520, margin: '0 auto' }}>
+          <p style={{ color: '#4a5d7a', fontSize: 'clamp(1rem,1.8vw,1.15rem)', maxWidth: 520, margin: '0 auto' }}>
             כאשר הכל עובד כמערכת אחת, התוצאות משתנות. יותר פניות, תהליך מכירה מסודר ויכולת אמיתית לגדול בצורה יציבה.
           </p>
         </div>
@@ -388,13 +388,13 @@ export default function ResultsFlowSection() {
           {/* Left edge fade */}
           <div style={{
             position: 'absolute', top: 0, right: 0, bottom: 0, width: 80,
-            background: 'linear-gradient(to right, transparent, #060b14)',
+            background: 'linear-gradient(to right, transparent, #ffffff)',
             pointerEvents: 'none', zIndex: 4,
           }} />
           {/* Right edge fade */}
           <div style={{
             position: 'absolute', top: 0, left: 0, bottom: 0, width: 80,
-            background: 'linear-gradient(to left, transparent, #060b14)',
+            background: 'linear-gradient(to left, transparent, #ffffff)',
             pointerEvents: 'none', zIndex: 4,
             opacity: canLeft ? 1 : 0,
             transition: 'opacity 0.3s ease',
@@ -437,9 +437,9 @@ export default function ResultsFlowSection() {
           opacity: cardsVis ? 1 : 0,
           transition: 'opacity 0.6s ease 0.4s',
         }}>
-          <div style={{ flex: 1, height: 1, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.08))' }} />
+          <div style={{ flex: 1, height: 1, background: 'linear-gradient(90deg, transparent, rgba(10,15,30,0.08))' }} />
           <div className="tag-pill">עבודות נבחרות</div>
-          <div style={{ flex: 1, height: 1, background: 'linear-gradient(270deg, transparent, rgba(255,255,255,0.08))' }} />
+          <div style={{ flex: 1, height: 1, background: 'linear-gradient(270deg, transparent, rgba(10,15,30,0.08))' }} />
         </div>
 
         {/* ── Project cards grid ── */}
@@ -453,13 +453,13 @@ export default function ResultsFlowSection() {
             <div
               key={i}
               style={{
-                background: 'linear-gradient(160deg, rgba(14,24,46,0.92) 0%, rgba(8,13,28,0.96) 100%)',
-                border: '1px solid rgba(255,255,255,0.1)',
-                borderTopColor: 'rgba(77,159,255,0.28)',
+                background: 'linear-gradient(160deg, rgba(13,22,44,0.94) 0%, rgba(7,11,24,0.97) 100%)',
+                border: '1px solid rgba(255,255,255,0.09)',
+                borderTopColor: 'rgba(26,111,255,0.25)',
                 borderRadius: 16,
                 overflow: 'hidden',
                 direction: 'rtl',
-                boxShadow: '0 8px 40px rgba(0,0,0,0.45), 0 0 0 1px rgba(26,111,255,0.05)',
+                boxShadow: '0 8px 40px rgba(0,0,0,0.4)',
                 opacity: cardsVis ? 1 : 0,
                 transform: cardsVis ? 'none' : 'translateY(20px)',
                 transition: `opacity 0.55s ease ${0.45 + i * 0.1}s, transform 0.55s ease ${0.45 + i * 0.1}s`,
@@ -503,13 +503,13 @@ export default function ResultsFlowSection() {
                   }}>{proj.niche}</span>
                   <span style={{
                     fontSize: '10px', fontWeight: 700, color: '#6a88ad',
-                    background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.09)',
+                    background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)',
                     borderRadius: 100, padding: '3px 10px', letterSpacing: '0.04em',
                   }}>{proj.type}</span>
                 </div>
 
                 {/* Project name */}
-                <h4 style={{ color: '#fff', fontWeight: 700, fontSize: '0.95rem', margin: 0, lineHeight: 1.3 }}>
+                <h4 style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.95rem', margin: 0, lineHeight: 1.3 }}>
                   {proj.name}
                 </h4>
 
@@ -518,16 +518,16 @@ export default function ResultsFlowSection() {
                   {proj.stats.map((stat, si) => (
                     <span key={si} style={{
                       fontSize: '0.72rem', fontWeight: 700,
-                      color: si === 0 ? '#7ec8ff' : '#8ba3c7',
-                      background: si === 0 ? 'rgba(26,111,255,0.1)' : 'rgba(255,255,255,0.04)',
-                      border: `1px solid ${si === 0 ? 'rgba(26,111,255,0.2)' : 'rgba(255,255,255,0.07)'}`,
+                      color: si === 0 ? '#4d9fff' : '#6a88ad',
+                      background: si === 0 ? 'rgba(26,111,255,0.15)' : 'rgba(255,255,255,0.06)',
+                      border: `1px solid ${si === 0 ? 'rgba(26,111,255,0.3)' : 'rgba(255,255,255,0.1)'}`,
                       borderRadius: 100, padding: '4px 10px',
                     }}>{stat}</span>
                   ))}
                 </div>
 
                 {/* Divider */}
-                <div style={{ height: 1, background: 'rgba(255,255,255,0.05)' }} />
+                <div style={{ height: 1, background: 'rgba(10,15,30,0.07)' }} />
 
                 {/* CTA link */}
                 <a href="#" style={{

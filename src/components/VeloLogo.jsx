@@ -13,7 +13,6 @@ export default function VeloLogo({ className, style = {} }) {
       className={className}
       style={{
         objectFit: 'contain',
-        mixBlendMode: 'screen',
         ...style,
       }}
     />

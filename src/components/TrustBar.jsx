@@ -50,9 +50,9 @@ export default function TrustBar() {
       aria-label="trust indicators"
       style={{
         height: 80,
-        background: 'rgba(255,255,255,0.022)',
-        borderTop:    '1px solid rgba(255,255,255,0.06)',
-        borderBottom: '1px solid rgba(255,255,255,0.06)',
+        background: 'rgba(26,111,255,0.03)',
+        borderTop:    '1px solid rgba(10,15,30,0.07)',
+        borderBottom: '1px solid rgba(10,15,30,0.07)',
         display: 'flex',
         alignItems: 'center',
         overflowX: 'auto',
@@ -81,7 +81,7 @@ export default function TrustBar() {
             <span style={{ color: '#4d9fff', display: 'flex', alignItems: 'center', flexShrink: 0 }}>
               {item.icon}
             </span>
-            <span style={{ color: 'rgba(255,255,255,0.60)', fontSize: 13, fontWeight: 500 }}>
+            <span style={{ color: '#4a5d7a', fontSize: 13, fontWeight: 500 }}>
               {item.text}
             </span>
           </div>
