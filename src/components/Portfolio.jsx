@@ -3,39 +3,43 @@ import { useEffect, useRef } from 'react'
 const projects = [
   {
     id: '01',
-    title: 'קמפיין השקת מוצר',
-    subtitle: 'אסטרטגיה + תוכן + וידאו',
-    description: 'תכנון וביצוע קמפיין שלם לחברת טק ישראלית — ממחקר שוק, דרך יצירת תוכן AI ועד קמפיין פרסום ממומן.',
-    tags: ['Social Media', 'Video', 'AI Content'],
-    result: '+340% חשיפה',
-    gradient: 'from-[#1a3a6f] to-[#0d1829]',
-    accent: '#1a6fff',
+    title: 'Zano — מותג אופנה',
+    subtitle: 'בניית אתר + Brand Identity',
+    description: 'אתר מותג אופנה מינימליסטי — עיצוב ויזואלי חזק, גלריית מוצרים, ו-UX שממיר גולשים לקונים.',
+    tags: ['Web Design', 'E-Commerce', 'Branding'],
+    result: 'Live',
+    gradient: 'from-[#2a1a0f] to-[#0d0a05]',
+    accent: '#c9a84c',
+    url: 'https://liorvelikin.github.io/Zano-website/',
   },
   {
     id: '02',
-    title: 'מיתוג מחדש',
-    subtitle: 'Brand Identity + Design System',
-    description: 'בניית זהות מותגית מלאה לסטארטאפ פינטק — לוגו, פלטת צבעים, טיפוגרפיה וכל הנכסים הדיגיטליים.',
-    tags: ['Branding', 'UI/UX', 'Motion'],
-    result: 'גיוס סבב A',
-    gradient: 'from-[#0d2a4f] to-[#060b14]',
-    accent: '#00d4ff',
+    title: 'Lilach — עיצוב שיער',
+    subtitle: 'אתר תדמית + עיצוב',
+    description: 'אתר תדמית לסטודיו עיצוב שיער — לוק נשי ועדין, גלריית עבודות, וטופס פנייה ישיר.',
+    tags: ['Web Design', 'Beauty', 'UX'],
+    result: 'Live',
+    gradient: 'from-[#2a0a1a] to-[#0d060d]',
+    accent: '#e8a0bf',
+    url: 'https://liorvelikin.github.io/Lilach-website/',
   },
   {
     id: '03',
-    title: 'נוכחות TikTok',
-    subtitle: 'Reels Strategy + Production',
-    description: 'בניית ערוץ טיקטוק מאפס ל-50K עוקבים תוך 3 חודשים, עם תוכן וירלי מבוסס אלגוריתם.',
-    tags: ['TikTok', 'Reels', 'Growth'],
-    result: '50K+ עוקבים',
-    gradient: 'from-[#1a1a4f] to-[#060b14]',
-    accent: '#4d9fff',
+    title: 'נווה הירוק — נדל"ן',
+    subtitle: 'דף נחיתה לפרויקט יוקרה',
+    description: 'דף נחיתה לפרויקט נדל"ן יוקרתי — מבנה CRO שמוביל לליד, גלריית הדמיות, וטופס פנייה מהיר.',
+    tags: ['Landing Page', 'נדל"ן', 'CRO'],
+    result: 'Demo',
+    gradient: 'from-[#0a1a0a] to-[#060d06]',
+    accent: '#c9a84c',
+    url: 'https://liorvelikin.github.io/velo-website/mockups/landing/realestate/',
   },
 ]
 
 function ProjectCard({ project, index }) {
   return (
     <div className={`reveal reveal-delay-${index + 1}`}>
+      <a href={project.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
       <div className="glass-card overflow-hidden group cursor-pointer h-full">
         {/* Visual preview */}
         <div
@@ -66,7 +70,11 @@ function ProjectCard({ project, index }) {
 
           {/* Result badge */}
           <div className="absolute bottom-4 left-4">
-            <div className="tag-pill text-xs">{project.result}</div>
+            <div className="text-xs font-bold px-3 py-1 rounded-full" style={{
+              background: project.result === 'Live' ? 'rgba(0,212,120,0.15)' : 'rgba(26,111,255,0.15)',
+              border: `1px solid ${project.result === 'Live' ? 'rgba(0,212,120,0.4)' : 'rgba(26,111,255,0.4)'}`,
+              color: project.result === 'Live' ? '#00d478' : '#4d9fff',
+            }}>{project.result}</div>
           </div>
 
           {/* Hover overlay */}
@@ -89,13 +97,14 @@ function ProjectCard({ project, index }) {
           <p className="text-[#8ba3c7] text-sm leading-relaxed">{project.description}</p>
 
           <div className="mt-5 flex items-center gap-2 text-[#4d9fff] text-sm font-semibold group-hover:gap-3 transition-all duration-200">
-            <span>קרא עוד</span>
-            <svg className="w-4 h-4 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            <span>כניסה לאתר</span>
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6m0 0v6m0-6L10 14" />
             </svg>
           </div>
         </div>
       </div>
+      </a>
     </div>
   )
 }

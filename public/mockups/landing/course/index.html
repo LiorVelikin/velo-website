@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DigiMaster | קורס מכירות דיגיטליות</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Heebo',sans-serif;background:#0a0618;color:#fff;direction:rtl}
+nav{position:sticky;top:0;background:rgba(10,6,24,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(108,62,232,.2);z-index:100;padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{font-size:1.25rem;font-weight:900;background:linear-gradient(90deg,#6c3ee8,#00d4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;white-space:nowrap}
+.countdown{background:rgba(108,62,232,.15);border:1px solid rgba(108,62,232,.3);border-radius:8px;padding:6px 14px;font-size:.78rem;color:#00d4ff;font-weight:700}
+.btn{background:linear-gradient(135deg,#6c3ee8,#00d4ff);color:#fff;border:none;padding:10px 22px;border-radius:24px;font-weight:700;font-size:.88rem;cursor:pointer;font-family:inherit;white-space:nowrap}
+.hero{padding:80px 5% 60px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 400px;gap:60px;align-items:start}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.25);border-radius:8px;padding:8px 16px;font-size:.85rem;color:#00d4ff;margin-bottom:20px}
+.hero h1{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;line-height:1.2;margin-bottom:16px}
+.hero h1 span{background:linear-gradient(90deg,#6c3ee8,#00d4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:rgba(255,255,255,.7);font-size:.98rem;line-height:1.75;margin-bottom:16px}
+.starts{font-size:.95rem;color:rgba(255,255,255,.5)}.starts span{color:#00d4ff;font-weight:700}
+.form-card{background:rgba(255,255,255,.05);border:1px solid rgba(108,62,232,.3);border-radius:20px;padding:32px;margin-top:8px}
+.form-card h3{font-size:1.1rem;font-weight:800;margin-bottom:6px}
+.form-card .sub{color:rgba(255,255,255,.5);font-size:.82rem;margin-bottom:20px}
+label{display:block;font-size:.8rem;color:rgba(255,255,255,.55);margin-bottom:5px;font-weight:600}
+input,select{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(108,62,232,.3);border-radius:10px;padding:11px 13px;color:#fff;font-family:inherit;font-size:.88rem;outline:none;margin-bottom:12px}
+input::placeholder{color:rgba(255,255,255,.3)}
+select option{background:#1a0a3e}
+.submit{width:100%;background:linear-gradient(135deg,#6c3ee8,#00d4ff);border:none;color:#fff;padding:14px;border-radius:12px;font-size:1rem;font-weight:800;cursor:pointer;font-family:inherit;box-shadow:0 4px 24px rgba(108,62,232,.4)}
+.note{text-align:center;font-size:.73rem;color:rgba(255,255,255,.3);margin-top:10px}
+.proof-strip{background:rgba(108,62,232,.07);border-top:1px solid rgba(108,62,232,.15);border-bottom:1px solid rgba(108,62,232,.15);padding:28px 5%;display:flex;justify-content:center;gap:60px;flex-wrap:wrap}
+.proof-item{text-align:center}
+.proof-num{font-size:1.8rem;font-weight:900;background:linear-gradient(90deg,#6c3ee8,#00d4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.proof-label{font-size:.78rem;color:rgba(255,255,255,.45);margin-top:4px}
+.section{padding:70px 5%;max-width:1000px;margin:0 auto}
+.stitle{text-align:center;margin-bottom:40px}
+.tag{display:inline-block;background:rgba(108,62,232,.15);color:#6c3ee8;border:1px solid rgba(108,62,232,.3);border-radius:100px;padding:4px 14px;font-size:.73rem;font-weight:700;margin-bottom:12px}
+.stitle h2{font-size:clamp(1.4rem,3vw,2.1rem);font-weight:900}
+.stitle h2 span{background:linear-gradient(90deg,#6c3ee8,#00d4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.module-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.module-card{background:rgba(255,255,255,.04);border:1px solid rgba(108,62,232,.2);border-radius:14px;padding:22px 18px;display:flex;gap:14px;align-items:flex-start}
+.mod-num{width:36px;height:36px;border-radius:9px;background:linear-gradient(135deg,#6c3ee8,#00d4ff);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.85rem;flex-shrink:0}
+.module-card h3{font-size:.92rem;font-weight:700;margin-bottom:5px}
+.module-card p{font-size:.8rem;color:rgba(255,255,255,.5);line-height:1.5}
+.instructor-card{background:rgba(255,255,255,.04);border:1px solid rgba(108,62,232,.2);border-radius:20px;padding:32px;display:flex;gap:28px;align-items:center;flex-wrap:wrap}
+.avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#6c3ee8,#00d4ff);display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:900;flex-shrink:0}
+.instructor-card h3{font-size:1.1rem;font-weight:800;margin-bottom:6px}
+.instructor-card p{color:rgba(255,255,255,.6);font-size:.85rem;line-height:1.6}
+.testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.testi{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:22px}
+.testi p{color:rgba(255,255,255,.72);font-size:.86rem;line-height:1.65;margin-bottom:12px}
+.testi-name{font-weight:700;color:#00d4ff;font-size:.8rem}
+.price-card{background:rgba(108,62,232,.1);border:2px solid #6c3ee8;border-radius:20px;padding:36px 28px;max-width:440px;margin:0 auto;text-align:center}
+.price-label{color:rgba(255,255,255,.45);font-size:.83rem;margin-bottom:8px}
+.price{font-size:3rem;font-weight:900;color:#00d4ff;margin-bottom:4px}
+.price-note{color:rgba(255,255,255,.35);font-size:.78rem;margin-bottom:22px}
+.features-list{list-style:none;text-align:right;margin-bottom:24px}
+.features-list li{padding:7px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:.86rem;color:rgba(255,255,255,.78);display:flex;align-items:center;gap:8px}
+.check{color:#00d4ff}
+.cta2{padding:70px 5%;text-align:center;background:linear-gradient(135deg,rgba(108,62,232,.12),rgba(0,212,255,.04));border-top:1px solid rgba(108,62,232,.15)}
+.cta2 h2{font-size:clamp(1.3rem,3vw,2rem);font-weight:900;margin-bottom:12px}
+.cta2 p{color:rgba(255,255,255,.55);margin-bottom:22px}
+footer{background:rgba(0,0,0,.4);text-align:center;padding:18px;font-size:.78rem;color:rgba(255,255,255,.3);border-top:1px solid rgba(255,255,255,.06)}
+footer a{color:rgba(108,62,232,.8);text-decoration:none}
+@media(max-width:768px){.hero{grid-template-columns:1fr}.module-grid,.testi-grid{grid-template-columns:1fr}.instructor-card{flex-direction:column;text-align:center}.proof-strip{gap:28px}.countdown{display:none}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">DigiMaster</div>
+  <div class="countdown">המחזור הבא: 1 במאי — נותרו 12 מקומות</div>
+  <button class="btn" onclick="return false">הצטרפו עכשיו</button>
+</nav>
+
+<div class="hero">
+  <div>
+    <div class="badge">🚀 מחזור 18 — אלפי בוגרים מרוצים</div>
+    <h1>למדו למכור אונליין —<br><span>מאפס לעצמאות פיננסית</span></h1>
+    <p>קורס מכירות דיגיטליות מעשי לחלוטין — אסטרטגיה, פאנל, פרסום ואוטומציה. הכל שצריך כדי להתחיל להרוויח אונליין.</p>
+    <p class="starts">המחזור הבא: <span>1 במאי 2025</span> | 8 שבועות מקוון</p>
+  </div>
+  <div class="form-card">
+    <h3>שמרו מקום עכשיו</h3>
+    <p class="sub">מקומות מוגבלים — מחזור קודם נסגר תוך 48 שעות</p>
+    <form onsubmit="return false">
+      <label>שם מלא</label><input type="text" placeholder="ישראל ישראלי">
+      <label>טלפון</label><input type="tel" placeholder="05X-XXX-XXXX">
+      <label>אימייל</label><input type="email" placeholder="you@email.com">
+      <label>מה המטרה שלכם?</label>
+      <select><option>בחרו...</option><option>הכנסה נוספת</option><option>עסק עצמאי</option><option>שיפור עסק קיים</option><option>פרילנסר</option></select>
+      <button type="submit" class="submit">שמרו לי מקום →</button>
+      <p class="note">ללא עלות • ייעוץ חינם לפני ההרשמה</p>
+    </form>
+  </div>
+</div>
+
+<div class="proof-strip">
+  <div class="proof-item"><div class="proof-num">1,200+</div><div class="proof-label">בוגרי הקורס</div></div>
+  <div class="proof-item"><div class="proof-num">4.9/5</div><div class="proof-label">דירוג ממוצע</div></div>
+  <div class="proof-item"><div class="proof-num">מחזור 18</div><div class="proof-label">הקורס הנוכחי</div></div>
+  <div class="proof-item"><div class="proof-num">8 שבועות</div><div class="proof-label">תוכנית מלאה</div></div>
+</div>
+
+<div class="section">
+  <div class="stitle"><div class="tag">תוכנית לימודים</div><h2>מה <span>לומדים בקורס</span></h2></div>
+  <div class="module-grid">
+    <div class="module-card"><div class="mod-num">01</div><div><h3>יסודות המכירה הדיגיטלית</h3><p>פאנל מכירה מקצה לקצה — מתנועה ועד רכישה</p></div></div>
+    <div class="module-card"><div class="mod-num">02</div><div><h3>פרסום ממומן — Meta וGoogle</h3><p>קמפיינים שמביאים לידים ולא שורפים תקציב</p></div></div>
+    <div class="module-card"><div class="mod-num">03</div><div><h3>דף נחיתה שממיר</h3><p>CRO, קופי ומהירות — שגורמים לגולשים לקנות</p></div></div>
+    <div class="module-card"><div class="mod-num">04</div><div><h3>אוטומציה ו-Email Marketing</h3><p>רצפי מייל, WhatsApp ו-CRM — מכירות שרצות לבד</p></div></div>
+  </div>
+</div>
+
+<div class="section" style="padding-top:0">
+  <div class="instructor-card">
+    <div class="avatar">ו"כ</div>
+    <div>
+      <h3>ורד כהן — מייסדת DigiMaster</h3>
+      <p>יזמת דיגיטל עם 12 שנות ניסיון. בנתה ומכרה 3 עסקים אונליין. מרצה ומנטורית עם אלפי בוגרים מרוצים ברחבי ישראל.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="padding-top:0">
+  <div class="stitle"><h2>מה אומרים <span>הבוגרים</span></h2></div>
+  <div class="testi-grid">
+    <div class="testi"><p>"לפני DigiMaster הייתי שכיר. שלושה חודשים אחרי — הרווחתי את המשכורת הראשונה מהעסק שלי. ממש משנה חיים."</p><div class="testi-name">— עומר ל., בוגר מחזור 14</div></div>
+    <div class="testi"><p>"התוכן מעשי לחלוטין. ישר ליישום. הקמפיין הראשון שלי עלה עוד במהלך הקורס — וכבר הבאתי לידים."</p><div class="testi-name">— מאיה ר., בוגרת מחזור 16</div></div>
+  </div>
+</div>
+
+<div class="section" style="padding-top:0">
+  <div class="stitle"><h2>השקעה <span>שמחזירה את עצמה</span></h2></div>
+  <div class="price-card">
+    <div class="price-label">מחיר השקה למחזור 18</div>
+    <div class="price">₪1,490</div>
+    <div class="price-note">תשלום חד-פעמי או 3 תשלומים</div>
+    <ul class="features-list">
+      <li><span class="check">✓</span>8 שבועות תוכן מלא + הקלטות</li>
+      <li><span class="check">✓</span>קהילת בוגרים בWhatsApp</li>
+      <li><span class="check">✓</span>4 שיחות ליווי קבוצתיות</li>
+      <li><span class="check">✓</span>גישה לכל עדכוני הקורס</li>
+      <li><span class="check">✓</span>תעודת בוגר מוכרת</li>
+    </ul>
+    <button class="submit" onclick="return false">הצטרפו עכשיו →</button>
+  </div>
+</div>
+
+<div class="cta2">
+  <h2>עדיין לא בטוחים?</h2>
+  <p>שיחת ייעוץ חינם לפני ההרשמה — נבין יחד אם הקורס מתאים לכם</p>
+  <button class="btn" onclick="return false">קבעו שיחת ייעוץ חינם</button>
+</div>
+
+<footer><p>© 2025 DigiMaster | <a href="https://liorvelikin.github.io/velo-website/">נבנה על ידי VELO DIGITAL</a></p></footer>
+</body></html>

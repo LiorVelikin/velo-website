@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shield Financial | ביטוח ופיננסים</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Heebo',sans-serif;background:#030d1a;color:#fff;direction:rtl}
+nav{position:sticky;top:0;background:rgba(3,13,26,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(26,111,255,.15);z-index:100;padding:0 5%;height:66px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;font-size:1.2rem;font-weight:900;color:#fff;white-space:nowrap}
+.logo-icon{width:34px;height:34px;background:linear-gradient(135deg,#1a6fff,#4d9fff);border-radius:8px;display:flex;align-items:center;justify-content:center}
+.phone{color:rgba(255,255,255,.6);font-size:.88rem;font-weight:600}
+.btn{background:linear-gradient(135deg,#1a6fff,#4d9fff);color:#fff;border:none;padding:10px 22px;border-radius:24px;font-weight:700;font-size:.88rem;cursor:pointer;font-family:inherit;white-space:nowrap}
+
+.hero{padding:80px 5% 60px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:60px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(26,111,255,.12);border:1px solid rgba(26,111,255,.25);border-radius:8px;padding:8px 16px;font-size:.83rem;color:#4d9fff;margin-bottom:20px}
+.hero h1{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;line-height:1.2;margin-bottom:16px}
+.hero h1 span{background:linear-gradient(90deg,#1a6fff,#4d9fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:rgba(255,255,255,.65);font-size:.95rem;line-height:1.75;margin-bottom:24px}
+.check-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.check-list li{display:flex;align-items:center;gap:10px;font-size:.9rem;color:rgba(255,255,255,.8)}
+.check-icon{width:22px;height:22px;border-radius:50%;background:rgba(26,111,255,.2);border:1px solid rgba(26,111,255,.4);display:flex;align-items:center;justify-content:center;color:#4d9fff;flex-shrink:0;font-size:.7rem}
+
+.form-card{background:rgba(255,255,255,.04);border:1px solid rgba(26,111,255,.25);border-radius:20px;padding:32px}
+.form-card h3{font-size:1.1rem;font-weight:800;margin-bottom:6px}
+.form-card .sub{color:rgba(255,255,255,.45);font-size:.8rem;margin-bottom:20px}
+label{display:block;font-size:.78rem;color:rgba(255,255,255,.5);margin-bottom:5px;font-weight:600}
+input,select{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(26,111,255,.2);border-radius:10px;padding:11px 13px;color:#fff;font-family:inherit;font-size:.88rem;outline:none;margin-bottom:12px;transition:border-color .2s}
+input:focus,select:focus{border-color:#1a6fff}
+input::placeholder{color:rgba(255,255,255,.25)}
+select option{background:#040f22}
+.submit{width:100%;background:linear-gradient(135deg,#1a6fff,#4d9fff);border:none;color:#fff;padding:14px;border-radius:12px;font-size:1rem;font-weight:800;cursor:pointer;font-family:inherit;box-shadow:0 4px 20px rgba(26,111,255,.35)}
+.form-note{text-align:center;font-size:.72rem;color:rgba(255,255,255,.3);margin-top:10px}
+
+.trust-strip{padding:28px 5%;border-top:1px solid rgba(26,111,255,.1);border-bottom:1px solid rgba(26,111,255,.1);background:rgba(26,111,255,.04)}
+.trust-inner{max-width:900px;margin:0 auto;text-align:center}
+.trust-inner p{font-size:.8rem;color:rgba(255,255,255,.4);margin-bottom:16px;text-transform:uppercase;letter-spacing:.08em}
+.logo-row{display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
+.brand-logo{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:10px 20px;font-size:.85rem;font-weight:700;color:rgba(255,255,255,.45)}
+
+.section{padding:70px 5%;max-width:1060px;margin:0 auto}
+.stitle{text-align:center;margin-bottom:40px}
+.tag{display:inline-block;background:rgba(26,111,255,.12);color:#4d9fff;border:1px solid rgba(26,111,255,.25);border-radius:100px;padding:4px 14px;font-size:.73rem;font-weight:700;margin-bottom:12px}
+.stitle h2{font-size:clamp(1.4rem,3vw,2.1rem);font-weight:900}
+.stitle h2 span{background:linear-gradient(90deg,#1a6fff,#4d9fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.svc-card{background:rgba(255,255,255,.04);border:1px solid rgba(26,111,255,.15);border-radius:16px;padding:26px 22px;transition:border-color .2s}
+.svc-card:hover{border-color:rgba(26,111,255,.4)}
+.svc-icon{width:44px;height:44px;border-radius:11px;background:rgba(26,111,255,.15);border:1px solid rgba(26,111,255,.25);display:flex;align-items:center;justify-content:center;color:#4d9fff;margin-bottom:14px;font-size:1.2rem}
+.svc-card h3{font-size:.98rem;font-weight:700;margin-bottom:7px}
+.svc-card p{font-size:.83rem;color:rgba(255,255,255,.5);line-height:1.6}
+
+.process{padding:60px 5%;background:rgba(26,111,255,.04);border-top:1px solid rgba(26,111,255,.1);border-bottom:1px solid rgba(26,111,255,.1)}
+.process-inner{max-width:700px;margin:0 auto}
+.steps{display:flex;flex-direction:column;gap:0;margin-top:32px}
+.step{display:flex;gap:20px;align-items:flex-start;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.step:last-child{border:none}
+.step-num{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#1a6fff,#4d9fff);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.85rem;flex-shrink:0}
+.step h3{font-size:.95rem;font-weight:700;margin-bottom:5px}
+.step p{font-size:.83rem;color:rgba(255,255,255,.5);line-height:1.55}
+
+.testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.testi{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:22px}
+.testi p{color:rgba(255,255,255,.7);font-size:.86rem;line-height:1.65;margin-bottom:12px}
+.testi-name{font-weight:700;color:#4d9fff;font-size:.8rem}
+
+.cta2{padding:70px 5%;text-align:center;background:linear-gradient(135deg,rgba(26,111,255,.1),rgba(77,159,255,.05));border-top:1px solid rgba(26,111,255,.12)}
+.cta2 h2{font-size:clamp(1.3rem,3vw,2rem);font-weight:900;margin-bottom:12px}
+.cta2 p{color:rgba(255,255,255,.55);margin-bottom:22px}
+footer{background:rgba(0,0,0,.4);text-align:center;padding:18px;font-size:.78rem;color:rgba(255,255,255,.3);border-top:1px solid rgba(255,255,255,.06)}
+footer a{color:rgba(26,111,255,.8);text-decoration:none}
+@media(max-width:768px){.hero{grid-template-columns:1fr}.svc-grid,.testi-grid{grid-template-columns:1fr}.phone{display:none}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">
+    <div class="logo-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+    Shield Financial
+  </div>
+  <div class="phone">📞 03-777-5500</div>
+  <button class="btn" onclick="return false">ייעוץ חינם</button>
+</nav>
+
+<div class="hero">
+  <div>
+    <div class="hero-badge">🛡️ מעל 800 לקוחות מרוצים</div>
+    <h1>הגנה פיננסית<br><span>לכל שלב בחיים</span></h1>
+    <p>ייעוץ ביטוח ופיננסים מקיף ובלתי תלוי — בודקים עבורכם את כל שוק הביטוח ומוצאים את הפתרון הנכון לכם.</p>
+    <ul class="check-list">
+      <li><div class="check-icon">✓</div>ביטוח חיים ובריאות</li>
+      <li><div class="check-icon">✓</div>תכנון פנסיוני</li>
+      <li><div class="check-icon">✓</div>קרן השתלמות וחסכונות</li>
+      <li><div class="check-icon">✓</div>ביטוח עסקי ומנהלים</li>
+    </ul>
+  </div>
+  <div class="form-card">
+    <h3>ייעוץ פיננסי ראשוני חינם</h3>
+    <p class="sub">ללא עלות, ללא התחייבות — רק מסתכלים על המצב שלכם</p>
+    <form onsubmit="return false">
+      <label>שם מלא</label><input type="text" placeholder="ישראל ישראלי">
+      <label>טלפון</label><input type="tel" placeholder="05X-XXX-XXXX">
+      <label>נושא הייעוץ</label>
+      <select><option>בחרו...</option><option>ביטוח חיים</option><option>ביטוח בריאות</option><option>תכנון פנסיוני</option><option>קרן השתלמות</option><option>ביטוח עסקי</option></select>
+      <button type="submit" class="submit">קבלו ייעוץ חינם →</button>
+      <p class="form-note">חוזרים אליכם תוך יום עסקים</p>
+    </form>
+  </div>
+</div>
+
+<div class="trust-strip">
+  <div class="trust-inner">
+    <p>עובדים עם חברות הביטוח המובילות</p>
+    <div class="logo-row">
+      <div class="brand-logo">כלל ביטוח</div>
+      <div class="brand-logo">מנורה מבטחים</div>
+      <div class="brand-logo">הפניקס</div>
+      <div class="brand-logo">הראל</div>
+      <div class="brand-logo">מגדל</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="stitle"><div class="tag">השירותים שלנו</div><h2>פתרונות <span>לכל צורך פיננסי</span></h2></div>
+  <div class="svc-grid">
+    <div class="svc-card"><div class="svc-icon">🛡️</div><h3>ביטוח חיים ואובדן כושר</h3><p>הגנה על ההכנסה והמשפחה שלכם — מוצאים את הכיסוי הנכון במחיר הנכון.</p></div>
+    <div class="svc-card"><div class="svc-icon">🏥</div><h3>ביטוח בריאות מורחב</h3><p>כיסוי לניתוחים, תרופות, רופאים מומחים — מעבר לקופת חולים הבסיסית.</p></div>
+    <div class="svc-card"><div class="svc-icon">📈</div><h3>תכנון פנסיוני</h3><p>מיטוב קרן הפנסיה, ביטוח מנהלים וחיסכון לגיל פרישה — תכנון שמאפשר לכם להכיר את העתיד.</p></div>
+    <div class="svc-card"><div class="svc-icon">💰</div><h3>קרן השתלמות וחסכונות</h3><p>ניצול מלא של הטבות מס, תשואות ריאליות ותכנון עתידי נכון.</p></div>
+  </div>
+</div>
+
+<div class="process">
+  <div class="process-inner">
+    <div class="stitle"><div class="tag">איך זה עובד</div><h2>3 צעדים <span>לביטחון פיננסי</span></h2></div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div><h3>ייעוץ ראשוני חינם</h3><p>פגישה קצרה שבה אנחנו מבינים את המצב הפיננסי הנוכחי, הצרכים והמטרות שלכם.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div><h3>בדיקת שוק ופתרונות</h3><p>בודקים עבורכם את כל חברות הביטוח ומציגים מספר אפשרויות עם יתרונות וחסרונות ברורים.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div><h3>ליווי שוטף</h3><p>לא עוזבים אחרי ההצטרפות — מלווים אתכם בתביעות, שינויים ובדיקות תקופתיות.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="stitle"><h2>לקוחות <span>מספרים</span></h2></div>
+  <div class="testi-grid">
+    <div class="testi"><p>"ירדתי 400 שקל בחודש על ביטוחים עם אותם כיסויים — פשוט לא ידעתי שאפשר. Shield בדקו הכל ומצאו פתרון הרבה יותר טוב."</p><div class="testi-name">— דני ו., רחובות</div></div>
+    <div class="testi"><p>"הייתי בלי ביטוח בריאות שנים כי לא ידעתי מאיפה להתחיל. שיחה אחת עם Shield — ותוך שבוע היה לי כיסוי מלא."</p><div class="testi-name">— נועה מ., חיפה</div></div>
+  </div>
+</div>
+
+<div class="cta2">
+  <h2>לא יודעים מאיפה להתחיל?</h2>
+  <p>ייעוץ ראשוני חינם ובלתי תלוי — בלי התחייבות וללא עלות</p>
+  <button class="btn" onclick="return false">קבלו ייעוץ חינם עכשיו</button>
+  <p style="margin-top:16px;font-size:.82rem;color:rgba(255,255,255,.35)">📞 03-777-5500 | זמינים א׳-ה׳ 9:00-18:00</p>
+</div>
+
+<footer><p>© 2025 Shield Financial | <a href="https://liorvelikin.github.io/velo-website/">נבנה על ידי VELO DIGITAL</a></p></footer>
+</body></html>

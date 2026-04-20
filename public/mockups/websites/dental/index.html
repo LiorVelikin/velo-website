@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VisualDent | רפואת שיניים פרטית</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Heebo',sans-serif;background:#f8fbfc;color:#1a2e3a;direction:rtl}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e0ecee;padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:70px;box-shadow:0 2px 12px rgba(0,180,160,0.07)}
+.nav-logo{font-size:1.5rem;font-weight:800;color:#0a2540;letter-spacing:-0.5px}
+.nav-logo span{color:#00b4a0}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:0.9rem;font-weight:500;color:#1a2e3a;transition:color 0.2s}
+.nav-links a:hover{color:#00b4a0}
+.nav-cta{background:#00b4a0;color:#fff;border:none;padding:0.55rem 1.4rem;border-radius:25px;font-family:'Heebo',sans-serif;font-size:0.9rem;font-weight:600;cursor:pointer;transition:background 0.2s}
+.nav-cta:hover{background:#009988}
+
+/* HERO */
+.hero{background:#f0f9f8;padding:5rem 5%;display:flex;align-items:center;gap:4rem;min-height:520px}
+.hero-text{flex:1}
+.hero-text h1{font-size:3rem;font-weight:900;color:#0a2540;line-height:1.2;margin-bottom:1.2rem}
+.hero-text h1 span{color:#00b4a0}
+.hero-text p{font-size:1.1rem;color:#4a6170;line-height:1.7;margin-bottom:2rem;max-width:500px}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:#00b4a0;color:#fff;padding:0.75rem 1.8rem;border-radius:30px;font-weight:700;font-size:1rem;border:none;cursor:pointer;transition:all 0.2s}
+.btn-primary:hover{background:#009988;transform:translateY(-1px)}
+.btn-outline{background:transparent;color:#0a2540;padding:0.75rem 1.8rem;border-radius:30px;font-weight:700;font-size:1rem;border:2px solid #0a2540;cursor:pointer;transition:all 0.2s}
+.btn-outline:hover{background:#0a2540;color:#fff}
+.hero-visual{flex:0 0 320px;display:flex;justify-content:center;align-items:center}
+.tooth-shape{width:200px;height:240px;background:linear-gradient(135deg,#00b4a0,#0a2540);border-radius:50% 50% 40% 40% / 60% 60% 40% 40%;position:relative;box-shadow:0 20px 60px rgba(0,180,160,0.3);display:flex;align-items:center;justify-content:center}
+.tooth-shape::before{content:'';position:absolute;width:70px;height:90px;background:rgba(255,255,255,0.15);border-radius:50% 50% 40% 40%;bottom:30px;left:50%;transform:translateX(-50%)}
+.tooth-inner{color:#fff;font-size:3rem;opacity:0.9}
+
+/* STATS */
+.stats{background:#0a2540;padding:3rem 5%;display:flex;justify-content:space-around;flex-wrap:wrap;gap:2rem}
+.stat-item{text-align:center;color:#fff}
+.stat-num{font-size:2.5rem;font-weight:900;color:#00b4a0}
+.stat-label{font-size:0.95rem;opacity:0.8;margin-top:0.3rem}
+
+/* SERVICES */
+.section{padding:5rem 5%}
+.section-title{text-align:center;font-size:2rem;font-weight:800;color:#0a2540;margin-bottom:0.7rem}
+.section-sub{text-align:center;color:#4a6170;margin-bottom:3rem;font-size:1rem}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.service-card{background:#fff;border-radius:16px;padding:2rem;box-shadow:0 4px 20px rgba(0,0,0,0.06);transition:all 0.3s;text-align:center}
+.service-card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,180,160,0.15)}
+.service-icon{width:56px;height:56px;background:#e8f7f5;border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem}
+.service-card h3{font-size:1.05rem;font-weight:700;color:#0a2540;margin-bottom:0.5rem}
+.service-card p{font-size:0.88rem;color:#6b8290;line-height:1.6}
+
+/* TEAM */
+.team{background:#fff;padding:5rem 5%}
+.team-grid{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-top:3rem}
+.team-card{background:#f8fbfc;border-radius:16px;padding:2rem;text-align:center;width:220px;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
+.team-photo{width:90px;height:90px;border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:2rem;color:#fff;font-weight:700}
+.team-card h3{font-weight:700;color:#0a2540;margin-bottom:0.3rem}
+.team-card p{font-size:0.85rem;color:#00b4a0;font-weight:500}
+
+/* TESTIMONIALS */
+.testimonials{padding:5rem 5%;background:#f0f9f8}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.testi-card{background:#fff;border-radius:16px;padding:1.8rem;box-shadow:0 4px 16px rgba(0,0,0,0.06)}
+.testi-stars{color:#00b4a0;font-size:1.1rem;margin-bottom:0.8rem}
+.testi-text{font-size:0.92rem;color:#4a6170;line-height:1.7;margin-bottom:1rem}
+.testi-name{font-weight:700;color:#0a2540;font-size:0.9rem}
+
+/* CTA DARK */
+.cta-dark{background:#0a2540;padding:5rem 5%;text-align:center}
+.cta-dark h2{font-size:2.2rem;font-weight:800;color:#fff;margin-bottom:1rem}
+.cta-dark p{color:rgba(255,255,255,0.7);margin-bottom:2rem;font-size:1rem}
+
+/* FOOTER */
+footer{background:#06192a;padding:2rem 5%;text-align:center;color:rgba(255,255,255,0.4);font-size:0.82rem}
+footer span{color:#00b4a0;font-weight:600}
+
+@media(max-width:768px){
+  .hero{flex-direction:column;text-align:center;padding:3rem 5%}
+  .hero-text h1{font-size:2rem}
+  .hero-visual{display:none}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .testi-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Visual<span>Dent</span></div>
+  <ul class="nav-links">
+    <li><a href="#services">שירותים</a></li>
+    <li><a href="#team">צוות</a></li>
+    <li><a href="#testimonials">המלצות</a></li>
+    <li><a href="#contact">צור קשר</a></li>
+  </ul>
+  <button class="nav-cta">קבעו תור</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>שיניים בריאות.<br><span>חיוך מושלם.</span></h1>
+    <p>קליניקת שיניים פרטית בתל אביב — מרפאה מתקדמת עם צוות מנוסה ואווירה נינוחה. הטיפול הטוב ביותר, בסביבה שתרגישו בה בבית.</p>
+    <div class="hero-btns">
+      <button class="btn-primary">קבעו תור עכשיו</button>
+      <button class="btn-outline">השירותים שלנו</button>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="tooth-shape">
+      <div class="tooth-inner">🦷</div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stat-item"><div class="stat-num">15+</div><div class="stat-label">שנות ניסיון</div></div>
+  <div class="stat-item"><div class="stat-num">2,000+</div><div class="stat-label">מטופלים מרוצים</div></div>
+  <div class="stat-item"><div class="stat-num">טיפולים</div><div class="stat-label">ביום אחד</div></div>
+</section>
+
+<section class="section" id="services">
+  <div class="section-title">השירותים שלנו</div>
+  <div class="section-sub">טיפולי שיניים מקצועיים בטכנולוגיה המתקדמת ביותר</div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00b4a0" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg></div>
+      <h3>לבנת שיניים</h3>
+      <p>הבהרה מקצועית לשיניים לבנות וזוהרות תוך שעה אחת</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00b4a0" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M9 12h6M12 9v6"/></svg></div>
+      <h3>ציפויים</h3>
+      <p>ציפויי פורצלן דקים לחיוך טבעי ומושלם לשנים רבות</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00b4a0" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+      <h3>אורתודנטיה</h3>
+      <p>יישור שיניים בשיטות מתקדמות כולל אינויזליין שקוף</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00b4a0" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <h3>שתלים</h3>
+      <p>שתלי שיניים מחומרי טיטניום איכותיים לתוצאה קבועה</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00b4a0" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+      <h3>טיפולי שורש</h3>
+      <p>טיפולי שורש ללא כאב עם טכנולוגיה וציוד מתקדם</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00b4a0" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+      <h3>ניקוי ובדיקה</h3>
+      <p>בדיקה מקיפה וניקוי מקצועי לבריאות הפה המיטבית</p>
+    </div>
+  </div>
+</section>
+
+<section class="team" id="team">
+  <div class="section-title">הצוות שלנו</div>
+  <div class="section-sub">רופאים מומחים עם ניסיון רב שנים</div>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-photo" style="background:linear-gradient(135deg,#0a2540,#00b4a0)">ד"ר</div>
+      <h3>ד"ר מיכל לוי</h3>
+      <p>מומחית לאסתטיקה דנטלית</p>
+    </div>
+    <div class="team-card">
+      <div class="team-photo" style="background:linear-gradient(135deg,#00b4a0,#0d7a6e)">ד"ר</div>
+      <h3>ד"ר אריאל כהן</h3>
+      <p>מומחה לשתלים ואורתודנטיה</p>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials" id="testimonials">
+  <div class="section-title">מה אומרים עלינו</div>
+  <div class="section-sub">מטופלים מרוצים שחזרו עם חיוך</div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"VisualDent שינתה את חיי! הגעתי לטיפול ציפויים ויצאתי עם חיוך שתמיד חלמתי עליו. הצוות מקצועי, נעים ומסביר הכל בסבלנות."</p>
+      <div class="testi-name">— נועה שמש, תל אביב</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"כמה שנים פחדתי מרופא שיניים. כאן גיליתי שטיפול יכול להיות ממש נעים. ד"ר לוי מדהימה ועשתה עבורי שתל בלי כאב בכלל."</p>
+      <div class="testi-name">— גיל ברק, רמת גן</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"קליניקה ברמה בינלאומית. הטיפול מהיר, מדויק והתוצאות מדהימות. ממליץ בחום לכל המשפחה!"</p>
+      <div class="testi-name">— דני מור, הרצליה</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-dark" id="contact">
+  <h2>מוכנים לחיוך שתמיד חלמתם עליו?</h2>
+  <p>צרו קשר עוד היום וקבעו תור ראשוני ללא התחייבות</p>
+  <button class="btn-primary" style="font-size:1.1rem;padding:0.9rem 2.5rem">צרו קשר</button>
+</section>
+
+<footer>
+  <p>© 2025 VisualDent | כל הזכויות שמורות | נבנה על ידי <span>VELO DIGITAL</span></p>
+</footer>
+
+</body>
+</html>

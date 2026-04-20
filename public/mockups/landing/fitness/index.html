@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FitLife Studio | אולם כושר תל אביב</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Heebo',sans-serif;background:#0d0d0d;color:#fff;direction:rtl}
+a{text-decoration:none;color:inherit}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(13,13,13,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,87,34,0.2);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:66px}
+.nav-logo{font-size:1.6rem;font-weight:900;color:#ff5722;letter-spacing:-1px}
+.nav-logo span{color:#fff}
+.nav-phone{color:rgba(255,255,255,0.6);font-size:0.88rem}
+.nav-cta{background:#ff5722;color:#fff;border:none;padding:0.5rem 1.3rem;border-radius:30px;font-family:'Heebo',sans-serif;font-size:0.88rem;font-weight:700;cursor:pointer;transition:all 0.2s}
+.nav-cta:hover{background:#e64a19}
+
+.hero{background:linear-gradient(160deg,#0d0d0d 0%,#1a0f0a 100%);padding:6rem 5% 5rem;min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(255,87,34,0.08) 0%,transparent 70%)}
+.hero-inner{display:flex;gap:4rem;align-items:center;width:100%;flex-wrap:wrap}
+.hero-text{flex:1;min-width:280px}
+.hero-tag{background:rgba(255,87,34,0.15);border:1px solid rgba(255,87,34,0.3);color:#ff5722;display:inline-block;padding:0.35rem 1rem;border-radius:30px;font-size:0.78rem;font-weight:700;letter-spacing:1px;margin-bottom:1.5rem}
+.hero-text h1{font-size:3rem;font-weight:900;line-height:1.15;margin-bottom:1.2rem}
+.hero-text h1 span{color:#ff5722}
+.hero-text p{color:rgba(255,255,255,0.6);font-size:1rem;line-height:1.7;margin-bottom:2.5rem;max-width:450px}
+.hero-form{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:2rem;flex:0 0 360px}
+.hero-form h3{font-size:1.1rem;font-weight:700;margin-bottom:1.5rem;color:#fff}
+.form-group{margin-bottom:1rem}
+.form-group label{display:block;font-size:0.8rem;color:rgba(255,255,255,0.55);margin-bottom:0.4rem;font-weight:500}
+.form-group input, .form-group select{width:100%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:0.75rem 1rem;color:#fff;font-family:'Heebo',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s}
+.form-group input:focus, .form-group select:focus{border-color:#ff5722}
+.form-group input::placeholder{color:rgba(255,255,255,0.3)}
+.form-group select option{background:#1a0f0a}
+.submit-btn{width:100%;background:#ff5722;color:#fff;border:none;padding:0.9rem;border-radius:8px;font-family:'Heebo',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;margin-top:0.5rem;transition:all 0.2s;letter-spacing:0.5px}
+.submit-btn:hover{background:#e64a19;transform:translateY(-1px)}
+
+.social-proof{background:#1a0f0a;padding:2.5rem 5%;display:flex;justify-content:space-around;flex-wrap:wrap;gap:1.5rem;border-top:1px solid rgba(255,87,34,0.15)}
+.proof-item{text-align:center}
+.proof-num{font-size:2rem;font-weight:900;color:#ff5722}
+.proof-label{font-size:0.85rem;color:rgba(255,255,255,0.55);margin-top:0.2rem}
+
+.benefits{padding:5rem 5%}
+.section-title{font-size:1.9rem;font-weight:800;color:#fff;margin-bottom:0.5rem}
+.orange-line{width:40px;height:3px;background:#ff5722;border-radius:2px;margin-bottom:2.5rem}
+.benefits-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
+.benefit-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:1.8rem;display:flex;gap:1.2rem;align-items:flex-start;transition:border-color 0.3s}
+.benefit-card:hover{border-color:rgba(255,87,34,0.3)}
+.benefit-icon{font-size:2rem;flex-shrink:0}
+.benefit-card h3{font-size:1rem;font-weight:700;color:#fff;margin-bottom:0.4rem}
+.benefit-card p{font-size:0.85rem;color:rgba(255,255,255,0.5);line-height:1.6}
+
+.offer-box{margin:0 5%;background:linear-gradient(135deg,#ff5722,#e64a19);border-radius:16px;padding:3rem;text-align:center;position:relative;overflow:hidden}
+.offer-box::before{content:'';position:absolute;top:-30px;left:-30px;width:150px;height:150px;background:rgba(255,255,255,0.05);border-radius:50%}
+.offer-badge{background:rgba(255,255,255,0.2);color:#fff;display:inline-block;padding:0.4rem 1.2rem;border-radius:20px;font-size:0.78rem;font-weight:700;letter-spacing:1px;margin-bottom:1rem}
+.offer-box h2{font-size:1.8rem;font-weight:900;color:#fff;margin-bottom:0.7rem}
+.offer-box p{color:rgba(255,255,255,0.85);font-size:1rem;margin-bottom:1.5rem}
+.offer-price{font-size:3rem;font-weight:900;color:#fff;margin-bottom:1.5rem}
+.offer-price span{font-size:1rem;opacity:0.7;font-weight:400}
+.offer-btn{background:#fff;color:#ff5722;border:none;padding:0.85rem 2.5rem;border-radius:30px;font-family:'Heebo',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;transition:all 0.2s}
+.offer-btn:hover{transform:scale(1.03)}
+
+.testimonials{padding:5rem 5%}
+.testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem}
+.testi-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:1.8rem}
+.testi-stars{color:#ff5722;font-size:1rem;margin-bottom:0.8rem}
+.testi-text{font-size:0.92rem;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:1rem;font-style:italic}
+.testi-name{font-weight:700;color:#ff5722;font-size:0.85rem}
+
+.cta-repeat{padding:5rem 5%;text-align:center;background:#0d0d0d}
+.cta-repeat h2{font-size:2rem;font-weight:800;margin-bottom:0.7rem}
+.cta-repeat p{color:rgba(255,255,255,0.55);margin-bottom:2.5rem}
+.inline-form{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;max-width:600px;margin:0 auto}
+.inline-form input{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:0.8rem 1.2rem;color:#fff;font-family:'Heebo',sans-serif;font-size:0.9rem;flex:1;min-width:180px;outline:none}
+.inline-form input::placeholder{color:rgba(255,255,255,0.35)}
+
+footer{background:#070707;padding:2rem 5%;text-align:center;color:rgba(255,255,255,0.25);font-size:0.82rem;border-top:1px solid rgba(255,87,34,0.1)}
+footer span{color:#ff5722;font-weight:600}
+
+@media(max-width:768px){
+  .hero-text h1{font-size:2rem}
+  .hero-form{flex:1 1 100%}
+  .benefits-grid{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Fit<span>Life</span></div>
+  <div class="nav-phone">📞 03-9876543</div>
+  <button class="nav-cta">ניסיון חינם</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-tag">💪 אולם כושר · תל אביב</div>
+      <h1>תתחילו לחיות<br>את הגוף<br><span>שרציתם</span></h1>
+      <p>הצטרפו לאלפי חברים שכבר שינו את חייהם ב-FitLife Studio — מאמנים מוסמכים, ציוד מתקדם ואווירה שמניעה קדימה.</p>
+    </div>
+    <div class="hero-form">
+      <h3>קבלו שיעור ניסיון חינם</h3>
+      <form onsubmit="return false">
+        <div class="form-group">
+          <label>שם מלא</label>
+          <input type="text" placeholder="ישראל ישראלי">
+        </div>
+        <div class="form-group">
+          <label>טלפון</label>
+          <input type="tel" placeholder="05X-XXXXXXX">
+        </div>
+        <div class="form-group">
+          <label>בחרו מסלול</label>
+          <select>
+            <option>מסלול בסיסי — ₪199/חודש</option>
+            <option>מסלול כולל שיעורים — ₪299/חודש</option>
+            <option>VIP + מאמן אישי — ₪499/חודש</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-btn">🔥 רשמו אותי לניסיון חינם</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="social-proof">
+  <div class="proof-item"><div class="proof-num">200+</div><div class="proof-label">חברים פעילים</div></div>
+  <div class="proof-item"><div class="proof-num">6</div><div class="proof-label">מאמנים מוסמכים</div></div>
+  <div class="proof-item"><div class="proof-num">3</div><div class="proof-label">סניפים</div></div>
+  <div class="proof-item"><div class="proof-num">4.9⭐</div><div class="proof-label">דירוג ממוצע</div></div>
+</div>
+
+<section class="benefits">
+  <div class="section-title">מה מחכה לכם כאן</div>
+  <div class="orange-line"></div>
+  <div class="benefits-grid">
+    <div class="benefit-card">
+      <div class="benefit-icon">🏋️</div>
+      <div><h3>שיעורים קבוצתיים</h3><p>50+ שיעורים שבועיים — זומבה, יוגה, ספינינג, קרוספיט ועוד</p></div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">💪</div>
+      <div><h3>אזור משקולות</h3><p>ציוד חדש ומתקדם, 3 אזורי אימון נפרדים ומרחב מאווש</p></div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">👟</div>
+      <div><h3>מאמן אישי</h3><p>ליווי מקצועי אחד על אחד עם תוכנית אימון מותאמת אישית</p></div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">🥗</div>
+      <div><h3>תזונאי קליני</h3><p>ייעוץ תזונה כחלק מהמנוי — כי כושר מתחיל מהצלחת</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="offer-box">
+  <div class="offer-badge">⚡ מבצע מוגבל</div>
+  <h2>הצטרפו עכשיו — 3 חודשים במחיר 2</h2>
+  <p>מבצע מיוחד לנרשמים החודש בלבד — שלמו על 2, קבלו 3</p>
+  <div class="offer-price">₪398 <span>במקום ₪597</span></div>
+  <button class="offer-btn">אני רוצה את המבצע!</button>
+</div>
+
+<section class="testimonials">
+  <div class="section-title">מה אומרים החברים</div>
+  <div class="orange-line"></div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"הצטרפתי לפני שנה ושינה לי את החיים. ירדתי 12 ק"ג, התחזקתי ומצאתי חברים נפלאים. המאמן אסף הוא פשוט מדהים!"</p>
+      <div class="testi-name">— ליאת מ., תל אביב</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"ניסיתי הרבה אולמות כושר בעיר — FitLife הוא פשוט אחר. הציוד, המאמנים והאווירה — הכל ברמה אחרת לגמרי."</p>
+      <div class="testi-name">— רן ד., יפו</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-repeat">
+  <h2>מוכנים להתחיל?</h2>
+  <p>השאירו פרטים ונחזור אליכם לתיאום שיעור ניסיון חינם</p>
+  <form onsubmit="return false">
+    <div class="inline-form">
+      <input type="text" placeholder="שם מלא">
+      <input type="tel" placeholder="טלפון">
+      <button type="submit" class="submit-btn" style="width:auto;flex:0 0 auto;padding:0.8rem 1.5rem;border-radius:8px">שליחה</button>
+    </div>
+  </form>
+</section>
+
+<footer>
+  <p>© 2025 FitLife Studio | כל הזכויות שמורות | נבנה על ידי <span>VELO DIGITAL</span></p>
+</footer>
+
+</body>
+</html>

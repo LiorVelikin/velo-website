@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GlowBar | קוסמטיקה ויופי</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,400&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Heebo',sans-serif;background:#1a0a14;color:#fff;direction:rtl}
+a{text-decoration:none;color:inherit}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(26,10,20,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(232,160,191,0.15);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:66px}
+.nav-logo{font-family:'Playfair Display',serif;font-style:italic;font-size:1.6rem;color:#e8a0bf}
+.nav-phone{color:rgba(255,255,255,0.55);font-size:0.88rem}
+.nav-cta{background:#e8a0bf;color:#1a0a14;border:none;padding:0.5rem 1.4rem;border-radius:30px;font-family:'Heebo',sans-serif;font-size:0.85rem;font-weight:700;cursor:pointer;transition:all 0.2s}
+.nav-cta:hover{background:#f0b8d0}
+
+.hero{background:linear-gradient(160deg,#1a0a14 0%,#2d1022 60%,#1a0a14 100%);padding:6rem 5% 5rem;min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;left:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(232,160,191,0.06) 0%,transparent 70%)}
+.hero::after{content:'';position:absolute;bottom:-10%;right:-5%;width:400px;height:400px;background:radial-gradient(circle,rgba(232,160,191,0.04) 0%,transparent 70%)}
+.hero-inner{display:flex;gap:4rem;align-items:center;width:100%;flex-wrap:wrap;position:relative}
+.hero-text{flex:1;min-width:280px}
+.hero-badge{display:inline-block;background:rgba(232,160,191,0.1);border:1px solid rgba(232,160,191,0.25);color:#e8a0bf;padding:0.4rem 1.2rem;border-radius:30px;font-size:0.78rem;font-weight:600;letter-spacing:1px;margin-bottom:1.8rem}
+.hero-text h1{font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;line-height:1.25;margin-bottom:1.2rem;color:#fff}
+.hero-text h1 em{font-style:italic;color:#e8a0bf}
+.hero-text p{color:rgba(255,255,255,0.6);font-size:1rem;line-height:1.8;margin-bottom:2rem;max-width:460px}
+.hero-form{background:rgba(255,255,255,0.04);border:1px solid rgba(232,160,191,0.2);border-radius:20px;padding:2.2rem;flex:0 0 350px;backdrop-filter:blur(10px)}
+.hero-form h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:#fff;margin-bottom:0.4rem}
+.hero-form p{font-size:0.82rem;color:rgba(255,255,255,0.5);margin-bottom:1.8rem}
+.form-group{margin-bottom:1rem}
+.form-group label{display:block;font-size:0.8rem;color:rgba(255,255,255,0.55);margin-bottom:0.4rem;font-weight:500}
+.form-group input, .form-group select{width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(232,160,191,0.2);border-radius:10px;padding:0.75rem 1rem;color:#fff;font-family:'Heebo',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s}
+.form-group input:focus,.form-group select:focus{border-color:#e8a0bf}
+.form-group input::placeholder{color:rgba(255,255,255,0.3)}
+.form-group select option{background:#2d1022}
+.submit-btn{width:100%;background:linear-gradient(135deg,#e8a0bf,#d480a5);color:#fff;border:none;padding:0.9rem;border-radius:10px;font-family:'Heebo',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;margin-top:0.5rem;transition:all 0.2s;letter-spacing:0.5px}
+.submit-btn:hover{opacity:0.9;transform:translateY(-1px)}
+
+.treatments{padding:5rem 5%;background:#1a0a14}
+.section-title{font-family:'Playfair Display',serif;font-size:2rem;color:#fff;margin-bottom:0.5rem}
+.pink-line{width:40px;height:2px;background:#e8a0bf;border-radius:2px;margin-bottom:2.5rem}
+.treatments-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.treatment-card{background:rgba(232,160,191,0.05);border:1px solid rgba(232,160,191,0.12);border-radius:16px;padding:1.8rem;text-align:center;transition:all 0.3s}
+.treatment-card:hover{border-color:rgba(232,160,191,0.4);transform:translateY(-3px);background:rgba(232,160,191,0.08)}
+.treatment-icon{font-size:2.5rem;margin-bottom:0.8rem}
+.treatment-card h3{font-size:0.95rem;font-weight:700;color:#fff;margin-bottom:0.5rem}
+.treatment-card p{font-size:0.8rem;color:rgba(255,255,255,0.5);line-height:1.6}
+
+.before-after{padding:5rem 5%;background:#120810}
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem;max-width:700px;margin-right:0}
+.ba-box{border-radius:12px;height:200px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;position:relative;overflow:hidden}
+.ba-before{background:linear-gradient(135deg,#4a4a4a,#2a2a2a)}
+.ba-after{background:linear-gradient(135deg,#4a2030,#8b3060)}
+.ba-label{background:rgba(0,0,0,0.5);padding:0.3rem 0.8rem;border-radius:20px;font-size:0.82rem;color:#fff}
+
+.testimonials{padding:5rem 5%;background:#1a0a14}
+.testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem}
+.testi-card{background:rgba(232,160,191,0.04);border:1px solid rgba(232,160,191,0.12);border-radius:16px;padding:2rem;position:relative}
+.testi-card::before{content:'"';font-family:'Playfair Display',serif;font-size:5rem;color:rgba(232,160,191,0.15);position:absolute;top:-10px;right:20px;line-height:1}
+.testi-text{font-size:0.92rem;color:rgba(255,255,255,0.7);line-height:1.75;margin-bottom:1rem;font-style:italic}
+.testi-name{font-weight:700;color:#e8a0bf;font-size:0.85rem}
+
+.offer-section{margin:0 5% 5rem;background:linear-gradient(135deg,rgba(232,160,191,0.1),rgba(232,160,191,0.05));border:1px solid rgba(232,160,191,0.2);border-radius:20px;padding:3rem;text-align:center}
+.offer-tag{background:#e8a0bf;color:#1a0a14;display:inline-block;padding:0.4rem 1.2rem;border-radius:20px;font-size:0.8rem;font-weight:700;margin-bottom:1rem}
+.offer-section h2{font-family:'Playfair Display',serif;font-size:2rem;color:#fff;margin-bottom:0.7rem}
+.offer-section p{color:rgba(255,255,255,0.6);margin-bottom:1.5rem}
+.offer-price-box{display:inline-flex;align-items:center;gap:1rem;margin-bottom:2rem}
+.old-price{font-size:1.2rem;color:rgba(255,255,255,0.35);text-decoration:line-through}
+.new-price{font-size:2.5rem;font-weight:900;color:#e8a0bf}
+
+.cta-repeat{padding:5rem 5%;text-align:center}
+.cta-repeat h2{font-family:'Playfair Display',serif;font-size:1.8rem;color:#fff;margin-bottom:0.7rem}
+.cta-repeat p{color:rgba(255,255,255,0.5);margin-bottom:2rem}
+.inline-form{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;max-width:600px;margin:0 auto}
+.inline-form input{background:rgba(255,255,255,0.06);border:1px solid rgba(232,160,191,0.2);border-radius:10px;padding:0.8rem 1.2rem;color:#fff;font-family:'Heebo',sans-serif;font-size:0.9rem;flex:1;min-width:180px;outline:none}
+.inline-form input::placeholder{color:rgba(255,255,255,0.3)}
+
+footer{background:#0d0608;padding:2rem 5%;text-align:center;color:rgba(255,255,255,0.25);font-size:0.82rem;border-top:1px solid rgba(232,160,191,0.08)}
+footer span{color:#e8a0bf;font-weight:600}
+
+@media(max-width:768px){
+  .hero-text h1{font-size:2rem}
+  .hero-form{flex:1 1 100%}
+  .treatments-grid{grid-template-columns:1fr 1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .ba-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">GlowBar</div>
+  <div class="nav-phone">📞 052-1234567</div>
+  <button class="nav-cta">קבעי תור</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">✨ סטודיו יופי · תל אביב</div>
+      <h1>היופי שלך,<br><em>המחוזק שלנו</em></h1>
+      <p>טיפולי פנים, עיצוב גבות, ציפורניים ועוד — בסטודיו מפנק בתל אביב. כי את מגיעה לטוב ביותר.</p>
+    </div>
+    <div class="hero-form">
+      <h3>קבעי תור עכשיו</h3>
+      <p>ונחזור אליך לאישור תוך שעה</p>
+      <form onsubmit="return false">
+        <div class="form-group">
+          <label>שם מלא</label>
+          <input type="text" placeholder="שמך">
+        </div>
+        <div class="form-group">
+          <label>טלפון</label>
+          <input type="tel" placeholder="05X-XXXXXXX">
+        </div>
+        <div class="form-group">
+          <label>סוג טיפול</label>
+          <select>
+            <option>טיפול פנים קלאסי</option>
+            <option>עיצוב גבות</option>
+            <option>ציפורניים ג'ל</option>
+            <option>הסרת שיער</option>
+            <option>טיפול Anti-Aging</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-btn">קבעי תור ✨</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="treatments">
+  <div class="section-title">הטיפולים שלנו</div>
+  <div class="pink-line"></div>
+  <div class="treatments-grid">
+    <div class="treatment-card">
+      <div class="treatment-icon">🌸</div>
+      <h3>טיפולי פנים</h3>
+      <p>ניקוי עמוק, הזנה ואנטי-אייג'ינג בטכנולוגיה מתקדמת</p>
+    </div>
+    <div class="treatment-card">
+      <div class="treatment-icon">💅</div>
+      <h3>ציפורניים</h3>
+      <p>ג'ל, אקריל, מניקור וגלרים מהקולקציות החדשות</p>
+    </div>
+    <div class="treatment-card">
+      <div class="treatment-icon">👁️</div>
+      <h3>עיצוב גבות</h3>
+      <p>עיצוב, ציבוע ולמינציה לגבות מושלמות שנמשכות שבועות</p>
+    </div>
+    <div class="treatment-card">
+      <div class="treatment-icon">✨</div>
+      <h3>הסרת שיער</h3>
+      <p>לייזר ושעווה לעור חלק ומטופח לאורך זמן</p>
+    </div>
+  </div>
+</section>
+
+<section class="before-after">
+  <div class="section-title">תוצאות שמדברות</div>
+  <div class="pink-line"></div>
+  <div class="ba-grid" style="margin-top:2.5rem">
+    <div class="ba-box ba-before">
+      <div class="ba-label">לפני הטיפול</div>
+    </div>
+    <div class="ba-box ba-after">
+      <div class="ba-label">אחרי הטיפול ✨</div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="section-title">לקוחות מספרות</div>
+  <div class="pink-line"></div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <p class="testi-text">באתי לטיפול פנים ראשוני ויצאתי לקוחה קבועה מאז שנה. העור שלי שינה לחלוטין — חברות שואלות אותי מה עשיתי!</p>
+      <div class="testi-name">— מיכל ר., תל אביב</div>
+    </div>
+    <div class="testi-card">
+      <p class="testi-text">עיצוב הגבות ב-GlowBar הוא הכי טוב שניסיתי בחיים. נראה טבעי, מושלם ומחזיק חודש שלם. לא מתחלפת!</p>
+      <div class="testi-name">— שירה כ., רמת גן</div>
+    </div>
+  </div>
+</section>
+
+<div class="offer-section">
+  <div class="offer-tag">🌹 מבצע מיוחד לנרשמות חדשות</div>
+  <h2>הטיפול הראשון בהנחה 30%</h2>
+  <p>מגיע לכל לקוחה חדשה — בקבעי תור השבוע</p>
+  <div class="offer-price-box">
+    <span class="old-price">₪350</span>
+    <span class="new-price">₪245</span>
+  </div>
+  <br>
+  <button class="submit-btn" style="width:auto;padding:0.85rem 2.5rem">אני רוצה את ההנחה!</button>
+</div>
+
+<section class="cta-repeat">
+  <h2>מוכנות לגלות את הגרסה הטובה ביותר שלכן?</h2>
+  <p>השאירו פרטים ונחזור אליכן לתיאום תור</p>
+  <form onsubmit="return false">
+    <div class="inline-form">
+      <input type="text" placeholder="שם מלא">
+      <input type="tel" placeholder="טלפון">
+      <button type="submit" class="submit-btn" style="width:auto;flex:0 0 auto;padding:0.8rem 1.5rem;border-radius:10px">שליחה</button>
+    </div>
+  </form>
+</section>
+
+<footer>
+  <p>© 2025 GlowBar | קוסמטיקה ויופי | נבנה על ידי <span>VELO DIGITAL</span></p>
+</footer>
+
+</body>
+</html>

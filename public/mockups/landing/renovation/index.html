@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ProHome | שיפוצים ובנייה</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Heebo',sans-serif;background:#0f1923;color:#fff;direction:rtl}
+a{text-decoration:none;color:inherit}
+
+nav{position:sticky;top:0;z-index:100;background:#0a1218;border-bottom:2px solid #ffd700;padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-logo{display:flex;align-items:center;gap:0.6rem}
+.nav-logo-text{font-size:1.5rem;font-weight:900;color:#fff}
+.nav-logo-text span{color:#ffd700}
+.nav-phone{color:rgba(255,255,255,0.65);font-size:0.9rem}
+.nav-phone strong{color:#ffd700}
+.nav-cta{background:#ffd700;color:#0a1218;border:none;padding:0.55rem 1.4rem;border-radius:6px;font-family:'Heebo',sans-serif;font-size:0.88rem;font-weight:800;cursor:pointer;transition:all 0.2s}
+.nav-cta:hover{background:#ffe433}
+
+.hero{background:linear-gradient(160deg,#0a1218 0%,#0f1923 50%,#0a1520 100%);padding:6rem 5% 5rem;min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#ffd700,transparent)}
+.hero-inner{display:flex;gap:4rem;align-items:flex-start;width:100%;flex-wrap:wrap}
+.hero-text{flex:1;min-width:280px;padding-top:1rem}
+.hero-badge{background:rgba(255,215,0,0.12);border:1px solid rgba(255,215,0,0.3);color:#ffd700;display:inline-block;padding:0.4rem 1.1rem;border-radius:6px;font-size:0.78rem;font-weight:700;letter-spacing:1px;margin-bottom:1.5rem;text-transform:uppercase}
+.hero-text h1{font-size:2.6rem;font-weight:900;line-height:1.2;margin-bottom:1.2rem;color:#fff}
+.hero-text h1 em{color:#ffd700;font-style:normal}
+.hero-text p{color:rgba(255,255,255,0.6);font-size:1rem;line-height:1.7;margin-bottom:2rem;max-width:440px}
+.hero-bullets{list-style:none;margin-bottom:2rem}
+.hero-bullets li{display:flex;align-items:center;gap:0.8rem;font-size:0.95rem;color:rgba(255,255,255,0.8);margin-bottom:0.75rem}
+.check{color:#ffd700;font-weight:900;font-size:1.1rem}
+.hero-form{background:rgba(255,255,255,0.04);border:1px solid rgba(255,215,0,0.2);border-radius:12px;padding:2rem;flex:0 0 360px}
+.hero-form h3{font-size:1.1rem;font-weight:700;color:#ffd700;margin-bottom:0.4rem}
+.hero-form p{font-size:0.82rem;color:rgba(255,255,255,0.5);margin-bottom:1.5rem}
+.form-group{margin-bottom:0.9rem}
+.form-group label{display:block;font-size:0.8rem;color:rgba(255,255,255,0.55);margin-bottom:0.35rem;font-weight:500}
+.form-group input, .form-group select{width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:0.7rem 1rem;color:#fff;font-family:'Heebo',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s}
+.form-group input:focus,.form-group select:focus{border-color:#ffd700}
+.form-group input::placeholder{color:rgba(255,255,255,0.3)}
+.form-group select option{background:#0f1923}
+.submit-btn{width:100%;background:#ffd700;color:#0a1218;border:none;padding:0.9rem;border-radius:6px;font-family:'Heebo',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;margin-top:0.5rem;transition:all 0.2s}
+.submit-btn:hover{background:#ffe433}
+
+.project-types{padding:5rem 5%;background:#0a1218}
+.section-title{font-size:1.9rem;font-weight:800;color:#fff;margin-bottom:0.5rem}
+.yellow-line{width:40px;height:3px;background:#ffd700;border-radius:2px;margin-bottom:2.5rem}
+.types-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.type-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,215,0,0.1);border-radius:10px;padding:1.8rem;text-align:center;transition:all 0.3s}
+.type-card:hover{border-color:#ffd700;background:rgba(255,215,0,0.05)}
+.type-icon{font-size:2.5rem;margin-bottom:0.8rem}
+.type-card h3{font-size:0.95rem;font-weight:700;color:#fff;margin-bottom:0.4rem}
+.type-card p{font-size:0.8rem;color:rgba(255,255,255,0.45);line-height:1.5}
+
+.why-us{padding:5rem 5%;background:#0f1923}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.why-card{background:rgba(255,215,0,0.04);border:1px solid rgba(255,215,0,0.12);border-radius:10px;padding:2rem;text-align:center}
+.why-num{font-size:3rem;font-weight:900;color:#ffd700;margin-bottom:0.5rem}
+.why-card h3{font-size:1rem;font-weight:700;color:#fff;margin-bottom:0.5rem}
+.why-card p{font-size:0.85rem;color:rgba(255,255,255,0.5);line-height:1.6}
+
+.gallery{padding:5rem 5%;background:#0a1218}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2.5rem}
+.gallery-item{border-radius:10px;height:160px;display:flex;align-items:flex-end;padding:0.8rem;position:relative;overflow:hidden}
+.gallery-item:nth-child(1){background:linear-gradient(135deg,#1a2a1a,#2a4a2a)}
+.gallery-item:nth-child(2){background:linear-gradient(135deg,#1a1a2e,#2e2e4e)}
+.gallery-item:nth-child(3){background:linear-gradient(135deg,#2a1a0a,#4a3010)}
+.gallery-item:nth-child(4){background:linear-gradient(135deg,#1a1a1a,#3a3a3a)}
+.gallery-label{background:rgba(0,0,0,0.6);padding:0.3rem 0.7rem;border-radius:4px;font-size:0.78rem;font-weight:600;color:#ffd700}
+
+.cta-section{background:linear-gradient(135deg,#ffd700,#e6c200);padding:5rem 5%;text-align:center}
+.cta-section h2{font-size:2rem;font-weight:900;color:#0a1218;margin-bottom:0.7rem}
+.cta-section p{color:rgba(10,18,24,0.7);margin-bottom:2rem}
+.cta-btn-dark{background:#0a1218;color:#ffd700;border:none;padding:0.9rem 2.5rem;border-radius:6px;font-family:'Heebo',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;transition:all 0.2s}
+.cta-btn-dark:hover{background:#1a2530}
+
+footer{background:#060c10;padding:2rem 5%;text-align:center;color:rgba(255,255,255,0.25);font-size:0.82rem;border-top:1px solid rgba(255,215,0,0.08)}
+footer span{color:#ffd700;font-weight:600}
+
+@media(max-width:768px){
+  .hero-text h1{font-size:1.9rem}
+  .hero-form{flex:1 1 100%}
+  .types-grid{grid-template-columns:1fr 1fr}
+  .why-grid{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="#ffd700"><path d="M12 2l2 4h4l-3 3 1 4-4-2-4 2 1-4-3-3h4z"/></svg>
+    <div class="nav-logo-text">Pro<span>Home</span></div>
+  </div>
+  <div class="nav-phone"><strong>📞 03-7654321</strong></div>
+  <button class="nav-cta">קבלו הצעת מחיר</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">🏗️ שיפוצים ובנייה מקצועית</div>
+      <h1>שיפוץ הבית שחלמתם עליו —<br><em>מקצועי, בזמן, במחיר</em></h1>
+      <p>20 שנות ניסיון בשיפוץ דירות ובתים ברחבי המרכז. ערבות לעבודה, מחיר שקוף ולוח זמנים מדויק.</p>
+      <ul class="hero-bullets">
+        <li><span class="check">✓</span> הצעת מחיר חינם ומחייבת תוך 24 שעות</li>
+        <li><span class="check">✓</span> ערבות בנקאית לביצוע הפרויקט</li>
+        <li><span class="check">✓</span> ניהול פרויקט מקצה לקצה עם מנהל עבודה</li>
+      </ul>
+    </div>
+    <div class="hero-form">
+      <h3>🔨 קבלו הצעת מחיר חינם</h3>
+      <p>ממלאים פרטים, אנחנו מגיעים אליכם</p>
+      <form onsubmit="return false">
+        <div class="form-group">
+          <label>שם מלא</label>
+          <input type="text" placeholder="ישראל ישראלי">
+        </div>
+        <div class="form-group">
+          <label>טלפון</label>
+          <input type="tel" placeholder="05X-XXXXXXX">
+        </div>
+        <div class="form-group">
+          <label>סוג עבודה</label>
+          <select>
+            <option>שיפוץ מלא</option>
+            <option>מטבח</option>
+            <option>חדר אמבטיה</option>
+            <option>ריצוף וחיפוי</option>
+            <option>אחר</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>גודל דירה / שטח</label>
+          <select>
+            <option>עד 80 מ"ר</option>
+            <option>80–120 מ"ר</option>
+            <option>120–200 מ"ר</option>
+            <option>מעל 200 מ"ר</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-btn">שליחה — קבלו הצעה</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="project-types">
+  <div class="section-title">סוגי פרויקטים</div>
+  <div class="yellow-line"></div>
+  <div class="types-grid">
+    <div class="type-card">
+      <div class="type-icon">🏠</div>
+      <h3>שיפוץ מלא</h3>
+      <p>חידוש מקצה לקצה כולל תכנון ועיצוב פנים</p>
+    </div>
+    <div class="type-card">
+      <div class="type-icon">🍽️</div>
+      <h3>מטבחים</h3>
+      <p>מטבחים מעוצבים ומותאמים אישית, כולל נגרות</p>
+    </div>
+    <div class="type-card">
+      <div class="type-icon">🚿</div>
+      <h3>חדרי אמבטיה</h3>
+      <p>שיפוץ אמבטיות מודרני עם חומרים איכותיים</p>
+    </div>
+    <div class="type-card">
+      <div class="type-icon">🪟</div>
+      <h3>ריצוף וחיפוי</h3>
+      <p>ריצוף, חיפוי קירות ועבודות גבס מקצועיות</p>
+    </div>
+  </div>
+</section>
+
+<section class="why-us">
+  <div class="section-title">למה ProHome?</div>
+  <div class="yellow-line"></div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-num">20</div>
+      <h3>שנות ניסיון</h3>
+      <p>מאות פרויקטים מוצלחים ולקוחות שחוזרים שוב ושוב</p>
+    </div>
+    <div class="why-card">
+      <div class="why-num">✓</div>
+      <h3>ערבות לעבודה</h3>
+      <p>ערבות בנקאית + ביטוח אחריות מלאה על כל עבודה</p>
+    </div>
+    <div class="why-card">
+      <div class="why-num">₪</div>
+      <h3>מחיר שקוף</h3>
+      <p>הצעת מחיר מפורטת, ללא הפתעות וללא תוספות</p>
+    </div>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="section-title">פרויקטים שביצענו</div>
+  <div class="yellow-line"></div>
+  <div class="gallery-grid">
+    <div class="gallery-item"><div class="gallery-label">שיפוץ מלא — ת"א</div></div>
+    <div class="gallery-item"><div class="gallery-label">מטבח מעוצב — רמת גן</div></div>
+    <div class="gallery-item"><div class="gallery-label">אמבטיה — הרצליה</div></div>
+    <div class="gallery-item"><div class="gallery-label">ריצוף — פ"ת</div></div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>מוכנים להתחיל את הפרויקט שלכם?</h2>
+  <p>פנו עכשיו וקבלו הצעת מחיר חינם תוך 24 שעות</p>
+  <button class="cta-btn-dark">קבלו הצעת מחיר חינם</button>
+</section>
+
+<footer>
+  <p>© 2025 ProHome | שיפוצים ובנייה | נבנה על ידי <span>VELO DIGITAL</span></p>
+</footer>
+
+</body>
+</html>

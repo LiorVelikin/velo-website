@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>נווה הירוק | פרויקט מגורים יוקרתי ברמת גן</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Heebo',sans-serif;background:#101c10;color:#fff;direction:rtl}
+a{text-decoration:none;color:inherit}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(16,28,16,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,168,76,0.2);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{font-size:1.3rem;font-weight:800;color:#fff}
+.nav-logo span{color:#c9a84c}
+.nav-phone{color:rgba(255,255,255,0.7);font-size:0.9rem;direction:ltr}
+.nav-phone strong{color:#c9a84c}
+.nav-cta{background:#c9a84c;color:#101c10;border:none;padding:0.5rem 1.2rem;border-radius:4px;font-family:'Heebo',sans-serif;font-size:0.85rem;font-weight:700;cursor:pointer}
+
+.hero{background:linear-gradient(135deg,#0a1a0a 0%,#1a2a1a 50%,#0f200f 100%);padding:6rem 5% 5rem;min-height:100vh;display:flex;align-items:center}
+.hero-inner{display:flex;gap:4rem;align-items:center;width:100%;flex-wrap:wrap}
+.hero-text{flex:1;min-width:280px}
+.hero-label{display:inline-block;background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.4);color:#c9a84c;padding:0.4rem 1rem;border-radius:4px;font-size:0.8rem;font-weight:600;letter-spacing:1px;margin-bottom:1.5rem}
+.hero-text h1{font-size:2.8rem;font-weight:900;line-height:1.2;margin-bottom:1rem;color:#fff}
+.hero-text h1 span{color:#c9a84c}
+.hero-text .sub{font-size:1rem;color:rgba(255,255,255,0.65);margin-bottom:2rem;line-height:1.7}
+.hero-bullets{list-style:none;margin-bottom:2rem}
+.hero-bullets li{display:flex;align-items:center;gap:0.7rem;font-size:0.95rem;color:rgba(255,255,255,0.85);margin-bottom:0.7rem}
+.bullet-dot{width:8px;height:8px;background:#c9a84c;border-radius:50%;flex-shrink:0}
+.hero-form-card{background:rgba(255,255,255,0.06);border:1px solid rgba(201,168,76,0.25);border-radius:16px;padding:2rem;flex:0 0 340px;backdrop-filter:blur(10px)}
+.hero-form-card h3{font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:0.4rem}
+.hero-form-card p{font-size:0.82rem;color:rgba(255,255,255,0.55);margin-bottom:1.5rem}
+.form-group{margin-bottom:1rem}
+.form-group label{display:block;font-size:0.82rem;color:rgba(255,255,255,0.65);margin-bottom:0.4rem;font-weight:500}
+.form-group input, .form-group select{width:100%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:0.7rem 1rem;color:#fff;font-family:'Heebo',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s}
+.form-group input:focus, .form-group select:focus{border-color:#c9a84c}
+.form-group input::placeholder{color:rgba(255,255,255,0.35)}
+.form-group select option{background:#1a2a1a;color:#fff}
+.submit-btn{width:100%;background:#c9a84c;color:#101c10;border:none;padding:0.85rem;border-radius:8px;font-family:'Heebo',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;margin-top:0.5rem;transition:all 0.2s}
+.submit-btn:hover{background:#e0bc5e}
+.form-note{font-size:0.75rem;color:rgba(255,255,255,0.4);text-align:center;margin-top:0.7rem}
+
+.highlights{background:#1a2a1a;padding:2.5rem 5%;display:flex;justify-content:space-around;flex-wrap:wrap;gap:1.5rem;border-top:2px solid rgba(201,168,76,0.2)}
+.highlight-item{text-align:center}
+.highlight-num{font-size:1.8rem;font-weight:900;color:#c9a84c}
+.highlight-label{font-size:0.85rem;color:rgba(255,255,255,0.65);margin-top:0.2rem}
+
+.features{padding:5rem 5%}
+.section-title{font-size:1.8rem;font-weight:800;color:#fff;margin-bottom:0.5rem}
+.gold-line{width:40px;height:3px;background:#c9a84c;border-radius:2px;margin-bottom:2.5rem}
+.features-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
+.feature-card{background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.15);border-radius:12px;padding:1.8rem;transition:border-color 0.3s}
+.feature-card:hover{border-color:rgba(201,168,76,0.4)}
+.feature-icon{font-size:2rem;margin-bottom:0.8rem}
+.feature-card h3{font-size:1rem;font-weight:700;color:#fff;margin-bottom:0.4rem}
+.feature-card p{font-size:0.85rem;color:rgba(255,255,255,0.55);line-height:1.6}
+
+.testimonial-section{background:#1a2a1a;padding:5rem 5%;text-align:center}
+.testi-quote{font-size:1.15rem;color:rgba(255,255,255,0.8);font-style:italic;line-height:1.8;max-width:600px;margin:2rem auto}
+.testi-quote::before{content:'"';font-size:4rem;color:#c9a84c;line-height:0.5;display:block;margin-bottom:1rem;font-style:normal}
+.testi-name{color:#c9a84c;font-weight:700;margin-top:1.5rem}
+
+.form-repeat{padding:5rem 5%;background:linear-gradient(135deg,#0a1a0a,#1a2a1a);text-align:center}
+.form-repeat h2{font-size:2rem;font-weight:800;color:#fff;margin-bottom:0.7rem}
+.form-repeat p{color:rgba(255,255,255,0.6);margin-bottom:2.5rem}
+.inline-form{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;max-width:700px;margin:0 auto}
+.inline-form input{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:0.8rem 1.2rem;color:#fff;font-family:'Heebo',sans-serif;font-size:0.9rem;flex:1;min-width:180px;outline:none}
+.inline-form input::placeholder{color:rgba(255,255,255,0.4)}
+
+footer{background:#060f06;padding:2rem 5%;text-align:center;color:rgba(255,255,255,0.3);font-size:0.82rem;border-top:1px solid rgba(201,168,76,0.1)}
+footer span{color:#c9a84c;font-weight:600}
+
+@media(max-width:768px){
+  .hero{padding:4rem 5%}
+  .hero-text h1{font-size:1.9rem}
+  .hero-form-card{flex:1 1 100%}
+  .features-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">נווה <span>הירוק</span></div>
+  <div class="nav-phone"><strong>☎ 03-1234567</strong></div>
+  <button class="nav-cta">השאירו פרטים</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-label">🌿 פרויקט יוקרה חדש · רמת גן</div>
+      <h1>נווה הירוק —<br>חיים בלב הטבע,<br><span>לב רמת גן</span></h1>
+      <p class="sub">דירות 3-5 חדרים מ-₪1,850,000 | מסירה 2027<br>פרויקט מגורים בוטיק עם דגש על איכות חיים, טבע ועיצוב</p>
+      <ul class="hero-bullets">
+        <li><span class="bullet-dot"></span>דירות מרווחות 3-5 חדרים עם מרפסות גדולות</li>
+        <li><span class="bullet-dot"></span>מחיר השקה מיוחד — מוגבל ל-30 רוכשים ראשונים</li>
+        <li><span class="bullet-dot"></span>גינות ירוקות, בריכה ומתחם ספא פרטי לדיירים</li>
+      </ul>
+      <button class="submit-btn" style="width:auto;padding:0.85rem 2rem;display:inline-block">👇 להשאיר פרטים ולקבל מחירון</button>
+    </div>
+    <div class="hero-form-card">
+      <h3>רוצים לקבל פרטים?</h3>
+      <p>השאירו פרטים ונחזור אליכם תוך שעה</p>
+      <form onsubmit="return false">
+        <div class="form-group">
+          <label>שם מלא</label>
+          <input type="text" placeholder="ישראל ישראלי">
+        </div>
+        <div class="form-group">
+          <label>טלפון</label>
+          <input type="tel" placeholder="05X-XXXXXXX">
+        </div>
+        <div class="form-group">
+          <label>מספר חדרים מבוקש</label>
+          <select>
+            <option>3 חדרים</option>
+            <option>4 חדרים</option>
+            <option>5 חדרים</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-btn">שליחה — קבלו מחירון</button>
+        <p class="form-note">🔒 הפרטים שלכם מוגנים ולא יועברו לצד שלישי</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="highlights">
+  <div class="highlight-item"><div class="highlight-num">3-5</div><div class="highlight-label">חדרים לבחירה</div></div>
+  <div class="highlight-item"><div class="highlight-num">2027</div><div class="highlight-label">מסירה מתוכננת</div></div>
+  <div class="highlight-item"><div class="highlight-num">₪1,850,000</div><div class="highlight-label">מחיר השקה</div></div>
+  <div class="highlight-item"><div class="highlight-num">🌿</div><div class="highlight-label">פרויקט ירוק</div></div>
+</div>
+
+<section class="features">
+  <div class="section-title">מה כולל הפרויקט</div>
+  <div class="gold-line"></div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🏊</div>
+      <h3>בריכה ומתחם ספא</h3>
+      <p>בריכת שחייה חממה, ג'קוזי, סאונה ואזור ישיבה מפנק לדיירי הבניין</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🚗</div>
+      <h3>חניות תת-קרקעיות</h3>
+      <p>חניון מאובטח עם שני מקומות חנייה לכל דירה, כולל עמדות טעינה לרכב חשמלי</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🌅</div>
+      <h3>נוף פתוח</h3>
+      <p>כל הדירות נהנות מנוף פתוח לפארק, עם מרפסות מרווחות ואוויר צח</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🌳</div>
+      <h3>גינות ירוקות</h3>
+      <p>3,000 מ"ר של גינות מטופחות, פינות משחק לילדים ומסלול ריצה פנימי</p>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial-section">
+  <div class="section-title">מה אומרים הרוכשים</div>
+  <div class="gold-line" style="margin:0.5rem auto 0"></div>
+  <div class="testi-quote">
+    רכשנו דירה בנווה הירוק בשלב ההשקה ולא יכולנו לפספס. הצוות המקצועי, המחיר ההוגן והתכנון הירוק הפך את החלטת הרכישה לפשוטה ביותר שעשינו.
+  </div>
+  <div class="testi-name">— משפחת כץ, רוכשים בפרויקט</div>
+</section>
+
+<section class="form-repeat">
+  <h2>מוכנים לקבל מחירון?</h2>
+  <p>מלאו פרטים ונחזור אליכם תוך שעה</p>
+  <form onsubmit="return false">
+    <div class="inline-form">
+      <input type="text" placeholder="שם מלא">
+      <input type="tel" placeholder="טלפון">
+      <button type="submit" class="submit-btn" style="width:auto;flex:0 0 auto;padding:0.8rem 1.5rem">שליחה</button>
+    </div>
+  </form>
+</section>
+
+<footer>
+  <p>© 2025 נווה הירוק | פרויקט מגורים יוקרתי ברמת גן | נבנה על ידי <span>VELO DIGITAL</span></p>
+</footer>
+
+</body>
+</html>

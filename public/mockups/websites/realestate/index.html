@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prime Properties | נדל"ן פרמיום</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Heebo',sans-serif;background:#f9f7f4;color:#1a1a2e;direction:rtl}
+a{text-decoration:none;color:inherit}
+
+nav{position:sticky;top:0;z-index:100;background:#0f1923;padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:72px;box-shadow:0 2px 20px rgba(0,0,0,0.3)}
+.nav-logo{display:flex;align-items:center;gap:0.5rem}
+.logo-bar{width:4px;height:32px;background:#c9a84c;border-radius:2px}
+.logo-text{font-size:1.6rem;font-weight:900;color:#fff;letter-spacing:2px}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:0.88rem;font-weight:500;color:rgba(255,255,255,0.75);transition:color 0.2s;letter-spacing:0.5px}
+.nav-links a:hover{color:#c9a84c}
+.nav-cta{background:#c9a84c;color:#0f1923;border:none;padding:0.55rem 1.4rem;border-radius:4px;font-family:'Heebo',sans-serif;font-size:0.88rem;font-weight:700;cursor:pointer;transition:all 0.2s;letter-spacing:0.5px}
+.nav-cta:hover{background:#e0bc5e}
+
+.hero{background:linear-gradient(135deg,#0f1923 0%,#1a2d3f 100%);padding:7rem 5%;min-height:580px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(201,168,76,0.08) 0%,transparent 60%)}
+.hero-badge{display:inline-block;background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);color:#c9a84c;padding:0.4rem 1.2rem;border-radius:20px;font-size:0.8rem;font-weight:600;letter-spacing:1px;margin-bottom:1.5rem}
+.hero h1{font-size:3.2rem;font-weight:900;color:#fff;line-height:1.2;margin-bottom:1.2rem;max-width:700px}
+.hero p{color:rgba(255,255,255,0.65);font-size:1.05rem;margin-bottom:3rem;max-width:500px}
+.search-bar{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:1.5rem;display:flex;gap:1rem;flex-wrap:wrap;align-items:center;justify-content:center;backdrop-filter:blur(10px);max-width:700px;width:100%}
+.search-bar select{background:#fff;border:none;padding:0.7rem 1rem;border-radius:8px;font-family:'Heebo',sans-serif;font-size:0.9rem;color:#1a1a2e;cursor:pointer;flex:1;min-width:150px}
+.search-btn{background:#c9a84c;color:#0f1923;border:none;padding:0.75rem 2rem;border-radius:8px;font-family:'Heebo',sans-serif;font-size:0.95rem;font-weight:700;cursor:pointer;transition:all 0.2s}
+.search-btn:hover{background:#e0bc5e}
+
+.listings{padding:5rem 5%}
+.section-title{font-size:2rem;font-weight:800;color:#0f1923;margin-bottom:0.5rem}
+.gold-line{width:50px;height:3px;background:#c9a84c;border-radius:2px;margin-bottom:2.5rem}
+.listings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.property-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.08);transition:all 0.3s}
+.property-card:hover{transform:translateY(-5px);box-shadow:0 12px 35px rgba(0,0,0,0.14)}
+.prop-img{height:180px;position:relative;display:flex;align-items:flex-end;padding:1rem}
+.prop-price{background:#c9a84c;color:#0f1923;font-weight:800;font-size:1.05rem;padding:0.4rem 0.9rem;border-radius:6px}
+.prop-body{padding:1.2rem}
+.prop-title{font-size:1rem;font-weight:700;color:#0f1923;margin-bottom:0.6rem}
+.prop-details{display:flex;gap:1rem;font-size:0.82rem;color:#6b7280;margin-bottom:1rem}
+.prop-tag{background:#f0ede6;color:#8a6f3a;font-size:0.75rem;font-weight:600;padding:0.3rem 0.7rem;border-radius:4px;display:inline-block;margin-bottom:1rem}
+.prop-btn{background:transparent;border:2px solid #c9a84c;color:#c9a84c;padding:0.5rem 1.2rem;border-radius:6px;font-family:'Heebo',sans-serif;font-size:0.88rem;font-weight:600;cursor:pointer;transition:all 0.2s;width:100%}
+.prop-btn:hover{background:#c9a84c;color:#0f1923}
+
+.about{background:#0f1923;padding:5rem 5%;display:flex;gap:5rem;align-items:center;flex-wrap:wrap}
+.about-text{flex:1;min-width:280px}
+.about-text h2{font-size:2rem;font-weight:800;color:#fff;margin-bottom:1rem}
+.about-text p{color:rgba(255,255,255,0.65);line-height:1.8;font-size:0.95rem}
+.about-stats{flex:0 0 300px;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.about-stat{text-align:center;background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.2);border-radius:12px;padding:1.5rem}
+.about-stat-num{font-size:2.2rem;font-weight:900;color:#c9a84c}
+.about-stat-label{font-size:0.82rem;color:rgba(255,255,255,0.6);margin-top:0.3rem}
+
+.testimonials{padding:5rem 5%;background:#f9f7f4}
+.testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem}
+.testi-card{background:#fff;border-radius:12px;padding:2rem;box-shadow:0 4px 16px rgba(0,0,0,0.06);border-right:4px solid #c9a84c}
+.testi-text{font-size:0.93rem;color:#4a4a5a;line-height:1.75;margin-bottom:1rem;font-style:italic}
+.testi-name{font-weight:700;color:#0f1923;font-size:0.88rem}
+
+.cta-section{background:linear-gradient(135deg,#c9a84c,#a8873a);padding:5rem 5%;text-align:center}
+.cta-section h2{font-size:2.2rem;font-weight:800;color:#0f1923;margin-bottom:1rem}
+.cta-section p{color:rgba(15,25,35,0.75);margin-bottom:2rem}
+.cta-btn-dark{background:#0f1923;color:#c9a84c;border:none;padding:0.85rem 2.5rem;border-radius:8px;font-family:'Heebo',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:all 0.2s}
+.cta-btn-dark:hover{background:#1a2d3f}
+
+footer{background:#06101a;padding:2rem 5%;text-align:center;color:rgba(255,255,255,0.35);font-size:0.82rem}
+footer span{color:#c9a84c;font-weight:600}
+
+@media(max-width:768px){
+  .hero h1{font-size:2rem}
+  .listings-grid{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .about{flex-direction:column}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <div class="logo-bar"></div>
+    <div class="logo-text">PRIME</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#listings">נכסים</a></li>
+    <li><a href="#about">אודות</a></li>
+    <li><a href="#testimonials">לקוחות</a></li>
+    <li><a href="#contact">צור קשר</a></li>
+  </ul>
+  <button class="nav-cta">קבעו פגישה</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">נדל"ן פרמיום · תל אביב והמרכז</div>
+  <h1>מצאו את הנכס המושלם שלכם</h1>
+  <p>ליווי אישי מקצועי ברכישה, מכירה והשכרה של נכסי יוקרה באזורי הביקוש המובילים</p>
+  <div class="search-bar">
+    <select><option>בחרו עיר</option><option>תל אביב</option><option>הרצליה</option><option>רמת גן</option><option>גבעתיים</option></select>
+    <select><option>סוג נכס</option><option>דירה</option><option>פנטהאוז</option><option>וילה</option><option>משרד</option></select>
+    <select><option>טווח מחיר</option><option>עד ₪2M</option><option>₪2M–₪5M</option><option>₪5M+</option></select>
+    <button class="search-btn">חיפוש</button>
+  </div>
+</section>
+
+<section class="listings" id="listings">
+  <div class="section-title">נכסים נבחרים</div>
+  <div class="gold-line"></div>
+  <div class="listings-grid">
+    <div class="property-card">
+      <div class="prop-img" style="background:linear-gradient(135deg,#1a2d3f,#2d4a6a)">
+        <div class="prop-price">₪2,800,000</div>
+      </div>
+      <div class="prop-body">
+        <div class="prop-title">דירת גן מרווחת — שכונת הצפון הישן</div>
+        <div class="prop-details"><span>120 מ"ר</span><span>4 חדרים</span><span>קומה 2</span></div>
+        <div class="prop-tag">📍 תל אביב</div>
+        <button class="prop-btn">לפרטים מלאים</button>
+      </div>
+    </div>
+    <div class="property-card">
+      <div class="prop-img" style="background:linear-gradient(135deg,#2a1a0f,#4a3020)">
+        <div class="prop-price">₪4,500,000</div>
+      </div>
+      <div class="prop-body">
+        <div class="prop-title">פנטהאוז עם גג פרטי ונוף לים</div>
+        <div class="prop-details"><span>180 מ"ר</span><span>5 חדרים</span><span>קומה 14</span></div>
+        <div class="prop-tag">📍 הרצליה פיתוח</div>
+        <button class="prop-btn">לפרטים מלאים</button>
+      </div>
+    </div>
+    <div class="property-card">
+      <div class="prop-img" style="background:linear-gradient(135deg,#1a1a2e,#2e2e4e)">
+        <div class="prop-price">₪3,200,000</div>
+      </div>
+      <div class="prop-body">
+        <div class="prop-title">דירה חדשה בפרויקט יוקרה חדש</div>
+        <div class="prop-details"><span>140 מ"ר</span><span>4 חדרים</span><span>קומה 8</span></div>
+        <div class="prop-tag">📍 רמת גן</div>
+        <button class="prop-btn">לפרטים מלאים</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-text">
+    <h2>Prime Properties — הסיפור שלנו</h2>
+    <div style="width:40px;height:3px;background:#c9a84c;border-radius:2px;margin-bottom:1.2rem"></div>
+    <p>אנחנו סוכנות נדל"ן פרמיום עם ניסיון של למעלה מ-20 שנה בשוק המגורים והמסחרי. הצוות שלנו מכיר לעומק את שווקי הנדל"ן הכי חמים בישראל ומספק ללקוחות ליווי אישי מקצועי מהרגע הראשון ועד לחתימה על החוזה.</p>
+  </div>
+  <div class="about-stats">
+    <div class="about-stat"><div class="about-stat-num">850+</div><div class="about-stat-label">עסקאות שהושלמו</div></div>
+    <div class="about-stat"><div class="about-stat-num">20+</div><div class="about-stat-label">שנות ניסיון</div></div>
+    <div class="about-stat"><div class="about-stat-num">1,200+</div><div class="about-stat-label">לקוחות מרוצים</div></div>
+    <div class="about-stat"><div class="about-stat-num">97%</div><div class="about-stat-label">שביעות רצון</div></div>
+  </div>
+</section>
+
+<section class="testimonials" id="testimonials">
+  <div class="section-title">לקוחות מספרים</div>
+  <div class="gold-line"></div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <p class="testi-text">"הצוות של Prime Properties עזר לנו למצוא דירת חלומות בתל אביב תוך שלושה שבועות בלבד. הייתה מעורבות אישית בכל שלב ועל כך אנחנו אסירי תודה."</p>
+      <div class="testi-name">— משפחת גרינברג, תל אביב</div>
+    </div>
+    <div class="testi-card">
+      <p class="testi-text">"פרופסיונליזם ברמה הגבוהה ביותר. מכרנו דירה ב-15% מעל המחיר שהתכוונו לבקש, הכל הודות לאסטרטגיה השיווקית המשובחת שלהם."</p>
+      <div class="testi-name">— אבי ודנה שפירא, הרצליה</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="contact">
+  <h2>מוכנים למצוא את הנכס הבא שלכם?</h2>
+  <p>פגישת ייעוץ ראשונית ללא עלות וללא התחייבות</p>
+  <button class="cta-btn-dark">קבעו פגישה עכשיו</button>
+</section>
+
+<footer>
+  <p>© 2025 Prime Properties | כל הזכויות שמורות | נבנה על ידי <span>VELO DIGITAL</span></p>
+</footer>
+
+</body>
+</html>

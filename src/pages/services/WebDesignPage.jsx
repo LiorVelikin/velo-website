@@ -74,19 +74,44 @@ const businessTypes = [
 
 const projects = [
   {
+    niche: 'אופנה ומותג',
+    title: 'Zano — מותג אופנה',
+    desc: 'אתר מותג אופנה עם חנות, קטלוג מוצרים ועיצוב ייחודי שמשקף את זהות המותג.',
+    url: 'https://liorvelikin.github.io/Zano-website/',
+    accent: '#c9a84c',
+    live: true,
+  },
+  {
+    niche: 'שירותי יופי',
+    title: 'Lilach — עיצוב שיער',
+    desc: 'אתר עסקי לסטודיו יופי — גלריה, שירותים, ותורים אונליין בעיצוב אלגנטי.',
+    url: 'https://liorvelikin.github.io/Lilach-website/',
+    accent: '#e8a0bf',
+    live: true,
+  },
+  {
     niche: 'קליניקת שיניים',
-    title: 'אתר שירות + דף תורים',
-    desc: 'אתר עסקי לקליניקת שיניים פרטית — מבנה SEO מקומי, דף שירותים ממיר, ואינטגרציית תורים אונליין.',
+    title: 'VisualDent — רפואת שיניים',
+    desc: 'אתר לקליניקת שיניים פרטית — שירותים, צוות, המלצות ויכולת קביעת תור.',
+    url: 'https://liorvelikin.github.io/velo-website/mockups/websites/dental/',
+    accent: '#00b4a0',
+    live: false,
   },
   {
-    niche: 'סוכן נדל"ן',
-    title: 'אתר קטלוג נכסים',
-    desc: 'אתר ממוקד לידים לסוכן נדל"ן עצמאי — רשימת נכסים, דף אודות מבסס אמון, וטופס יצירת קשר חכם.',
+    niche: 'נדל"ן',
+    title: 'Prime Properties — סוכנות נדל"ן',
+    desc: 'אתר לסוכנות נדל"ן פרמיום — נכסים נבחרים, חיפוש ונוכחות מקצועית.',
+    url: 'https://liorvelikin.github.io/velo-website/mockups/websites/realestate/',
+    accent: '#c9a84c',
+    live: false,
   },
   {
-    niche: 'עורך דין',
-    title: 'אתר ייצוגי עם SEO מקומי',
-    desc: 'אתר מקצועי לעורך דין — תחומי עיסוק, ביוגרפיה, schema מקומי, ומיצוב בגוגל לפי ביטויי חיפוש ממוקדים.',
+    niche: 'משפטים',
+    title: 'גולדברג ושות\' — עורכי דין',
+    desc: 'אתר משרד עורכי דין — תחומי עיסוק, צוות, ואמינות שבונה אמון אצל לקוחות חדשים.',
+    url: 'https://liorvelikin.github.io/velo-website/mockups/websites/law/',
+    accent: '#c8a96e',
+    live: false,
   },
 ]
 
@@ -237,27 +262,36 @@ export default function WebDesignPage() {
       <section style={{ padding: 'clamp(56px,8vw,96px) 0', direction: 'rtl' }}>
         <div className="max-w-6xl mx-auto px-6">
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
-            <div className="tag-pill" style={{ marginBottom: 16, display: 'inline-flex' }}>עבודות</div>
+            <div className="tag-pill" style={{ marginBottom: 16, display: 'inline-flex' }}>עבודות נבחרות</div>
             <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.2vw,2.4rem)', letterSpacing: '-0.02em', color: '#0a0f1e' }}>
-              פרויקטים <span className="gradient-text">נבחרים</span>
+              אתרים <span className="gradient-text">שבנינו</span>
             </h2>
             <p style={{ color: '#4a5d7a', fontSize: '0.98rem', lineHeight: 1.75, maxWidth: 580, margin: '16px auto 0' }}>
-              פרויקטים שאנחנו עובדים עליהם — יעודכנו בקרוב
+              לחצו לכניסה לכל אתר — ראו בעצמכם את האיכות
             </p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
             {projects.map((p, i) => (
-              <div key={i} className="glass-card" style={{ padding: '28px 26px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
-                  <div className="tag-pill">{p.niche}</div>
-                  <span style={{ color: '#4d9fff', fontSize: '0.72rem', fontWeight: 700, background: 'rgba(26,111,255,0.1)', border: '1px solid rgba(26,111,255,0.2)', padding: '3px 10px', borderRadius: 100 }}>בקרוב</span>
+              <a key={i} href={p.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+                <div className="glass-card" style={{ padding: '28px 26px', cursor: 'pointer', height: '100%' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
+                    <div className="tag-pill">{p.niche}</div>
+                    <span style={{ color: p.live ? '#00d478' : '#4d9fff', fontSize: '0.72rem', fontWeight: 700, background: p.live ? 'rgba(0,212,120,0.1)' : 'rgba(26,111,255,0.1)', border: `1px solid ${p.live ? 'rgba(0,212,120,0.25)' : 'rgba(26,111,255,0.2)'}`, padding: '3px 10px', borderRadius: 100 }}>
+                      {p.live ? '● Live' : 'דמו'}
+                    </span>
+                  </div>
+                  <div style={{ height: 140, borderRadius: 10, background: `linear-gradient(135deg, ${p.accent}18 0%, ${p.accent}08 100%)`, border: `1px solid ${p.accent}25`, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16, position: 'relative', overflow: 'hidden' }}>
+                    <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px)', backgroundSize: '24px 24px' }} />
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke={p.accent} strokeWidth="1.5" opacity="0.5" style={{ position: 'relative' }}><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                  </div>
+                  <h3 style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.98rem', marginBottom: 6 }}>{p.title}</h3>
+                  <p style={{ color: '#8ba3c7', fontSize: '0.85rem', lineHeight: 1.6, margin: 0 }}>{p.desc}</p>
+                  <div style={{ marginTop: 14, display: 'flex', alignItems: 'center', gap: 6, color: p.accent, fontSize: '0.82rem', fontWeight: 700 }}>
+                    <span>כניסה לאתר</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  </div>
                 </div>
-                <div style={{ height: 140, borderRadius: 10, background: 'linear-gradient(135deg, rgba(26,111,255,0.08) 0%, rgba(0,212,255,0.05) 100%)', border: '1px dashed rgba(26,111,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16 }}>
-                  <span style={{ color: 'rgba(26,111,255,0.4)', fontSize: '0.8rem' }}>צילומי מסך בקרוב</span>
-                </div>
-                <h3 style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.98rem', marginBottom: 6 }}>{p.title}</h3>
-                <p style={{ color: '#8ba3c7', fontSize: '0.85rem', lineHeight: 1.6, margin: 0 }}>{p.desc}</p>
-              </div>
+              </a>
             ))}
           </div>
         </div>

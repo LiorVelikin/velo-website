@@ -94,21 +94,9 @@ const processSteps = [
 ]
 
 const projects = [
-  {
-    niche: 'נדל"ן',
-    title: 'קמפיין לידים לפרויקט',
-    desc: 'קמפיין Meta Ads לפרויקט נדל"ן — קהל ממוקד לפי גיל ואזור, דף נחיתה מותאם, וריטרגטינג למעלה להמרה.',
-  },
-  {
-    niche: 'קורס דיגיטלי',
-    title: 'קמפיין מכירות',
-    desc: 'קמפיין מכירות לקורס אונליין — Meta + Google, קריאייטיב UGC, ו-A/B testing על כותרות.',
-  },
-  {
-    niche: 'קליניקה',
-    title: 'Meta Ads לתורים',
-    desc: 'קמפיין לידים לקליניקה פרטית — Lead Gen Ads עם טופס מהיר, ריטרגטינג, ודיווח שבועי.',
-  },
+  { niche: 'נדל"ן', title: 'נווה הירוק — פרויקט יוקרה', url: 'https://liorvelikin.github.io/velo-website/mockups/landing/realestate/', accent: '#c9a84c', live: false },
+  { niche: 'כושר ואימונים', title: 'FitLife Studio — מנוי ספורט', url: 'https://liorvelikin.github.io/velo-website/mockups/landing/fitness/', accent: '#ff5722', live: false },
+  { niche: 'קורס דיגיטלי', title: 'DigiMaster — קורס מכירות', url: 'https://liorvelikin.github.io/velo-website/mockups/landing/course/', accent: '#6c3ee8', live: false },
 ]
 
 const faqs = [
@@ -272,22 +260,38 @@ export default function PaidAdsPage() {
               פרויקטים <span className="gradient-text">נבחרים</span>
             </h2>
             <p style={{ color: '#4a5d7a', fontSize: '0.98rem', lineHeight: 1.75, maxWidth: 580, margin: '16px auto 0' }}>
-              פרויקטים שאנחנו עובדים עליהם — יעודכנו בקרוב
+              דפי נחיתה שבנינו לקמפיינים — לחצו לצפייה
             </p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
             {projects.map((p, i) => (
-              <div key={i} className="glass-card" style={{ padding: '28px 26px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
-                  <div className="tag-pill">{p.niche}</div>
-                  <span style={{ color: '#4d9fff', fontSize: '0.72rem', fontWeight: 700, background: 'rgba(26,111,255,0.1)', border: '1px solid rgba(26,111,255,0.2)', padding: '3px 10px', borderRadius: 100 }}>בקרוב</span>
+              <a key={i} href={p.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'block' }}>
+                <div
+                  className="glass-card"
+                  style={{ padding: '28px 26px', cursor: 'pointer' }}
+                  onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)' }}
+                  onMouseLeave={e => { e.currentTarget.style.transform = 'none' }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
+                    <div className="tag-pill">{p.niche}</div>
+                    <span style={{ fontSize: '0.72rem', fontWeight: 700, padding: '3px 10px', borderRadius: 100, background: p.live ? 'rgba(0,212,120,0.12)' : 'rgba(26,111,255,0.1)', border: `1px solid ${p.live ? 'rgba(0,212,120,0.3)' : 'rgba(26,111,255,0.2)'}`, color: p.live ? '#00d478' : '#4d9fff' }}>
+                      {p.live ? 'Live' : 'Demo'}
+                    </span>
+                  </div>
+                  <div style={{ height: 120, borderRadius: 10, background: `linear-gradient(135deg, ${p.accent}18 0%, ${p.accent}08 100%)`, border: `1px solid ${p.accent}30`, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16 }}>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={p.accent} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.7 }}>
+                      <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+                    </svg>
+                  </div>
+                  <h3 style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.98rem', marginBottom: 10 }}>{p.title}</h3>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#4d9fff', fontSize: '0.82rem', fontWeight: 600 }}>
+                    <span>כניסה לדף</span>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                  </div>
                 </div>
-                <div style={{ height: 140, borderRadius: 10, background: 'linear-gradient(135deg, rgba(0,212,120,0.08) 0%, rgba(26,111,255,0.05) 100%)', border: '1px dashed rgba(0,212,120,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16 }}>
-                  <span style={{ color: 'rgba(0,212,120,0.4)', fontSize: '0.8rem' }}>נתוני קמפיין בקרוב</span>
-                </div>
-                <h3 style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.98rem', marginBottom: 6 }}>{p.title}</h3>
-                <p style={{ color: '#8ba3c7', fontSize: '0.85rem', lineHeight: 1.6, margin: 0 }}>{p.desc}</p>
-              </div>
+              </a>
             ))}
           </div>
         </div>

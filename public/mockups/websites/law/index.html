@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>גולדברג ושות' | עורכי דין ונוטריון</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Heebo',sans-serif;background:#f5f4f0;color:#1c1c2e;direction:rtl}
+a{text-decoration:none;color:inherit}
+
+nav{position:sticky;top:0;z-index:100;background:#1c1c2e;padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:72px;border-bottom:2px solid #8b1a1a}
+.nav-logo{display:flex;align-items:center;gap:0.7rem}
+.logo-icon svg{color:#c8a96e}
+.logo-text-main{font-size:1.2rem;font-weight:800;color:#fff}
+.logo-text-sub{font-size:0.72rem;color:#c8a96e;letter-spacing:1px;display:block}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:0.88rem;font-weight:500;color:rgba(255,255,255,0.7);transition:color 0.2s}
+.nav-links a:hover{color:#c8a96e}
+.nav-cta{background:#8b1a1a;color:#fff;border:none;padding:0.55rem 1.4rem;border-radius:4px;font-family:'Heebo',sans-serif;font-size:0.88rem;font-weight:700;cursor:pointer;transition:all 0.2s}
+.nav-cta:hover{background:#a52020}
+
+.hero{background:linear-gradient(160deg,#1c1c2e 0%,#2a2a42 100%);padding:6rem 5%;min-height:520px;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#8b1a1a,#c8a96e,#8b1a1a)}
+.hero-content{max-width:650px}
+.hero-badge{display:inline-block;border:1px solid #c8a96e;color:#c8a96e;padding:0.35rem 1rem;font-size:0.78rem;letter-spacing:2px;font-weight:600;margin-bottom:1.5rem;text-transform:uppercase}
+.hero h1{font-size:3rem;font-weight:900;color:#fff;line-height:1.2;margin-bottom:1.2rem}
+.hero h1 em{color:#c8a96e;font-style:normal}
+.hero p{color:rgba(255,255,255,0.65);font-size:1rem;line-height:1.8;margin-bottom:2rem;max-width:500px}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-gold{background:#c8a96e;color:#1c1c2e;border:none;padding:0.75rem 1.8rem;border-radius:4px;font-family:'Heebo',sans-serif;font-size:0.95rem;font-weight:700;cursor:pointer;transition:all 0.2s}
+.btn-gold:hover{background:#d9ba80}
+.btn-outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.3);padding:0.75rem 1.8rem;border-radius:4px;font-family:'Heebo',sans-serif;font-size:0.95rem;font-weight:600;cursor:pointer;transition:all 0.2s}
+.btn-outline:hover{border-color:#c8a96e;color:#c8a96e}
+
+.practice{padding:5rem 5%;background:#f5f4f0}
+.section-header{margin-bottom:3rem}
+.section-header h2{font-size:2rem;font-weight:800;color:#1c1c2e;margin-bottom:0.5rem}
+.red-line{width:40px;height:3px;background:#8b1a1a;border-radius:2px}
+.practice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.practice-card{background:#fff;border-radius:8px;padding:1.8rem;box-shadow:0 2px 16px rgba(0,0,0,0.06);border-top:3px solid transparent;transition:all 0.3s}
+.practice-card:hover{border-top-color:#8b1a1a;transform:translateY(-3px);box-shadow:0 8px 25px rgba(0,0,0,0.1)}
+.practice-icon{font-size:1.8rem;margin-bottom:0.8rem}
+.practice-card h3{font-size:1rem;font-weight:700;color:#1c1c2e;margin-bottom:0.5rem}
+.practice-card p{font-size:0.85rem;color:#6b6b7a;line-height:1.6}
+
+.team{background:#1c1c2e;padding:5rem 5%}
+.team h2{font-size:2rem;font-weight:800;color:#fff;margin-bottom:0.5rem}
+.team-grid{display:flex;gap:2rem;margin-top:3rem;flex-wrap:wrap}
+.lawyer-card{background:rgba(255,255,255,0.05);border:1px solid rgba(200,169,110,0.2);border-radius:8px;padding:2rem;text-align:center;flex:1;min-width:180px}
+.lawyer-photo{width:80px;height:80px;border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:700;color:#1c1c2e}
+.lawyer-card h3{color:#fff;font-weight:700;margin-bottom:0.3rem}
+.lawyer-card p{color:#c8a96e;font-size:0.85rem;font-weight:500}
+.lawyer-card .bar{display:block;font-size:0.78rem;color:rgba(255,255,255,0.45);margin-top:0.3rem}
+
+.why-us{padding:5rem 5%;background:#f5f4f0}
+.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3rem}
+.why-card{display:flex;gap:1rem;align-items:flex-start;background:#fff;padding:1.5rem;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.05)}
+.why-icon{width:48px;height:48px;background:#f5f0e8;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
+.why-card h3{font-size:0.95rem;font-weight:700;color:#1c1c2e;margin-bottom:0.3rem}
+.why-card p{font-size:0.83rem;color:#6b6b7a;line-height:1.6}
+
+.cta-dark{background:#1c1c2e;padding:5rem 5%;text-align:center;border-top:1px solid #8b1a1a}
+.cta-dark h2{font-size:2.2rem;font-weight:800;color:#fff;margin-bottom:1rem}
+.cta-dark p{color:rgba(255,255,255,0.6);margin-bottom:2rem}
+
+footer{background:#12121e;padding:2rem 5%;text-align:center;color:rgba(255,255,255,0.3);font-size:0.82rem}
+footer span{color:#c8a96e;font-weight:600}
+
+@media(max-width:768px){
+  .hero h1{font-size:2rem}
+  .practice-grid{grid-template-columns:1fr 1fr}
+  .why-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <div class="logo-icon">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c8a96e" stroke-width="2">
+        <path d="M12 2l3 6.5H20l-5 4 2 6.5-5-3.5-5 3.5 2-6.5-5-4h5z"/>
+      </svg>
+    </div>
+    <div><div class="logo-text-main">גולדברג ושות'</div><span class="logo-text-sub">עורכי דין ונוטריון</span></div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#practice">תחומי עיסוק</a></li>
+    <li><a href="#team">הצוות</a></li>
+    <li><a href="#why">למה אנחנו</a></li>
+    <li><a href="#contact">צור קשר</a></li>
+  </ul>
+  <button class="nav-cta">ייעוץ חינם</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">משרד עורכי דין מוביל</div>
+    <h1>ניסיון. <em>מקצועיות.</em><br>תוצאות.</h1>
+    <p>משרד גולדברג ושות' מספק ייעוץ משפטי מקצועי ומנוסה בתחומים המגוונים ביותר. אנחנו כאן להגן על האינטרסים שלכם בכל שלב.</p>
+    <div class="hero-btns">
+      <button class="btn-gold">לייעוץ חינם</button>
+      <button class="btn-outline">תחומי עיסוק</button>
+    </div>
+  </div>
+</section>
+
+<section class="practice" id="practice">
+  <div class="section-header">
+    <h2>תחומי עיסוק</h2>
+    <div class="red-line"></div>
+  </div>
+  <div class="practice-grid">
+    <div class="practice-card">
+      <div class="practice-icon">⚖️</div>
+      <h3>דיני עבודה</h3>
+      <p>ייצוג עובדים ומעסיקים בסכסוכי עבודה, פיטורים שלא כדין ועוד</p>
+    </div>
+    <div class="practice-card">
+      <div class="practice-icon">🏠</div>
+      <h3>נדל"ן</h3>
+      <p>ליווי עסקאות נדל"ן, חוזי שכירות, רישום בטאבו ועסקאות מסחריות</p>
+    </div>
+    <div class="practice-card">
+      <div class="practice-icon">👨‍👩‍👧</div>
+      <h3>דיני משפחה</h3>
+      <p>גירושין, הסכמי ממון, משמורת ילדים וירושה משפחתית</p>
+    </div>
+    <div class="practice-card">
+      <div class="practice-icon">🏢</div>
+      <h3>דיני חברות</h3>
+      <p>הקמת חברות, הסכמי שותפות, מיזוגים ורכישות עסקיות</p>
+    </div>
+    <div class="practice-card">
+      <div class="practice-icon">📜</div>
+      <h3>ירושות וצוואות</h3>
+      <p>עריכת צוואות, ניהול עיזבונות וייצוג בהליכי ירושה מורכבים</p>
+    </div>
+    <div class="practice-card">
+      <div class="practice-icon">🔨</div>
+      <h3>ליטיגציה</h3>
+      <p>ייצוג בבתי משפט בכל הערכאות בתביעות אזרחיות ומסחריות</p>
+    </div>
+  </div>
+</section>
+
+<section class="team" id="team">
+  <h2 style="color:#fff">הצוות המשפטי שלנו</h2>
+  <div class="red-line" style="margin-top:0.5rem"></div>
+  <div class="team-grid">
+    <div class="lawyer-card">
+      <div class="lawyer-photo" style="background:linear-gradient(135deg,#c8a96e,#a88040)">ע"ד</div>
+      <h3>עו"ד יוסף גולדברג</h3>
+      <p>שותף מייסד</p>
+      <span class="bar">דיני חברות · ליטיגציה</span>
+    </div>
+    <div class="lawyer-card">
+      <div class="lawyer-photo" style="background:linear-gradient(135deg,#8b1a1a,#a52020)">ע"ד</div>
+      <h3>עו"ד שרה לוינסון</h3>
+      <p>שותפה בכירה</p>
+      <span class="bar">דיני משפחה · ירושות</span>
+    </div>
+    <div class="lawyer-card">
+      <div class="lawyer-photo" style="background:linear-gradient(135deg,#2a2a42,#3a3a5a)">ע"ד</div>
+      <h3>עו"ד תומר ברק</h3>
+      <p>עורך דין שותף</p>
+      <span class="bar">נדל"ן · דיני עבודה</span>
+    </div>
+  </div>
+</section>
+
+<section class="why-us" id="why">
+  <div class="section-header">
+    <h2>למה לבחור בנו</h2>
+    <div class="red-line"></div>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🏆</div>
+      <div><h3>ניסיון של 25 שנה</h3><p>מאות תיקים מוצלחים בכל תחומי המשפט המרכזיים</p></div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🤝</div>
+      <div><h3>ליווי אישי לאורך הדרך</h3><p>כל לקוח מקבל עורך דין ייעודי הזמין ונגיש תמיד</p></div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">💡</div>
+      <div><h3>ייעוץ חינם ראשוני</h3><p>פגישת ייעוץ ראשונה ללא עלות וללא התחייבות כלל</p></div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">⚡</div>
+      <div><h3>תגובה מהירה</h3><p>אנחנו מגיבים לכל פנייה תוך שעות ספורות בלבד</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-dark" id="contact">
+  <h2>מוכנים לדבר עם עורך דין?</h2>
+  <p>פגישת ייעוץ ראשונה חינם — ללא התחייבות</p>
+  <button class="btn-gold" style="font-size:1rem;padding:0.85rem 2.5rem">צרו קשר עכשיו</button>
+</section>
+
+<footer>
+  <p>© 2025 גולדברג ושות' עורכי דין | כל הזכויות שמורות | נבנה על ידי <span>VELO DIGITAL</span></p>
+</footer>
+
+</body>
+</html>
