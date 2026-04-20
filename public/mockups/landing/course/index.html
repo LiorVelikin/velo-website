@@ -1,154 +1,322 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DigiMaster | קורס מכירות דיגיטליות</title>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DigiMaster | קורס מכירות דיגיטליות — מחזור 18</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{font-family:'Heebo',sans-serif;background:#0a0618;color:#fff;direction:rtl}
-nav{position:sticky;top:0;background:rgba(10,6,24,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(108,62,232,.2);z-index:100;padding:0 5%;height:64px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.logo{font-size:1.25rem;font-weight:900;background:linear-gradient(90deg,#6c3ee8,#00d4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;white-space:nowrap}
-.countdown{background:rgba(108,62,232,.15);border:1px solid rgba(108,62,232,.3);border-radius:8px;padding:6px 14px;font-size:.78rem;color:#00d4ff;font-weight:700}
-.btn{background:linear-gradient(135deg,#6c3ee8,#00d4ff);color:#fff;border:none;padding:10px 22px;border-radius:24px;font-weight:700;font-size:.88rem;cursor:pointer;font-family:inherit;white-space:nowrap}
-.hero{padding:80px 5% 60px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 400px;gap:60px;align-items:start}
-.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.25);border-radius:8px;padding:8px 16px;font-size:.85rem;color:#00d4ff;margin-bottom:20px}
-.hero h1{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;line-height:1.2;margin-bottom:16px}
-.hero h1 span{background:linear-gradient(90deg,#6c3ee8,#00d4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero p{color:rgba(255,255,255,.7);font-size:.98rem;line-height:1.75;margin-bottom:16px}
-.starts{font-size:.95rem;color:rgba(255,255,255,.5)}.starts span{color:#00d4ff;font-weight:700}
-.form-card{background:rgba(255,255,255,.05);border:1px solid rgba(108,62,232,.3);border-radius:20px;padding:32px;margin-top:8px}
-.form-card h3{font-size:1.1rem;font-weight:800;margin-bottom:6px}
-.form-card .sub{color:rgba(255,255,255,.5);font-size:.82rem;margin-bottom:20px}
-label{display:block;font-size:.8rem;color:rgba(255,255,255,.55);margin-bottom:5px;font-weight:600}
-input,select{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(108,62,232,.3);border-radius:10px;padding:11px 13px;color:#fff;font-family:inherit;font-size:.88rem;outline:none;margin-bottom:12px}
-input::placeholder{color:rgba(255,255,255,.3)}
-select option{background:#1a0a3e}
-.submit{width:100%;background:linear-gradient(135deg,#6c3ee8,#00d4ff);border:none;color:#fff;padding:14px;border-radius:12px;font-size:1rem;font-weight:800;cursor:pointer;font-family:inherit;box-shadow:0 4px 24px rgba(108,62,232,.4)}
-.note{text-align:center;font-size:.73rem;color:rgba(255,255,255,.3);margin-top:10px}
-.proof-strip{background:rgba(108,62,232,.07);border-top:1px solid rgba(108,62,232,.15);border-bottom:1px solid rgba(108,62,232,.15);padding:28px 5%;display:flex;justify-content:center;gap:60px;flex-wrap:wrap}
-.proof-item{text-align:center}
-.proof-num{font-size:1.8rem;font-weight:900;background:linear-gradient(90deg,#6c3ee8,#00d4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.proof-label{font-size:.78rem;color:rgba(255,255,255,.45);margin-top:4px}
-.section{padding:70px 5%;max-width:1000px;margin:0 auto}
-.stitle{text-align:center;margin-bottom:40px}
-.tag{display:inline-block;background:rgba(108,62,232,.15);color:#6c3ee8;border:1px solid rgba(108,62,232,.3);border-radius:100px;padding:4px 14px;font-size:.73rem;font-weight:700;margin-bottom:12px}
-.stitle h2{font-size:clamp(1.4rem,3vw,2.1rem);font-weight:900}
-.stitle h2 span{background:linear-gradient(90deg,#6c3ee8,#00d4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.module-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.module-card{background:rgba(255,255,255,.04);border:1px solid rgba(108,62,232,.2);border-radius:14px;padding:22px 18px;display:flex;gap:14px;align-items:flex-start}
-.mod-num{width:36px;height:36px;border-radius:9px;background:linear-gradient(135deg,#6c3ee8,#00d4ff);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.85rem;flex-shrink:0}
-.module-card h3{font-size:.92rem;font-weight:700;margin-bottom:5px}
-.module-card p{font-size:.8rem;color:rgba(255,255,255,.5);line-height:1.5}
-.instructor-card{background:rgba(255,255,255,.04);border:1px solid rgba(108,62,232,.2);border-radius:20px;padding:32px;display:flex;gap:28px;align-items:center;flex-wrap:wrap}
-.avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#6c3ee8,#00d4ff);display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:900;flex-shrink:0}
-.instructor-card h3{font-size:1.1rem;font-weight:800;margin-bottom:6px}
-.instructor-card p{color:rgba(255,255,255,.6);font-size:.85rem;line-height:1.6}
-.testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
-.testi{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:22px}
-.testi p{color:rgba(255,255,255,.72);font-size:.86rem;line-height:1.65;margin-bottom:12px}
-.testi-name{font-weight:700;color:#00d4ff;font-size:.8rem}
-.price-card{background:rgba(108,62,232,.1);border:2px solid #6c3ee8;border-radius:20px;padding:36px 28px;max-width:440px;margin:0 auto;text-align:center}
-.price-label{color:rgba(255,255,255,.45);font-size:.83rem;margin-bottom:8px}
-.price{font-size:3rem;font-weight:900;color:#00d4ff;margin-bottom:4px}
-.price-note{color:rgba(255,255,255,.35);font-size:.78rem;margin-bottom:22px}
-.features-list{list-style:none;text-align:right;margin-bottom:24px}
-.features-list li{padding:7px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:.86rem;color:rgba(255,255,255,.78);display:flex;align-items:center;gap:8px}
-.check{color:#00d4ff}
-.cta2{padding:70px 5%;text-align:center;background:linear-gradient(135deg,rgba(108,62,232,.12),rgba(0,212,255,.04));border-top:1px solid rgba(108,62,232,.15)}
-.cta2 h2{font-size:clamp(1.3rem,3vw,2rem);font-weight:900;margin-bottom:12px}
-.cta2 p{color:rgba(255,255,255,.55);margin-bottom:22px}
-footer{background:rgba(0,0,0,.4);text-align:center;padding:18px;font-size:.78rem;color:rgba(255,255,255,.3);border-top:1px solid rgba(255,255,255,.06)}
-footer a{color:rgba(108,62,232,.8);text-decoration:none}
-@media(max-width:768px){.hero{grid-template-columns:1fr}.module-grid,.testi-grid{grid-template-columns:1fr}.instructor-card{flex-direction:column;text-align:center}.proof-strip{gap:28px}.countdown{display:none}}
+a{text-decoration:none;color:inherit}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.fade-in.visible{opacity:1;transform:none}
+.grad{background:linear-gradient(90deg,#6c3ee8,#00d4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+nav{position:sticky;top:0;z-index:200;background:rgba(10,6,24,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(108,62,232,.2);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{font-size:1.2rem;font-weight:900;background:linear-gradient(90deg,#6c3ee8,#00d4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-countdown{background:rgba(108,62,232,.15);border:1px solid rgba(108,62,232,.3);border-radius:8px;padding:6px 14px;font-size:.76rem;color:#00d4ff;font-weight:700}
+.nav-btn{background:linear-gradient(135deg,#6c3ee8,#00d4ff);color:#fff;border:none;padding:9px 22px;border-radius:24px;font-weight:700;font-size:.85rem;cursor:pointer;font-family:'Heebo',sans-serif}
+
+.hero{padding:80px 5% 60px;display:grid;grid-template-columns:1fr 400px;gap:60px;align-items:start;max-width:1200px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.25);border-radius:8px;padding:8px 16px;font-size:.84rem;color:#00d4ff;margin-bottom:20px}
+.hero h1{font-size:clamp(2rem,3.8vw,3rem);font-weight:900;line-height:1.15;margin-bottom:16px;color:#fff}
+.hero h1 span{display:block;background:linear-gradient(90deg,#6c3ee8,#00d4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{color:rgba(255,255,255,.65);font-size:.97rem;line-height:1.75;margin-bottom:20px}
+.hero-bullets{list-style:none;margin-bottom:28px}
+.hero-bullets li{font-size:.88rem;color:rgba(255,255,255,.6);padding:5px 0;display:flex;align-items:center;gap:8px}
+.hero-bullets li::before{content:'✓';color:#00d4ff;font-weight:800;flex-shrink:0}
+.hero-btns{display:flex;gap:12px;margin-bottom:28px;flex-wrap:wrap}
+.btn-grad{background:linear-gradient(135deg,#6c3ee8,#00d4ff);color:#fff;padding:12px 26px;border-radius:24px;font-size:.9rem;font-weight:800;display:inline-block}
+.btn-out{border:1px solid rgba(108,62,232,.5);color:#a78bfa;padding:12px 26px;border-radius:24px;font-size:.9rem;font-weight:700;display:inline-block;transition:border-color .2s}
+.btn-out:hover{border-color:#6c3ee8}
+.student-row{display:flex;align-items:center;gap:10px}
+.student-avatars{display:flex}
+.student-avatars img{width:32px;height:32px;border-radius:50%;border:2px solid #0a0618;margin-left:-8px;object-fit:cover}
+.student-avatars img:first-child{margin-left:0}
+.student-text{font-size:.8rem;color:rgba(255,255,255,.45)}
+.student-text span{color:#00d4ff;font-weight:700}
+
+.form-card{background:rgba(255,255,255,.04);border:1px solid rgba(108,62,232,.35);border-radius:20px;padding:32px}
+.form-card h3{font-size:1.1rem;font-weight:800;margin-bottom:6px;color:#fff}
+.form-card .sub{color:rgba(255,255,255,.4);font-size:.81rem;margin-bottom:20px}
+.form-card label{display:block;font-size:.78rem;color:rgba(255,255,255,.45);margin-bottom:5px;font-weight:600}
+.form-card input,.form-card select{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(108,62,232,.3);border-radius:10px;padding:11px 13px;color:#fff;font-family:'Heebo',sans-serif;font-size:.88rem;outline:none;margin-bottom:12px;transition:border-color .2s}
+.form-card input:focus,.form-card select:focus{border-color:#6c3ee8}
+.form-card input::placeholder{color:rgba(255,255,255,.25)}
+.form-card select option{background:#1a0a3e}
+.form-submit{width:100%;background:linear-gradient(135deg,#6c3ee8,#00d4ff);border:none;color:#fff;padding:14px;border-radius:12px;font-size:1rem;font-weight:800;cursor:pointer;font-family:'Heebo',sans-serif;box-shadow:0 4px 24px rgba(108,62,232,.4)}
+.form-note{text-align:center;font-size:.72rem;color:rgba(255,255,255,.25);margin-top:10px}
+
+.proof-strip{background:rgba(108,62,232,.07);border-top:1px solid rgba(108,62,232,.12);border-bottom:1px solid rgba(108,62,232,.12);padding:32px 5%;display:flex;justify-content:center;gap:0;flex-wrap:wrap}
+.proof-box{text-align:center;padding:12px 52px;border-left:1px solid rgba(108,62,232,.2)}
+.proof-box:last-child{border-left:none}
+.proof-num{font-size:2rem;font-weight:900;background:linear-gradient(90deg,#6c3ee8,#00d4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.proof-lbl{font-size:.75rem;color:rgba(255,255,255,.35);margin-top:2px}
+
+.curriculum-section{padding:80px 5%;max-width:1100px;margin:0 auto}
+.s-tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(108,62,232,.15);color:#6c3ee8;border:1px solid rgba(108,62,232,.3);border-radius:100px;padding:5px 14px;margin-bottom:16px}
+.s-title{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:900;color:#fff;margin-bottom:48px;line-height:1.2}
+.modules-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.module-card{background:rgba(255,255,255,.03);border:1px solid rgba(108,62,232,.2);border-radius:14px;padding:22px 20px;display:flex;gap:16px;align-items:flex-start;transition:border-color .25s}
+.module-card:hover{border-color:rgba(108,62,232,.45)}
+.mod-num{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#6c3ee8,#00d4ff);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.8rem;flex-shrink:0}
+.module-card h3{font-size:.92rem;font-weight:700;margin-bottom:5px;color:#fff}
+.module-card p{font-size:.8rem;color:rgba(0,212,255,.65);line-height:1.55}
+
+.instructor-section{padding:0 5% 80px;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:420px 1fr;gap:56px;align-items:center}
+.inst-img{border-radius:16px;overflow:hidden;height:480px;border:1px solid rgba(108,62,232,.25)}
+.inst-img img{width:100%;height:100%;object-fit:cover}
+.inst-right .badge{display:inline-block;font-size:.72rem;color:#00d4ff;background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.2);border-radius:8px;padding:5px 14px;margin-bottom:14px}
+.inst-right h2{font-size:1.8rem;font-weight:900;color:#fff;margin-bottom:6px}
+.inst-right .role{font-size:.9rem;color:#a78bfa;font-weight:700;margin-bottom:16px}
+.inst-right p{color:rgba(255,255,255,.55);font-size:.9rem;line-height:1.75;margin-bottom:24px}
+.inst-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.inst-stat{background:rgba(108,62,232,.1);border:1px solid rgba(108,62,232,.2);border-radius:10px;padding:14px 16px;text-align:center}
+.inst-stat .n{font-size:1.4rem;font-weight:900;background:linear-gradient(90deg,#6c3ee8,#00d4ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.inst-stat .l{font-size:.75rem;color:rgba(255,255,255,.35);margin-top:2px}
+
+.testi-section{background:rgba(108,62,232,.05);border-top:1px solid rgba(108,62,232,.1);border-bottom:1px solid rgba(108,62,232,.1);padding:80px 5%}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px;max-width:1100px;margin:40px auto 0}
+.testi-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:26px}
+.testi-stars{color:#fbbf24;font-size:.9rem;letter-spacing:2px;margin-bottom:12px}
+.testi-card p{font-size:.87rem;color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:16px;font-style:italic}
+.testi-meta{display:flex;align-items:center;gap:12px}
+.testi-meta img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid rgba(108,62,232,.4)}
+.testi-name{font-weight:700;font-size:.85rem;color:#00d4ff}
+.testi-cohort{font-size:.73rem;color:rgba(255,255,255,.3)}
+
+.pricing-section{padding:80px 5%;max-width:900px;margin:0 auto}
+.plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
+.p-card{background:rgba(255,255,255,.04);border:1px solid rgba(108,62,232,.2);border-radius:16px;padding:28px 22px;text-align:center;transition:border-color .2s}
+.p-card.featured{border-color:#6c3ee8;background:rgba(108,62,232,.1);position:relative}
+.p-featured-badge{position:absolute;top:-12px;right:50%;transform:translateX(50%);background:linear-gradient(135deg,#6c3ee8,#00d4ff);color:#fff;font-size:.68rem;font-weight:800;padding:4px 14px;border-radius:100px;white-space:nowrap}
+.p-card h3{font-size:.85rem;font-weight:700;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px}
+.p-price{font-size:2.4rem;font-weight:900;color:#fff;margin-bottom:4px}
+.p-price span{font-size:.9rem;font-weight:400;color:rgba(255,255,255,.3)}
+.p-desc{font-size:.78rem;color:rgba(255,255,255,.3);margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.07)}
+.p-features{list-style:none;margin-bottom:22px;text-align:right}
+.p-features li{font-size:.82rem;color:rgba(255,255,255,.55);padding:5px 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:8px}
+.p-features li::before{content:'✓';color:#00d4ff;font-weight:800;flex-shrink:0}
+.p-btn{display:block;padding:11px;border-radius:10px;font-size:.88rem;font-weight:800;background:rgba(108,62,232,.2);color:#a78bfa;border:1px solid rgba(108,62,232,.3);transition:all .2s}
+.p-btn:hover,.p-card.featured .p-btn{background:linear-gradient(135deg,#6c3ee8,#00d4ff);color:#fff;border-color:transparent}
+.installment{text-align:center;font-size:.8rem;color:rgba(255,255,255,.3);margin-top:14px}
+
+.guarantee-section{max-width:700px;margin:0 auto 80px;text-align:center;padding:48px 36px;background:rgba(0,212,255,.05);border:1px solid rgba(0,212,255,.2);border-radius:20px}
+.guarantee-icon{font-size:3rem;margin-bottom:16px}
+.guarantee-section h3{font-size:1.4rem;font-weight:900;color:#fff;margin-bottom:10px}
+.guarantee-section p{font-size:.9rem;color:rgba(255,255,255,.5);line-height:1.7}
+
+.final-cta{background:linear-gradient(135deg,rgba(108,62,232,.15) 0%,rgba(0,212,255,.06) 100%);border-top:1px solid rgba(108,62,232,.15);padding:80px 5%;text-align:center}
+.final-cta h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;color:#fff;margin-bottom:12px}
+.final-cta p{color:rgba(255,255,255,.45);margin-bottom:28px;font-size:.95rem}
+.final-form{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;max-width:520px;margin:0 auto}
+.final-form input{flex:1;min-width:160px;background:rgba(255,255,255,.07);border:1px solid rgba(108,62,232,.3);border-radius:10px;padding:13px 16px;color:#fff;font-family:'Heebo',sans-serif;font-size:.9rem;outline:none}
+.final-form input::placeholder{color:rgba(255,255,255,.3)}
+.final-form input:focus{border-color:#6c3ee8}
+.final-form button{background:linear-gradient(135deg,#6c3ee8,#00d4ff);color:#fff;border:none;padding:13px 26px;border-radius:10px;font-size:.92rem;font-weight:800;cursor:pointer;font-family:'Heebo',sans-serif;white-space:nowrap}
+
+footer{background:rgba(0,0,0,.4);text-align:center;padding:20px;font-size:.75rem;color:rgba(255,255,255,.25);border-top:1px solid rgba(255,255,255,.05)}
+footer a{color:rgba(108,62,232,.7);font-weight:600}
+footer a:hover{color:#6c3ee8}
+
+@media(max-width:900px){
+  .hero,.instructor-section{grid-template-columns:1fr}
+  .inst-img{height:300px}
+  .modules-grid,.testi-grid,.plans-grid{grid-template-columns:1fr}
+  .proof-box{padding:12px 24px;border-left:none;border-bottom:1px solid rgba(108,62,232,.1)}
+  .hero-btns{flex-direction:column;align-items:flex-start}
+}
 </style>
 </head>
 <body>
+
 <nav>
-  <div class="logo">DigiMaster</div>
-  <div class="countdown">המחזור הבא: 1 במאי — נותרו 12 מקומות</div>
-  <button class="btn" onclick="return false">הצטרפו עכשיו</button>
+  <div class="nav-logo">DigiMaster</div>
+  <div class="nav-countdown">המחזור הבא: 1 במאי — נותרו 12 מקומות</div>
+  <button class="nav-btn" onclick="return false">הצטרפו עכשיו</button>
 </nav>
 
-<div class="hero">
+<div class="hero fade-in">
   <div>
-    <div class="badge">🚀 מחזור 18 — אלפי בוגרים מרוצים</div>
+    <div class="hero-badge">🚀 מחזור 18 — 1,200+ בוגרים מרוצים</div>
     <h1>למדו למכור אונליין —<br><span>מאפס לעצמאות פיננסית</span></h1>
-    <p>קורס מכירות דיגיטליות מעשי לחלוטין — אסטרטגיה, פאנל, פרסום ואוטומציה. הכל שצריך כדי להתחיל להרוויח אונליין.</p>
-    <p class="starts">המחזור הבא: <span>1 במאי 2025</span> | 8 שבועות מקוון</p>
+    <p class="hero-sub">קורס מכירות דיגיטליות מעשי לחלוטין — אסטרטגיה, פאנל, פרסום ואוטומציה. כל מה שצריך להתחיל להרוויח אונליין.</p>
+    <ul class="hero-bullets">
+      <li>8 שבועות תוכן מלא + הקלטות לצפייה חוזרת</li>
+      <li>4 שיחות ליווי קבוצתיות עם ורד</li>
+      <li>קהילת WhatsApp פרטית עם 1,200+ בוגרים</li>
+      <li>תעודת בוגר מוכרת</li>
+    </ul>
+    <div class="hero-btns">
+      <a href="#" class="btn-grad" onclick="return false">שמרו מקום עכשיו ←</a>
+      <a href="#" class="btn-out" onclick="return false">ראו תוכנית לימודים</a>
+    </div>
+    <div class="student-row">
+      <div class="student-avatars">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&q=80&auto=format&fit=crop&crop=face" alt="">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=60&q=80&auto=format&fit=crop&crop=face" alt="">
+        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=60&q=80&auto=format&fit=crop&crop=face" alt="">
+        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=60&q=80&auto=format&fit=crop&crop=face" alt="">
+        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=60&q=80&auto=format&fit=crop&crop=face" alt="">
+      </div>
+      <div class="student-text">הצטרפו ל-<span>1,200+ בוגרים</span> מרחבי ישראל</div>
+    </div>
   </div>
   <div class="form-card">
     <h3>שמרו מקום עכשיו</h3>
     <p class="sub">מקומות מוגבלים — מחזור קודם נסגר תוך 48 שעות</p>
     <form onsubmit="return false">
-      <label>שם מלא</label><input type="text" placeholder="ישראל ישראלי">
-      <label>טלפון</label><input type="tel" placeholder="05X-XXX-XXXX">
-      <label>אימייל</label><input type="email" placeholder="you@email.com">
+      <label>שם מלא</label>
+      <input type="text" placeholder="ישראל ישראלי">
+      <label>טלפון</label>
+      <input type="tel" placeholder="05X-XXX-XXXX">
+      <label>אימייל</label>
+      <input type="email" placeholder="you@email.com">
       <label>מה המטרה שלכם?</label>
       <select><option>בחרו...</option><option>הכנסה נוספת</option><option>עסק עצמאי</option><option>שיפור עסק קיים</option><option>פרילנסר</option></select>
-      <button type="submit" class="submit">שמרו לי מקום →</button>
-      <p class="note">ללא עלות • ייעוץ חינם לפני ההרשמה</p>
+      <button type="submit" class="form-submit">שמרו לי מקום →</button>
+      <p class="form-note">ללא עלות • ייעוץ חינם לפני ההרשמה</p>
     </form>
   </div>
 </div>
 
 <div class="proof-strip">
-  <div class="proof-item"><div class="proof-num">1,200+</div><div class="proof-label">בוגרי הקורס</div></div>
-  <div class="proof-item"><div class="proof-num">4.9/5</div><div class="proof-label">דירוג ממוצע</div></div>
-  <div class="proof-item"><div class="proof-num">מחזור 18</div><div class="proof-label">הקורס הנוכחי</div></div>
-  <div class="proof-item"><div class="proof-num">8 שבועות</div><div class="proof-label">תוכנית מלאה</div></div>
+  <div class="proof-box fade-in"><div class="proof-num">1,200+</div><div class="proof-lbl">בוגרי הקורס</div></div>
+  <div class="proof-box fade-in" style="transition-delay:.07s"><div class="proof-num">4.9/5</div><div class="proof-lbl">דירוג ממוצע</div></div>
+  <div class="proof-box fade-in" style="transition-delay:.14s"><div class="proof-num">מחזור 18</div><div class="proof-lbl">הקורס הנוכחי</div></div>
+  <div class="proof-box fade-in" style="transition-delay:.21s"><div class="proof-num">8 שבועות</div><div class="proof-lbl">תוכנית מלאה</div></div>
 </div>
 
-<div class="section">
-  <div class="stitle"><div class="tag">תוכנית לימודים</div><h2>מה <span>לומדים בקורס</span></h2></div>
-  <div class="module-grid">
-    <div class="module-card"><div class="mod-num">01</div><div><h3>יסודות המכירה הדיגיטלית</h3><p>פאנל מכירה מקצה לקצה — מתנועה ועד רכישה</p></div></div>
-    <div class="module-card"><div class="mod-num">02</div><div><h3>פרסום ממומן — Meta וGoogle</h3><p>קמפיינים שמביאים לידים ולא שורפים תקציב</p></div></div>
-    <div class="module-card"><div class="mod-num">03</div><div><h3>דף נחיתה שממיר</h3><p>CRO, קופי ומהירות — שגורמים לגולשים לקנות</p></div></div>
-    <div class="module-card"><div class="mod-num">04</div><div><h3>אוטומציה ו-Email Marketing</h3><p>רצפי מייל, WhatsApp ו-CRM — מכירות שרצות לבד</p></div></div>
+<section class="curriculum-section">
+  <div class="fade-in">
+    <span class="s-tag">תוכנית לימודים</span>
+    <h2 class="s-title">מה <span class="grad">לומדים בקורס</span></h2>
   </div>
-</div>
+  <div class="modules-grid fade-in" style="transition-delay:.1s">
+    <div class="module-card"><div class="mod-num">01</div><div><h3>יסודות המכירה הדיגיטלית</h3><p>פאנל מכירה מקצה לקצה — מתנועה ועד רכישה חוזרת</p></div></div>
+    <div class="module-card"><div class="mod-num">02</div><div><h3>פרסום ממומן — Meta ו-Google</h3><p>קמפיינים שמביאים לידים ולא שורפים תקציב</p></div></div>
+    <div class="module-card"><div class="mod-num">03</div><div><h3>דף נחיתה שממיר</h3><p>CRO, קופי ומהירות — הגורמים שמכפילים המרות</p></div></div>
+    <div class="module-card"><div class="mod-num">04</div><div><h3>אוטומציה ו-Email Marketing</h3><p>רצפי מייל, WhatsApp ו-CRM — מכירות שרצות לבד</p></div></div>
+    <div class="module-card"><div class="mod-num">05</div><div><h3>תוכן שמוכר — Reels ו-UGC</h3><p>יצירת תוכן ויראלי שמביא לידים אורגניים</p></div></div>
+    <div class="module-card"><div class="mod-num">06</div><div><h3>Funnel ו-WhatsApp Marketing</h3><p>מיידי ומדיד — הסוד של המוכרים הגדולים</p></div></div>
+    <div class="module-card"><div class="mod-num">07</div><div><h3>ניתוח נתונים ואופטימיזציה</h3><p>מה עובד ולמה — קריאת נתונים וקבלת החלטות</p></div></div>
+    <div class="module-card"><div class="mod-num">08</div><div><h3>עצמאות פיננסית — A עד Z</h3><p>בניית עסק דיגיטלי רווחי ומתמשך</p></div></div>
+  </div>
+</section>
 
-<div class="section" style="padding-top:0">
-  <div class="instructor-card">
-    <div class="avatar">ו"כ</div>
-    <div>
-      <h3>ורד כהן — מייסדת DigiMaster</h3>
-      <p>יזמת דיגיטל עם 12 שנות ניסיון. בנתה ומכרה 3 עסקים אונליין. מרצה ומנטורית עם אלפי בוגרים מרוצים ברחבי ישראל.</p>
+<section class="instructor-section fade-in">
+  <div class="inst-img">
+    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80&auto=format&fit=crop" alt="ורד כהן מייסדת DigiMaster">
+  </div>
+  <div class="inst-right">
+    <div class="badge">מי מאחורי DigiMaster</div>
+    <h2>ורד כהן</h2>
+    <div class="role">מייסדת ומרצה ראשית</div>
+    <p>יזמת דיגיטל עם 12 שנות ניסיון. בנתה ומכרה 3 עסקים אונליין בתחום מוצרי הבריאות, האופנה והחינוך. כיום מלמדת מאות יזמים כיצד לבנות עסק דיגיטלי רווחי ומדיד. מרצה ומנטורית עם נוכחות דיגיטלית של 80K+ עוקבים.</p>
+    <div class="inst-stats">
+      <div class="inst-stat"><div class="n">3</div><div class="l">עסקים נמכרו</div></div>
+      <div class="inst-stat"><div class="n">₪8M+</div><div class="l">הכנסות בוגרים</div></div>
+      <div class="inst-stat"><div class="n">12</div><div class="l">שנות ניסיון</div></div>
+      <div class="inst-stat"><div class="n">1,200+</div><div class="l">בוגרים</div></div>
     </div>
   </div>
-</div>
+</section>
 
-<div class="section" style="padding-top:0">
-  <div class="stitle"><h2>מה אומרים <span>הבוגרים</span></h2></div>
+<section class="testi-section">
+  <div class="fade-in" style="text-align:center;max-width:1100px;margin:0 auto">
+    <span class="s-tag">בוגרים מספרים</span>
+    <h2 class="s-title" style="margin-bottom:0">מה אמרו <span class="grad">הבוגרים</span></h2>
+  </div>
   <div class="testi-grid">
-    <div class="testi"><p>"לפני DigiMaster הייתי שכיר. שלושה חודשים אחרי — הרווחתי את המשכורת הראשונה מהעסק שלי. ממש משנה חיים."</p><div class="testi-name">— עומר ל., בוגר מחזור 14</div></div>
-    <div class="testi"><p>"התוכן מעשי לחלוטין. ישר ליישום. הקמפיין הראשון שלי עלה עוד במהלך הקורס — וכבר הבאתי לידים."</p><div class="testi-name">— מאיה ר., בוגרת מחזור 16</div></div>
+    <div class="testi-card fade-in">
+      <div class="testi-stars">★★★★★</div>
+      <p>"לפני DigiMaster הייתי שכיר עם משכורת ₪8,000. שלושה חודשים אחרי — הרווחתי ₪18,000 מהעסק שלי. ממש משנה חיים."</p>
+      <div class="testi-meta">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&q=80&auto=format&fit=crop&crop=face" alt="עומר">
+        <div><div class="testi-name">עומר ל.</div><div class="testi-cohort">בוגר מחזור 14</div></div>
+      </div>
+    </div>
+    <div class="testi-card fade-in" style="transition-delay:.1s">
+      <div class="testi-stars">★★★★★</div>
+      <p>"התוכן מעשי לחלוטין. ישר ליישום. הקמפיין הראשון שלי עלה עוד במהלך הקורס — וכבר הבאתי לידים ביום השני."</p>
+      <div class="testi-meta">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=60&q=80&auto=format&fit=crop&crop=face" alt="מאיה">
+        <div><div class="testi-name">מאיה ר.</div><div class="testi-cohort">בוגרת מחזור 16</div></div>
+      </div>
+    </div>
+    <div class="testi-card fade-in" style="transition-delay:.2s">
+      <div class="testi-stars">★★★★★</div>
+      <p>"ניסיתי 3 קורסים דיגיטליים לפני. DigiMaster הוא היחיד שנתן לי כלים שאני משתמש בהם כל יום. שווה כל שקל."</p>
+      <div class="testi-meta">
+        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=60&q=80&auto=format&fit=crop&crop=face" alt="ניר">
+        <div><div class="testi-name">ניר כ.</div><div class="testi-cohort">בוגר מחזור 15</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing-section">
+  <div class="fade-in" style="text-align:center">
+    <span class="s-tag">תמחור</span>
+    <h2 class="s-title" style="margin-bottom:8px">השקעה <span class="grad">שמחזירה את עצמה</span></h2>
+    <p style="color:rgba(255,255,255,.35);font-size:.88rem">תשלום חד-פעמי או 3 תשלומים שווים</p>
+  </div>
+  <div class="plans-grid">
+    <div class="p-card fade-in">
+      <h3>בסיסי</h3>
+      <div class="p-price">₪990<span> חד פעמי</span></div>
+      <p class="p-desc">גישה לחומרים + קהילה</p>
+      <ul class="p-features"><li>8 שבועות תוכן</li><li>הקלטות לצפייה</li><li>קהילת בוגרים</li><li>תעודת בוגר</li></ul>
+      <a href="#" class="p-btn" onclick="return false">הצטרפו לבסיסי</a>
+    </div>
+    <div class="p-card featured fade-in" style="transition-delay:.1s">
+      <div class="p-featured-badge">הכי פופולרי ⭐</div>
+      <h3>מלא</h3>
+      <div class="p-price">₪1,490<span> חד פעמי</span></div>
+      <p class="p-desc">הכל לבוגר מצליח</p>
+      <ul class="p-features"><li>הכל בבסיסי</li><li>4 שיחות קבוצתיות</li><li>גישה לכל עדכוני הקורס</li><li>תגים ולוגואים</li></ul>
+      <a href="#" class="p-btn" onclick="return false">הצטרפו למלא</a>
+    </div>
+    <div class="p-card fade-in" style="transition-delay:.2s">
+      <h3>VIP</h3>
+      <div class="p-price">₪2,490<span> חד פעמי</span></div>
+      <p class="p-desc">ליווי אישי עם ורד</p>
+      <ul class="p-features"><li>הכל במלא</li><li>3 שיחות אישיות</li><li>ביקורת עסק אישית</li><li>קבוצת VIP ב-WhatsApp</li><li>גישה עדיפות לכל הדורות</li></ul>
+      <a href="#" class="p-btn" onclick="return false">הצטרפו ל-VIP</a>
+    </div>
+  </div>
+  <p class="installment">כל המסלולים זמינים גם ב-3 תשלומים שווים | ניתן לשלם בביט, PayPal ואשראי</p>
+</section>
+
+<div style="padding:0 5% 0;max-width:1100px;margin:0 auto">
+  <div class="guarantee-section fade-in">
+    <div class="guarantee-icon">🛡</div>
+    <h3>30 יום כסף בחזרה — ללא שאלות</h3>
+    <p>אם עברתם את המודולים הראשונים ולא הרגשתם שהקורס מתאים לכם — נחזיר את כל הכסף. אנחנו בטוחים בתוכנית שלנו.</p>
   </div>
 </div>
 
-<div class="section" style="padding-top:0">
-  <div class="stitle"><h2>השקעה <span>שמחזירה את עצמה</span></h2></div>
-  <div class="price-card">
-    <div class="price-label">מחיר השקה למחזור 18</div>
-    <div class="price">₪1,490</div>
-    <div class="price-note">תשלום חד-פעמי או 3 תשלומים</div>
-    <ul class="features-list">
-      <li><span class="check">✓</span>8 שבועות תוכן מלא + הקלטות</li>
-      <li><span class="check">✓</span>קהילת בוגרים בWhatsApp</li>
-      <li><span class="check">✓</span>4 שיחות ליווי קבוצתיות</li>
-      <li><span class="check">✓</span>גישה לכל עדכוני הקורס</li>
-      <li><span class="check">✓</span>תעודת בוגר מוכרת</li>
-    </ul>
-    <button class="submit" onclick="return false">הצטרפו עכשיו →</button>
-  </div>
-</div>
+<section class="final-cta">
+  <h2>נותרו <span class="grad">12 מקומות בלבד</span></h2>
+  <p>המחזור הבא מתחיל 1 במאי — רישום נסגר כשמלאים המקומות</p>
+  <form class="final-form" onsubmit="return false">
+    <input type="text" placeholder="שם מלא">
+    <input type="tel" placeholder="טלפון">
+    <button type="submit">שמרו מקום ←</button>
+  </form>
+</section>
 
-<div class="cta2">
-  <h2>עדיין לא בטוחים?</h2>
-  <p>שיחת ייעוץ חינם לפני ההרשמה — נבין יחד אם הקורס מתאים לכם</p>
-  <button class="btn" onclick="return false">קבעו שיחת ייעוץ חינם</button>
-</div>
+<footer>
+  <p>© 2025 DigiMaster | <a href="https://liorvelikin.github.io/velo-website/">נבנה על ידי VELO DIGITAL</a></p>
+</footer>
 
-<footer><p>© 2025 DigiMaster | <a href="https://liorvelikin.github.io/velo-website/">נבנה על ידי VELO DIGITAL</a></p></footer>
-</body></html>
+<script>
+document.querySelectorAll('.fade-in').forEach(el=>{
+  new IntersectionObserver(([e])=>{if(e.isIntersecting)e.target.classList.add('visible')},{threshold:0.1}).observe(el);
+});
+</script>
+</body>
+</html>

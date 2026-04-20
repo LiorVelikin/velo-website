@@ -3,106 +3,212 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>נווה הירוק | פרויקט מגורים יוקרתי ברמת גן</title>
+<title>נווה הירוק | פרויקט מגורים יוקרתי בירושלים</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Heebo',sans-serif;background:#101c10;color:#fff;direction:rtl}
+body{font-family:'Heebo',sans-serif;background:#f5f0e8;color:#070e09;direction:rtl}
 a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
 
-nav{position:sticky;top:0;z-index:100;background:rgba(16,28,16,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,168,76,0.2);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:64px}
-.nav-logo{font-size:1.3rem;font-weight:800;color:#fff}
-.nav-logo span{color:#c9a84c}
-.nav-phone{color:rgba(255,255,255,0.7);font-size:0.9rem;direction:ltr}
+/* --- NAV --- */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(7,14,9,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,0.25);height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 5%}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo svg{width:32px;height:32px;flex-shrink:0}
+.nav-brand{font-size:1.35rem;font-weight:800;color:#fff;letter-spacing:-0.5px}
+.nav-brand span{color:#c9a84c}
+.nav-center{font-size:0.82rem;color:rgba(255,255,255,0.5);font-weight:400;letter-spacing:0.5px}
+.nav-right{display:flex;align-items:center;gap:14px}
+.nav-phone{color:rgba(255,255,255,0.7);font-size:0.9rem;direction:ltr;font-weight:500}
 .nav-phone strong{color:#c9a84c}
-.nav-cta{background:#c9a84c;color:#101c10;border:none;padding:0.5rem 1.2rem;border-radius:4px;font-family:'Heebo',sans-serif;font-size:0.85rem;font-weight:700;cursor:pointer}
+.nav-cta-btn{background:#c9a84c;color:#070e09;border:none;padding:0.5rem 1.4rem;border-radius:4px;font-family:'Heebo',sans-serif;font-size:0.85rem;font-weight:800;cursor:pointer;transition:background 0.2s;white-space:nowrap}
+.nav-cta-btn:hover{background:#e0bc5e}
 
-.hero{background:linear-gradient(135deg,#0a1a0a 0%,#1a2a1a 50%,#0f200f 100%);padding:6rem 5% 5rem;min-height:100vh;display:flex;align-items:center}
-.hero-inner{display:flex;gap:4rem;align-items:center;width:100%;flex-wrap:wrap}
-.hero-text{flex:1;min-width:280px}
-.hero-label{display:inline-block;background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.4);color:#c9a84c;padding:0.4rem 1rem;border-radius:4px;font-size:0.8rem;font-weight:600;letter-spacing:1px;margin-bottom:1.5rem}
-.hero-text h1{font-size:2.8rem;font-weight:900;line-height:1.2;margin-bottom:1rem;color:#fff}
+/* --- HERO --- */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding-top:68px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1800&q=80&auto=format&fit=crop');background-size:cover;background-position:center}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to left, rgba(7,14,9,0.3) 0%, rgba(7,14,9,0.85) 60%)}
+.hero-inner{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:5rem 5%;width:100%;gap:4rem;flex-wrap:wrap}
+.hero-text{flex:1;min-width:280px;max-width:560px}
+.hero-badge{display:inline-block;background:rgba(201,168,76,0.18);border:1px solid rgba(201,168,76,0.5);color:#c9a84c;padding:0.45rem 1.1rem;border-radius:4px;font-size:0.78rem;font-weight:700;letter-spacing:1.5px;margin-bottom:1.6rem}
+.hero-text h1{font-size:clamp(42px,5vw,65px);font-weight:900;line-height:1.1;color:#fff;margin-bottom:1.2rem}
 .hero-text h1 span{color:#c9a84c}
-.hero-text .sub{font-size:1rem;color:rgba(255,255,255,0.65);margin-bottom:2rem;line-height:1.7}
-.hero-bullets{list-style:none;margin-bottom:2rem}
-.hero-bullets li{display:flex;align-items:center;gap:0.7rem;font-size:0.95rem;color:rgba(255,255,255,0.85);margin-bottom:0.7rem}
-.bullet-dot{width:8px;height:8px;background:#c9a84c;border-radius:50%;flex-shrink:0}
-.hero-form-card{background:rgba(255,255,255,0.06);border:1px solid rgba(201,168,76,0.25);border-radius:16px;padding:2rem;flex:0 0 340px;backdrop-filter:blur(10px)}
-.hero-form-card h3{font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:0.4rem}
-.hero-form-card p{font-size:0.82rem;color:rgba(255,255,255,0.55);margin-bottom:1.5rem}
-.form-group{margin-bottom:1rem}
-.form-group label{display:block;font-size:0.82rem;color:rgba(255,255,255,0.65);margin-bottom:0.4rem;font-weight:500}
-.form-group input, .form-group select{width:100%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:0.7rem 1rem;color:#fff;font-family:'Heebo',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s}
-.form-group input:focus, .form-group select:focus{border-color:#c9a84c}
-.form-group input::placeholder{color:rgba(255,255,255,0.35)}
-.form-group select option{background:#1a2a1a;color:#fff}
-.submit-btn{width:100%;background:#c9a84c;color:#101c10;border:none;padding:0.85rem;border-radius:8px;font-family:'Heebo',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;margin-top:0.5rem;transition:all 0.2s}
-.submit-btn:hover{background:#e0bc5e}
-.form-note{font-size:0.75rem;color:rgba(255,255,255,0.4);text-align:center;margin-top:0.7rem}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.8;margin-bottom:2rem;max-width:480px}
+.hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:0}
+.hero-tag-item{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);color:rgba(255,255,255,0.9);padding:0.4rem 1rem;border-radius:30px;font-size:0.82rem;font-weight:500}
 
-.highlights{background:#1a2a1a;padding:2.5rem 5%;display:flex;justify-content:space-around;flex-wrap:wrap;gap:1.5rem;border-top:2px solid rgba(201,168,76,0.2)}
-.highlight-item{text-align:center}
-.highlight-num{font-size:1.8rem;font-weight:900;color:#c9a84c}
-.highlight-label{font-size:0.85rem;color:rgba(255,255,255,0.65);margin-top:0.2rem}
+/* --- HERO FORM CARD --- */
+.hero-form-card{background:#fff;border-radius:16px;padding:32px;width:360px;flex-shrink:0;box-shadow:0 24px 64px rgba(0,0,0,0.45)}
+.hero-form-card h3{font-size:1.15rem;font-weight:800;color:#070e09;margin-bottom:0.3rem}
+.hero-form-card .form-sub{font-size:0.8rem;color:#888;margin-bottom:1.6rem}
+.form-group{margin-bottom:0.9rem}
+.form-group label{display:block;font-size:0.78rem;color:#555;margin-bottom:0.35rem;font-weight:600}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:#f7f5f2;border:1.5px solid #e8e3d8;border-radius:8px;padding:0.7rem 0.9rem;color:#070e09;font-family:'Heebo',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s}
+.form-group input:focus,.form-group select:focus{border-color:#c9a84c}
+.form-group input::placeholder{color:#bbb}
+.form-group select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 8L1 3h10z' fill='%23888'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:left 12px center;cursor:pointer}
+.submit-gold{width:100%;background:#c9a84c;color:#070e09;border:none;padding:0.9rem;border-radius:8px;font-family:'Heebo',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;margin-top:0.5rem;transition:all 0.2s;letter-spacing:0.3px}
+.submit-gold:hover{background:#e0bc5e}
+.form-note{font-size:0.73rem;color:#aaa;text-align:center;margin-top:0.7rem}
 
-.features{padding:5rem 5%}
-.section-title{font-size:1.8rem;font-weight:800;color:#fff;margin-bottom:0.5rem}
-.gold-line{width:40px;height:3px;background:#c9a84c;border-radius:2px;margin-bottom:2.5rem}
-.features-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
-.feature-card{background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.15);border-radius:12px;padding:1.8rem;transition:border-color 0.3s}
-.feature-card:hover{border-color:rgba(201,168,76,0.4)}
-.feature-icon{font-size:2rem;margin-bottom:0.8rem}
-.feature-card h3{font-size:1rem;font-weight:700;color:#fff;margin-bottom:0.4rem}
-.feature-card p{font-size:0.85rem;color:rgba(255,255,255,0.55);line-height:1.6}
+/* --- HIGHLIGHTS STRIP --- */
+.highlights-strip{background:#070e09;padding:2rem 5%;display:flex;justify-content:space-around;flex-wrap:wrap;gap:1.5rem;border-bottom:2px solid rgba(201,168,76,0.15)}
+.hl-item{text-align:center;padding:0.5rem 1rem}
+.hl-num{font-size:2rem;font-weight:900;color:#c9a84c;line-height:1}
+.hl-label{font-size:0.82rem;color:rgba(255,255,255,0.55);margin-top:0.3rem}
 
-.testimonial-section{background:#1a2a1a;padding:5rem 5%;text-align:center}
-.testi-quote{font-size:1.15rem;color:rgba(255,255,255,0.8);font-style:italic;line-height:1.8;max-width:600px;margin:2rem auto}
-.testi-quote::before{content:'"';font-size:4rem;color:#c9a84c;line-height:0.5;display:block;margin-bottom:1rem;font-style:normal}
-.testi-name{color:#c9a84c;font-weight:700;margin-top:1.5rem}
+/* --- PROPERTY FEATURES --- */
+.features-section{background:#0d2015;padding:5rem 5%}
+.section-header{margin-bottom:3rem}
+.section-tag{font-size:0.75rem;font-weight:700;color:#c9a84c;letter-spacing:2px;text-transform:uppercase;margin-bottom:0.6rem}
+.section-title{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:#fff;margin-bottom:0}
+.gold-line{width:48px;height:3px;background:#c9a84c;border-radius:2px;margin-top:0.8rem}
+.features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.feature-card{background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.15);border-radius:12px;padding:2rem 1.5rem;transition:all 0.3s}
+.feature-card:hover{background:rgba(201,168,76,0.06);border-color:rgba(201,168,76,0.4);transform:translateY(-4px)}
+.feature-icon{font-size:2.2rem;margin-bottom:1rem}
+.feature-card h3{font-size:1rem;font-weight:700;color:#fff;margin-bottom:0.5rem}
+.feature-card p{font-size:0.84rem;color:rgba(255,255,255,0.5);line-height:1.65}
 
-.form-repeat{padding:5rem 5%;background:linear-gradient(135deg,#0a1a0a,#1a2a1a);text-align:center}
-.form-repeat h2{font-size:2rem;font-weight:800;color:#fff;margin-bottom:0.7rem}
-.form-repeat p{color:rgba(255,255,255,0.6);margin-bottom:2.5rem}
-.inline-form{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;max-width:700px;margin:0 auto}
-.inline-form input{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:0.8rem 1.2rem;color:#fff;font-family:'Heebo',sans-serif;font-size:0.9rem;flex:1;min-width:180px;outline:none}
-.inline-form input::placeholder{color:rgba(255,255,255,0.4)}
+/* --- GALLERY --- */
+.gallery-section{background:#f5f0e8;padding:5rem 5%}
+.gallery-section .section-title{color:#070e09}
+.gallery-section .gold-line{margin-bottom:2.5rem}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.gallery-item{border-radius:12px;overflow:hidden;position:relative;cursor:pointer}
+.gallery-item img{width:100%;height:260px;object-fit:cover;display:block;transition:transform 0.4s ease}
+.gallery-item:hover img{transform:scale(1.05)}
+.gallery-item::after{content:'';position:absolute;inset:0;border:2.5px solid transparent;border-radius:12px;transition:border-color 0.3s}
+.gallery-item:hover::after{border-color:#c9a84c}
 
-footer{background:#060f06;padding:2rem 5%;text-align:center;color:rgba(255,255,255,0.3);font-size:0.82rem;border-top:1px solid rgba(201,168,76,0.1)}
-footer span{color:#c9a84c;font-weight:600}
+/* --- APARTMENT TYPES --- */
+.apt-section{background:#fff;padding:5rem 5%}
+.apt-section .section-title{color:#070e09}
+.apt-section .gold-line{margin-bottom:2.5rem}
+.apt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.apt-card{border:2px solid #e8e3d8;border-radius:14px;padding:2rem;position:relative;transition:all 0.3s;background:#faf8f3}
+.apt-card:hover{border-color:#c9a84c;box-shadow:0 12px 36px rgba(201,168,76,0.12)}
+.apt-card.popular{border-color:#c9a84c;box-shadow:0 12px 36px rgba(201,168,76,0.2)}
+.popular-badge{position:absolute;top:-14px;right:50%;transform:translateX(50%);background:#c9a84c;color:#070e09;font-size:0.72rem;font-weight:800;padding:0.3rem 1rem;border-radius:20px;white-space:nowrap;letter-spacing:0.5px}
+.apt-plan-icon{width:100%;height:80px;background:#f0ebe0;border-radius:8px;margin-bottom:1.2rem;display:flex;align-items:center;justify-content:center;font-size:2rem}
+.apt-rooms{font-size:1.5rem;font-weight:900;color:#070e09;margin-bottom:0.2rem}
+.apt-size{font-size:0.85rem;color:#777;margin-bottom:0.8rem}
+.apt-price{font-size:1.15rem;font-weight:800;color:#c9a84c;margin-bottom:1rem}
+.apt-features{list-style:none;margin-bottom:1.4rem}
+.apt-features li{font-size:0.83rem;color:#555;padding:0.3rem 0;border-bottom:1px solid #f0ebe0;display:flex;align-items:center;gap:6px}
+.apt-features li::before{content:'✓';color:#c9a84c;font-weight:700}
+.apt-btn{width:100%;background:#070e09;color:#fff;border:none;padding:0.75rem;border-radius:8px;font-family:'Heebo',sans-serif;font-size:0.9rem;font-weight:700;cursor:pointer;transition:background 0.2s}
+.apt-btn:hover{background:#1a3020}
+.apt-card.popular .apt-btn{background:#c9a84c;color:#070e09}
+.apt-card.popular .apt-btn:hover{background:#e0bc5e}
 
-@media(max-width:768px){
-  .hero{padding:4rem 5%}
-  .hero-text h1{font-size:1.9rem}
-  .hero-form-card{flex:1 1 100%}
+/* --- LOCATION --- */
+.location-section{background:#f5f0e8;padding:5rem 5%}
+.location-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.location-section .section-title{color:#070e09}
+.location-section .gold-line{margin-bottom:1.5rem}
+.location-desc{font-size:0.95rem;color:#444;line-height:1.8;margin-bottom:1.8rem}
+.location-distances{list-style:none}
+.location-distances li{display:flex;align-items:center;gap:12px;padding:0.8rem 0;border-bottom:1px solid #e0d9cc;font-size:0.9rem;color:#333}
+.location-distances li .dist-icon{width:32px;height:32px;background:#c9a84c;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0}
+.location-distances li strong{color:#070e09;font-weight:700}
+.map-placeholder{background:#0d2015;border-radius:14px;height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;color:rgba(255,255,255,0.5);font-size:0.9rem;border:2px solid rgba(201,168,76,0.2)}
+.map-placeholder .map-pin{font-size:3rem}
+.map-placeholder strong{color:#c9a84c;font-size:1rem;font-weight:700}
+
+/* --- DEVELOPER --- */
+.developer-section{background:#070e09;padding:5rem 5%}
+.developer-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.developer-section .section-title{color:#fff}
+.developer-section .gold-line{margin-bottom:1.5rem}
+.dev-desc{font-size:0.95rem;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:2rem}
+.dev-stats{display:flex;gap:2rem;flex-wrap:wrap}
+.dev-stat{text-align:center}
+.dev-stat-num{font-size:2rem;font-weight:900;color:#c9a84c}
+.dev-stat-label{font-size:0.8rem;color:rgba(255,255,255,0.5);margin-top:0.2rem}
+.dev-logo-placeholder{background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.2);border-radius:12px;padding:2.5rem;text-align:center;margin-bottom:1.5rem}
+.dev-logo-placeholder .dev-logo-text{font-size:1.4rem;font-weight:900;color:#c9a84c;letter-spacing:1px}
+.dev-logo-placeholder p{font-size:0.82rem;color:rgba(255,255,255,0.4);margin-top:0.4rem}
+.dev-img{border-radius:14px;overflow:hidden}
+.dev-img img{width:100%;height:320px;object-fit:cover}
+
+/* --- SECOND FORM --- */
+.form2-section{background:#f5f0e8;padding:5rem 5%;text-align:center}
+.form2-section .section-title{color:#070e09;margin-bottom:0.5rem}
+.form2-desc{font-size:0.95rem;color:#666;margin-bottom:2.5rem;margin-top:0.5rem}
+.form2-inner{max-width:560px;margin:0 auto;background:#fff;border-radius:16px;padding:2.5rem;box-shadow:0 12px 40px rgba(0,0,0,0.08);border:1px solid #e8e3d8}
+.form2-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+
+/* --- FOOTER --- */
+footer{background:#070e09;padding:2.5rem 5%;border-top:1px solid rgba(201,168,76,0.12)}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-size:1.1rem;font-weight:800;color:#fff}
+.footer-logo span{color:#c9a84c}
+.footer-copy{font-size:0.8rem;color:rgba(255,255,255,0.3)}
+.footer-copy a{color:rgba(255,255,255,0.5);transition:color 0.2s}
+.footer-copy a:hover{color:#c9a84c}
+
+/* --- FADE IN --- */
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade-in.visible{opacity:1;transform:none}
+
+/* --- MOBILE --- */
+@media(max-width:900px){
+  .features-grid{grid-template-columns:repeat(2,1fr)}
+  .apt-grid{grid-template-columns:1fr}
+  .location-inner,.developer-inner{grid-template-columns:1fr}
+  .form2-row{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .hero-inner{flex-direction:column}
+  .hero-form-card{width:100%}
+  .nav-center{display:none}
+  .gallery-grid{grid-template-columns:1fr}
   .features-grid{grid-template-columns:1fr}
+  .footer-inner{flex-direction:column;text-align:center}
 }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
-  <div class="nav-logo">נווה <span>הירוק</span></div>
-  <div class="nav-phone"><strong>☎ 03-1234567</strong></div>
-  <button class="nav-cta">השאירו פרטים</button>
+  <div class="nav-logo">
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 4C16 4 6 12 6 20C6 25.5228 10.4772 30 16 30C21.5228 30 26 25.5228 26 20C26 12 16 4 16 4Z" fill="#c9a84c" opacity="0.9"/>
+      <path d="M16 10C16 10 10 16 10 21C10 23.7614 12.6863 26 16 26C19.3137 26 22 23.7614 22 21C22 16 16 10 16 10Z" fill="#0d2015"/>
+      <path d="M16 14C16 14 12 18 12 21C12 22.6569 13.7909 24 16 24C18.2091 24 20 22.6569 20 21C20 18 16 14 16 14Z" fill="#c9a84c" opacity="0.6"/>
+    </svg>
+    <div class="nav-brand">נווה <span>הירוק</span></div>
+  </div>
+  <div class="nav-center">188 דירות יוקרה &nbsp;|&nbsp; ירושלים</div>
+  <div class="nav-right">
+    <div class="nav-phone">📞 <strong>02-123-4567</strong></div>
+    <button class="nav-cta-btn" onclick="return false">לפרטים נוספים</button>
+  </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
   <div class="hero-inner">
     <div class="hero-text">
-      <div class="hero-label">🌿 פרויקט יוקרה חדש · רמת גן</div>
-      <h1>נווה הירוק —<br>חיים בלב הטבע,<br><span>לב רמת גן</span></h1>
-      <p class="sub">דירות 3-5 חדרים מ-₪1,850,000 | מסירה 2027<br>פרויקט מגורים בוטיק עם דגש על איכות חיים, טבע ועיצוב</p>
-      <ul class="hero-bullets">
-        <li><span class="bullet-dot"></span>דירות מרווחות 3-5 חדרים עם מרפסות גדולות</li>
-        <li><span class="bullet-dot"></span>מחיר השקה מיוחד — מוגבל ל-30 רוכשים ראשונים</li>
-        <li><span class="bullet-dot"></span>גינות ירוקות, בריכה ומתחם ספא פרטי לדיירים</li>
-      </ul>
-      <button class="submit-btn" style="width:auto;padding:0.85rem 2rem;display:inline-block">👇 להשאיר פרטים ולקבל מחירון</button>
+      <div class="hero-badge">◆ מחזור א׳ — 40% נמכר</div>
+      <h1>נווה הירוק<br><span>חיים שעולים רמה</span></h1>
+      <p class="hero-sub">188 דירות יוקרה בלב ירושלים הירוקה — מרפסות גדולות, לובי מפואר, בריכה פרטית ופארק ירוק ברחבי הפרויקט</p>
+      <div class="hero-tags">
+        <span class="hero-tag-item">3-5 חדרים</span>
+        <span class="hero-tag-item">80-200 מ"ר</span>
+        <span class="hero-tag-item">מרפסה בכל דירה</span>
+        <span class="hero-tag-item">חניה כפולה</span>
+      </div>
     </div>
     <div class="hero-form-card">
-      <h3>רוצים לקבל פרטים?</h3>
-      <p>השאירו פרטים ונחזור אליכם תוך שעה</p>
+      <h3>קבלו מידע על הפרויקט</h3>
+      <p class="form-sub">פרטים בלבד — ללא התחייבות</p>
       <form onsubmit="return false">
         <div class="form-group">
           <label>שם מלא</label>
@@ -113,78 +219,274 @@ footer span{color:#c9a84c;font-weight:600}
           <input type="tel" placeholder="05X-XXXXXXX">
         </div>
         <div class="form-group">
-          <label>מספר חדרים מבוקש</label>
+          <label>כמה חדרים אתם מחפשים?</label>
           <select>
+            <option value="" disabled selected>בחרו גודל דירה</option>
             <option>3 חדרים</option>
             <option>4 חדרים</option>
             <option>5 חדרים</option>
+            <option>פנטהאוז</option>
           </select>
         </div>
-        <button type="submit" class="submit-btn">שליחה — קבלו מחירון</button>
-        <p class="form-note">🔒 הפרטים שלכם מוגנים ולא יועברו לצד שלישי</p>
+        <div class="form-group">
+          <label>תקציב משוער</label>
+          <select>
+            <option value="" disabled selected>בחרו טווח תקציב</option>
+            <option>עד ₪2,500,000</option>
+            <option>₪2,500,000 – ₪3,500,000</option>
+            <option>₪3,500,000 – ₪5,000,000</option>
+            <option>מעל ₪5,000,000</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-gold">שלחו פרטים ←</button>
+        <p class="form-note">🔒 פרטיכם מוגנים ולא יועברו לצד שלישי</p>
       </form>
     </div>
   </div>
 </section>
 
-<div class="highlights">
-  <div class="highlight-item"><div class="highlight-num">3-5</div><div class="highlight-label">חדרים לבחירה</div></div>
-  <div class="highlight-item"><div class="highlight-num">2027</div><div class="highlight-label">מסירה מתוכננת</div></div>
-  <div class="highlight-item"><div class="highlight-num">₪1,850,000</div><div class="highlight-label">מחיר השקה</div></div>
-  <div class="highlight-item"><div class="highlight-num">🌿</div><div class="highlight-label">פרויקט ירוק</div></div>
+<!-- HIGHLIGHTS STRIP -->
+<div class="highlights-strip">
+  <div class="hl-item fade-in"><div class="hl-num">188</div><div class="hl-label">דירות יוקרה</div></div>
+  <div class="hl-item fade-in"><div class="hl-num">80-200</div><div class="hl-label">מ"ר לדירה</div></div>
+  <div class="hl-item fade-in"><div class="hl-num">2027</div><div class="hl-label">מסירה מתוכננת</div></div>
+  <div class="hl-item fade-in"><div class="hl-num">A+</div><div class="hl-label">דירוג אנרגטי</div></div>
 </div>
 
-<section class="features">
-  <div class="section-title">מה כולל הפרויקט</div>
-  <div class="gold-line"></div>
+<!-- PROPERTY FEATURES -->
+<section class="features-section">
+  <div class="section-header fade-in">
+    <div class="section-tag">מה כולל הפרויקט</div>
+    <div class="section-title">חוויית מגורים ברמה אחרת</div>
+    <div class="gold-line"></div>
+  </div>
   <div class="features-grid">
-    <div class="feature-card">
-      <div class="feature-icon">🏊</div>
-      <h3>בריכה ומתחם ספא</h3>
-      <p>בריכת שחייה חממה, ג'קוזי, סאונה ואזור ישיבה מפנק לדיירי הבניין</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🚗</div>
-      <h3>חניות תת-קרקעיות</h3>
-      <p>חניון מאובטח עם שני מקומות חנייה לכל דירה, כולל עמדות טעינה לרכב חשמלי</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🌅</div>
-      <h3>נוף פתוח</h3>
-      <p>כל הדירות נהנות מנוף פתוח לפארק, עם מרפסות מרווחות ואוויר צח</p>
-    </div>
-    <div class="feature-card">
+    <div class="feature-card fade-in">
       <div class="feature-icon">🌳</div>
-      <h3>גינות ירוקות</h3>
-      <p>3,000 מ"ר של גינות מטופחות, פינות משחק לילדים ומסלול ריצה פנימי</p>
+      <h3>גינות ופארקים</h3>
+      <p>3 דונם של נוף ירוק מטופח, שבילי הליכה, פינות ישיבה צנועות ועצים בוגרים שמספקים צל וצניעות</p>
+    </div>
+    <div class="feature-card fade-in">
+      <div class="feature-icon">🏊</div>
+      <h3>בריכה וספא</h3>
+      <p>בריכה מחוממת + ג׳קוזי איכותי לדיירים בלבד, אזור שיזוף מפואר ועיצוב נוף ים תיכוני</p>
+    </div>
+    <div class="feature-card fade-in">
+      <div class="feature-icon">🏋</div>
+      <h3>מרכז כושר</h3>
+      <p>800 מ"ר של ציוד מקצועי מתקדם — אזור משקולות, מכשירי קרדיו, חדר יוגה ופילאטיס</p>
+    </div>
+    <div class="feature-card fade-in">
+      <div class="feature-icon">🅿</div>
+      <h3>חניה מאובטחת</h3>
+      <p>2 חניות לכל דירה בחניון תת-קרקעי חכם, עמדות טעינה לרכב חשמלי וחניות נוספות לאורחים</p>
     </div>
   </div>
 </section>
 
-<section class="testimonial-section">
-  <div class="section-title">מה אומרים הרוכשים</div>
-  <div class="gold-line" style="margin:0.5rem auto 0"></div>
-  <div class="testi-quote">
-    רכשנו דירה בנווה הירוק בשלב ההשקה ולא יכולנו לפספס. הצוות המקצועי, המחיר ההוגן והתכנון הירוק הפך את החלטת הרכישה לפשוטה ביותר שעשינו.
+<!-- GALLERY -->
+<section class="gallery-section">
+  <div class="section-header fade-in">
+    <div class="section-tag">הצצה לפרויקט</div>
+    <div class="section-title" style="color:#070e09">כך נראים החיים בנווה הירוק</div>
+    <div class="gold-line"></div>
   </div>
-  <div class="testi-name">— משפחת כץ, רוכשים בפרויקט</div>
-</section>
-
-<section class="form-repeat">
-  <h2>מוכנים לקבל מחירון?</h2>
-  <p>מלאו פרטים ונחזור אליכם תוך שעה</p>
-  <form onsubmit="return false">
-    <div class="inline-form">
-      <input type="text" placeholder="שם מלא">
-      <input type="tel" placeholder="טלפון">
-      <button type="submit" class="submit-btn" style="width:auto;flex:0 0 auto;padding:0.8rem 1.5rem">שליחה</button>
+  <div class="gallery-grid">
+    <div class="gallery-item fade-in">
+      <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80&auto=format&fit=crop" alt="סלון יוקרתי" loading="lazy">
     </div>
-  </form>
+    <div class="gallery-item fade-in">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80&auto=format&fit=crop" alt="מטבח מפואר" loading="lazy">
+    </div>
+    <div class="gallery-item fade-in">
+      <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=600&q=80&auto=format&fit=crop" alt="חדר שינה" loading="lazy">
+    </div>
+    <div class="gallery-item fade-in">
+      <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80&auto=format&fit=crop" alt="בריכת שחייה" loading="lazy">
+    </div>
+    <div class="gallery-item fade-in">
+      <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80&auto=format&fit=crop" alt="חזית הבניין" loading="lazy">
+    </div>
+    <div class="gallery-item fade-in">
+      <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80&auto=format&fit=crop" alt="נוף מהמרפסת" loading="lazy">
+    </div>
+  </div>
 </section>
 
+<!-- APARTMENT TYPES -->
+<section class="apt-section">
+  <div class="section-header fade-in">
+    <div class="section-tag">סוגי דירות</div>
+    <div class="section-title">מצאו את הדירה שלכם</div>
+    <div class="gold-line"></div>
+  </div>
+  <div class="apt-grid">
+    <div class="apt-card fade-in">
+      <div class="apt-plan-icon">🏠</div>
+      <div class="apt-rooms">3 חדרים</div>
+      <div class="apt-size">80–110 מ"ר | קומות 2-8</div>
+      <div class="apt-price">₪2,200,000 – ₪2,800,000</div>
+      <ul class="apt-features">
+        <li>מרפסת גדולה 12-20 מ"ר</li>
+        <li>מטבח פתוח לסלון</li>
+        <li>2 חניות בחניון</li>
+        <li>מחסן פרטי</li>
+      </ul>
+      <button class="apt-btn" onclick="return false">לפרטים ומחירים</button>
+    </div>
+    <div class="apt-card popular fade-in">
+      <div class="popular-badge">⭐ הנמכר ביותר</div>
+      <div class="apt-plan-icon">🏡</div>
+      <div class="apt-rooms">4 חדרים</div>
+      <div class="apt-size">120–160 מ"ר | קומות 3-12</div>
+      <div class="apt-price">₪3,100,000 – ₪4,200,000</div>
+      <ul class="apt-features">
+        <li>מרפסת מרווחת 20-30 מ"ר</li>
+        <li>חדר הורים עם ממ"ד ואמבטיה</li>
+        <li>ממ"ד כפול</li>
+        <li>נוף פתוח לגינות</li>
+      </ul>
+      <button class="apt-btn" onclick="return false">לפרטים ומחירים</button>
+    </div>
+    <div class="apt-card fade-in">
+      <div class="apt-plan-icon">🏰</div>
+      <div class="apt-rooms">פנטהאוז</div>
+      <div class="apt-size">200–280 מ"ר | קומות 12-15</div>
+      <div class="apt-price">₪7,500,000+</div>
+      <ul class="apt-features">
+        <li>גג פרטי 80-120 מ"ר</li>
+        <li>נוף פנורמי 360° לירושלים</li>
+        <li>4 חניות שמורות</li>
+        <li>גימורי יוקרה בהתאמה אישית</li>
+      </ul>
+      <button class="apt-btn" onclick="return false">לפרטים ומחירים</button>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="location-section">
+  <div class="location-inner">
+    <div class="fade-in">
+      <div class="section-tag">מיקום מנצח</div>
+      <div class="section-title">בלב ירושלים הירוקה</div>
+      <div class="gold-line"></div>
+      <p class="location-desc">נווה הירוק ממוקם בשכונת מלחה הירושלמית — אחת השכונות המבוקשות בעיר, בין שמורות טבע ירוקות לבין כל מוסדות העיר. שקט ורגוע כמו פרברים, אבל רק דקות ממרכז ירושלים.</p>
+      <ul class="location-distances">
+        <li>
+          <div class="dist-icon">🛍</div>
+          <div><strong>5 דקות</strong> ממרכז הקניות מלחה</div>
+        </li>
+        <li>
+          <div class="dist-icon">🚗</div>
+          <div><strong>10 דקות</strong> ממרכז ירושלים</div>
+        </li>
+        <li>
+          <div class="dist-icon">🏫</div>
+          <div><strong>3 דקות</strong> מבית ספר ציבורי מוכר</div>
+        </li>
+        <li>
+          <div class="dist-icon">🏥</div>
+          <div><strong>8 דקות</strong> מבית חולים הדסה עין כרם</div>
+        </li>
+        <li>
+          <div class="dist-icon">🌿</div>
+          <div><strong>צמוד</strong> לשמורת הטבע נחל שורק</div>
+        </li>
+      </ul>
+    </div>
+    <div class="fade-in">
+      <div class="map-placeholder">
+        <div class="map-pin">📍</div>
+        <strong>נווה הירוק — מלחה, ירושלים</strong>
+        <span>רח׳ דרך בית לחם 120</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEVELOPER -->
+<section class="developer-section">
+  <div class="developer-inner">
+    <div class="fade-in">
+      <div class="dev-logo-placeholder">
+        <div class="dev-logo-text">כרמל</div>
+        <p>קבוצת נדל"ן</p>
+      </div>
+      <div class="dev-stats">
+        <div class="dev-stat"><div class="dev-stat-num">20+</div><div class="dev-stat-label">שנות ניסיון</div></div>
+        <div class="dev-stat"><div class="dev-stat-num">32</div><div class="dev-stat-label">פרויקטים הושלמו</div></div>
+        <div class="dev-stat"><div class="dev-stat-num">4,800</div><div class="dev-stat-label">משפחות גאות</div></div>
+      </div>
+    </div>
+    <div class="fade-in">
+      <div class="section-tag">היזם</div>
+      <div class="section-title">כרמל קבוצת נדל"ן</div>
+      <div class="gold-line"></div>
+      <p class="dev-desc">כרמל קבוצת נדל"ן היא אחת מקבוצות הנדל"ן המובילות בישראל, עם למעלה מ-20 שנות ניסיון בפיתוח פרויקטים יוקרתיים ברחבי הארץ. כל פרויקט שלנו נבנה עם מחויבות מלאה לאיכות גימור, לוחות זמנים שמירת הבטחות ושירות לדייר לאורך כל חיי הנכס.</p>
+      <p class="dev-desc">בנווה הירוק השקענו את כל הניסיון שצברנו בבניית הבית שתמיד חלמתם עליו — עם אדריכלות פרסית, גינון מקצועי ועיצוב פנים ברמה בינלאומית.</p>
+      <div class="dev-img">
+        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80&auto=format&fit=crop" alt="פרויקט כרמל שהושלם" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECOND LEAD FORM -->
+<section class="form2-section">
+  <div class="section-tag fade-in" style="color:#c9a84c;letter-spacing:2px;text-transform:uppercase;font-size:0.75rem;font-weight:700">בואו נדבר</div>
+  <div class="section-title fade-in" style="color:#070e09">השאירו פרטים ונחזור אליכם</div>
+  <p class="form2-desc fade-in">מלאו את הטופס ונציג יחזור אליכם עם כל המידע על הפרויקט, מחירון ותוכניות דירות — ללא כל התחייבות</p>
+  <div class="form2-inner fade-in">
+    <form onsubmit="return false">
+      <div class="form2-row">
+        <div class="form-group">
+          <label>שם מלא</label>
+          <input type="text" placeholder="ישראל ישראלי">
+        </div>
+        <div class="form-group">
+          <label>טלפון</label>
+          <input type="tel" placeholder="05X-XXXXXXX">
+        </div>
+      </div>
+      <div class="form2-row">
+        <div class="form-group">
+          <label>כמה חדרים?</label>
+          <select>
+            <option value="" disabled selected>בחרו</option>
+            <option>3 חדרים</option>
+            <option>4 חדרים</option>
+            <option>פנטהאוז</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>תקציב</label>
+          <select>
+            <option value="" disabled selected>בחרו טווח</option>
+            <option>עד ₪2.5M</option>
+            <option>₪2.5M – ₪4M</option>
+            <option>מעל ₪4M</option>
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="submit-gold">שלחו פרטים ←</button>
+      <p class="form-note">🔒 פרטיכם בטוחים. נחזור אליכם תוך שעה בשעות הפעילות.</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-  <p>© 2025 נווה הירוק | פרויקט מגורים יוקרתי ברמת גן | נבנה על ידי <span>VELO DIGITAL</span></p>
+  <div class="footer-inner">
+    <div class="footer-logo">נווה <span>הירוק</span> | ירושלים</div>
+    <div class="footer-copy">© 2025 נווה הירוק | <a href="https://liorvelikin.github.io/velo-website/" style="color:inherit">נבנה על ידי VELO DIGITAL</a></div>
+  </div>
 </footer>
 
+<script>
+document.querySelectorAll('.fade-in').forEach(el => {
+  new IntersectionObserver(([e]) => e.isIntersecting && e.target.classList.add('visible'), {threshold:0.1}).observe(el);
+});
+</script>
 </body>
 </html>

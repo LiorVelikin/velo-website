@@ -3,200 +3,368 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FitLife Studio | אולם כושר תל אביב</title>
+<title>FitLife Studio | חדר כושר ואימונים אישיים — תל אביב</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Heebo',sans-serif;background:#0d0d0d;color:#fff;direction:rtl}
 a{text-decoration:none;color:inherit}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.fade-in.visible{opacity:1;transform:none}
 
-nav{position:sticky;top:0;z-index:100;background:rgba(13,13,13,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,87,34,0.2);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:66px}
-.nav-logo{font-size:1.6rem;font-weight:900;color:#ff5722;letter-spacing:-1px}
-.nav-logo span{color:#fff}
-.nav-phone{color:rgba(255,255,255,0.6);font-size:0.88rem}
-.nav-cta{background:#ff5722;color:#fff;border:none;padding:0.5rem 1.3rem;border-radius:30px;font-family:'Heebo',sans-serif;font-size:0.88rem;font-weight:700;cursor:pointer;transition:all 0.2s}
+nav{position:sticky;top:0;z-index:200;background:#0d0d0d;border-bottom:1px solid rgba(255,87,34,.2);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-logo{display:flex;align-items:center;gap:10px;font-size:1.15rem;font-weight:900;color:#fff}
+.nav-logo span{color:#ff5722}
+.nav-locs{font-size:.8rem;color:rgba(255,255,255,.35);font-weight:500}
+.nav-cta{background:#ff5722;color:#fff;padding:10px 24px;border-radius:6px;font-size:.88rem;font-weight:800;transition:background .2s}
 .nav-cta:hover{background:#e64a19}
 
-.hero{background:linear-gradient(160deg,#0d0d0d 0%,#1a0f0a 100%);padding:6rem 5% 5rem;min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-50%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(255,87,34,0.08) 0%,transparent 70%)}
-.hero-inner{display:flex;gap:4rem;align-items:center;width:100%;flex-wrap:wrap}
-.hero-text{flex:1;min-width:280px}
-.hero-tag{background:rgba(255,87,34,0.15);border:1px solid rgba(255,87,34,0.3);color:#ff5722;display:inline-block;padding:0.35rem 1rem;border-radius:30px;font-size:0.78rem;font-weight:700;letter-spacing:1px;margin-bottom:1.5rem}
-.hero-text h1{font-size:3rem;font-weight:900;line-height:1.15;margin-bottom:1.2rem}
-.hero-text h1 span{color:#ff5722}
-.hero-text p{color:rgba(255,255,255,0.6);font-size:1rem;line-height:1.7;margin-bottom:2.5rem;max-width:450px}
-.hero-form{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:2rem;flex:0 0 360px}
-.hero-form h3{font-size:1.1rem;font-weight:700;margin-bottom:1.5rem;color:#fff}
-.form-group{margin-bottom:1rem}
-.form-group label{display:block;font-size:0.8rem;color:rgba(255,255,255,0.55);margin-bottom:0.4rem;font-weight:500}
-.form-group input, .form-group select{width:100%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:0.75rem 1rem;color:#fff;font-family:'Heebo',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s}
-.form-group input:focus, .form-group select:focus{border-color:#ff5722}
-.form-group input::placeholder{color:rgba(255,255,255,0.3)}
-.form-group select option{background:#1a0f0a}
-.submit-btn{width:100%;background:#ff5722;color:#fff;border:none;padding:0.9rem;border-radius:8px;font-family:'Heebo',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;margin-top:0.5rem;transition:all 0.2s;letter-spacing:0.5px}
-.submit-btn:hover{background:#e64a19;transform:translateY(-1px)}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to left,rgba(13,13,13,.2) 0%,rgba(13,13,13,.82) 55%,rgba(13,13,13,.95) 100%)}
+.hero-content{position:relative;z-index:1;padding:40px 5%;display:grid;grid-template-columns:1fr 380px;gap:60px;align-items:center;width:100%}
+.hero-tag{display:inline-block;background:#ff5722;color:#fff;font-size:.78rem;font-weight:800;padding:6px 16px;border-radius:4px;margin-bottom:20px;letter-spacing:.03em}
+.hero h1{font-size:clamp(3.5rem,7vw,5.5rem);font-weight:900;line-height:.95;color:#fff;margin-bottom:20px}
+.hero h1 span{color:#ff5722;display:block}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:28px;max-width:460px}
+.hero-btn{display:inline-block;background:#ff5722;color:#fff;padding:14px 32px;border-radius:6px;font-size:1rem;font-weight:800;transition:background .2s;margin-bottom:24px}
+.hero-btn:hover{background:#e64a19}
+.hero-trust{display:flex;gap:20px;flex-wrap:wrap}
+.hero-trust-item{display:flex;align-items:center;gap:6px;font-size:.8rem;color:rgba(255,255,255,.5)}
+.hero-trust-item svg{color:#ff5722}
 
-.social-proof{background:#1a0f0a;padding:2.5rem 5%;display:flex;justify-content:space-around;flex-wrap:wrap;gap:1.5rem;border-top:1px solid rgba(255,87,34,0.15)}
-.proof-item{text-align:center}
-.proof-num{font-size:2rem;font-weight:900;color:#ff5722}
-.proof-label{font-size:0.85rem;color:rgba(255,255,255,0.55);margin-top:0.2rem}
+.join-card{background:rgba(20,20,20,.95);border:1px solid rgba(255,87,34,.3);border-radius:12px;padding:32px;backdrop-filter:blur(12px)}
+.join-card h3{font-size:1.15rem;font-weight:800;color:#ff5722;margin-bottom:6px}
+.join-card .sub{font-size:.82rem;color:rgba(255,255,255,.4);margin-bottom:20px}
+.join-card label{display:block;font-size:.78rem;color:rgba(255,255,255,.5);margin-bottom:5px;font-weight:600}
+.join-card input,.join-card select{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,87,34,.25);border-radius:8px;padding:11px 13px;color:#fff;font-family:'Heebo',sans-serif;font-size:.9rem;outline:none;margin-bottom:12px;transition:border-color .2s}
+.join-card input:focus,.join-card select:focus{border-color:#ff5722}
+.join-card input::placeholder{color:rgba(255,255,255,.25)}
+.join-card select option{background:#1a1a1a}
+.join-submit{width:100%;background:#ff5722;color:#fff;padding:14px;border:none;border-radius:8px;font-size:1rem;font-weight:800;cursor:pointer;font-family:'Heebo',sans-serif;transition:background .2s}
+.join-submit:hover{background:#e64a19}
+.join-note{text-align:center;font-size:.73rem;color:rgba(255,255,255,.25);margin-top:10px}
 
-.benefits{padding:5rem 5%}
-.section-title{font-size:1.9rem;font-weight:800;color:#fff;margin-bottom:0.5rem}
-.orange-line{width:40px;height:3px;background:#ff5722;border-radius:2px;margin-bottom:2.5rem}
-.benefits-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
-.benefit-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:1.8rem;display:flex;gap:1.2rem;align-items:flex-start;transition:border-color 0.3s}
-.benefit-card:hover{border-color:rgba(255,87,34,0.3)}
-.benefit-icon{font-size:2rem;flex-shrink:0}
-.benefit-card h3{font-size:1rem;font-weight:700;color:#fff;margin-bottom:0.4rem}
-.benefit-card p{font-size:0.85rem;color:rgba(255,255,255,0.5);line-height:1.6}
+.stats-strip{background:#111;border-top:1px solid rgba(255,87,34,.15);border-bottom:1px solid rgba(255,87,34,.15);padding:40px 5%;display:flex;justify-content:center;gap:0;flex-wrap:wrap}
+.stat-box{text-align:center;padding:16px 52px;border-left:1px solid rgba(255,255,255,.06)}
+.stat-box:last-child{border-left:none}
+.stat-box .num{font-size:2.6rem;font-weight:900;color:#ff5722;line-height:1}
+.stat-box .lbl{font-size:.75rem;color:rgba(255,255,255,.35);margin-top:4px;letter-spacing:.05em}
 
-.offer-box{margin:0 5%;background:linear-gradient(135deg,#ff5722,#e64a19);border-radius:16px;padding:3rem;text-align:center;position:relative;overflow:hidden}
-.offer-box::before{content:'';position:absolute;top:-30px;left:-30px;width:150px;height:150px;background:rgba(255,255,255,0.05);border-radius:50%}
-.offer-badge{background:rgba(255,255,255,0.2);color:#fff;display:inline-block;padding:0.4rem 1.2rem;border-radius:20px;font-size:0.78rem;font-weight:700;letter-spacing:1px;margin-bottom:1rem}
-.offer-box h2{font-size:1.8rem;font-weight:900;color:#fff;margin-bottom:0.7rem}
-.offer-box p{color:rgba(255,255,255,0.85);font-size:1rem;margin-bottom:1.5rem}
-.offer-price{font-size:3rem;font-weight:900;color:#fff;margin-bottom:1.5rem}
-.offer-price span{font-size:1rem;opacity:0.7;font-weight:400}
-.offer-btn{background:#fff;color:#ff5722;border:none;padding:0.85rem 2.5rem;border-radius:30px;font-family:'Heebo',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;transition:all 0.2s}
-.offer-btn:hover{transform:scale(1.03)}
+.section{padding:80px 5%}
+.s-tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#ff5722;border:1px solid rgba(255,87,34,.3);padding:5px 14px;border-radius:4px;margin-bottom:16px}
+.s-title{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;color:#fff;margin-bottom:8px;line-height:1.15}
+.s-title span{color:#ff5722}
+.s-sub{font-size:.95rem;color:rgba(255,255,255,.4);margin-bottom:48px}
 
-.testimonials{padding:5rem 5%}
-.testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem}
-.testi-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:1.8rem}
-.testi-stars{color:#ff5722;font-size:1rem;margin-bottom:0.8rem}
-.testi-text{font-size:0.92rem;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:1rem;font-style:italic}
-.testi-name{font-weight:700;color:#ff5722;font-size:0.85rem}
+.trainers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.trainer-card{background:#111;border:1px solid rgba(255,255,255,.06);border-radius:10px;overflow:hidden;transition:border-color .25s,transform .25s}
+.trainer-card:hover{border-color:rgba(255,87,34,.4);transform:translateY(-4px)}
+.trainer-img{height:300px;position:relative;overflow:hidden}
+.trainer-img img{transition:transform .4s}
+.trainer-card:hover .trainer-img img{transform:scale(1.05)}
+.trainer-body{padding:22px 20px}
+.trainer-body h3{font-size:1.05rem;font-weight:800;color:#fff;margin-bottom:4px}
+.trainer-spec{font-size:.8rem;color:#ff5722;font-weight:700;margin-bottom:10px}
+.trainer-bio{font-size:.83rem;color:rgba(255,255,255,.45);line-height:1.6;margin-bottom:12px}
+.trainer-tags{display:flex;flex-wrap:wrap;gap:6px}
+.trainer-tag{font-size:.7rem;background:rgba(255,87,34,.1);color:#ff5722;border:1px solid rgba(255,87,34,.2);padding:3px 10px;border-radius:100px}
 
-.cta-repeat{padding:5rem 5%;text-align:center;background:#0d0d0d}
-.cta-repeat h2{font-size:2rem;font-weight:800;margin-bottom:0.7rem}
-.cta-repeat p{color:rgba(255,255,255,0.55);margin-bottom:2.5rem}
-.inline-form{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;max-width:600px;margin:0 auto}
-.inline-form input{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:0.8rem 1.2rem;color:#fff;font-family:'Heebo',sans-serif;font-size:0.9rem;flex:1;min-width:180px;outline:none}
-.inline-form input::placeholder{color:rgba(255,255,255,0.35)}
+.classes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.class-card{background:#111;border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:22px 18px;transition:border-color .2s}
+.class-card:hover{border-color:rgba(255,87,34,.35)}
+.class-card .class-icon{font-size:1.6rem;margin-bottom:10px}
+.class-card h3{font-size:.95rem;font-weight:800;color:#fff;margin-bottom:6px}
+.class-time{font-size:.78rem;color:rgba(255,255,255,.4);margin-bottom:4px}
+.class-spots{font-size:.75rem;color:#ff5722;font-weight:700}
 
-footer{background:#070707;padding:2rem 5%;text-align:center;color:rgba(255,255,255,0.25);font-size:0.82rem;border-top:1px solid rgba(255,87,34,0.1)}
-footer span{color:#ff5722;font-weight:600}
+.gallery-section{background:#0a0a0a;padding:80px 5%}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:40px}
+.gallery-item{border-radius:8px;overflow:hidden;position:relative;cursor:pointer}
+.gallery-item:first-child{grid-column:span 2;height:300px}
+.gallery-item{height:220px}
+.gallery-item img{transition:transform .4s}
+.gallery-item:hover img{transform:scale(1.06)}
+.gallery-item::after{content:'';position:absolute;inset:0;background:rgba(255,87,34,0);transition:background .3s}
+.gallery-item:hover::after{background:rgba(255,87,34,.12)}
 
-@media(max-width:768px){
-  .hero-text h1{font-size:2rem}
-  .hero-form{flex:1 1 100%}
-  .benefits-grid{grid-template-columns:1fr}
-  .testi-grid{grid-template-columns:1fr}
+.plans-section{padding:80px 5%;background:#0d0d0d}
+.plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.plan-card{background:#111;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:32px 26px;transition:border-color .25s}
+.plan-card.featured{border-color:#ff5722;position:relative}
+.plan-featured-badge{position:absolute;top:-12px;right:50%;transform:translateX(50%);background:#ff5722;color:#fff;font-size:.7rem;font-weight:800;padding:4px 14px;border-radius:100px}
+.plan-card h3{font-size:1rem;font-weight:800;color:rgba(255,255,255,.6);margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.plan-price{font-size:2.5rem;font-weight:900;color:#fff;margin-bottom:4px}
+.plan-price span{font-size:1rem;font-weight:400;color:rgba(255,255,255,.35)}
+.plan-desc{font-size:.82rem;color:rgba(255,255,255,.35);margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.07)}
+.plan-features{list-style:none;margin-bottom:28px}
+.plan-features li{font-size:.85rem;color:rgba(255,255,255,.6);padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:8px}
+.plan-features li::before{content:'✓';color:#ff5722;font-weight:800;flex-shrink:0}
+.plan-btn{display:block;width:100%;text-align:center;padding:12px;border-radius:8px;font-size:.9rem;font-weight:800;background:rgba(255,87,34,.15);color:#ff5722;border:1px solid rgba(255,87,34,.3);transition:all .2s}
+.plan-btn:hover,.plan-card.featured .plan-btn{background:#ff5722;color:#fff;border-color:#ff5722}
+
+.testi-section{background:#111;padding:80px 5%}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
+.testi-card{background:#0d0d0d;border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:28px}
+.testi-stars{color:#ff5722;font-size:1rem;margin-bottom:12px;letter-spacing:2px}
+.testi-card p{font-size:.88rem;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:16px;font-style:italic}
+.testi-name{font-weight:700;font-size:.82rem;color:#ff5722}
+.testi-goal{font-size:.75rem;color:rgba(255,255,255,.3)}
+
+.cta-section{background:linear-gradient(135deg,#1a0a00 0%,#0d0d0d 100%);border-top:1px solid rgba(255,87,34,.2);padding:80px 5%;text-align:center}
+.cta-section h2{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;color:#fff;margin-bottom:12px}
+.cta-section h2 span{color:#ff5722}
+.cta-section p{color:rgba(255,255,255,.45);font-size:1rem;margin-bottom:32px}
+.cta-form{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;max-width:560px;margin:0 auto}
+.cta-form input{flex:1;min-width:200px;background:rgba(255,255,255,.07);border:1px solid rgba(255,87,34,.3);border-radius:8px;padding:13px 16px;color:#fff;font-family:'Heebo',sans-serif;font-size:.92rem;outline:none}
+.cta-form input::placeholder{color:rgba(255,255,255,.3)}
+.cta-form input:focus{border-color:#ff5722}
+.cta-form button{background:#ff5722;color:#fff;border:none;padding:13px 28px;border-radius:8px;font-size:.95rem;font-weight:800;cursor:pointer;font-family:'Heebo',sans-serif;transition:background .2s;white-space:nowrap}
+.cta-form button:hover{background:#e64a19}
+
+footer{background:#080808;border-top:1px solid rgba(255,255,255,.06);padding:40px 5% 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+footer .f-logo{font-size:1rem;font-weight:900;color:#fff}
+footer .f-logo span{color:#ff5722}
+footer p{font-size:.75rem;color:rgba(255,255,255,.25)}
+footer a{color:rgba(255,87,34,.6);font-weight:600}
+footer a:hover{color:#ff5722}
+
+@media(max-width:900px){
+  .hero-content{grid-template-columns:1fr}
+  .join-card{display:none}
+  .trainers-grid,.plans-grid,.testi-grid{grid-template-columns:1fr}
+  .classes-grid{grid-template-columns:1fr 1fr}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+  .gallery-item:first-child{grid-column:span 2}
+  .stat-box{padding:16px 24px;border-left:none;border-bottom:1px solid rgba(255,255,255,.06)}
 }
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="nav-logo">Fit<span>Life</span></div>
-  <div class="nav-phone">📞 03-9876543</div>
-  <button class="nav-cta">ניסיון חינם</button>
+  <div class="nav-logo">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff5722" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+    Fit<span>Life</span> Studio
+  </div>
+  <div class="nav-locs">תל אביב | גבעתיים | חולון</div>
+  <a href="#" class="nav-cta" onclick="return false">מנוי ניסיון חינם</a>
 </nav>
 
 <section class="hero">
-  <div class="hero-inner">
-    <div class="hero-text">
-      <div class="hero-tag">💪 אולם כושר · תל אביב</div>
-      <h1>תתחילו לחיות<br>את הגוף<br><span>שרציתם</span></h1>
-      <p>הצטרפו לאלפי חברים שכבר שינו את חייהם ב-FitLife Studio — מאמנים מוסמכים, ציוד מתקדם ואווירה שמניעה קדימה.</p>
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1800&q=80&auto=format&fit=crop" alt="חדר כושר">
+  </div>
+  <div class="hero-content">
+    <div class="fade-in">
+      <div class="hero-tag">מבצע הצטרפות — חודש ראשון ₪0</div>
+      <h1>תגיעו<br>לתוצאות<br><span>שרציתם</span></h1>
+      <p class="hero-sub">אימונים אישיים, שיעורי קבוצתיים, ותוכנית תזונה — הכל במקום אחד. 18 סניפים ברחבי המרכז.</p>
+      <a href="#" class="hero-btn" onclick="return false">התחילו היום — ניסיון חינם ←</a>
+      <div class="hero-trust">
+        <div class="hero-trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="#ff5722"><polyline points="20 6 9 17 4 12"/></svg> ללא התחייבות</div>
+        <div class="hero-trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="#ff5722"><polyline points="20 6 9 17 4 12"/></svg> מאמן אישי כלול</div>
+        <div class="hero-trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="#ff5722"><polyline points="20 6 9 17 4 12"/></svg> ציוד מתקדם</div>
+      </div>
     </div>
-    <div class="hero-form">
-      <h3>קבלו שיעור ניסיון חינם</h3>
+    <div class="join-card fade-in" style="transition-delay:.15s">
+      <h3>הצטרפו עכשיו</h3>
+      <p class="sub">מאמן אישי יחזור אליכם תוך שעה</p>
       <form onsubmit="return false">
-        <div class="form-group">
-          <label>שם מלא</label>
-          <input type="text" placeholder="ישראל ישראלי">
-        </div>
-        <div class="form-group">
-          <label>טלפון</label>
-          <input type="tel" placeholder="05X-XXXXXXX">
-        </div>
-        <div class="form-group">
-          <label>בחרו מסלול</label>
-          <select>
-            <option>מסלול בסיסי — ₪199/חודש</option>
-            <option>מסלול כולל שיעורים — ₪299/חודש</option>
-            <option>VIP + מאמן אישי — ₪499/חודש</option>
-          </select>
-        </div>
-        <button type="submit" class="submit-btn">🔥 רשמו אותי לניסיון חינם</button>
+        <label>שם מלא</label>
+        <input type="text" placeholder="ישראל ישראלי">
+        <label>טלפון</label>
+        <input type="tel" placeholder="05X-XXX-XXXX">
+        <label>מה המטרה שלכם?</label>
+        <select>
+          <option>בחרו מטרה...</option>
+          <option>הרזיה וכושר</option>
+          <option>בניית שריר</option>
+          <option>כושר כללי</option>
+          <option>הכנה לתחרות</option>
+          <option>שיקום וחיזוק</option>
+        </select>
+        <button type="submit" class="join-submit">קיבלו מנוי ניסיון ←</button>
+        <p class="join-note">חודש ראשון ₪0 | ללא התחייבות</p>
       </form>
     </div>
   </div>
 </section>
 
-<div class="social-proof">
-  <div class="proof-item"><div class="proof-num">200+</div><div class="proof-label">חברים פעילים</div></div>
-  <div class="proof-item"><div class="proof-num">6</div><div class="proof-label">מאמנים מוסמכים</div></div>
-  <div class="proof-item"><div class="proof-num">3</div><div class="proof-label">סניפים</div></div>
-  <div class="proof-item"><div class="proof-num">4.9⭐</div><div class="proof-label">דירוג ממוצע</div></div>
+<div class="stats-strip">
+  <div class="stat-box fade-in"><div class="num">2,400+</div><div class="lbl">חברים פעילים</div></div>
+  <div class="stat-box fade-in" style="transition-delay:.07s"><div class="num">45</div><div class="lbl">מאמנים מוסמכים</div></div>
+  <div class="stat-box fade-in" style="transition-delay:.14s"><div class="num">18</div><div class="lbl">סניפים</div></div>
+  <div class="stat-box fade-in" style="transition-delay:.21s"><div class="num">10</div><div class="lbl">שנות ניסיון</div></div>
 </div>
 
-<section class="benefits">
-  <div class="section-title">מה מחכה לכם כאן</div>
-  <div class="orange-line"></div>
-  <div class="benefits-grid">
-    <div class="benefit-card">
-      <div class="benefit-icon">🏋️</div>
-      <div><h3>שיעורים קבוצתיים</h3><p>50+ שיעורים שבועיים — זומבה, יוגה, ספינינג, קרוספיט ועוד</p></div>
+<section class="section">
+  <div class="fade-in">
+    <span class="s-tag">הצוות שלנו</span>
+    <h2 class="s-title">המאמנים <span>שלנו</span></h2>
+    <p class="s-sub">מאמנים מוסמכים עם ניסיון אמיתי — כי תוצאות מתחילות בליווי הנכון</p>
+  </div>
+  <div class="trainers-grid">
+    <div class="trainer-card fade-in">
+      <div class="trainer-img"><img src="https://images.unsplash.com/photo-1571731956672-f2b94d7dd0cb?w=600&q=80&auto=format&fit=crop&crop=top" alt="יובל כהן"></div>
+      <div class="trainer-body">
+        <h3>יובל כהן</h3>
+        <div class="trainer-spec">כוח ופיתוח גוף</div>
+        <p class="trainer-bio">אלוף ישראל בפאוורליפטינג לשעבר. מתמחה בתוכניות עליה בשריר ובהכנה לתחרויות. 8 שנות ניסיון בהוראה.</p>
+        <div class="trainer-tags"><span class="trainer-tag">כוח</span><span class="trainer-tag">Powerlifting</span><span class="trainer-tag">תזונה</span></div>
+      </div>
     </div>
-    <div class="benefit-card">
-      <div class="benefit-icon">💪</div>
-      <div><h3>אזור משקולות</h3><p>ציוד חדש ומתקדם, 3 אזורי אימון נפרדים ומרחב מאווש</p></div>
+    <div class="trainer-card fade-in" style="transition-delay:.1s">
+      <div class="trainer-img"><img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600&q=80&auto=format&fit=crop&crop=top" alt="מאיה לוי"></div>
+      <div class="trainer-body">
+        <h3>מאיה לוי</h3>
+        <div class="trainer-spec">ריצה, יוגה ו-Pilates</div>
+        <p class="trainer-bio">מרתון תל אביב 3 שנים ברציפות. מורה יוגה מוסמכת RYT-200. מתמחה בשיפור גמישות וחיזוק ליבה.</p>
+        <div class="trainer-tags"><span class="trainer-tag">יוגה</span><span class="trainer-tag">Pilates</span><span class="trainer-tag">ריצה</span></div>
+      </div>
     </div>
-    <div class="benefit-card">
-      <div class="benefit-icon">👟</div>
-      <div><h3>מאמן אישי</h3><p>ליווי מקצועי אחד על אחד עם תוכנית אימון מותאמת אישית</p></div>
-    </div>
-    <div class="benefit-card">
-      <div class="benefit-icon">🥗</div>
-      <div><h3>תזונאי קליני</h3><p>ייעוץ תזונה כחלק מהמנוי — כי כושר מתחיל מהצלחת</p></div>
+    <div class="trainer-card fade-in" style="transition-delay:.2s">
+      <div class="trainer-img"><img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80&auto=format&fit=crop&crop=top" alt="אמיר שלום"></div>
+      <div class="trainer-body">
+        <h3>אמיר שלום</h3>
+        <div class="trainer-spec">HIIT ואימון פונקציונלי</div>
+        <p class="trainer-bio">מאמן כושר ותזונאי קליני. מתמחה בתוכניות HIIT וירידה במשקל. עוזר ל-200+ לקוחות לעבור טרנספורמציה.</p>
+        <div class="trainer-tags"><span class="trainer-tag">HIIT</span><span class="trainer-tag">הרזיה</span><span class="trainer-tag">תזונה</span></div>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="offer-box">
-  <div class="offer-badge">⚡ מבצע מוגבל</div>
-  <h2>הצטרפו עכשיו — 3 חודשים במחיר 2</h2>
-  <p>מבצע מיוחד לנרשמים החודש בלבד — שלמו על 2, קבלו 3</p>
-  <div class="offer-price">₪398 <span>במקום ₪597</span></div>
-  <button class="offer-btn">אני רוצה את המבצע!</button>
-</div>
+<section class="section" style="background:#0a0a0a;padding-top:60px">
+  <div class="fade-in">
+    <span class="s-tag">לוח שיעורים</span>
+    <h2 class="s-title">השיעורים <span>שלנו</span></h2>
+    <p class="s-sub">מגוון שיעורים קבוצתיים בכל יום — מצאו מה שמתאים לכם</p>
+  </div>
+  <div class="classes-grid fade-in" style="transition-delay:.1s">
+    <div class="class-card"><div class="class-icon">🏋</div><h3>CrossFit</h3><div class="class-time">א' ג' ה' — 07:00 | 18:00</div><div class="class-spots">♥ 20 מקומות בשיעור</div></div>
+    <div class="class-card"><div class="class-icon">🧘</div><h3>Yoga Flow</h3><div class="class-time">ב' ד' — 09:00 | 19:30</div><div class="class-spots">♥ 15 מקומות בשיעור</div></div>
+    <div class="class-card"><div class="class-icon">⚡</div><h3>HIIT Blast</h3><div class="class-time">א'–ו' — 06:30 | 18:00</div><div class="class-spots">♥ 25 מקומות בשיעור</div></div>
+    <div class="class-card"><div class="class-icon">🤸</div><h3>Pilates</h3><div class="class-time">ב' ד' ו' — 11:00 | 17:00</div><div class="class-spots">♥ 12 מקומות בשיעור</div></div>
+    <div class="class-card"><div class="class-icon">🚴</div><h3>Spinning</h3><div class="class-time">כל יום — 07:00 | 19:00</div><div class="class-spots">♥ 30 מקומות בשיעור</div></div>
+    <div class="class-card"><div class="class-icon">🥊</div><h3>Box Fit</h3><div class="class-time">א' ג' ה' — 20:00</div><div class="class-spots">♥ 20 מקומות בשיעור</div></div>
+  </div>
+</section>
 
-<section class="testimonials">
-  <div class="section-title">מה אומרים החברים</div>
-  <div class="orange-line"></div>
+<section class="gallery-section">
+  <div class="fade-in" style="text-align:center;margin-bottom:8px">
+    <span class="s-tag">הסטודיו שלנו</span>
+    <h2 class="s-title" style="text-align:center">הציוד הטוב <span>ביותר</span></h2>
+  </div>
+  <div class="gallery-grid fade-in" style="transition-delay:.1s">
+    <div class="gallery-item" style="grid-column:span 2;height:300px"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=900&q=80&auto=format&fit=crop" alt="חדר כושר"></div>
+    <div class="gallery-item" style="height:300px"><img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=500&q=80&auto=format&fit=crop" alt="משקולות"></div>
+    <div class="gallery-item" style="height:300px"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=500&q=80&auto=format&fit=crop" alt="אימון"></div>
+    <div class="gallery-item" style="height:220px"><img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=500&q=80&auto=format&fit=crop" alt="מאמן"></div>
+    <div class="gallery-item" style="height:220px"><img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=500&q=80&auto=format&fit=crop" alt="אימון קבוצתי"></div>
+    <div class="gallery-item" style="grid-column:span 2;height:220px"><img src="https://images.unsplash.com/photo-1571731956672-f2b94d7dd0cb?w=900&q=80&auto=format&fit=crop" alt="מאמן אישי"></div>
+  </div>
+</section>
+
+<section class="plans-section">
+  <div class="fade-in" style="text-align:center">
+    <span class="s-tag">מחירים</span>
+    <h2 class="s-title">בחרו <span>מסלול</span></h2>
+    <p class="s-sub" style="margin-bottom:0">ללא חוזים — בטלו בכל עת</p>
+  </div>
+  <div class="plans-grid">
+    <div class="plan-card fade-in">
+      <h3>בסיסי</h3>
+      <div class="plan-price">₪199<span>/חודש</span></div>
+      <p class="plan-desc">כל מה שצריך להתחיל</p>
+      <ul class="plan-features">
+        <li>כניסה לכל הסניפים</li>
+        <li>לוקר אישי</li>
+        <li>Wi-Fi מהיר</li>
+        <li>אפליקציית FitLife</li>
+      </ul>
+      <a href="#" class="plan-btn" onclick="return false">בחרו מסלול</a>
+    </div>
+    <div class="plan-card featured fade-in" style="transition-delay:.1s">
+      <div class="plan-featured-badge">הכי פופולרי</div>
+      <h3>PRO</h3>
+      <div class="plan-price">₪299<span>/חודש</span></div>
+      <p class="plan-desc">הבחירה של 70% מהחברים</p>
+      <ul class="plan-features">
+        <li>הכל בבסיסי</li>
+        <li>שיעורים קבוצתיים ללא הגבלה</li>
+        <li>תוכנית אימון אישית</li>
+        <li>ניתוח הרכב גוף חודשי</li>
+        <li>הנחה 15% בבר התזונה</li>
+      </ul>
+      <a href="#" class="plan-btn" onclick="return false">בחרו PRO</a>
+    </div>
+    <div class="plan-card fade-in" style="transition-delay:.2s">
+      <h3>ELITE</h3>
+      <div class="plan-price">₪499<span>/חודש</span></div>
+      <p class="plan-desc">חוויה מקיפה לתוצאות מקסימליות</p>
+      <ul class="plan-features">
+        <li>הכל ב-PRO</li>
+        <li>4 אימונים אישיים לחודש</li>
+        <li>תוכנית תזונה מאמן</li>
+        <li>ניתוח גוף שבועי</li>
+        <li>גישה לאזור VIP</li>
+        <li>מגבת + לוקר פרמיום</li>
+      </ul>
+      <a href="#" class="plan-btn" onclick="return false">בחרו ELITE</a>
+    </div>
+  </div>
+</section>
+
+<section class="testi-section">
+  <div class="fade-in" style="text-align:center">
+    <span class="s-tag">תוצאות אמיתיות</span>
+    <h2 class="s-title" style="text-align:center">מה אמרו <span>החברים</span></h2>
+  </div>
   <div class="testi-grid">
-    <div class="testi-card">
+    <div class="testi-card fade-in">
       <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"הצטרפתי לפני שנה ושינה לי את החיים. ירדתי 12 ק"ג, התחזקתי ומצאתי חברים נפלאים. המאמן אסף הוא פשוט מדהים!"</p>
-      <div class="testi-name">— ליאת מ., תל אביב</div>
+      <p>"תוך 4 חודשים ירדתי 12 ק"ג. יובל בנה לי תוכנית אימון מותאמת ולא הפסקתי מאז. FitLife שינה לי את החיים."</p>
+      <div class="testi-name">אורי ב.</div>
+      <div class="testi-goal">ירידה במשקל — 12 ק"ג</div>
     </div>
-    <div class="testi-card">
+    <div class="testi-card fade-in" style="transition-delay:.08s">
       <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"ניסיתי הרבה אולמות כושר בעיר — FitLife הוא פשוט אחר. הציוד, המאמנים והאווירה — הכל ברמה אחרת לגמרי."</p>
-      <div class="testi-name">— רן ד., יפו</div>
+      <p>"מאיה המאמנת מדהימה. השיעורי יוגה שלה הפחיתו את כאבי הגב שסבלתי מהם שנים. ממליצה לכולן."</p>
+      <div class="testi-name">שרית ל.</div>
+      <div class="testi-goal">כאבי גב — שיפור מלא</div>
+    </div>
+    <div class="testi-card fade-in" style="transition-delay:.16s">
+      <div class="testi-stars">★★★★★</div>
+      <p>"הגעתי בלי ניסיון ובלי כושר. כעבור 6 חודשים גמרתי את ריצת תל אביב הראשונה שלי. לא מאמין בעצמי."</p>
+      <div class="testi-name">ניר כ.</div>
+      <div class="testi-goal">ריצה 10 ק"מ — הצלחה ראשונה</div>
     </div>
   </div>
 </section>
 
-<section class="cta-repeat">
-  <h2>מוכנים להתחיל?</h2>
-  <p>השאירו פרטים ונחזור אליכם לתיאום שיעור ניסיון חינם</p>
-  <form onsubmit="return false">
-    <div class="inline-form">
-      <input type="text" placeholder="שם מלא">
-      <input type="tel" placeholder="טלפון">
-      <button type="submit" class="submit-btn" style="width:auto;flex:0 0 auto;padding:0.8rem 1.5rem;border-radius:8px">שליחה</button>
-    </div>
+<section class="cta-section">
+  <h2>הצטרפו היום —<br><span>חודש ראשון ₪0</span></h2>
+  <p>מקומות מוגבלים • מאמן אישי יחזור אליכם תוך שעה</p>
+  <form class="cta-form" onsubmit="return false">
+    <input type="text" placeholder="שם מלא">
+    <input type="tel" placeholder="טלפון">
+    <button type="submit">שלחו פרטים ←</button>
   </form>
 </section>
 
 <footer>
-  <p>© 2025 FitLife Studio | כל הזכויות שמורות | נבנה על ידי <span>VELO DIGITAL</span></p>
+  <div class="f-logo">Fit<span>Life</span> Studio</div>
+  <p>© 2025 FitLife Studio | <a href="https://liorvelikin.github.io/velo-website/">נבנה על ידי VELO DIGITAL</a></p>
 </footer>
 
+<script>
+document.querySelectorAll('.fade-in').forEach(el=>{
+  new IntersectionObserver(([e])=>{if(e.isIntersecting)e.target.classList.add('visible')},{threshold:0.1}).observe(el);
+});
+</script>
 </body>
 </html>

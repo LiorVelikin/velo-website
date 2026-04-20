@@ -3,210 +3,354 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>גולדברג ושות' | עורכי דין ונוטריון</title>
+<title>גולדברג ושות' | עורכי דין ונוטריון — תל אביב</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Heebo',sans-serif;background:#f5f4f0;color:#1c1c2e;direction:rtl}
+body{font-family:'Heebo',sans-serif;background:#f2ede8;color:#1c1c2e;direction:rtl}
 a{text-decoration:none;color:inherit}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity 0.65s ease,transform 0.65s ease}
+.fade-in.visible{opacity:1;transform:none}
 
-nav{position:sticky;top:0;z-index:100;background:#1c1c2e;padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:72px;border-bottom:2px solid #8b1a1a}
-.nav-logo{display:flex;align-items:center;gap:0.7rem}
-.logo-icon svg{color:#c8a96e}
-.logo-text-main{font-size:1.2rem;font-weight:800;color:#fff}
-.logo-text-sub{font-size:0.72rem;color:#c8a96e;letter-spacing:1px;display:block}
-.nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{font-size:0.88rem;font-weight:500;color:rgba(255,255,255,0.7);transition:color 0.2s}
+nav{position:sticky;top:0;z-index:200;background:#1c1c2e;padding:0 6%;display:flex;align-items:center;justify-content:space-between;height:68px;border-bottom:1px solid rgba(200,169,110,0.2);transition:border-color .3s}
+.nav-logo{display:flex;align-items:center;gap:10px;font-size:1.1rem;font-weight:700;color:#f2ede8}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:.85rem;color:rgba(242,237,232,.65);font-weight:500;letter-spacing:.03em;transition:color .2s}
 .nav-links a:hover{color:#c8a96e}
-.nav-cta{background:#8b1a1a;color:#fff;border:none;padding:0.55rem 1.4rem;border-radius:4px;font-family:'Heebo',sans-serif;font-size:0.88rem;font-weight:700;cursor:pointer;transition:all 0.2s}
-.nav-cta:hover{background:#a52020}
+.nav-cta{background:#8b1a1a;color:#f2ede8;padding:9px 22px;border-radius:4px;font-size:.85rem;font-weight:700;transition:background .2s}
+.nav-cta:hover{background:#a32020}
 
-.hero{background:linear-gradient(160deg,#1c1c2e 0%,#2a2a42 100%);padding:6rem 5%;min-height:520px;display:flex;align-items:center;position:relative;overflow:hidden}
-.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#8b1a1a,#c8a96e,#8b1a1a)}
-.hero-content{max-width:650px}
-.hero-badge{display:inline-block;border:1px solid #c8a96e;color:#c8a96e;padding:0.35rem 1rem;font-size:0.78rem;letter-spacing:2px;font-weight:600;margin-bottom:1.5rem;text-transform:uppercase}
-.hero h1{font-size:3rem;font-weight:900;color:#fff;line-height:1.2;margin-bottom:1.2rem}
-.hero h1 em{color:#c8a96e;font-style:normal}
-.hero p{color:rgba(255,255,255,0.65);font-size:1rem;line-height:1.8;margin-bottom:2rem;max-width:500px}
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
-.btn-gold{background:#c8a96e;color:#1c1c2e;border:none;padding:0.75rem 1.8rem;border-radius:4px;font-family:'Heebo',sans-serif;font-size:0.95rem;font-weight:700;cursor:pointer;transition:all 0.2s}
-.btn-gold:hover{background:#d9ba80}
-.btn-outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.3);padding:0.75rem 1.8rem;border-radius:4px;font-family:'Heebo',sans-serif;font-size:0.95rem;font-weight:600;cursor:pointer;transition:all 0.2s}
-.btn-outline:hover{border-color:#c8a96e;color:#c8a96e}
+.hero{background:#1c1c2e;padding:100px 6% 80px;display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:center;min-height:600px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,rgba(139,26,26,.12) 0%,transparent 60%);pointer-events:none}
+.hero-tag{font-size:.75rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:#c8a96e;margin-bottom:24px}
+.hero h1{font-size:clamp(3.5rem,7vw,6rem);font-weight:900;line-height:1;color:#f2ede8;margin-bottom:24px}
+.hero h1 span{color:#c8a96e}
+.hero-rule{width:80px;height:2px;background:#8b1a1a;margin-bottom:24px}
+.hero-sub{font-size:1rem;color:rgba(242,237,232,.6);line-height:1.75;max-width:480px;margin-bottom:36px}
+.hero-actions{display:flex;gap:14px}
+.btn-primary{background:#8b1a1a;color:#f2ede8;padding:13px 28px;border-radius:4px;font-size:.9rem;font-weight:700;transition:background .2s;display:inline-block}
+.btn-primary:hover{background:#a32020}
+.btn-outline{border:1px solid rgba(200,169,110,.5);color:#c8a96e;padding:13px 28px;border-radius:4px;font-size:.9rem;font-weight:600;transition:all .2s;display:inline-block}
+.btn-outline:hover{border-color:#c8a96e;background:rgba(200,169,110,.08)}
+.hero-img-wrap{position:relative}
+.hero-img-frame{height:460px;border-radius:2px;overflow:hidden;border:1px solid rgba(200,169,110,.25);box-shadow:0 32px 80px rgba(0,0,0,.4);transform:rotate(-1.5deg);transition:transform .4s}
+.hero-img-frame:hover{transform:rotate(0deg)}
+.founding-badge{position:absolute;bottom:-16px;left:-16px;background:#c8a96e;color:#1c1c2e;padding:12px 20px;border-radius:2px;font-size:.8rem;font-weight:800;letter-spacing:.05em;z-index:10}
 
-.practice{padding:5rem 5%;background:#f5f4f0}
-.section-header{margin-bottom:3rem}
-.section-header h2{font-size:2rem;font-weight:800;color:#1c1c2e;margin-bottom:0.5rem}
-.red-line{width:40px;height:3px;background:#8b1a1a;border-radius:2px}
-.practice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
-.practice-card{background:#fff;border-radius:8px;padding:1.8rem;box-shadow:0 2px 16px rgba(0,0,0,0.06);border-top:3px solid transparent;transition:all 0.3s}
-.practice-card:hover{border-top-color:#8b1a1a;transform:translateY(-3px);box-shadow:0 8px 25px rgba(0,0,0,0.1)}
-.practice-icon{font-size:1.8rem;margin-bottom:0.8rem}
-.practice-card h3{font-size:1rem;font-weight:700;color:#1c1c2e;margin-bottom:0.5rem}
-.practice-card p{font-size:0.85rem;color:#6b6b7a;line-height:1.6}
+.section{padding:80px 6%}
+.section-tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8b1a1a;background:rgba(139,26,26,.08);border:1px solid rgba(139,26,26,.2);padding:5px 14px;border-radius:2px;margin-bottom:18px}
+.section-title{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;color:#1c1c2e;line-height:1.2;margin-bottom:48px}
+.section-title span{color:#8b1a1a}
 
-.team{background:#1c1c2e;padding:5rem 5%}
-.team h2{font-size:2rem;font-weight:800;color:#fff;margin-bottom:0.5rem}
-.team-grid{display:flex;gap:2rem;margin-top:3rem;flex-wrap:wrap}
-.lawyer-card{background:rgba(255,255,255,0.05);border:1px solid rgba(200,169,110,0.2);border-radius:8px;padding:2rem;text-align:center;flex:1;min-width:180px}
-.lawyer-photo{width:80px;height:80px;border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-weight:700;color:#1c1c2e}
-.lawyer-card h3{color:#fff;font-weight:700;margin-bottom:0.3rem}
-.lawyer-card p{color:#c8a96e;font-size:0.85rem;font-weight:500}
-.lawyer-card .bar{display:block;font-size:0.78rem;color:rgba(255,255,255,0.45);margin-top:0.3rem}
+.areas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.area-card{padding:36px 28px;border:1px solid rgba(28,28,46,.08);background:#fff;display:flex;gap:20px;align-items:flex-start;transition:all .25s;position:relative;cursor:default}
+.area-card::before{content:'';position:absolute;right:0;top:0;bottom:0;width:3px;background:#8b1a1a;transform:scaleY(0);transition:transform .25s;transform-origin:bottom}
+.area-card:hover{box-shadow:0 8px 40px rgba(28,28,46,.1);z-index:1}
+.area-card:hover::before{transform:scaleY(1)}
+.area-num{font-size:3rem;font-weight:900;color:rgba(200,169,110,.25);line-height:1;flex-shrink:0;min-width:60px}
+.area-card h3{font-size:1.05rem;font-weight:800;margin-bottom:8px;color:#1c1c2e}
+.area-card p{font-size:.85rem;color:#6b7280;line-height:1.65}
 
-.why-us{padding:5rem 5%;background:#f5f4f0}
-.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3rem}
-.why-card{display:flex;gap:1rem;align-items:flex-start;background:#fff;padding:1.5rem;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.05)}
-.why-icon{width:48px;height:48px;background:#f5f0e8;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
-.why-card h3{font-size:0.95rem;font-weight:700;color:#1c1c2e;margin-bottom:0.3rem}
-.why-card p{font-size:0.83rem;color:#6b6b7a;line-height:1.6}
+.stats-section{background:#1c1c2e;padding:60px 6%;display:flex;justify-content:center;flex-wrap:wrap}
+.stat-item{text-align:center;padding:20px 60px;border-left:1px solid rgba(200,169,110,.15)}
+.stat-item:last-child{border-left:none}
+.stat-num{font-size:2.8rem;font-weight:900;color:#c8a96e;display:block;line-height:1}
+.stat-label{font-size:.78rem;color:rgba(242,237,232,.4);margin-top:6px;letter-spacing:.05em;display:block}
 
-.cta-dark{background:#1c1c2e;padding:5rem 5%;text-align:center;border-top:1px solid #8b1a1a}
-.cta-dark h2{font-size:2.2rem;font-weight:800;color:#fff;margin-bottom:1rem}
-.cta-dark p{color:rgba(255,255,255,0.6);margin-bottom:2rem}
+.team-section{background:#f2ede8;padding:80px 6%}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.team-card{background:#fff;overflow:hidden;border-radius:2px;box-shadow:0 4px 24px rgba(28,28,46,.07);transition:transform .25s,box-shadow .25s}
+.team-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(28,28,46,.13)}
+.team-card-img{height:320px;position:relative;overflow:hidden}
+.team-card-img img{filter:grayscale(30%);transition:filter .4s,transform .4s;width:100%;height:100%;object-fit:cover}
+.team-card:hover .team-card-img img{filter:grayscale(0%);transform:scale(1.04)}
+.team-card-body{padding:28px 24px}
+.team-card-body h3{font-size:1.1rem;font-weight:800;color:#1c1c2e;margin-bottom:4px}
+.team-card-body .role{font-size:.82rem;color:#8b1a1a;font-weight:700;margin-bottom:10px;letter-spacing:.03em}
+.team-card-body p{font-size:.83rem;color:#6b7280;line-height:1.65;margin-bottom:14px}
+.team-card-link{font-size:.8rem;font-weight:700;color:#8b1a1a;display:flex;align-items:center;gap:6px}
 
-footer{background:#12121e;padding:2rem 5%;text-align:center;color:rgba(255,255,255,0.3);font-size:0.82rem}
-footer span{color:#c8a96e;font-weight:600}
+.media-section{background:#1c1c2e;padding:60px 6%;text-align:center}
+.media-title{font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(242,237,232,.3);margin-bottom:36px}
+.media-logos{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;align-items:center}
+.media-logo{font-size:1.1rem;font-weight:900;color:rgba(242,237,232,.2);letter-spacing:.05em;transition:color .2s;cursor:default}
+.media-logo:hover{color:rgba(200,169,110,.6)}
+.media-quote{font-size:.72rem;color:rgba(242,237,232,.2);margin-top:5px}
 
-@media(max-width:768px){
-  .hero h1{font-size:2rem}
-  .practice-grid{grid-template-columns:1fr 1fr}
-  .why-grid{grid-template-columns:1fr}
-  .nav-links{display:none}
+.testi-section{background:#fff;padding:80px 6%}
+.testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:48px}
+.testi-card{background:#f2ede8;padding:40px;border-radius:2px;position:relative}
+.testi-quote-mark{font-size:4rem;color:rgba(139,26,26,.15);font-family:Georgia,serif;line-height:.8;margin-bottom:16px}
+.testi-card p{font-size:.95rem;color:#374151;line-height:1.75;font-style:italic;margin-bottom:20px}
+.testi-meta{display:flex;align-items:center;gap:12px}
+.testi-avatar{width:44px;height:44px;border-radius:50%;background:#1c1c2e;display:flex;align-items:center;justify-content:center;color:#c8a96e;font-weight:800;font-size:.9rem;flex-shrink:0}
+.testi-name{font-weight:700;font-size:.88rem;color:#1c1c2e}
+.testi-case{font-size:.75rem;color:#6b7280}
+
+.contact-section{background:#1c1c2e;padding:80px 6%;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.contact-left h2{font-size:2rem;font-weight:900;color:#f2ede8;margin-bottom:16px}
+.contact-left p{color:rgba(242,237,232,.55);line-height:1.75;margin-bottom:32px}
+.contact-detail{display:flex;align-items:flex-start;gap:14px;margin-bottom:20px}
+.contact-icon{width:40px;height:40px;border-radius:2px;background:rgba(200,169,110,.1);border:1px solid rgba(200,169,110,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-detail-text strong{display:block;font-size:.9rem;color:#f2ede8;margin-bottom:2px}
+.contact-detail-text span{font-size:.83rem;color:rgba(242,237,232,.45)}
+.contact-form{background:rgba(255,255,255,.04);border:1px solid rgba(200,169,110,.15);border-radius:2px;padding:36px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;font-size:.78rem;color:rgba(242,237,232,.5);margin-bottom:6px;font-weight:600;letter-spacing:.03em}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(200,169,110,.2);border-radius:2px;padding:11px 14px;color:#f2ede8;font-family:'Heebo',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#c8a96e}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(242,237,232,.25)}
+.form-group select option{background:#1c1c2e}
+.form-group textarea{height:100px;resize:none}
+.form-submit{width:100%;background:#8b1a1a;color:#f2ede8;padding:14px;border:none;border-radius:2px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:'Heebo',sans-serif;margin-top:4px;transition:background .2s}
+.form-submit:hover{background:#a32020}
+.form-note{text-align:center;font-size:.73rem;color:rgba(242,237,232,.25);margin-top:10px}
+
+footer{background:#111118;border-top:1px solid rgba(200,169,110,.1);padding:56px 6% 28px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand-logo{font-size:1.1rem;font-weight:800;color:#f2ede8;margin-bottom:10px}
+.footer-brand p{font-size:.82rem;color:rgba(242,237,232,.3);line-height:1.7}
+.footer-col h4{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#c8a96e;margin-bottom:16px}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:10px}
+.footer-col ul li a{font-size:.83rem;color:rgba(242,237,232,.35);transition:color .2s}
+.footer-col ul li a:hover{color:#c8a96e}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.footer-bottom p{font-size:.75rem;color:rgba(242,237,232,.25)}
+.footer-bottom a{color:rgba(200,169,110,.6);font-weight:600}
+.footer-bottom a:hover{color:#c8a96e}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;gap:40px}
+  .hero-img-wrap{display:none}
+  .areas-grid{grid-template-columns:1fr}
+  .stats-section{gap:0}
+  .stat-item{padding:20px 30px;border-left:none;border-bottom:1px solid rgba(200,169,110,.1)}
+  .team-grid,.testi-grid{grid-template-columns:1fr}
+  .contact-section{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .media-logos{gap:24px}
+  .form-row{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 
-<nav>
+<nav id="navbar">
   <div class="nav-logo">
-    <div class="logo-icon">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#c8a96e" stroke-width="2">
-        <path d="M12 2l3 6.5H20l-5 4 2 6.5-5-3.5-5 3.5 2-6.5-5-4h5z"/>
-      </svg>
-    </div>
-    <div><div class="logo-text-main">גולדברג ושות'</div><span class="logo-text-sub">עורכי דין ונוטריון</span></div>
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#c8a96e" stroke-width="1.5"><path d="M12 3v18M5 7h14M3 17c0 0 2-4 9-4s9 4 9 4"/></svg>
+    גולדברג ושות'
   </div>
   <ul class="nav-links">
-    <li><a href="#practice">תחומי עיסוק</a></li>
-    <li><a href="#team">הצוות</a></li>
-    <li><a href="#why">למה אנחנו</a></li>
-    <li><a href="#contact">צור קשר</a></li>
+    <li><a href="#">ראשי</a></li>
+    <li><a href="#">תחומים</a></li>
+    <li><a href="#">הצוות</a></li>
+    <li><a href="#">הישגים</a></li>
+    <li><a href="#">צור קשר</a></li>
   </ul>
-  <button class="nav-cta">ייעוץ חינם</button>
+  <a href="#" class="nav-cta" onclick="return false">ייעוץ ראשוני</a>
 </nav>
 
 <section class="hero">
-  <div class="hero-content">
-    <div class="hero-badge">משרד עורכי דין מוביל</div>
-    <h1>ניסיון. <em>מקצועיות.</em><br>תוצאות.</h1>
-    <p>משרד גולדברג ושות' מספק ייעוץ משפטי מקצועי ומנוסה בתחומים המגוונים ביותר. אנחנו כאן להגן על האינטרסים שלכם בכל שלב.</p>
-    <div class="hero-btns">
-      <button class="btn-gold">לייעוץ חינם</button>
-      <button class="btn-outline">תחומי עיסוק</button>
+  <div class="fade-in">
+    <div class="hero-tag">משרד עורכי דין ונוטריון — תל אביב</div>
+    <h1>צדק.<br><span>ניסיון.</span><br>תוצאות.</h1>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">יותר מ-25 שנות ייצוג משפטי מוצלח. אנחנו לא רק עורכי דין — אנחנו שותפים שלכם לתהליך.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-primary" onclick="return false">לייעוץ ראשוני</a>
+      <a href="#" class="btn-outline" onclick="return false">הכירו את המשרד</a>
+    </div>
+  </div>
+  <div class="hero-img-wrap fade-in" style="transition-delay:.15s">
+    <div class="hero-img-frame">
+      <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?w=500&q=80&auto=format&fit=crop" alt="משרד עורכי דין">
+    </div>
+    <div class="founding-badge">◆ מייסדה 1997</div>
+  </div>
+</section>
+
+<section class="section" style="padding-bottom:0">
+  <div class="fade-in">
+    <span class="section-tag">תחומי התמחות</span>
+    <h2 class="section-title">מה אנחנו <span>עושים</span></h2>
+  </div>
+  <div class="areas-grid fade-in" style="transition-delay:.1s">
+    <div class="area-card">
+      <div class="area-num">01</div>
+      <div><h3>דיני חברות ומסחר</h3><p>הקמה, מיזוגים ורכישות, חוזים מסחריים, ממשל תאגידי וייצוג בסכסוכי בעלי מניות.</p></div>
+    </div>
+    <div class="area-card">
+      <div class="area-num">02</div>
+      <div><h3>נדל"ן ומקרקעין</h3><p>עסקאות נדל"ן, רישום מקרקעין, ייצוג קבלנים ורוכשים, חכירות מסחריות.</p></div>
+    </div>
+    <div class="area-card">
+      <div class="area-num">03</div>
+      <div><h3>משפט פלילי</h3><p>ייצוג בבתי משפט, עבירות צווארון לבן, ליווי חקירות והסדרי כופר.</p></div>
+    </div>
+    <div class="area-card">
+      <div class="area-num">04</div>
+      <div><h3>דיני משפחה וירושה</h3><p>גירושין, הסכמי ממון, ירושות, אפוטרופסות ואימוץ. טיפול רגיש ומקצועי.</p></div>
+    </div>
+    <div class="area-card">
+      <div class="area-num">05</div>
+      <div><h3>ליטיגציה מסחרית</h3><p>ניהול תביעות מורכבות, בוררות, גישור וייצוג מול גופים ממשלתיים.</p></div>
+    </div>
+    <div class="area-card">
+      <div class="area-num">06</div>
+      <div><h3>דיני עבודה</h3><p>ייצוג עובדים ומעסיקים, חוזי העסקה, פיצויים וסכסוכי עבודה.</p></div>
     </div>
   </div>
 </section>
 
-<section class="practice" id="practice">
-  <div class="section-header">
-    <h2>תחומי עיסוק</h2>
-    <div class="red-line"></div>
-  </div>
-  <div class="practice-grid">
-    <div class="practice-card">
-      <div class="practice-icon">⚖️</div>
-      <h3>דיני עבודה</h3>
-      <p>ייצוג עובדים ומעסיקים בסכסוכי עבודה, פיטורים שלא כדין ועוד</p>
-    </div>
-    <div class="practice-card">
-      <div class="practice-icon">🏠</div>
-      <h3>נדל"ן</h3>
-      <p>ליווי עסקאות נדל"ן, חוזי שכירות, רישום בטאבו ועסקאות מסחריות</p>
-    </div>
-    <div class="practice-card">
-      <div class="practice-icon">👨‍👩‍👧</div>
-      <h3>דיני משפחה</h3>
-      <p>גירושין, הסכמי ממון, משמורת ילדים וירושה משפחתית</p>
-    </div>
-    <div class="practice-card">
-      <div class="practice-icon">🏢</div>
-      <h3>דיני חברות</h3>
-      <p>הקמת חברות, הסכמי שותפות, מיזוגים ורכישות עסקיות</p>
-    </div>
-    <div class="practice-card">
-      <div class="practice-icon">📜</div>
-      <h3>ירושות וצוואות</h3>
-      <p>עריכת צוואות, ניהול עיזבונות וייצוג בהליכי ירושה מורכבים</p>
-    </div>
-    <div class="practice-card">
-      <div class="practice-icon">🔨</div>
-      <h3>ליטיגציה</h3>
-      <p>ייצוג בבתי משפט בכל הערכאות בתביעות אזרחיות ומסחריות</p>
-    </div>
-  </div>
-</section>
+<div class="stats-section">
+  <div class="stat-item fade-in"><span class="stat-num">500+</span><span class="stat-label">תיקים הושלמו</span></div>
+  <div class="stat-item fade-in" style="transition-delay:.08s"><span class="stat-num">97%</span><span class="stat-label">שיעור הצלחה</span></div>
+  <div class="stat-item fade-in" style="transition-delay:.16s"><span class="stat-num">25</span><span class="stat-label">שנות ניסיון</span></div>
+  <div class="stat-item fade-in" style="transition-delay:.24s"><span class="stat-num">4</span><span class="stat-label">שותפים בכירים</span></div>
+</div>
 
-<section class="team" id="team">
-  <h2 style="color:#fff">הצוות המשפטי שלנו</h2>
-  <div class="red-line" style="margin-top:0.5rem"></div>
+<section class="team-section">
+  <div class="fade-in">
+    <span class="section-tag">הצוות שלנו</span>
+    <h2 class="section-title">שותפי <span>המשרד</span></h2>
+  </div>
   <div class="team-grid">
-    <div class="lawyer-card">
-      <div class="lawyer-photo" style="background:linear-gradient(135deg,#c8a96e,#a88040)">ע"ד</div>
-      <h3>עו"ד יוסף גולדברג</h3>
-      <p>שותף מייסד</p>
-      <span class="bar">דיני חברות · ליטיגציה</span>
+    <div class="team-card fade-in">
+      <div class="team-card-img"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&auto=format&fit=crop&crop=top" alt="עו״ד דוד גולדברג"></div>
+      <div class="team-card-body">
+        <h3>עו"ד דוד גולדברג</h3>
+        <div class="role">שותף מייסד | דיני חברות</div>
+        <p>בוגר הפקולטה למשפטים, האוניברסיטה העברית. מוסמך לפרקטיקה בישראל ובניו יורק. מומחה לעסקאות M&amp;A ומיזוגים בינלאומיים.</p>
+        <a href="#" class="team-card-link" onclick="return false">לפרופיל המלא ←</a>
+      </div>
     </div>
-    <div class="lawyer-card">
-      <div class="lawyer-photo" style="background:linear-gradient(135deg,#8b1a1a,#a52020)">ע"ד</div>
-      <h3>עו"ד שרה לוינסון</h3>
-      <p>שותפה בכירה</p>
-      <span class="bar">דיני משפחה · ירושות</span>
+    <div class="team-card fade-in" style="transition-delay:.1s">
+      <div class="team-card-img"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80&auto=format&fit=crop&crop=top" alt="עו״ד רחל אשכנזי"></div>
+      <div class="team-card-body">
+        <h3>עו"ד רחל אשכנזי</h3>
+        <div class="role">שותפה | נדל"ן ומקרקעין</div>
+        <p>לשעבר יועצת משפטית בחברת נדל"ן ציבורית. מומחית לעסקאות קרקע מורכבות, ייצוג קבלנים ורישומי בית משותף.</p>
+        <a href="#" class="team-card-link" onclick="return false">לפרופיל המלא ←</a>
+      </div>
     </div>
-    <div class="lawyer-card">
-      <div class="lawyer-photo" style="background:linear-gradient(135deg,#2a2a42,#3a3a5a)">ע"ד</div>
-      <h3>עו"ד תומר ברק</h3>
-      <p>עורך דין שותף</p>
-      <span class="bar">נדל"ן · דיני עבודה</span>
-    </div>
-  </div>
-</section>
-
-<section class="why-us" id="why">
-  <div class="section-header">
-    <h2>למה לבחור בנו</h2>
-    <div class="red-line"></div>
-  </div>
-  <div class="why-grid">
-    <div class="why-card">
-      <div class="why-icon">🏆</div>
-      <div><h3>ניסיון של 25 שנה</h3><p>מאות תיקים מוצלחים בכל תחומי המשפט המרכזיים</p></div>
-    </div>
-    <div class="why-card">
-      <div class="why-icon">🤝</div>
-      <div><h3>ליווי אישי לאורך הדרך</h3><p>כל לקוח מקבל עורך דין ייעודי הזמין ונגיש תמיד</p></div>
-    </div>
-    <div class="why-card">
-      <div class="why-icon">💡</div>
-      <div><h3>ייעוץ חינם ראשוני</h3><p>פגישת ייעוץ ראשונה ללא עלות וללא התחייבות כלל</p></div>
-    </div>
-    <div class="why-card">
-      <div class="why-icon">⚡</div>
-      <div><h3>תגובה מהירה</h3><p>אנחנו מגיבים לכל פנייה תוך שעות ספורות בלבד</p></div>
+    <div class="team-card fade-in" style="transition-delay:.2s">
+      <div class="team-card-img"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=80&auto=format&fit=crop&crop=top" alt="עו״ד יוסי בן-שימול"></div>
+      <div class="team-card-body">
+        <h3>עו"ד יוסי בן-שימול</h3>
+        <div class="role">שותף | ליטיגציה מסחרית</div>
+        <p>לשעבר תובע בפרקליטות המחוז. מנהל תיקים מורכבים בבית המשפט המחוזי ובעליון. ניסיון עשיר בבוררויות בינלאומיות.</p>
+        <a href="#" class="team-card-link" onclick="return false">לפרופיל המלא ←</a>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="cta-dark" id="contact">
-  <h2>מוכנים לדבר עם עורך דין?</h2>
-  <p>פגישת ייעוץ ראשונה חינם — ללא התחייבות</p>
-  <button class="btn-gold" style="font-size:1rem;padding:0.85rem 2.5rem">צרו קשר עכשיו</button>
+<section class="media-section">
+  <div class="media-title fade-in">בתקשורת</div>
+  <div class="media-logos fade-in" style="transition-delay:.1s">
+    <div><div class="media-logo">הארץ</div><div class="media-quote">"מהמשרדים המובילים בתחום"</div></div>
+    <div><div class="media-logo">כלכליסט</div><div class="media-quote">"ניצחון תקדימי בבית המשפט"</div></div>
+    <div><div class="media-logo">גלובס</div><div class="media-quote">"עסקת M&A שנת 2023"</div></div>
+    <div><div class="media-logo">TheMarker</div><div class="media-quote">"עורכי הדין שאתם רוצים לצדכם"</div></div>
+    <div><div class="media-logo">ישראל היום</div><div class="media-quote">"פרשת מגה-עסקה"</div></div>
+  </div>
+</section>
+
+<section class="testi-section">
+  <div class="fade-in">
+    <span class="section-tag">לקוחות מספרים</span>
+    <h2 class="section-title">מה אמרו <span>עלינו</span></h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card fade-in" style="transition-delay:.08s">
+      <div class="testi-quote-mark">"</div>
+      <p>ייצוג מקצועי ביותר בסכסוך עסקי מורכב שנמשך שלוש שנים. גולדברג ושות' ניהלו את התיק בתבונה ובהחלטיות. הסתיים בניצחון מוחץ.</p>
+      <div class="testi-meta">
+        <div class="testi-avatar">ר.מ</div>
+        <div><div class="testi-name">ר. מוזס</div><div class="testi-case">סכסוך עסקי בין שותפים</div></div>
+      </div>
+    </div>
+    <div class="testi-card fade-in" style="transition-delay:.16s">
+      <div class="testi-quote-mark">"</div>
+      <p>עברתי תהליך גירושין קשה. רחל אשכנזי ליוותה אותי בסבלנות ומקצועיות יוצאת דופן. בסוף הגענו להסכם הוגן שהגן על הילדים ועלי.</p>
+      <div class="testi-meta">
+        <div class="testi-avatar" style="background:#8b1a1a">ל.כ</div>
+        <div><div class="testi-name">ל. כהן</div><div class="testi-case">דיני משפחה — הסכם גירושין</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section">
+  <div class="fade-in">
+    <h2>נשמח לעזור לכם</h2>
+    <p>ייעוץ ראשוני ללא עלות — נבין יחד את הסיטואציה ונציע את הדרך הנכונה קדימה.</p>
+    <div class="contact-detail">
+      <div class="contact-icon"><svg width="18" height="18" fill="none" stroke="#c8a96e" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+      <div class="contact-detail-text"><strong>כתובת</strong><span>רחוב אחד העם 9, תל אביב, קומה 12</span></div>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-icon"><svg width="18" height="18" fill="none" stroke="#c8a96e" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 12 19.79 19.79 0 012 3.18 2 2 0 014 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
+      <div class="contact-detail-text"><strong>טלפון</strong><span>03-123-4567</span></div>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-icon"><svg width="18" height="18" fill="none" stroke="#c8a96e" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+      <div class="contact-detail-text"><strong>שעות פעילות</strong><span>א'–ה' 09:00–19:00 | ו' 09:00–13:00</span></div>
+    </div>
+  </div>
+  <div class="contact-form fade-in" style="transition-delay:.1s">
+    <form onsubmit="return false">
+      <div class="form-row">
+        <div class="form-group"><label>שם מלא</label><input type="text" placeholder="ישראל ישראלי"></div>
+        <div class="form-group"><label>טלפון</label><input type="tel" placeholder="05X-XXX-XXXX"></div>
+      </div>
+      <div class="form-group">
+        <label>תחום ייעוץ</label>
+        <select><option>בחרו תחום...</option><option>דיני חברות ומסחר</option><option>נדל"ן ומקרקעין</option><option>משפט פלילי</option><option>דיני משפחה וירושה</option><option>ליטיגציה מסחרית</option><option>דיני עבודה</option></select>
+      </div>
+      <div class="form-group"><label>תאר בקצרה את הנושא</label><textarea placeholder="פרטו בקצרה את הסיטואציה המשפטית..."></textarea></div>
+      <button type="submit" class="form-submit">שלחו פנייה ←</button>
+      <p class="form-note">כל הפרטים נשמרים בסודיות מוחלטת</p>
+    </form>
+  </div>
 </section>
 
 <footer>
-  <p>© 2025 גולדברג ושות' עורכי דין | כל הזכויות שמורות | נבנה על ידי <span>VELO DIGITAL</span></p>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-brand-logo">גולדברג ושות'</div>
+      <p>משרד עורכי דין ונוטריון עם ניסיון של 25 שנה. מחויבים לתוצאות, לשקיפות ולשירות אישי.</p>
+    </div>
+    <div class="footer-col">
+      <h4>תחומים</h4>
+      <ul><li><a href="#">דיני חברות</a></li><li><a href="#">נדל"ן</a></li><li><a href="#">משפט פלילי</a></li><li><a href="#">דיני משפחה</a></li><li><a href="#">ליטיגציה</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h4>המשרד</h4>
+      <ul><li><a href="#">אודות</a></li><li><a href="#">הצוות</a></li><li><a href="#">הישגים</a></li><li><a href="#">פרסומים</a></li><li><a href="#">קריירה</a></li></ul>
+    </div>
+    <div class="footer-col">
+      <h4>צור קשר</h4>
+      <ul><li><a href="#">03-123-4567</a></li><li><a href="#">info@goldberg-law.co.il</a></li><li><a href="#">אחד העם 9, ת"א</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 גולדברג ושות' עורכי דין | <a href="https://liorvelikin.github.io/velo-website/">נבנה על ידי VELO DIGITAL</a></p>
+    <p style="font-size:.7rem;color:rgba(242,237,232,.2)">אין באמור משום ייעוץ משפטי</p>
+  </div>
 </footer>
 
+<script>
+document.querySelectorAll('.fade-in').forEach(el=>{
+  new IntersectionObserver(([e])=>{if(e.isIntersecting)e.target.classList.add('visible')},{threshold:0.1}).observe(el);
+});
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').style.borderBottomColor=window.scrollY>20?'rgba(200,169,110,0.35)':'rgba(200,169,110,0.2)';
+});
+</script>
 </body>
 </html>

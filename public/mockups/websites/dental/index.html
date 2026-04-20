@@ -3,212 +3,635 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VisualDent | רפואת שיניים פרטית</title>
+<title>VisualDent | קליניקת שיניים מתקדמת תל אביב</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Heebo',sans-serif;background:#f8fbfc;color:#1a2e3a;direction:rtl}
+body{font-family:'Heebo',sans-serif;background:#fff;color:#0a2540;direction:rtl}
 a{text-decoration:none;color:inherit}
+img{display:block;width:100%;height:100%;object-fit:cover}
+
+/* FADE-IN ANIMATION */
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade-in.visible{opacity:1;transform:none}
 
 /* NAV */
-nav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e0ecee;padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:70px;box-shadow:0 2px 12px rgba(0,180,160,0.07)}
-.nav-logo{font-size:1.5rem;font-weight:800;color:#0a2540;letter-spacing:-0.5px}
-.nav-logo span{color:#00b4a0}
+nav{position:sticky;top:0;z-index:200;background:#fff;padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:72px;transition:box-shadow 0.3s}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-text{font-size:1.45rem;font-weight:800;color:#0a2540;letter-spacing:-0.5px}
+.nav-logo-text span{color:#00b4a0}
 .nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{font-size:0.9rem;font-weight:500;color:#1a2e3a;transition:color 0.2s}
+.nav-links a{font-size:0.9rem;font-weight:500;color:#0a2540;transition:color 0.2s}
 .nav-links a:hover{color:#00b4a0}
-.nav-cta{background:#00b4a0;color:#fff;border:none;padding:0.55rem 1.4rem;border-radius:25px;font-family:'Heebo',sans-serif;font-size:0.9rem;font-weight:600;cursor:pointer;transition:background 0.2s}
-.nav-cta:hover{background:#009988}
+.nav-cta{background:#00b4a0;color:#fff;border:none;padding:0.6rem 1.5rem;border-radius:30px;font-family:'Heebo',sans-serif;font-size:0.9rem;font-weight:700;cursor:pointer;transition:all 0.2s;white-space:nowrap}
+.nav-cta:hover{background:#009988;transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,180,160,0.35)}
 
-/* HERO */
-.hero{background:#f0f9f8;padding:5rem 5%;display:flex;align-items:center;gap:4rem;min-height:520px}
-.hero-text{flex:1}
-.hero-text h1{font-size:3rem;font-weight:900;color:#0a2540;line-height:1.2;margin-bottom:1.2rem}
-.hero-text h1 span{color:#00b4a0}
-.hero-text p{font-size:1.1rem;color:#4a6170;line-height:1.7;margin-bottom:2rem;max-width:500px}
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
-.btn-primary{background:#00b4a0;color:#fff;padding:0.75rem 1.8rem;border-radius:30px;font-weight:700;font-size:1rem;border:none;cursor:pointer;transition:all 0.2s}
-.btn-primary:hover{background:#009988;transform:translateY(-1px)}
-.btn-outline{background:transparent;color:#0a2540;padding:0.75rem 1.8rem;border-radius:30px;font-weight:700;font-size:1rem;border:2px solid #0a2540;cursor:pointer;transition:all 0.2s}
-.btn-outline:hover{background:#0a2540;color:#fff}
-.hero-visual{flex:0 0 320px;display:flex;justify-content:center;align-items:center}
-.tooth-shape{width:200px;height:240px;background:linear-gradient(135deg,#00b4a0,#0a2540);border-radius:50% 50% 40% 40% / 60% 60% 40% 40%;position:relative;box-shadow:0 20px 60px rgba(0,180,160,0.3);display:flex;align-items:center;justify-content:center}
-.tooth-shape::before{content:'';position:absolute;width:70px;height:90px;background:rgba(255,255,255,0.15);border-radius:50% 50% 40% 40%;bottom:30px;left:50%;transform:translateX(-50%)}
-.tooth-inner{color:#fff;font-size:3rem;opacity:0.9}
+/* HERO — SPLIT */
+.hero{display:flex;min-height:600px;overflow:hidden}
+.hero-image{flex:0 0 50%;position:relative;overflow:hidden}
+.hero-image img{width:100%;height:100%;object-fit:cover;min-height:600px}
+.hero-content{flex:0 0 50%;background:#fff;display:flex;align-items:center;padding:60px 5% 60px 60px}
+.hero-inner{max-width:480px}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:#f0faf9;border:1px solid #c0eae5;color:#00897b;font-size:0.82rem;font-weight:600;padding:6px 14px;border-radius:20px;margin-bottom:20px}
+.hero-inner h1{font-size:3.6rem;font-weight:900;color:#0a2540;line-height:1.1;margin-bottom:20px}
+.hero-inner h1 span{color:#00b4a0}
+.hero-inner p{font-size:1.05rem;color:#4a6170;line-height:1.75;margin-bottom:28px;max-width:420px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px}
+.btn-primary{background:#00b4a0;color:#fff;padding:14px 28px;border-radius:30px;font-weight:700;font-size:0.98rem;border:none;cursor:pointer;transition:all 0.25s;display:inline-block}
+.btn-primary:hover{background:#009988;transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,180,160,0.35)}
+.btn-outline-teal{background:transparent;color:#0a2540;padding:13px 26px;border-radius:30px;font-weight:700;font-size:0.98rem;border:2px solid #0a2540;cursor:pointer;transition:all 0.25s;display:inline-block}
+.btn-outline-teal:hover{background:#0a2540;color:#fff}
+.hero-trust{display:flex;gap:20px;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:6px;font-size:0.82rem;font-weight:600;color:#0a2540}
+.trust-check{width:18px;height:18px;background:#00b4a0;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.trust-check::after{content:'✓';color:#fff;font-size:10px;font-weight:900}
 
-/* STATS */
-.stats{background:#0a2540;padding:3rem 5%;display:flex;justify-content:space-around;flex-wrap:wrap;gap:2rem}
-.stat-item{text-align:center;color:#fff}
-.stat-num{font-size:2.5rem;font-weight:900;color:#00b4a0}
-.stat-label{font-size:0.95rem;opacity:0.8;margin-top:0.3rem}
+/* TRUST STRIP */
+.trust-strip{background:#f7f9fc;border-top:1px solid #e8eef3;border-bottom:1px solid #e8eef3;padding:36px 5%;display:flex;justify-content:space-around;align-items:center;flex-wrap:wrap;gap:20px}
+.trust-stat{text-align:center}
+.trust-stat-icon{width:44px;height:44px;background:#e6f7f5;border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto 8px}
+.trust-num{font-size:2rem;font-weight:900;color:#00b4a0;line-height:1}
+.trust-label{font-size:0.8rem;color:#4a6170;margin-top:4px;font-weight:500}
 
 /* SERVICES */
-.section{padding:5rem 5%}
-.section-title{text-align:center;font-size:2rem;font-weight:800;color:#0a2540;margin-bottom:0.7rem}
-.section-sub{text-align:center;color:#4a6170;margin-bottom:3rem;font-size:1rem}
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.service-card{background:#fff;border-radius:16px;padding:2rem;box-shadow:0 4px 20px rgba(0,0,0,0.06);transition:all 0.3s;text-align:center}
-.service-card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,180,160,0.15)}
-.service-icon{width:56px;height:56px;background:#e8f7f5;border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem}
-.service-card h3{font-size:1.05rem;font-weight:700;color:#0a2540;margin-bottom:0.5rem}
-.service-card p{font-size:0.88rem;color:#6b8290;line-height:1.6}
+.services{padding:80px 5%;background:#fff}
+.section-tag{display:inline-block;background:#e6f7f5;color:#00897b;font-size:0.75rem;font-weight:700;letter-spacing:1.5px;padding:5px 14px;border-radius:20px;margin-bottom:12px;text-transform:uppercase}
+.section-h2{font-size:2.2rem;font-weight:800;color:#0a2540;margin-bottom:10px}
+.section-h2 span{color:#00b4a0}
+.section-sub{font-size:0.95rem;color:#4a6170;margin-bottom:48px;max-width:500px}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.service-card{background:#fff;border:1.5px solid #e8eef3;border-radius:16px;padding:28px 24px;transition:all 0.3s;cursor:default}
+.service-card:hover{box-shadow:0 12px 40px rgba(0,180,160,0.12);transform:translateY(-4px);border-color:#b3e5df}
+.service-icon{width:52px;height:52px;background:#e6f7f5;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.service-card h3{font-size:1.05rem;font-weight:700;color:#0a2540;margin-bottom:8px}
+.service-card p{font-size:0.87rem;color:#6b8290;line-height:1.65;margin-bottom:14px}
+.service-link{font-size:0.85rem;font-weight:700;color:#00b4a0;transition:gap 0.2s}
+.service-link:hover{text-decoration:underline}
+
+/* ABOUT */
+.about{background:#0a2540;padding:80px 5%}
+.about-inner{display:flex;gap:60px;align-items:center;max-width:1200px;margin:0 auto}
+.about-img{flex:0 0 420px;border-radius:16px;overflow:hidden;height:450px}
+.about-img img{width:100%;height:100%;object-fit:cover}
+.about-text{flex:1}
+.about-text .section-tag{background:rgba(0,180,160,0.15);color:#00d4be}
+.about-text .section-h2{color:#fff;margin-bottom:16px}
+.about-text p{color:rgba(255,255,255,0.7);font-size:0.97rem;line-height:1.8;margin-bottom:28px}
+.about-bullets{list-style:none;margin-bottom:32px}
+.about-bullets li{display:flex;align-items:flex-start;gap:12px;color:rgba(255,255,255,0.85);font-size:0.92rem;margin-bottom:12px;line-height:1.6}
+.bullet-icon{width:22px;height:22px;background:#00b4a0;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.bullet-icon::after{content:'✓';color:#fff;font-size:11px;font-weight:900}
+.btn-teal-outline{background:transparent;color:#00b4a0;border:2px solid #00b4a0;padding:12px 24px;border-radius:30px;font-family:'Heebo',sans-serif;font-size:0.9rem;font-weight:700;cursor:pointer;transition:all 0.25s}
+.btn-teal-outline:hover{background:#00b4a0;color:#fff}
 
 /* TEAM */
-.team{background:#fff;padding:5rem 5%}
-.team-grid{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-top:3rem}
-.team-card{background:#f8fbfc;border-radius:16px;padding:2rem;text-align:center;width:220px;box-shadow:0 4px 20px rgba(0,0,0,0.06)}
-.team-photo{width:90px;height:90px;border-radius:50%;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;font-size:2rem;color:#fff;font-weight:700}
-.team-card h3{font-weight:700;color:#0a2540;margin-bottom:0.3rem}
-.team-card p{font-size:0.85rem;color:#00b4a0;font-weight:500}
+.team{padding:80px 5%;background:#fff}
+.team-header{text-align:center;margin-bottom:52px}
+.team-grid{display:flex;gap:32px;justify-content:center;flex-wrap:wrap}
+.team-card{background:#f7f9fc;border-radius:20px;padding:32px 24px;text-align:center;width:260px;transition:all 0.3s;border:1.5px solid transparent}
+.team-card:hover{border-color:#b3e5df;box-shadow:0 10px 40px rgba(0,180,160,0.1);transform:translateY(-4px)}
+.team-photo{width:120px;height:120px;border-radius:50%;overflow:hidden;margin:0 auto 16px;border:4px solid #00b4a0}
+.team-photo img{width:100%;height:100%;object-fit:cover}
+.team-card h3{font-size:1.05rem;font-weight:700;color:#0a2540;margin-bottom:4px}
+.team-title{font-size:0.85rem;font-weight:600;color:#00b4a0;margin-bottom:10px}
+.team-bio{font-size:0.83rem;color:#6b8290;line-height:1.6;margin-bottom:14px}
+.team-social{display:inline-flex;align-items:center;gap:6px;font-size:0.8rem;color:#4a6170;font-weight:500}
+
+/* GALLERY */
+.gallery{padding:80px 5%;background:#f7f9fc}
+.gallery-header{margin-bottom:40px}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto;gap:8px}
+.gallery-item{border-radius:12px;overflow:hidden;position:relative;cursor:pointer}
+.gallery-item img{width:100%;height:220px;object-fit:cover;transition:transform 0.4s ease}
+.gallery-item:hover img{transform:scale(1.04)}
+.gallery-overlay{position:absolute;inset:0;background:rgba(0,180,160,0);display:flex;align-items:center;justify-content:center;transition:background 0.3s}
+.gallery-item:hover .gallery-overlay{background:rgba(0,180,160,0.18)}
+.gallery-item.tall img{height:452px}
 
 /* TESTIMONIALS */
-.testimonials{padding:5rem 5%;background:#f0f9f8}
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
-.testi-card{background:#fff;border-radius:16px;padding:1.8rem;box-shadow:0 4px 16px rgba(0,0,0,0.06)}
-.testi-stars{color:#00b4a0;font-size:1.1rem;margin-bottom:0.8rem}
-.testi-text{font-size:0.92rem;color:#4a6170;line-height:1.7;margin-bottom:1rem}
-.testi-name{font-weight:700;color:#0a2540;font-size:0.9rem}
+.testimonials{padding:80px 5%;background:#f0faf9}
+.testi-header{text-align:center;margin-bottom:48px}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.testi-card{background:#fff;border-radius:16px;padding:28px;box-shadow:0 4px 20px rgba(0,180,160,0.08)}
+.testi-stars{display:flex;gap:3px;margin-bottom:14px}
+.testi-stars svg{fill:#00b4a0}
+.testi-text{font-size:0.9rem;color:#4a6170;line-height:1.75;margin-bottom:20px;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;color:#fff;flex-shrink:0}
+.testi-name{font-weight:700;color:#0a2540;font-size:0.88rem}
+.testi-city{font-size:0.78rem;color:#6b8290}
 
-/* CTA DARK */
-.cta-dark{background:#0a2540;padding:5rem 5%;text-align:center}
-.cta-dark h2{font-size:2.2rem;font-weight:800;color:#fff;margin-bottom:1rem}
-.cta-dark p{color:rgba(255,255,255,0.7);margin-bottom:2rem;font-size:1rem}
+/* CONTACT */
+.contact{padding:80px 5%;background:#fff}
+.contact-inner{display:flex;gap:60px;max-width:1200px;margin:0 auto;align-items:flex-start}
+.contact-form{flex:1;background:#f7f9fc;border-radius:20px;padding:40px}
+.contact-form h3{font-size:1.4rem;font-weight:800;color:#0a2540;margin-bottom:24px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:0.82rem;font-weight:600;color:#0a2540;margin-bottom:6px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px 14px;border:1.5px solid #e0eaec;border-radius:10px;font-family:'Heebo',sans-serif;font-size:0.9rem;color:#0a2540;background:#fff;transition:border-color 0.2s;outline:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#00b4a0}
+.form-group textarea{resize:vertical;min-height:90px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-submit{width:100%;background:#00b4a0;color:#fff;border:none;padding:14px;border-radius:30px;font-family:'Heebo',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:all 0.25s;margin-top:6px}
+.form-submit:hover{background:#009988;transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,180,160,0.35)}
+.contact-info{flex:0 0 340px}
+.contact-info h3{font-size:1.4rem;font-weight:800;color:#0a2540;margin-bottom:28px}
+.contact-detail{display:flex;gap:14px;align-items:flex-start;margin-bottom:20px}
+.contact-icon{width:42px;height:42px;background:#e6f7f5;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-detail-text strong{display:block;font-size:0.9rem;font-weight:700;color:#0a2540;margin-bottom:2px}
+.contact-detail-text span{font-size:0.87rem;color:#4a6170}
+.hours-table{margin-top:4px}
+.hours-row{display:flex;justify-content:space-between;font-size:0.83rem;color:#4a6170;padding:4px 0;border-bottom:1px solid #f0f4f6}
+.hours-row:last-child{border-bottom:none}
+.hours-row strong{color:#0a2540;font-weight:600}
+.map-placeholder{background:linear-gradient(135deg,#e6f7f5,#b3e5df);height:220px;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;margin-top:24px;box-shadow:0 4px 20px rgba(0,180,160,0.15)}
+.map-pin{font-size:2rem;margin-bottom:8px}
+.map-label{font-size:1rem;font-weight:700;color:#00897b}
+.map-address{font-size:0.82rem;color:#009988;margin-top:4px}
 
 /* FOOTER */
-footer{background:#06192a;padding:2rem 5%;text-align:center;color:rgba(255,255,255,0.4);font-size:0.82rem}
-footer span{color:#00b4a0;font-weight:600}
+footer{background:#0a2540;padding:60px 5% 0}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,0.08)}
+.footer-brand p{font-size:0.87rem;color:rgba(255,255,255,0.5);line-height:1.7;margin-top:12px;max-width:240px}
+.footer-col h4{font-size:0.9rem;font-weight:700;color:#fff;margin-bottom:16px;letter-spacing:0.5px}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:10px}
+.footer-col ul li a{font-size:0.85rem;color:rgba(255,255,255,0.5);transition:color 0.2s}
+.footer-col ul li a:hover{color:#00b4a0}
+.footer-bottom{padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.footer-bottom p{font-size:0.8rem;color:rgba(255,255,255,0.3)}
+.footer-bottom a{color:rgba(255,255,255,0.5);transition:color 0.2s}
+.footer-bottom a:hover{color:#00b4a0}
 
 @media(max-width:768px){
-  .hero{flex-direction:column;text-align:center;padding:3rem 5%}
-  .hero-text h1{font-size:2rem}
-  .hero-visual{display:none}
-  .services-grid{grid-template-columns:repeat(2,1fr)}
-  .testi-grid{grid-template-columns:1fr}
+  nav{padding:0 4%}
   .nav-links{display:none}
+  .hero{flex-direction:column}
+  .hero-image{flex:0 0 300px;min-height:300px}
+  .hero-image img{min-height:300px}
+  .hero-content{padding:40px 4%}
+  .hero-inner h1{font-size:2.4rem}
+  .hero-btns{flex-direction:column}
+  .trust-strip{gap:16px}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .about-inner{flex-direction:column}
+  .about-img{flex:none;width:100%;height:280px}
+  .team-grid{gap:20px}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+  .gallery-item.tall img{height:220px}
+  .testi-grid{grid-template-columns:1fr}
+  .contact-inner{flex-direction:column}
+  .contact-info{flex:none;width:100%}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .footer-brand{grid-column:1/-1}
+  .form-row{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-logo">Visual<span>Dent</span></div>
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-logo">
+    <svg width="28" height="28" viewBox="0 0 24 24"><path d="M12 2C9.5 2 8 4 8 6.5c0 1 .3 2 .8 2.8C7.7 10.3 7 11.8 7 13.5c0 2.5 2 4.5 5 4.5s5-2 5-4.5c0-1.7-.7-3.2-1.8-4.2.5-.8.8-1.8.8-2.8C16 4 14.5 2 12 2z" fill="#00b4a0"/></svg>
+    <div class="nav-logo-text">Visual<span>Dent</span></div>
+  </div>
   <ul class="nav-links">
-    <li><a href="#services">שירותים</a></li>
-    <li><a href="#team">צוות</a></li>
-    <li><a href="#testimonials">המלצות</a></li>
-    <li><a href="#contact">צור קשר</a></li>
+    <li><a href="#" onclick="return false">ראשי</a></li>
+    <li><a href="#services" onclick="return false">טיפולים</a></li>
+    <li><a href="#team" onclick="return false">הצוות</a></li>
+    <li><a href="#gallery" onclick="return false">גלריה</a></li>
+    <li><a href="#contact" onclick="return false">צור קשר</a></li>
   </ul>
-  <button class="nav-cta">קבעו תור</button>
+  <button class="nav-cta" onclick="return false">קיבעו תור</button>
 </nav>
 
+<!-- HERO — SPLIT -->
 <section class="hero">
-  <div class="hero-text">
-    <h1>שיניים בריאות.<br><span>חיוך מושלם.</span></h1>
-    <p>קליניקת שיניים פרטית בתל אביב — מרפאה מתקדמת עם צוות מנוסה ואווירה נינוחה. הטיפול הטוב ביותר, בסביבה שתרגישו בה בבית.</p>
-    <div class="hero-btns">
-      <button class="btn-primary">קבעו תור עכשיו</button>
-      <button class="btn-outline">השירותים שלנו</button>
-    </div>
+  <div class="hero-image">
+    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=900&q=80&auto=format&fit=crop" alt="קליניקת שיניים">
   </div>
-  <div class="hero-visual">
-    <div class="tooth-shape">
-      <div class="tooth-inner">🦷</div>
+  <div class="hero-content">
+    <div class="hero-inner fade-in">
+      <div class="hero-badge">⭐⭐⭐⭐⭐ &nbsp; קליניקה מובילה בתל אביב</div>
+      <h1>חיוכים שמשנים<br><span>חיים שלמים</span></h1>
+      <p>קליניקת שיניים מתקדמת עם ציוד רפואי של הדור הבא ורופאים מהמובילים בישראל — כי אתם מגיעים לטוב ביותר.</p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="return false">קיבעו תור</button>
+        <button class="btn-outline-teal" onclick="return false">הכירו אותנו</button>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item"><div class="trust-check"></div><span>ציוד מתקדם</span></div>
+        <div class="trust-item"><div class="trust-check"></div><span>אנסתזיה מינימלית</span></div>
+        <div class="trust-item"><div class="trust-check"></div><span>אחריות 5 שנים</span></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="stats">
-  <div class="stat-item"><div class="stat-num">15+</div><div class="stat-label">שנות ניסיון</div></div>
-  <div class="stat-item"><div class="stat-num">2,000+</div><div class="stat-label">מטופלים מרוצים</div></div>
-  <div class="stat-item"><div class="stat-num">טיפולים</div><div class="stat-label">ביום אחד</div></div>
-</section>
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-stat fade-in">
+    <div class="trust-stat-icon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="#00b4a0" stroke-width="2" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="trust-num">3,000+</div>
+    <div class="trust-label">טיפולים בוצעו</div>
+  </div>
+  <div class="trust-stat fade-in">
+    <div class="trust-stat-icon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="#00b4a0" stroke-width="2"/><polyline points="22 4 12 14.01 9 11.01" stroke="#00b4a0" stroke-width="2"/></svg>
+    </div>
+    <div class="trust-num">98%</div>
+    <div class="trust-label">שביעות רצון</div>
+  </div>
+  <div class="trust-stat fade-in">
+    <div class="trust-stat-icon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#00b4a0" stroke-width="2"/><polyline points="12 6 12 12 16 14" stroke="#00b4a0" stroke-width="2"/></svg>
+    </div>
+    <div class="trust-num">15</div>
+    <div class="trust-label">שנות ניסיון</div>
+  </div>
+  <div class="trust-stat fade-in">
+    <div class="trust-stat-icon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="#00b4a0" stroke-width="2"/><circle cx="9" cy="7" r="4" stroke="#00b4a0" stroke-width="2"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="#00b4a0" stroke-width="2"/></svg>
+    </div>
+    <div class="trust-num">12</div>
+    <div class="trust-label">מומחים בצוות</div>
+  </div>
+  <div class="trust-stat fade-in">
+    <div class="trust-stat-icon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#00b4a0" stroke-width="2"/></svg>
+    </div>
+    <div class="trust-num">5</div>
+    <div class="trust-label">שנות אחריות</div>
+  </div>
+</div>
 
-<section class="section" id="services">
-  <div class="section-title">השירותים שלנו</div>
-  <div class="section-sub">טיפולי שיניים מקצועיים בטכנולוגיה המתקדמת ביותר</div>
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="fade-in">
+    <div class="section-tag">מה אנחנו עושים</div>
+    <h2 class="section-h2">הטיפולים <span>שלנו</span></h2>
+    <p class="section-sub">פתרונות שיניים מתקדמים לכל מטופל — מיישור ועד שתלים, הכל תחת קורת גג אחת.</p>
+  </div>
   <div class="services-grid">
-    <div class="service-card">
-      <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00b4a0" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg></div>
-      <h3>לבנת שיניים</h3>
-      <p>הבהרה מקצועית לשיניים לבנות וזוהרות תוך שעה אחת</p>
+    <div class="service-card fade-in">
+      <div class="service-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 12h18M3 6h18M3 18h18" stroke="#00b4a0" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <h3>יישור שיניים שקוף — אינביזליין</h3>
+      <p>יישור שיניים בלתי נראה בטכנולוגיה האמריקאית המתקדמת, ללא גשרי מתכת ועם נוחות מרבית לאורך כל הטיפול.</p>
+      <a class="service-link" href="#" onclick="return false">קרא עוד ←</a>
     </div>
-    <div class="service-card">
-      <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00b4a0" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M9 12h6M12 9v6"/></svg></div>
-      <h3>ציפויים</h3>
-      <p>ציפויי פורצלן דקים לחיוך טבעי ומושלם לשנים רבות</p>
+    <div class="service-card fade-in">
+      <div class="service-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#00b4a0" stroke-width="2"/><path d="M8 12.5s1.5 2 4 2 4-2 4-2" stroke="#00b4a0" stroke-width="1.8" stroke-linecap="round"/><circle cx="9" cy="9.5" r="1" fill="#00b4a0"/><circle cx="15" cy="9.5" r="1" fill="#00b4a0"/></svg>
+      </div>
+      <h3>הלבנת שיניים מקצועית</h3>
+      <p>הלבנה בטוחה ואפקטיבית בטכנולוגיית לייזר, תוצאות גלויות כבר מהטיפול הראשון לחיוך בוהק ובריא.</p>
+      <a class="service-link" href="#" onclick="return false">קרא עוד ←</a>
     </div>
-    <div class="service-card">
-      <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00b4a0" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-      <h3>אורתודנטיה</h3>
-      <p>יישור שיניים בשיטות מתקדמות כולל אינויזליין שקוף</p>
+    <div class="service-card fade-in">
+      <div class="service-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="3" y="8" width="18" height="10" rx="3" stroke="#00b4a0" stroke-width="2"/><path d="M7 8V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" stroke="#00b4a0" stroke-width="2"/></svg>
+      </div>
+      <h3>ציפויי חרסינה ו-Lumineers</h3>
+      <p>ציפויי פורצלן דקים בעובי של חצי מילימטר — שינוי מראה השיניים ללא שיוץ, בצורה טבעית ועמידה לשנים.</p>
+      <a class="service-link" href="#" onclick="return false">קרא עוד ←</a>
     </div>
-    <div class="service-card">
-      <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00b4a0" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-      <h3>שתלים</h3>
-      <p>שתלי שיניים מחומרי טיטניום איכותיים לתוצאה קבועה</p>
+    <div class="service-card fade-in">
+      <div class="service-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="#00b4a0" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <h3>שתלי שיניים מתקדמים</h3>
+      <p>שתלי טיטניום מהמובילים בעולם, פתרון קבוע ואסתטי לשיניים חסרות — מראה וחוזק של שן טבעית לכל החיים.</p>
+      <a class="service-link" href="#" onclick="return false">קרא עוד ←</a>
     </div>
-    <div class="service-card">
-      <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00b4a0" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-      <h3>טיפולי שורש</h3>
-      <p>טיפולי שורש ללא כאב עם טכנולוגיה וציוד מתקדם</p>
+    <div class="service-card fade-in">
+      <div class="service-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#00b4a0" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="#00b4a0" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <h3>טיפול שורש ללא כאב</h3>
+      <p>טיפול שורש מתקדם עם אנסתזיה מדויקת וציוד אנדודונטי חדשני — ניקוי עמוק, הרדמה יעילה, החלמה מהירה.</p>
+      <a class="service-link" href="#" onclick="return false">קרא עוד ←</a>
     </div>
-    <div class="service-card">
-      <div class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00b4a0" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-      <h3>ניקוי ובדיקה</h3>
-      <p>בדיקה מקיפה וניקוי מקצועי לבריאות הפה המיטבית</p>
+    <div class="service-card fade-in">
+      <div class="service-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 19V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14" stroke="#00b4a0" stroke-width="2"/><path d="M4 19h16M9 7h6M9 11h6M9 15h4" stroke="#00b4a0" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <h3>כתרים, גשרים ותותבות</h3>
+      <p>שיקום פה מלא בחומרים איכותיים — כתרי זירקוניה, גשרים קבועים ותותבות נשלפות ברמה אסתטית גבוהה.</p>
+      <a class="service-link" href="#" onclick="return false">קרא עוד ←</a>
     </div>
   </div>
 </section>
 
+<!-- ABOUT -->
+<section class="about">
+  <div class="about-inner">
+    <div class="about-img fade-in">
+      <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=600&q=80&auto=format&fit=crop" alt="הצוות המקצועי שלנו">
+    </div>
+    <div class="about-text fade-in">
+      <div class="section-tag">אודות הקליניקה</div>
+      <h2 class="section-h2" style="color:#fff">טכנולוגיה מתקדמת,<br><span>אנושיות אמיתית</span></h2>
+      <p>VisualDent נוסדה לפני 15 שנה מתוך ביטחון אחד: שכל מטופל ראוי לקבל טיפול שיניים ברמה הגבוהה ביותר, בסביבה נעימה ומכבדת. הקליניקה שלנו שילבה בין הטכנולוגיה הרפואית המתקדמת לבין אווירה חמה ואישית שמפחיתה חרדה ומגבירה אמון.</p>
+      <ul class="about-bullets">
+        <li><div class="bullet-icon"></div><span>טכנולוגיית CEREC לכתרים חד-יומיים — ללא תבניות גבס</span></li>
+        <li><div class="bullet-icon"></div><span>רנטגן דיגיטלי עם 80% פחות קרינה לעומת פיזי</span></li>
+        <li><div class="bullet-icon"></div><span>אנסתזיה ממוחשבת STA — הזרקה ללא כאב כמעט</span></li>
+        <li><div class="bullet-icon"></div><span>סריקה תלת-ממדית iTero לתכנון טיפול מדויק</span></li>
+      </ul>
+      <button class="btn-teal-outline" onclick="return false">לפרטים נוספים</button>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
 <section class="team" id="team">
-  <div class="section-title">הצוות שלנו</div>
-  <div class="section-sub">רופאים מומחים עם ניסיון רב שנים</div>
+  <div class="team-header fade-in">
+    <div class="section-tag">הצוות שלנו</div>
+    <h2 class="section-h2">הרופאים שישנו <span>את חיוכך</span></h2>
+    <p class="section-sub">מומחים מוסמכים, אנשים נהדרים — הצוות שלנו מחויב לתת לך את הטוב ביותר.</p>
+  </div>
   <div class="team-grid">
-    <div class="team-card">
-      <div class="team-photo" style="background:linear-gradient(135deg,#0a2540,#00b4a0)">ד"ר</div>
-      <h3>ד"ר מיכל לוי</h3>
-      <p>מומחית לאסתטיקה דנטלית</p>
+    <div class="team-card fade-in">
+      <div class="team-photo">
+        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=300&q=80&auto=format&fit=crop&crop=face" alt="ד&#34;ר מאיה כהן">
+      </div>
+      <h3>ד"ר מאיה כהן</h3>
+      <div class="team-title">מומחית ביישור שיניים</div>
+      <p class="team-bio">בוגרת בית הספר לרפואת שיניים בתל אביב, התמחות מתקדמת בדנטוסטוריה. מעל 10 שנות ניסיון בטיפולי אינביזליין ואורתודנטיה.</p>
+      <div class="team-social">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#0077b5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </div>
     </div>
-    <div class="team-card">
-      <div class="team-photo" style="background:linear-gradient(135deg,#00b4a0,#0d7a6e)">ד"ר</div>
-      <h3>ד"ר אריאל כהן</h3>
-      <p>מומחה לשתלים ואורתודנטיה</p>
+    <div class="team-card fade-in">
+      <div class="team-photo">
+        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300&q=80&auto=format&fit=crop&crop=face" alt="ד&#34;ר אורן לוי">
+      </div>
+      <h3>ד"ר אורן לוי</h3>
+      <div class="team-title">מנהל קליני ואימפלנטולוג</div>
+      <p class="team-bio">מנהל הקליניקה ומומחה שתלים בדרגה הגבוהה ביותר. מרצה במחלקה לרפואת שיניים ומעל 2,000 שתלים מוצלחים לזכותו.</p>
+      <div class="team-social">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#0077b5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </div>
+    </div>
+    <div class="team-card fade-in">
+      <div class="team-photo">
+        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=300&q=80&auto=format&fit=crop&crop=face" alt="ד&#34;ר שרה מזרחי">
+      </div>
+      <h3>ד"ר שרה מזרחי</h3>
+      <div class="team-title">מומחית בכירורגיה אורלית</div>
+      <p class="team-bio">כירורגית פה ולסת מוסמכת בארה"ב ובישראל. מומחית בניתוחים מורכבים, הסרת שיני בינה ושיקום עצם לפני שתלים.</p>
+      <div class="team-social">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="#0077b5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </div>
     </div>
   </div>
 </section>
 
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="gallery-header fade-in">
+    <div class="section-tag">תוצאות אמיתיות</div>
+    <h2 class="section-h2">לפני <span>ואחרי</span></h2>
+    <p class="section-sub">תמונות של מטופלים אמיתיים לפני ואחרי הטיפול — הצטרפו לאלפים שכבר חייכו.</p>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item fade-in">
+      <img src="https://images.unsplash.com/photo-1588776814546-1ffbb5b26e00?w=500&q=80&auto=format&fit=crop" alt="לפני ואחרי 1">
+      <div class="gallery-overlay"></div>
+    </div>
+    <div class="gallery-item tall fade-in">
+      <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e21?w=500&q=80&auto=format&fit=crop" alt="לפני ואחרי 2" style="height:452px">
+      <div class="gallery-overlay"></div>
+    </div>
+    <div class="gallery-item fade-in">
+      <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=500&q=80&auto=format&fit=crop" alt="לפני ואחרי 3">
+      <div class="gallery-overlay"></div>
+    </div>
+    <div class="gallery-item fade-in">
+      <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=500&q=80&auto=format&fit=crop" alt="קליניקה">
+      <div class="gallery-overlay"></div>
+    </div>
+    <div class="gallery-item fade-in">
+      <img src="https://images.unsplash.com/photo-1571772996211-2d02c9ecbb87?w=500&q=80&auto=format&fit=crop" alt="ציוד רפואי">
+      <div class="gallery-overlay"></div>
+    </div>
+    <div class="gallery-item fade-in">
+      <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=500&q=80&auto=format&fit=crop" alt="טיפול שיניים">
+      <div class="gallery-overlay"></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
 <section class="testimonials" id="testimonials">
-  <div class="section-title">מה אומרים עלינו</div>
-  <div class="section-sub">מטופלים מרוצים שחזרו עם חיוך</div>
+  <div class="testi-header fade-in">
+    <div class="section-tag">מה אומרים עלינו</div>
+    <h2 class="section-h2">מטופלים <span>מספרים</span></h2>
+  </div>
   <div class="testi-grid">
-    <div class="testi-card">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"VisualDent שינתה את חיי! הגעתי לטיפול ציפויים ויצאתי עם חיוך שתמיד חלמתי עליו. הצוות מקצועי, נעים ומסביר הכל בסבלנות."</p>
-      <div class="testi-name">— נועה שמש, תל אביב</div>
+    <div class="testi-card fade-in">
+      <div class="testi-stars">
+        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <p class="testi-text">"הגעתי לד"ר כהן לאחר שנים שפחדתי מרופאי שיניים. בטיפול הראשון כבר הבנתי שזה שונה לגמרי — שקט, ללא כאב, ועם תוצאות שפשוט הפתיעו אותי. הציפויים שהכינו לי השאירו אותי עם חיוך שתמיד חלמתי עליו."</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:#00b4a0">נ.ש</div>
+        <div><div class="testi-name">נועה שמש</div><div class="testi-city">תל אביב · ציפויי חרסינה</div></div>
+      </div>
     </div>
-    <div class="testi-card">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"כמה שנים פחדתי מרופא שיניים. כאן גיליתי שטיפול יכול להיות ממש נעים. ד"ר לוי מדהימה ועשתה עבורי שתל בלי כאב בכלל."</p>
-      <div class="testi-name">— גיל ברק, רמת גן</div>
+    <div class="testi-card fade-in">
+      <div class="testi-stars">
+        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <p class="testi-text">"אחרי תאונה שגרמה לאיבוד שני שיניים, ד"ר לוי הציל לי את החיוך בעזרת שתלים. התהליך היה ארוך אבל מקצועי לחלוטין. כיום לא אפשר להבחין בין השתלים לשיניים הטבעיות. שירות ואדיבות ברמה שלא פגשתי בשום מקום אחר."</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:#0a2540">ג.ב</div>
+        <div><div class="testi-name">גיל ברק</div><div class="testi-city">רמת גן · שתלי שיניים</div></div>
+      </div>
     </div>
-    <div class="testi-card">
-      <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">"קליניקה ברמה בינלאומית. הטיפול מהיר, מדויק והתוצאות מדהימות. ממליץ בחום לכל המשפחה!"</p>
-      <div class="testi-name">— דני מור, הרצליה</div>
+    <div class="testi-card fade-in">
+      <div class="testi-stars">
+        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <p class="testi-text">"שנה וחצי של אינביזליין עם ד"ר כהן — וזה היה שווה כל רגע. הביקורות השוטפות, הסריקות הדיגיטליות, ההסברים המפורטים בכל שלב. הרגשתי בטוחה לאורך כל הטיפול. היום אני מחייכת בתמונות בלי להסתיר את הפה."</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:#009988">ד.מ</div>
+        <div><div class="testi-name">דנה מזרחי</div><div class="testi-city">הרצליה · אינביזליין</div></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="cta-dark" id="contact">
-  <h2>מוכנים לחיוך שתמיד חלמתם עליו?</h2>
-  <p>צרו קשר עוד היום וקבעו תור ראשוני ללא התחייבות</p>
-  <button class="btn-primary" style="font-size:1.1rem;padding:0.9rem 2.5rem">צרו קשר</button>
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div style="text-align:center;margin-bottom:48px" class="fade-in">
+    <div class="section-tag">צרו קשר</div>
+    <h2 class="section-h2">קיבעו את <span>התור שלכם</span></h2>
+    <p class="section-sub">מלאו את הטופס ונחזור אליכם בתוך 24 שעות לאישור התור.</p>
+  </div>
+  <div class="contact-inner">
+    <div class="contact-form fade-in">
+      <h3>טופס קביעת תור</h3>
+      <form onsubmit="return false">
+        <div class="form-row">
+          <div class="form-group">
+            <label>שם מלא</label>
+            <input type="text" placeholder="ישראל ישראלי">
+          </div>
+          <div class="form-group">
+            <label>טלפון</label>
+            <input type="tel" placeholder="050-0000000">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>טיפול מבוקש</label>
+          <select>
+            <option>בחרו טיפול</option>
+            <option>יישור שיניים — אינביזליין</option>
+            <option>הלבנת שיניים</option>
+            <option>ציפויי חרסינה</option>
+            <option>שתלי שיניים</option>
+            <option>טיפול שורש</option>
+            <option>כתרים וגשרים</option>
+            <option>בדיקה ראשונית</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>שעה מועדפת</label>
+          <select>
+            <option>בחרו שעה</option>
+            <option>בוקר (08:00–11:00)</option>
+            <option>צהריים (11:00–14:00)</option>
+            <option>אחה"צ (14:00–17:00)</option>
+            <option>ערב (17:00–20:00)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>הערות נוספות</label>
+          <textarea placeholder="ספרו לנו על מה שמעניין אתכם, חששות, שאלות..."></textarea>
+        </div>
+        <button class="form-submit" type="submit">שלחו בקשת תור →</button>
+      </form>
+    </div>
+    <div class="contact-info fade-in">
+      <h3>פרטי הקליניקה</h3>
+      <div class="contact-detail">
+        <div class="contact-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="#00b4a0" stroke-width="2"/><circle cx="12" cy="10" r="3" stroke="#00b4a0" stroke-width="2"/></svg>
+        </div>
+        <div class="contact-detail-text"><strong>כתובת</strong><span>רחוב דיזנגוף 123, תל אביב 6423201</span></div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.38 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.77-.78a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="#00b4a0" stroke-width="2"/></svg>
+        </div>
+        <div class="contact-detail-text"><strong>טלפון</strong><span>03-123-4567</span></div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="14" rx="2" stroke="#00b4a0" stroke-width="2"/><path d="M2 7l10 8 10-8" stroke="#00b4a0" stroke-width="2"/></svg>
+        </div>
+        <div class="contact-detail-text"><strong>אימייל</strong><span>info@visualdent.co.il</span></div>
+      </div>
+      <div class="contact-detail" style="align-items:flex-start">
+        <div class="contact-icon" style="margin-top:2px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#00b4a0" stroke-width="2"/><polyline points="12 6 12 12 16 14" stroke="#00b4a0" stroke-width="2"/></svg>
+        </div>
+        <div class="contact-detail-text">
+          <strong>שעות פעילות</strong>
+          <div class="hours-table">
+            <div class="hours-row"><strong>ראשון–חמישי</strong><span>09:00–20:00</span></div>
+            <div class="hours-row"><strong>שישי</strong><span>09:00–14:00</span></div>
+            <div class="hours-row"><strong>שבת</strong><span>סגור</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="map-placeholder">
+        <div class="map-pin">📍</div>
+        <div class="map-label">VisualDent</div>
+        <div class="map-address">דיזנגוף 123, תל אביב</div>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  <p>© 2025 VisualDent | כל הזכויות שמורות | נבנה על ידי <span>VELO DIGITAL</span></p>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+        <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C9.5 2 8 4 8 6.5c0 1 .3 2 .8 2.8C7.7 10.3 7 11.8 7 13.5c0 2.5 2 4.5 5 4.5s5-2 5-4.5c0-1.7-.7-3.2-1.8-4.2.5-.8.8-1.8.8-2.8C16 4 14.5 2 12 2z" fill="#00b4a0"/></svg>
+        <span style="font-size:1.3rem;font-weight:800;color:#fff">Visual<span style="color:#00b4a0">Dent</span></span>
+      </div>
+      <p>קליניקת שיניים מתקדמת בתל אביב — מחויבים לחיוך שלכם מאז 2009.</p>
+    </div>
+    <div class="footer-col">
+      <h4>ניווט מהיר</h4>
+      <ul>
+        <li><a href="#" onclick="return false">ראשי</a></li>
+        <li><a href="#" onclick="return false">הטיפולים שלנו</a></li>
+        <li><a href="#" onclick="return false">הצוות הרפואי</a></li>
+        <li><a href="#" onclick="return false">גלריה</a></li>
+        <li><a href="#" onclick="return false">צרו קשר</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>טיפולים</h4>
+      <ul>
+        <li><a href="#" onclick="return false">אינביזליין</a></li>
+        <li><a href="#" onclick="return false">הלבנת שיניים</a></li>
+        <li><a href="#" onclick="return false">ציפויי חרסינה</a></li>
+        <li><a href="#" onclick="return false">שתלי שיניים</a></li>
+        <li><a href="#" onclick="return false">טיפול שורש</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>צרו קשר</h4>
+      <ul>
+        <li><a href="#" onclick="return false">03-123-4567</a></li>
+        <li><a href="#" onclick="return false">info@visualdent.co.il</a></li>
+        <li><a href="#" onclick="return false">דיזנגוף 123, ת"א</a></li>
+        <li><a href="#" onclick="return false">קביעת תור אונליין</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 VisualDent | <a href="https://liorvelikin.github.io/velo-website/" style="color:inherit">נבנה על ידי VELO DIGITAL</a></p>
+    <p style="font-size:0.75rem">כל הזכויות שמורות | מדיניות פרטיות | תנאי שימוש</p>
+  </div>
 </footer>
 
+<script>
+// Fade-in on scroll
+document.querySelectorAll('.fade-in').forEach(el => {
+  new IntersectionObserver(([e]) => e.isIntersecting && e.target.classList.add('visible'), {threshold:0.1}).observe(el);
+});
+
+// Nav shadow on scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('main-nav').style.boxShadow = window.scrollY > 50 ? '0 2px 20px rgba(0,0,0,0.1)' : 'none';
+});
+</script>
 </body>
 </html>

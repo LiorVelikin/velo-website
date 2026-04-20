@@ -74,9 +74,9 @@ const businessTypes = [
 
 const projects = [
   {
-    niche: 'אופנה ומותג',
-    title: 'Zano — מותג אופנה',
-    desc: 'אתר מותג אופנה עם חנות, קטלוג מוצרים ועיצוב ייחודי שמשקף את זהות המותג.',
+    niche: 'הפקת מדיה',
+    title: 'Zano — סטודיו הפקה',
+    desc: 'אתר תדמית לסטודיו הפקת מדיה — עיצוב ויזואלי חזק, גלריית פרויקטים, וחוויה שמושכת לקוחות פרמיום.',
     url: 'https://liorvelikin.github.io/Zano-website/',
     accent: '#c9a84c',
     live: true,

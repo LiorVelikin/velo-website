@@ -54,7 +54,7 @@ const processSteps = [
 ]
 
 const projects = [
-  { niche: 'מותג אופנה', title: 'Zano — מותג אופנה', url: 'https://liorvelikin.github.io/Zano-website/', accent: '#c9a84c', live: true },
+  { niche: 'הפקת מדיה', title: 'Zano — סטודיו הפקה', url: 'https://liorvelikin.github.io/Zano-website/', accent: '#c9a84c', live: true },
   { niche: 'שירותי יופי', title: 'Lilach — עיצוב שיער', url: 'https://liorvelikin.github.io/Lilach-website/', accent: '#e8a0bf', live: true },
   { niche: 'חלונות ודלתות', title: 'Windows 4U — חנות ממוכרת', url: 'https://windows-4u.com/landing-page', accent: '#1a6fff', live: true },
 ]

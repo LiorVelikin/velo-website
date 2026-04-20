@@ -62,7 +62,7 @@ const processSteps = [
 ]
 
 const projects = [
-  { niche: 'מותג אופנה', title: 'Zano — מותג אופנה', url: 'https://liorvelikin.github.io/Zano-website/', accent: '#c9a84c', live: true },
+  { niche: 'הפקת מדיה', title: 'Zano — סטודיו הפקה', url: 'https://liorvelikin.github.io/Zano-website/', accent: '#c9a84c', live: true },
   { niche: 'שירותי יופי', title: 'Lilach — עיצוב שיער', url: 'https://liorvelikin.github.io/Lilach-website/', accent: '#e8a0bf', live: true },
   { niche: 'קוסמטיקה ויופי', title: 'GlowBar — טיפולי פנים', url: 'https://liorvelikin.github.io/velo-website/mockups/landing/beauty/', accent: '#e066a0', live: false },
 ]

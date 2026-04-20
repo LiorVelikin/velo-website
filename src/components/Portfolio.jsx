@@ -3,10 +3,10 @@ import { useEffect, useRef } from 'react'
 const projects = [
   {
     id: '01',
-    title: 'Zano — מותג אופנה',
+    title: 'Zano — סטודיו הפקה',
     subtitle: 'בניית אתר + Brand Identity',
-    description: 'אתר מותג אופנה מינימליסטי — עיצוב ויזואלי חזק, גלריית מוצרים, ו-UX שממיר גולשים לקונים.',
-    tags: ['Web Design', 'E-Commerce', 'Branding'],
+    description: 'אתר תדמית לסטודיו הפקת מדיה מקצועית — עיצוב חזותי שמשקף רמת הפקה, גלריית פרויקטים, וחוויה שמושכת לקוחות פרמיום.',
+    tags: ['Web Design', 'Media', 'Branding'],
     result: 'Live',
     gradient: 'from-[#2a1a0f] to-[#0d0a05]',
     accent: '#c9a84c',
