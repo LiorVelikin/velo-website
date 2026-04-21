@@ -1,14 +1,16 @@
 import { useEffect, useRef, useState } from 'react'
 
-/* ─── Video data — fill src when real videos are ready ─── */
+const BASE = import.meta.env.BASE_URL
+
+/* ─── Video data ─── */
 const videos = [
-  { src: '', label: 'רילס למכירות',  color: '#1a1a2e', glow: 'rgba(26,111,255,0.55)'  },
-  { src: '', label: 'פרסומת AI',     color: '#16213e', glow: 'rgba(0,160,255,0.55)'   },
-  { src: '', label: 'תוכן אורגני',   color: '#0f3460', glow: 'rgba(77,159,255,0.60)'  },
-  { src: '', label: 'סרטון מוצר',    color: '#0a2a6e', glow: 'rgba(0,200,255,0.60)'  },
-  { src: '', label: 'סטורי ממיר',    color: '#1a1a2e', glow: 'rgba(0,212,255,0.55)'   },
-  { src: '', label: 'קמפיין ליד',    color: '#16213e', glow: 'rgba(26,111,255,0.50)'  },
-  { src: '', label: 'וידאו מותג',    color: '#0f3460', glow: 'rgba(0,180,255,0.50)'   },
+  { src: `${BASE}videos/maya-ugc.mp4`,          label: 'UGC | מאיה',     color: '#1a0a2e', glow: 'rgba(255,133,194,0.55)' },
+  { src: `${BASE}videos/alo-yoga-ad.mp4`,        label: 'Reels ספורט',    color: '#0a1a2e', glow: 'rgba(26,111,255,0.55)'  },
+  { src: `${BASE}videos/ai-avatar-3.mp4`,        label: 'AI Creator',     color: '#0a2030', glow: 'rgba(0,212,184,0.55)'   },
+  { src: `${BASE}videos/channel-perfume-ad.mp4`, label: 'פרסומת מוצר',   color: '#1e1508', glow: 'rgba(201,168,76,0.65)'  },
+  { src: `${BASE}videos/luxury-unboxing.mp4`,    label: 'Unboxing יוקרה', color: '#18120a', glow: 'rgba(201,168,76,0.55)'  },
+  { src: `${BASE}videos/michal-ugc.mp4`,         label: 'UGC | מיכל',     color: '#2a0a18', glow: 'rgba(255,133,194,0.55)' },
+  { src: `${BASE}videos/noa-ugc.mp4`,            label: 'UGC | נועה',     color: '#2a0a18', glow: 'rgba(255,133,194,0.50)' },
 ]
 
 /* ─── Per-phone layout config ─── */
