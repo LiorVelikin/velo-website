@@ -3,490 +3,320 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>נווה הירוק | פרויקט מגורים יוקרתי בירושלים</title>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<title>נווה הירוק | פרויקט מגורים יוקרתי — ירושלים</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;700;900&family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Heebo',sans-serif;background:#f5f0e8;color:#070e09;direction:rtl}
+body{font-family:'Heebo',sans-serif;background:#f8f4ed;color:#0e1a0e;direction:rtl}
 a{text-decoration:none;color:inherit}
-img{display:block;max-width:100%}
+img{display:block;width:100%;height:100%;object-fit:cover}
 
-/* --- NAV --- */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(7,14,9,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,0.25);height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 5%}
-.nav-logo{display:flex;align-items:center;gap:10px}
-.nav-logo svg{width:32px;height:32px;flex-shrink:0}
-.nav-brand{font-size:1.35rem;font-weight:800;color:#fff;letter-spacing:-0.5px}
-.nav-brand span{color:#c9a84c}
-.nav-center{font-size:0.82rem;color:rgba(255,255,255,0.5);font-weight:400;letter-spacing:0.5px}
-.nav-right{display:flex;align-items:center;gap:14px}
-.nav-phone{color:rgba(255,255,255,0.7);font-size:0.9rem;direction:ltr;font-weight:500}
-.nav-phone strong{color:#c9a84c}
-.nav-cta-btn{background:#c9a84c;color:#070e09;border:none;padding:0.5rem 1.4rem;border-radius:4px;font-family:'Heebo',sans-serif;font-size:0.85rem;font-weight:800;cursor:pointer;transition:background 0.2s;white-space:nowrap}
-.nav-cta-btn:hover{background:#e0bc5e}
+:root{
+  --bg:#f8f4ed;
+  --ink:#0e1a0e;
+  --gold:#c9a84c;
+  --gold-pale:#f0e6cc;
+  --stone:#6b6350;
+  --border:#ddd5c0;
+  --dark:#0e1a0e;
+}
 
-/* --- HERO --- */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding-top:68px;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1800&q=80&auto=format&fit=crop');background-size:cover;background-position:center}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(to left, rgba(7,14,9,0.3) 0%, rgba(7,14,9,0.85) 60%)}
-.hero-inner{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:5rem 5%;width:100%;gap:4rem;flex-wrap:wrap}
-.hero-text{flex:1;min-width:280px;max-width:560px}
-.hero-badge{display:inline-block;background:rgba(201,168,76,0.18);border:1px solid rgba(201,168,76,0.5);color:#c9a84c;padding:0.45rem 1.1rem;border-radius:4px;font-size:0.78rem;font-weight:700;letter-spacing:1.5px;margin-bottom:1.6rem}
-.hero-text h1{font-size:clamp(42px,5vw,65px);font-weight:900;line-height:1.1;color:#fff;margin-bottom:1.2rem}
-.hero-text h1 span{color:#c9a84c}
-.hero-sub{font-size:1rem;color:rgba(255,255,255,0.72);line-height:1.8;margin-bottom:2rem;max-width:480px}
-.hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:0}
-.hero-tag-item{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);color:rgba(255,255,255,0.9);padding:0.4rem 1rem;border-radius:30px;font-size:0.82rem;font-weight:500}
-
-/* --- HERO FORM CARD --- */
-.hero-form-card{background:#fff;border-radius:16px;padding:32px;width:360px;flex-shrink:0;box-shadow:0 24px 64px rgba(0,0,0,0.45)}
-.hero-form-card h3{font-size:1.15rem;font-weight:800;color:#070e09;margin-bottom:0.3rem}
-.hero-form-card .form-sub{font-size:0.8rem;color:#888;margin-bottom:1.6rem}
-.form-group{margin-bottom:0.9rem}
-.form-group label{display:block;font-size:0.78rem;color:#555;margin-bottom:0.35rem;font-weight:600}
-.form-group input,.form-group select,.form-group textarea{width:100%;background:#f7f5f2;border:1.5px solid #e8e3d8;border-radius:8px;padding:0.7rem 0.9rem;color:#070e09;font-family:'Heebo',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s}
-.form-group input:focus,.form-group select:focus{border-color:#c9a84c}
-.form-group input::placeholder{color:#bbb}
-.form-group select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 8L1 3h10z' fill='%23888'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:left 12px center;cursor:pointer}
-.submit-gold{width:100%;background:#c9a84c;color:#070e09;border:none;padding:0.9rem;border-radius:8px;font-family:'Heebo',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;margin-top:0.5rem;transition:all 0.2s;letter-spacing:0.3px}
-.submit-gold:hover{background:#e0bc5e}
-.form-note{font-size:0.73rem;color:#aaa;text-align:center;margin-top:0.7rem}
-
-/* --- HIGHLIGHTS STRIP --- */
-.highlights-strip{background:#070e09;padding:2rem 5%;display:flex;justify-content:space-around;flex-wrap:wrap;gap:1.5rem;border-bottom:2px solid rgba(201,168,76,0.15)}
-.hl-item{text-align:center;padding:0.5rem 1rem}
-.hl-num{font-size:2rem;font-weight:900;color:#c9a84c;line-height:1}
-.hl-label{font-size:0.82rem;color:rgba(255,255,255,0.55);margin-top:0.3rem}
-
-/* --- PROPERTY FEATURES --- */
-.features-section{background:#0d2015;padding:5rem 5%}
-.section-header{margin-bottom:3rem}
-.section-tag{font-size:0.75rem;font-weight:700;color:#c9a84c;letter-spacing:2px;text-transform:uppercase;margin-bottom:0.6rem}
-.section-title{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:#fff;margin-bottom:0}
-.gold-line{width:48px;height:3px;background:#c9a84c;border-radius:2px;margin-top:0.8rem}
-.features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
-.feature-card{background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.15);border-radius:12px;padding:2rem 1.5rem;transition:all 0.3s}
-.feature-card:hover{background:rgba(201,168,76,0.06);border-color:rgba(201,168,76,0.4);transform:translateY(-4px)}
-.feature-icon{font-size:2.2rem;margin-bottom:1rem}
-.feature-card h3{font-size:1rem;font-weight:700;color:#fff;margin-bottom:0.5rem}
-.feature-card p{font-size:0.84rem;color:rgba(255,255,255,0.5);line-height:1.65}
-
-/* --- GALLERY --- */
-.gallery-section{background:#f5f0e8;padding:5rem 5%}
-.gallery-section .section-title{color:#070e09}
-.gallery-section .gold-line{margin-bottom:2.5rem}
-.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.gallery-item{border-radius:12px;overflow:hidden;position:relative;cursor:pointer}
-.gallery-item img{width:100%;height:260px;object-fit:cover;display:block;transition:transform 0.4s ease}
-.gallery-item:hover img{transform:scale(1.05)}
-.gallery-item::after{content:'';position:absolute;inset:0;border:2.5px solid transparent;border-radius:12px;transition:border-color 0.3s}
-.gallery-item:hover::after{border-color:#c9a84c}
-
-/* --- APARTMENT TYPES --- */
-.apt-section{background:#fff;padding:5rem 5%}
-.apt-section .section-title{color:#070e09}
-.apt-section .gold-line{margin-bottom:2.5rem}
-.apt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.apt-card{border:2px solid #e8e3d8;border-radius:14px;padding:2rem;position:relative;transition:all 0.3s;background:#faf8f3}
-.apt-card:hover{border-color:#c9a84c;box-shadow:0 12px 36px rgba(201,168,76,0.12)}
-.apt-card.popular{border-color:#c9a84c;box-shadow:0 12px 36px rgba(201,168,76,0.2)}
-.popular-badge{position:absolute;top:-14px;right:50%;transform:translateX(50%);background:#c9a84c;color:#070e09;font-size:0.72rem;font-weight:800;padding:0.3rem 1rem;border-radius:20px;white-space:nowrap;letter-spacing:0.5px}
-.apt-plan-icon{width:100%;height:80px;background:#f0ebe0;border-radius:8px;margin-bottom:1.2rem;display:flex;align-items:center;justify-content:center;font-size:2rem}
-.apt-rooms{font-size:1.5rem;font-weight:900;color:#070e09;margin-bottom:0.2rem}
-.apt-size{font-size:0.85rem;color:#777;margin-bottom:0.8rem}
-.apt-price{font-size:1.15rem;font-weight:800;color:#c9a84c;margin-bottom:1rem}
-.apt-features{list-style:none;margin-bottom:1.4rem}
-.apt-features li{font-size:0.83rem;color:#555;padding:0.3rem 0;border-bottom:1px solid #f0ebe0;display:flex;align-items:center;gap:6px}
-.apt-features li::before{content:'✓';color:#c9a84c;font-weight:700}
-.apt-btn{width:100%;background:#070e09;color:#fff;border:none;padding:0.75rem;border-radius:8px;font-family:'Heebo',sans-serif;font-size:0.9rem;font-weight:700;cursor:pointer;transition:background 0.2s}
-.apt-btn:hover{background:#1a3020}
-.apt-card.popular .apt-btn{background:#c9a84c;color:#070e09}
-.apt-card.popular .apt-btn:hover{background:#e0bc5e}
-
-/* --- LOCATION --- */
-.location-section{background:#f5f0e8;padding:5rem 5%}
-.location-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.location-section .section-title{color:#070e09}
-.location-section .gold-line{margin-bottom:1.5rem}
-.location-desc{font-size:0.95rem;color:#444;line-height:1.8;margin-bottom:1.8rem}
-.location-distances{list-style:none}
-.location-distances li{display:flex;align-items:center;gap:12px;padding:0.8rem 0;border-bottom:1px solid #e0d9cc;font-size:0.9rem;color:#333}
-.location-distances li .dist-icon{width:32px;height:32px;background:#c9a84c;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0}
-.location-distances li strong{color:#070e09;font-weight:700}
-.map-placeholder{background:#0d2015;border-radius:14px;height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;color:rgba(255,255,255,0.5);font-size:0.9rem;border:2px solid rgba(201,168,76,0.2)}
-.map-placeholder .map-pin{font-size:3rem}
-.map-placeholder strong{color:#c9a84c;font-size:1rem;font-weight:700}
-
-/* --- DEVELOPER --- */
-.developer-section{background:#070e09;padding:5rem 5%}
-.developer-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.developer-section .section-title{color:#fff}
-.developer-section .gold-line{margin-bottom:1.5rem}
-.dev-desc{font-size:0.95rem;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:2rem}
-.dev-stats{display:flex;gap:2rem;flex-wrap:wrap}
-.dev-stat{text-align:center}
-.dev-stat-num{font-size:2rem;font-weight:900;color:#c9a84c}
-.dev-stat-label{font-size:0.8rem;color:rgba(255,255,255,0.5);margin-top:0.2rem}
-.dev-logo-placeholder{background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.2);border-radius:12px;padding:2.5rem;text-align:center;margin-bottom:1.5rem}
-.dev-logo-placeholder .dev-logo-text{font-size:1.4rem;font-weight:900;color:#c9a84c;letter-spacing:1px}
-.dev-logo-placeholder p{font-size:0.82rem;color:rgba(255,255,255,0.4);margin-top:0.4rem}
-.dev-img{border-radius:14px;overflow:hidden}
-.dev-img img{width:100%;height:320px;object-fit:cover}
-
-/* --- SECOND FORM --- */
-.form2-section{background:#f5f0e8;padding:5rem 5%;text-align:center}
-.form2-section .section-title{color:#070e09;margin-bottom:0.5rem}
-.form2-desc{font-size:0.95rem;color:#666;margin-bottom:2.5rem;margin-top:0.5rem}
-.form2-inner{max-width:560px;margin:0 auto;background:#fff;border-radius:16px;padding:2.5rem;box-shadow:0 12px 40px rgba(0,0,0,0.08);border:1px solid #e8e3d8}
-.form2-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-
-/* --- FOOTER --- */
-footer{background:#070e09;padding:2.5rem 5%;border-top:1px solid rgba(201,168,76,0.12)}
-.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-.footer-logo{font-size:1.1rem;font-weight:800;color:#fff}
-.footer-logo span{color:#c9a84c}
-.footer-copy{font-size:0.8rem;color:rgba(255,255,255,0.3)}
-.footer-copy a{color:rgba(255,255,255,0.5);transition:color 0.2s}
-.footer-copy a:hover{color:#c9a84c}
-
-/* --- FADE IN --- */
-.fade-in{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease}
 .fade-in.visible{opacity:1;transform:none}
 
-/* --- MOBILE --- */
-@media(max-width:900px){
-  .features-grid{grid-template-columns:repeat(2,1fr)}
-  .apt-grid{grid-template-columns:1fr}
-  .location-inner,.developer-inner{grid-template-columns:1fr}
-  .form2-row{grid-template-columns:1fr}
-  .gallery-grid{grid-template-columns:1fr 1fr}
-}
-@media(max-width:640px){
-  .hero-inner{flex-direction:column}
-  .hero-form-card{width:100%}
-  .nav-center{display:none}
-  .gallery-grid{grid-template-columns:1fr}
-  .features-grid{grid-template-columns:1fr}
-  .footer-inner{flex-direction:column;text-align:center}
-}
+nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;background:rgba(14,26,14,0.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,0.2)}
+.nav-brand{display:flex;align-items:center;gap:10px}
+.nav-logo-mark{width:32px;height:32px;border:1.5px solid rgba(201,168,76,0.5);display:flex;align-items:center;justify-content:center}
+.nav-logo-mark svg{width:16px;height:16px;stroke:var(--gold)}
+.nav-name{font-family:'Frank Ruhl Libre',serif;font-size:1.2rem;font-weight:700;color:#fff}
+.nav-name span{color:var(--gold)}
+.nav-center{font-size:0.75rem;color:rgba(255,255,255,0.4);letter-spacing:0.06em}
+.nav-cta{background:var(--gold);color:var(--ink);padding:9px 22px;font-size:0.82rem;font-weight:800;border:none;cursor:pointer;font-family:'Heebo',sans-serif;transition:background 0.2s;white-space:nowrap}
+.nav-cta:hover{background:#e0bc5e}
+
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding-top:68px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1800&q=80&auto=format&fit=crop');background-size:cover;background-position:center}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to left,rgba(14,26,14,0.15) 0%,rgba(14,26,14,0.88) 55%)}
+.hero-inner{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:5rem 5%;width:100%;gap:4rem;flex-wrap:wrap}
+.hero-text{flex:1;min-width:280px;max-width:560px}
+.hero-label{font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:10px;opacity:0.9}
+.hero-label::after{content:'';flex:0 0 32px;height:1px;background:var(--gold);opacity:0.6}
+.hero-text h1{font-family:'Frank Ruhl Libre',serif;font-size:clamp(3.2rem,5.5vw,5.8rem);font-weight:900;line-height:0.95;color:#fff;margin-bottom:20px;letter-spacing:-1px}
+.hero-text h1 span{color:var(--gold)}
+.hero-sub{font-size:0.95rem;color:rgba(255,255,255,0.6);line-height:1.8;margin-bottom:28px;max-width:460px}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px}
+.htag{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.75);padding:7px 16px;font-size:0.78rem;font-weight:500}
+
+.hero-card{background:#fff;width:340px;flex-shrink:0;box-shadow:0 32px 80px rgba(0,0,0,0.5)}
+.hero-card-top{background:var(--ink);padding:24px 28px 20px;border-bottom:2px solid var(--gold)}
+.hero-card-top h3{font-family:'Frank Ruhl Libre',serif;font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:4px}
+.hero-card-top p{font-size:0.78rem;color:rgba(255,255,255,0.4)}
+.hero-card-body{padding:24px 28px 28px}
+.cform .fg{margin-bottom:12px}
+.cform .fg label{display:block;font-size:0.67rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#666;margin-bottom:6px}
+.cform .fg input,.cform .fg select{width:100%;background:#f8f6f2;border:1px solid #e8e2d8;padding:11px 13px;color:var(--ink);font-family:'Heebo',sans-serif;font-size:0.88rem;outline:none;transition:border-color 0.2s}
+.cform .fg input:focus,.cform .fg select:focus{border-color:var(--gold)}
+.cform .fg input::placeholder{color:#bbb}
+.cform .fg select option{background:#fff}
+.cform-submit{width:100%;background:var(--gold);color:var(--ink);border:none;padding:13px;font-family:'Heebo',sans-serif;font-size:0.95rem;font-weight:800;cursor:pointer;transition:background 0.2s;margin-top:4px;letter-spacing:0.04em}
+.cform-submit:hover{background:#e0bc5e}
+.cform-note{font-size:0.7rem;color:#aaa;text-align:center;margin-top:8px}
+
+.highlights{background:var(--ink);padding:0 5%;display:flex;border-bottom:2px solid rgba(201,168,76,0.15)}
+.hl{flex:1;padding:28px 20px;text-align:center;border-left:1px solid rgba(255,255,255,0.06)}
+.hl:last-child{border-left:none}
+.hl strong{display:block;font-family:'Frank Ruhl Libre',serif;font-size:2rem;font-weight:700;color:var(--gold);line-height:1}
+.hl span{font-size:0.7rem;color:rgba(255,255,255,0.4);letter-spacing:0.08em;text-transform:uppercase;margin-top:5px;display:block}
+
+.about-project{padding:80px 5%;background:var(--bg);display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.ap-text{}
+.section-eyebrow{font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.section-eyebrow::before{content:'';width:22px;height:1px;background:var(--gold)}
+.section-heading{font-family:'Frank Ruhl Libre',serif;font-size:clamp(2rem,3.5vw,3.2rem);font-weight:700;color:var(--ink);line-height:1.1;margin-bottom:20px}
+.ap-desc{font-size:0.95rem;color:var(--stone);line-height:1.82;margin-bottom:32px}
+.ap-features{list-style:none;display:flex;flex-direction:column;gap:12px}
+.ap-features li{display:flex;align-items:start;gap:12px;font-size:0.88rem;color:var(--stone)}
+.ap-features li svg{flex-shrink:0;margin-top:2px;stroke:var(--gold)}
+.ap-visual{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:240px 180px;gap:8px}
+.ap-visual img:first-child{grid-row:span 2}
+.ap-visual img{width:100%;height:100%;object-fit:cover}
+
+.units-section{padding:80px 5%;background:#fff;border-top:1px solid var(--border)}
+.units-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);margin-top:52px}
+.unit-card{padding:32px;border-left:1px solid var(--border);border-bottom:1px solid var(--border);transition:background 0.2s}
+.unit-card:nth-child(3n){border-left:none}
+.unit-card:nth-last-child(-n+3){border-bottom:none}
+.unit-card:hover{background:var(--bg)}
+.unit-type{font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.unit-size{font-family:'Frank Ruhl Libre',serif;font-size:2.4rem;font-weight:700;color:var(--ink);line-height:1;margin-bottom:4px}
+.unit-desc{font-size:0.82rem;color:var(--stone);margin-bottom:18px;line-height:1.55}
+.unit-price{font-size:1.1rem;font-weight:800;color:var(--ink);margin-bottom:4px}
+.unit-from{font-size:0.72rem;color:var(--stone)}
+.unit-avail{display:inline-flex;align-items:center;gap:5px;font-size:0.72rem;font-weight:700;color:var(--gold);margin-top:14px}
+.unit-avail::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold)}
+
+.gallery{padding:0 5% 80px;background:#fff}
+.gallery-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:280px 200px;gap:8px}
+.gallery-grid img{width:100%;height:100%;object-fit:cover}
+.gallery-grid img:first-child{grid-row:span 2}
+
+.location-section{padding:80px 5%;background:var(--bg);display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;border-top:1px solid var(--border)}
+.loc-text{}
+.loc-map{position:relative;height:400px;overflow:hidden;background:#e8e0d0}
+.loc-map img{width:100%;height:100%;object-fit:cover}
+.loc-map-overlay{position:absolute;inset:0;background:rgba(14,26,14,0.15)}
+.loc-pin{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--gold);width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%;box-shadow:0 4px 20px rgba(0,0,0,0.3)}
+.loc-pin svg{width:20px;height:20px;stroke:#fff;fill:none}
+.distances{margin-top:28px;display:flex;flex-direction:column;gap:12px}
+.dist-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);font-size:0.875rem}
+.dist-row:last-child{border-bottom:none}
+.dist-place{color:var(--stone)}
+.dist-time{color:var(--ink);font-weight:700}
+
+.cta-section{background:var(--ink);padding:72px 5%;text-align:center;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(201,168,76,0.08),transparent 70%)}
+.cta-section .section-eyebrow{justify-content:center;margin-bottom:16px}
+.cta-section h2{font-family:'Frank Ruhl Libre',serif;font-size:clamp(2.2rem,4vw,3.8rem);font-weight:900;color:#fff;margin-bottom:18px;line-height:1}
+.cta-section h2 span{color:var(--gold)}
+.cta-section p{font-size:0.95rem;color:rgba(255,255,255,0.5);max-width:500px;margin:0 auto 32px;line-height:1.75}
+.cta-btn{display:inline-block;background:var(--gold);color:var(--ink);padding:15px 36px;font-size:1rem;font-weight:800;border:none;cursor:pointer;font-family:'Heebo',sans-serif;transition:background 0.25s;letter-spacing:0.04em}
+.cta-btn:hover{background:#e0bc5e}
+.urgency{display:inline-flex;align-items:center;gap:8px;font-size:0.78rem;color:rgba(255,255,255,0.35);margin-top:16px}
+.urgency-dot{width:6px;height:6px;border-radius:50%;background:#e05f5f}
+
+footer{background:#070e09;padding:40px 5% 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;border-top:1px solid rgba(201,168,76,0.1)}
+.footer-brand{font-family:'Frank Ruhl Libre',serif;font-size:1.2rem;font-weight:700;color:#fff}
+.footer-brand span{color:var(--gold)}
+.footer-info{font-size:0.78rem;color:rgba(255,255,255,0.25);text-align:center}
+.footer-credit{font-size:0.78rem}
+.footer-credit a{color:var(--gold);font-weight:600}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <div class="nav-logo">
-    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 4C16 4 6 12 6 20C6 25.5228 10.4772 30 16 30C21.5228 30 26 25.5228 26 20C26 12 16 4 16 4Z" fill="#c9a84c" opacity="0.9"/>
-      <path d="M16 10C16 10 10 16 10 21C10 23.7614 12.6863 26 16 26C19.3137 26 22 23.7614 22 21C22 16 16 10 16 10Z" fill="#0d2015"/>
-      <path d="M16 14C16 14 12 18 12 21C12 22.6569 13.7909 24 16 24C18.2091 24 20 22.6569 20 21C20 18 16 14 16 14Z" fill="#c9a84c" opacity="0.6"/>
-    </svg>
-    <div class="nav-brand">נווה <span>הירוק</span></div>
+  <div class="nav-brand">
+    <div class="nav-logo-mark"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
+    <div class="nav-name">נווה <span>הירוק</span></div>
   </div>
-  <div class="nav-center">188 דירות יוקרה &nbsp;|&nbsp; ירושלים</div>
-  <div class="nav-right">
-    <div class="nav-phone">📞 <strong>02-123-4567</strong></div>
-    <button class="nav-cta-btn" onclick="return false">לפרטים נוספים</button>
-  </div>
+  <div class="nav-center">פרויקט מגורים יוקרתי · ירושלים</div>
+  <button class="nav-cta" onclick="return false">לפרטים ומחירים</button>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-inner">
-    <div class="hero-text">
-      <div class="hero-badge">◆ מחזור א׳ — 40% נמכר</div>
-      <h1>נווה הירוק<br><span>חיים שעולים רמה</span></h1>
-      <p class="hero-sub">188 דירות יוקרה בלב ירושלים הירוקה — מרפסות גדולות, לובי מפואר, בריכה פרטית ופארק ירוק ברחבי הפרויקט</p>
+    <div class="hero-text fade-in">
+      <div class="hero-label">ירושלים · בית וגן</div>
+      <h1>מגורים<br>ב<span>רמה</span> אחרת<br>לגמרי.</h1>
+      <p class="hero-sub">48 יחידות דיור בלבד — פנטהאוזים, גן-אפרטמנטים ודירות יוקרה עם נוף לעיר. בנייה ירוקה, אחריות יזמית, מסירה ב-2026.</p>
       <div class="hero-tags">
-        <span class="hero-tag-item">3-5 חדרים</span>
-        <span class="hero-tag-item">80-200 מ"ר</span>
-        <span class="hero-tag-item">מרפסה בכל דירה</span>
-        <span class="hero-tag-item">חניה כפולה</span>
+        <div class="htag">48 יחידות בלבד</div>
+        <div class="htag">מסירה Q2 2026</div>
+        <div class="htag">בנייה ירוקה תקן LEED</div>
+        <div class="htag">חניה כפולה לכל דירה</div>
       </div>
     </div>
-    <div class="hero-form-card">
-      <h3>קבלו מידע על הפרויקט</h3>
-      <p class="form-sub">פרטים בלבד — ללא התחייבות</p>
-      <form onsubmit="return false">
-        <div class="form-group">
-          <label>שם מלא</label>
-          <input type="text" placeholder="ישראל ישראלי">
+    <div class="hero-card fade-in">
+      <div class="hero-card-top">
+        <h3>לפרטים ומחירים</h3>
+        <p>השאירו פרטים ונחזור תוך שעה</p>
+      </div>
+      <div class="hero-card-body">
+        <div class="cform">
+          <div class="fg"><label>שם מלא</label><input type="text" placeholder="ישראל ישראלי"></div>
+          <div class="fg"><label>טלפון</label><input type="tel" placeholder="050-0000000" dir="ltr"></div>
+          <div class="fg"><label>סוג דירה מבוקש</label>
+            <select><option>בחרו...</option><option>3 חדרים — גן</option><option>4 חדרים</option><option>4.5 חדרים</option><option>5 חדרים</option><option>פנטהאוז</option></select>
+          </div>
+          <button class="cform-submit" onclick="return false">שלחו פנייה</button>
+          <p class="cform-note">ללא עלות · ללא התחייבות · פרטיות מלאה</p>
         </div>
-        <div class="form-group">
-          <label>טלפון</label>
-          <input type="tel" placeholder="05X-XXXXXXX">
-        </div>
-        <div class="form-group">
-          <label>כמה חדרים אתם מחפשים?</label>
-          <select>
-            <option value="" disabled selected>בחרו גודל דירה</option>
-            <option>3 חדרים</option>
-            <option>4 חדרים</option>
-            <option>5 חדרים</option>
-            <option>פנטהאוז</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>תקציב משוער</label>
-          <select>
-            <option value="" disabled selected>בחרו טווח תקציב</option>
-            <option>עד ₪2,500,000</option>
-            <option>₪2,500,000 – ₪3,500,000</option>
-            <option>₪3,500,000 – ₪5,000,000</option>
-            <option>מעל ₪5,000,000</option>
-          </select>
-        </div>
-        <button type="submit" class="submit-gold">שלחו פרטים ←</button>
-        <p class="form-note">🔒 פרטיכם מוגנים ולא יועברו לצד שלישי</p>
-      </form>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- HIGHLIGHTS STRIP -->
-<div class="highlights-strip">
-  <div class="hl-item fade-in"><div class="hl-num">188</div><div class="hl-label">דירות יוקרה</div></div>
-  <div class="hl-item fade-in"><div class="hl-num">80-200</div><div class="hl-label">מ"ר לדירה</div></div>
-  <div class="hl-item fade-in"><div class="hl-num">2027</div><div class="hl-label">מסירה מתוכננת</div></div>
-  <div class="hl-item fade-in"><div class="hl-num">A+</div><div class="hl-label">דירוג אנרגטי</div></div>
+<div class="highlights">
+  <div class="hl"><strong>48</strong><span>יחידות דיור</span></div>
+  <div class="hl"><strong>₪3.2M</strong><span>החל מ-</span></div>
+  <div class="hl"><strong>Q2 2026</strong><span>מסירה</span></div>
+  <div class="hl"><strong>LEED Gold</strong><span>בנייה ירוקה</span></div>
+  <div class="hl"><strong>100%</strong><span>בסיום שלד</span></div>
 </div>
 
-<!-- PROPERTY FEATURES -->
-<section class="features-section">
-  <div class="section-header fade-in">
-    <div class="section-tag">מה כולל הפרויקט</div>
-    <div class="section-title">חוויית מגורים ברמה אחרת</div>
-    <div class="gold-line"></div>
+<section class="about-project">
+  <div class="ap-text fade-in">
+    <div class="section-eyebrow">הפרויקט</div>
+    <h2 class="section-heading">נווה הירוק — ירושלים שלא הכרתם</h2>
+    <p class="ap-desc">בשכונת בית וגן, על גבעה עם נוף פנורמי לרכס ירושלים, אנחנו בונים 48 יחידות דיור שמחדירות את הרוגע, הטבע והפרטיות ללב העיר. כל דירה תוכננה בנפרד, ללא פשרות.</p>
+    <ul class="ap-features">
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>עיצוב פנים מלא כלול — על ידי Studio Keren Oz</li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>חניון תת-קרקעי + אחסנות לכל יחידה</li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>לובי מעוצב עם קונסיירג' 24/7</li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>פנלי שמש + מחזור מים על גג הבניין</li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>גינה משותפת 600 מ"ר עם מרחב ילדים</li>
+    </ul>
   </div>
-  <div class="features-grid">
-    <div class="feature-card fade-in">
-      <div class="feature-icon">🌳</div>
-      <h3>גינות ופארקים</h3>
-      <p>3 דונם של נוף ירוק מטופח, שבילי הליכה, פינות ישיבה צנועות ועצים בוגרים שמספקים צל וצניעות</p>
+  <div class="ap-visual fade-in">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80&auto=format&fit=crop" alt="הדמיית הפרויקט">
+    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&q=80&auto=format&fit=crop" alt="עיצוב פנים">
+    <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=500&q=80&auto=format&fit=crop" alt="מטבח">
+  </div>
+</section>
+
+<section class="units-section">
+  <div class="fade-in">
+    <div class="section-eyebrow">סוגי דירות</div>
+    <h2 class="section-heading">בחרו את הדירה שלכם</h2>
+  </div>
+  <div class="units-grid">
+    <div class="unit-card fade-in">
+      <div class="unit-type">גן-אפרטמן</div>
+      <div class="unit-size">3 חד'</div>
+      <div class="unit-desc">קומת קרקע עם גינה פרטית של 80–120 מ"ר. כניסה נפרדת, מטבח פתוח, 2 חדרי שינה.</div>
+      <div class="unit-price">₪3,200,000</div>
+      <div class="unit-from">כולל מע"מ, חניה ואחסנה</div>
+      <div class="unit-avail">8 יחידות זמינות</div>
     </div>
-    <div class="feature-card fade-in">
-      <div class="feature-icon">🏊</div>
-      <h3>בריכה וספא</h3>
-      <p>בריכה מחוממת + ג׳קוזי איכותי לדיירים בלבד, אזור שיזוף מפואר ועיצוב נוף ים תיכוני</p>
+    <div class="unit-card fade-in">
+      <div class="unit-type">דירת קומות</div>
+      <div class="unit-size">4 חד'</div>
+      <div class="unit-desc">130–145 מ"ר, מרפסת שמש 20 מ"ר, נוף לגינה ולעיר. עיצוב פנים מלא כלול.</div>
+      <div class="unit-price">₪4,100,000</div>
+      <div class="unit-from">כולל מע"מ, חניה ואחסנה</div>
+      <div class="unit-avail">14 יחידות זמינות</div>
     </div>
-    <div class="feature-card fade-in">
-      <div class="feature-icon">🏋</div>
-      <h3>מרכז כושר</h3>
-      <p>800 מ"ר של ציוד מקצועי מתקדם — אזור משקולות, מכשירי קרדיו, חדר יוגה ופילאטיס</p>
+    <div class="unit-card fade-in">
+      <div class="unit-type">דירה גדולה</div>
+      <div class="unit-size">5 חד'</div>
+      <div class="unit-desc">160–180 מ"ר, מרפסת גדולה, חדר הורים עם ארון הלבשה ואמבטיה אישית.</div>
+      <div class="unit-price">₪5,400,000</div>
+      <div class="unit-from">כולל מע"מ, 2 חניות ואחסנה</div>
+      <div class="unit-avail">10 יחידות זמינות</div>
     </div>
-    <div class="feature-card fade-in">
-      <div class="feature-icon">🅿</div>
-      <h3>חניה מאובטחת</h3>
-      <p>2 חניות לכל דירה בחניון תת-קרקעי חכם, עמדות טעינה לרכב חשמלי וחניות נוספות לאורחים</p>
+    <div class="unit-card fade-in">
+      <div class="unit-type">גג-אפרטמן</div>
+      <div class="unit-size">4.5 חד'</div>
+      <div class="unit-desc">קומה עליונה + גג פרטי 80 מ"ר עם נוף פנורמי לעיר. ג'קוזי חיצוני אפשרי.</div>
+      <div class="unit-price">₪5,800,000</div>
+      <div class="unit-from">כולל מע"מ, 2 חניות ואחסנה</div>
+      <div class="unit-avail">6 יחידות זמינות</div>
+    </div>
+    <div class="unit-card fade-in">
+      <div class="unit-type">פנטהאוז דופלקס</div>
+      <div class="unit-size">6 חד'</div>
+      <div class="unit-desc">240 מ"ר על שתי קומות + גג 100 מ"ר. 3 חדרי שינה, 3 שירותים, חדר עזר.</div>
+      <div class="unit-price">₪8,900,000</div>
+      <div class="unit-from">כולל מע"מ, 2 חניות ומחסן</div>
+      <div class="unit-avail">4 יחידות זמינות</div>
+    </div>
+    <div class="unit-card fade-in" style="background:var(--gold-pale)">
+      <div class="unit-type" style="color:var(--ink);opacity:0.7">אפשרויות מיוחדות</div>
+      <div class="unit-size" style="font-size:1.4rem">נגיש + מסחרי</div>
+      <div class="unit-desc">דירות נגישות מותאמות + שטחי מסחר בקומת הקרקע. לפרטים פנו אלינו.</div>
+      <div style="margin-top:20px">
+        <button style="background:var(--ink);color:#fff;border:none;padding:11px 22px;font-family:'Heebo',sans-serif;font-size:0.85rem;font-weight:700;cursor:pointer;letter-spacing:0.04em" onclick="return false">לפרטים מלאים</button>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- GALLERY -->
-<section class="gallery-section">
-  <div class="section-header fade-in">
-    <div class="section-tag">הצצה לפרויקט</div>
-    <div class="section-title" style="color:#070e09">כך נראים החיים בנווה הירוק</div>
-    <div class="gold-line"></div>
-  </div>
+<div class="gallery fade-in">
   <div class="gallery-grid">
-    <div class="gallery-item fade-in">
-      <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80&auto=format&fit=crop" alt="סלון יוקרתי" loading="lazy">
+    <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1000&q=80&auto=format&fit=crop" alt="הדמיית לובי">
+    <img src="https://images.unsplash.com/photo-1502005097973-6a7082348e28?w=600&q=80&auto=format&fit=crop" alt="מרפסת">
+    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&q=80&auto=format&fit=crop" alt="עיצוב פנים">
+    <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&q=80&auto=format&fit=crop" alt="מטבח">
+    <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&q=80&auto=format&fit=crop" alt="חדר שינה">
+  </div>
+</div>
+
+<section class="location-section fade-in">
+  <div class="loc-text">
+    <div class="section-eyebrow">מיקום</div>
+    <h2 class="section-heading">בית וגן — לב ירושלים</h2>
+    <p style="font-size:0.95rem;color:var(--stone);line-height:1.8;margin-bottom:24px">שכונת בית וגן מציעה את השקט והירק של פרבר יוקרתי עם הנגישות המלאה ללב ירושלים. 5 דקות לגן עירוני, 8 דקות לעיר הקודש.</p>
+    <div class="distances">
+      <div class="dist-row"><span class="dist-place">מרכז העיר — יפו</span><span class="dist-time">8 דק' נסיעה</span></div>
+      <div class="dist-row"><span class="dist-place">מלחה מול</span><span class="dist-time">5 דק' נסיעה</span></div>
+      <div class="dist-row"><span class="dist-place">הר הרצל</span><span class="dist-time">6 דק' נסיעה</span></div>
+      <div class="dist-row"><span class="dist-place">הדסה עין כרם</span><span class="dist-time">9 דק' נסיעה</span></div>
+      <div class="dist-row"><span class="dist-place">אוניברסיטת ירושלים (גבעת רם)</span><span class="dist-time">10 דק' נסיעה</span></div>
     </div>
-    <div class="gallery-item fade-in">
-      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80&auto=format&fit=crop" alt="מטבח מפואר" loading="lazy">
-    </div>
-    <div class="gallery-item fade-in">
-      <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=600&q=80&auto=format&fit=crop" alt="חדר שינה" loading="lazy">
-    </div>
-    <div class="gallery-item fade-in">
-      <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80&auto=format&fit=crop" alt="בריכת שחייה" loading="lazy">
-    </div>
-    <div class="gallery-item fade-in">
-      <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80&auto=format&fit=crop" alt="חזית הבניין" loading="lazy">
-    </div>
-    <div class="gallery-item fade-in">
-      <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80&auto=format&fit=crop" alt="נוף מהמרפסת" loading="lazy">
-    </div>
+  </div>
+  <div class="loc-map">
+    <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&q=80&auto=format&fit=crop" alt="מפת ירושלים">
+    <div class="loc-map-overlay"></div>
+    <div class="loc-pin"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3" fill="#fff"/></svg></div>
   </div>
 </section>
 
-<!-- APARTMENT TYPES -->
-<section class="apt-section">
-  <div class="section-header fade-in">
-    <div class="section-tag">סוגי דירות</div>
-    <div class="section-title">מצאו את הדירה שלכם</div>
-    <div class="gold-line"></div>
-  </div>
-  <div class="apt-grid">
-    <div class="apt-card fade-in">
-      <div class="apt-plan-icon">🏠</div>
-      <div class="apt-rooms">3 חדרים</div>
-      <div class="apt-size">80–110 מ"ר | קומות 2-8</div>
-      <div class="apt-price">₪2,200,000 – ₪2,800,000</div>
-      <ul class="apt-features">
-        <li>מרפסת גדולה 12-20 מ"ר</li>
-        <li>מטבח פתוח לסלון</li>
-        <li>2 חניות בחניון</li>
-        <li>מחסן פרטי</li>
-      </ul>
-      <button class="apt-btn" onclick="return false">לפרטים ומחירים</button>
-    </div>
-    <div class="apt-card popular fade-in">
-      <div class="popular-badge">⭐ הנמכר ביותר</div>
-      <div class="apt-plan-icon">🏡</div>
-      <div class="apt-rooms">4 חדרים</div>
-      <div class="apt-size">120–160 מ"ר | קומות 3-12</div>
-      <div class="apt-price">₪3,100,000 – ₪4,200,000</div>
-      <ul class="apt-features">
-        <li>מרפסת מרווחת 20-30 מ"ר</li>
-        <li>חדר הורים עם ממ"ד ואמבטיה</li>
-        <li>ממ"ד כפול</li>
-        <li>נוף פתוח לגינות</li>
-      </ul>
-      <button class="apt-btn" onclick="return false">לפרטים ומחירים</button>
-    </div>
-    <div class="apt-card fade-in">
-      <div class="apt-plan-icon">🏰</div>
-      <div class="apt-rooms">פנטהאוז</div>
-      <div class="apt-size">200–280 מ"ר | קומות 12-15</div>
-      <div class="apt-price">₪7,500,000+</div>
-      <ul class="apt-features">
-        <li>גג פרטי 80-120 מ"ר</li>
-        <li>נוף פנורמי 360° לירושלים</li>
-        <li>4 חניות שמורות</li>
-        <li>גימורי יוקרה בהתאמה אישית</li>
-      </ul>
-      <button class="apt-btn" onclick="return false">לפרטים ומחירים</button>
-    </div>
+<section class="cta-section fade-in">
+  <div class="section-eyebrow" style="color:rgba(201,168,76,0.7)">מהרו — יחידות מוגבלות</div>
+  <h2>40% מהיחידות <span>נמכרו כבר.</span></h2>
+  <p>48 דירות בלבד — לאחר שיימכרו, לא יהיה זה.</p>
+  <button class="cta-btn" onclick="return false">השאירו פרטים עכשיו</button>
+  <div>
+    <div class="urgency"><span class="urgency-dot"></span>נותרו 28 יחידות בלבד</div>
   </div>
 </section>
 
-<!-- LOCATION -->
-<section class="location-section">
-  <div class="location-inner">
-    <div class="fade-in">
-      <div class="section-tag">מיקום מנצח</div>
-      <div class="section-title">בלב ירושלים הירוקה</div>
-      <div class="gold-line"></div>
-      <p class="location-desc">נווה הירוק ממוקם בשכונת מלחה הירושלמית — אחת השכונות המבוקשות בעיר, בין שמורות טבע ירוקות לבין כל מוסדות העיר. שקט ורגוע כמו פרברים, אבל רק דקות ממרכז ירושלים.</p>
-      <ul class="location-distances">
-        <li>
-          <div class="dist-icon">🛍</div>
-          <div><strong>5 דקות</strong> ממרכז הקניות מלחה</div>
-        </li>
-        <li>
-          <div class="dist-icon">🚗</div>
-          <div><strong>10 דקות</strong> ממרכז ירושלים</div>
-        </li>
-        <li>
-          <div class="dist-icon">🏫</div>
-          <div><strong>3 דקות</strong> מבית ספר ציבורי מוכר</div>
-        </li>
-        <li>
-          <div class="dist-icon">🏥</div>
-          <div><strong>8 דקות</strong> מבית חולים הדסה עין כרם</div>
-        </li>
-        <li>
-          <div class="dist-icon">🌿</div>
-          <div><strong>צמוד</strong> לשמורת הטבע נחל שורק</div>
-        </li>
-      </ul>
-    </div>
-    <div class="fade-in">
-      <div class="map-placeholder">
-        <div class="map-pin">📍</div>
-        <strong>נווה הירוק — מלחה, ירושלים</strong>
-        <span>רח׳ דרך בית לחם 120</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DEVELOPER -->
-<section class="developer-section">
-  <div class="developer-inner">
-    <div class="fade-in">
-      <div class="dev-logo-placeholder">
-        <div class="dev-logo-text">כרמל</div>
-        <p>קבוצת נדל"ן</p>
-      </div>
-      <div class="dev-stats">
-        <div class="dev-stat"><div class="dev-stat-num">20+</div><div class="dev-stat-label">שנות ניסיון</div></div>
-        <div class="dev-stat"><div class="dev-stat-num">32</div><div class="dev-stat-label">פרויקטים הושלמו</div></div>
-        <div class="dev-stat"><div class="dev-stat-num">4,800</div><div class="dev-stat-label">משפחות גאות</div></div>
-      </div>
-    </div>
-    <div class="fade-in">
-      <div class="section-tag">היזם</div>
-      <div class="section-title">כרמל קבוצת נדל"ן</div>
-      <div class="gold-line"></div>
-      <p class="dev-desc">כרמל קבוצת נדל"ן היא אחת מקבוצות הנדל"ן המובילות בישראל, עם למעלה מ-20 שנות ניסיון בפיתוח פרויקטים יוקרתיים ברחבי הארץ. כל פרויקט שלנו נבנה עם מחויבות מלאה לאיכות גימור, לוחות זמנים שמירת הבטחות ושירות לדייר לאורך כל חיי הנכס.</p>
-      <p class="dev-desc">בנווה הירוק השקענו את כל הניסיון שצברנו בבניית הבית שתמיד חלמתם עליו — עם אדריכלות פרסית, גינון מקצועי ועיצוב פנים ברמה בינלאומית.</p>
-      <div class="dev-img">
-        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80&auto=format&fit=crop" alt="פרויקט כרמל שהושלם" loading="lazy">
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SECOND LEAD FORM -->
-<section class="form2-section">
-  <div class="section-tag fade-in" style="color:#c9a84c;letter-spacing:2px;text-transform:uppercase;font-size:0.75rem;font-weight:700">בואו נדבר</div>
-  <div class="section-title fade-in" style="color:#070e09">השאירו פרטים ונחזור אליכם</div>
-  <p class="form2-desc fade-in">מלאו את הטופס ונציג יחזור אליכם עם כל המידע על הפרויקט, מחירון ותוכניות דירות — ללא כל התחייבות</p>
-  <div class="form2-inner fade-in">
-    <form onsubmit="return false">
-      <div class="form2-row">
-        <div class="form-group">
-          <label>שם מלא</label>
-          <input type="text" placeholder="ישראל ישראלי">
-        </div>
-        <div class="form-group">
-          <label>טלפון</label>
-          <input type="tel" placeholder="05X-XXXXXXX">
-        </div>
-      </div>
-      <div class="form2-row">
-        <div class="form-group">
-          <label>כמה חדרים?</label>
-          <select>
-            <option value="" disabled selected>בחרו</option>
-            <option>3 חדרים</option>
-            <option>4 חדרים</option>
-            <option>פנטהאוז</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>תקציב</label>
-          <select>
-            <option value="" disabled selected>בחרו טווח</option>
-            <option>עד ₪2.5M</option>
-            <option>₪2.5M – ₪4M</option>
-            <option>מעל ₪4M</option>
-          </select>
-        </div>
-      </div>
-      <button type="submit" class="submit-gold">שלחו פרטים ←</button>
-      <p class="form-note">🔒 פרטיכם בטוחים. נחזור אליכם תוך שעה בשעות הפעילות.</p>
-    </form>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-logo">נווה <span>הירוק</span> | ירושלים</div>
-    <div class="footer-copy">© 2025 נווה הירוק | <a href="https://liorvelikin.github.io/velo-website/" style="color:inherit">נבנה על ידי VELO DIGITAL</a></div>
-  </div>
+  <div class="footer-brand">נווה <span>הירוק</span></div>
+  <div class="footer-info">© 2025 · כל הזכויות שמורות ליזם הפרויקט · כפוף לתנאי ההסכם</div>
+  <div class="footer-credit">נבנה על ידי <a href="https://liorvelikin.github.io/velo-website/" target="_blank">VELO DIGITAL</a></div>
 </footer>
 
 <script>
-document.querySelectorAll('.fade-in').forEach(el => {
-  new IntersectionObserver(([e]) => e.isIntersecting && e.target.classList.add('visible'), {threshold:0.1}).observe(el);
-});
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.07 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+document.querySelectorAll('a[href="#"],a[href^="#"]').forEach(a => a.addEventListener('click', e => e.preventDefault()));
 </script>
 </body>
 </html>

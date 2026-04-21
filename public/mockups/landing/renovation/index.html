@@ -3,672 +3,376 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ProHome | שיפוצים ובנייה מקצועית</title>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<title>MasterBuild | שיפוצים ועיצוב פנים — תל אביב</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Heebo',sans-serif;background:#f5f5f5;color:#1a2035;direction:rtl}
+body{font-family:'Heebo',sans-serif;background:#f2ede6;color:#1a1a18;direction:rtl}
 a{text-decoration:none;color:inherit}
+img{display:block;width:100%;height:100%;object-fit:cover}
 
-/* FADE IN ANIMATION */
-.fade-in{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+:root{
+  --bg:#f2ede6;
+  --ink:#1a1a18;
+  --amber:#d4891a;
+  --amber-pale:#f5e8cf;
+  --slate:#2d3142;
+  --stone:#6b6558;
+  --cream:#fffcf7;
+  --border:#ddd7cc;
+}
+
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity 0.65s ease,transform 0.65s ease}
 .fade-in.visible{opacity:1;transform:none}
 
-/* NAV */
-nav{position:sticky;top:0;z-index:100;background:#1a2035;border-bottom:2px solid #ffc107;padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:70px;transition:box-shadow 0.3s}
-nav.scrolled{box-shadow:0 4px 30px rgba(0,0,0,0.4)}
-.nav-logo{display:flex;align-items:center;gap:0.7rem}
-.nav-logo-text{font-size:1.6rem;font-weight:900;color:#fff;letter-spacing:-0.5px}
-.nav-logo-text span{color:#ffc107}
-.nav-trust{font-size:0.78rem;color:rgba(255,255,255,0.55);border:1px solid rgba(255,193,7,0.3);padding:4px 12px;border-radius:20px}
-.nav-trust strong{color:#ffc107}
-.nav-right{display:flex;align-items:center;gap:1.2rem}
-.nav-phone{color:#ffc107;font-size:1rem;font-weight:700;direction:ltr}
-.nav-cta{background:#ffc107;color:#1a2035;border:none;padding:0.6rem 1.5rem;border-radius:6px;font-family:'Heebo',sans-serif;font-size:0.88rem;font-weight:800;cursor:pointer;transition:all 0.2s;white-space:nowrap}
-.nav-cta:hover{background:#ffca2c;transform:translateY(-1px)}
+nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;background:var(--slate);border-bottom:2px solid var(--amber);display:flex;align-items:center;justify-content:space-between;padding:0 5%}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-mark{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--amber);letter-spacing:0.04em;line-height:1}
+.nav-logo-text{display:flex;flex-direction:column;gap:0}
+.nav-logo-name{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:#fff;letter-spacing:0.06em;line-height:1}
+.nav-logo-sub{font-size:0.58rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.4)}
+.nav-right{display:flex;align-items:center;gap:20px}
+.nav-phone{font-size:0.9rem;color:rgba(255,255,255,0.65);font-weight:700;direction:ltr}
+.nav-phone strong{color:var(--amber)}
+.nav-cta{background:var(--amber);color:#fff;padding:9px 22px;font-size:0.82rem;font-weight:800;border:none;cursor:pointer;font-family:'Heebo',sans-serif;transition:background 0.2s;text-transform:uppercase;letter-spacing:0.06em}
+.nav-cta:hover{background:#b8740e}
 
-/* HERO SPLIT */
-.hero{display:grid;grid-template-columns:1fr 1fr;height:650px}
-.hero-image{position:relative;overflow:hidden}
-.hero-image img{width:100%;height:100%;object-fit:cover;display:block}
-.hero-image::after{content:'';position:absolute;inset:0;background:linear-gradient(to left, rgba(26,32,53,0.3), transparent)}
-.hero-content{background:#1a2035;padding:50px;display:flex;flex-direction:column;justify-content:center;gap:1.2rem;overflow-y:auto}
-.hero-badge{display:inline-block;background:rgba(255,193,7,0.15);border:1px solid rgba(255,193,7,0.4);color:#ffc107;padding:6px 16px;border-radius:6px;font-size:0.8rem;font-weight:700;width:fit-content}
-.hero-content h1{font-size:46px;font-weight:900;color:#fff;line-height:1.15}
-.hero-content h1 span{color:#ffc107}
-.hero-bullets{list-style:none;display:flex;flex-direction:column;gap:0.6rem}
-.hero-bullets li{display:flex;align-items:center;gap:0.7rem;font-size:0.92rem;color:rgba(255,255,255,0.85)}
-.hero-bullets li::before{content:'✓';color:#ffc107;font-weight:900;font-size:1rem;flex-shrink:0}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding-top:68px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1800&q=80&auto=format&fit=crop');background-size:cover;background-position:center}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(26,26,24,0.96) 45%,rgba(26,26,24,0.3) 100%)}
+.hero-inner{position:relative;z-index:2;width:100%;padding:5rem 5%;display:flex;align-items:flex-end;justify-content:space-between;gap:4rem;flex-wrap:wrap;min-height:calc(100vh - 68px)}
+.hero-content{max-width:580px;padding-bottom:2rem}
+.hero-tag{font-size:0.62rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--amber);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.hero-tag::after{content:'';flex:0 0 28px;height:2px;background:var(--amber)}
+.hero-content h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(5rem,9vw,9rem);line-height:0.9;color:#fff;margin-bottom:28px;letter-spacing:0.04em}
+.hero-content h1 span{color:var(--amber);display:block}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,0.5);line-height:1.78;max-width:440px;margin-bottom:32px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px}
+.btn-amber{background:var(--amber);color:#fff;padding:14px 30px;font-size:0.9rem;font-weight:800;border:none;cursor:pointer;font-family:'Heebo',sans-serif;transition:background 0.25s;display:inline-block;text-transform:uppercase;letter-spacing:0.06em}
+.btn-amber:hover{background:#b8740e}
+.btn-outline{background:transparent;color:#fff;padding:13px 28px;font-size:0.9rem;font-weight:700;border:1.5px solid rgba(255,255,255,0.25);cursor:pointer;font-family:'Heebo',sans-serif;transition:all 0.25s;display:inline-block}
+.btn-outline:hover{border-color:#fff}
+.hero-cred{display:flex;gap:32px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.1);flex-wrap:wrap}
+.hero-cred-item strong{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--amber);display:block;line-height:1}
+.hero-cred-item span{font-size:0.7rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;display:block;margin-top:3px}
 
-/* HERO FORM */
-.hero-form{background:rgba(255,255,255,0.05);border:1px solid rgba(255,193,7,0.25);border-radius:12px;padding:24px}
-.hero-form h3{color:#ffc107;font-size:1rem;font-weight:800;margin-bottom:4px}
-.hero-form p{color:rgba(255,255,255,0.45);font-size:0.78rem;margin-bottom:14px}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.form-group{margin-bottom:8px}
-.form-group label{display:block;font-size:0.75rem;color:rgba(255,255,255,0.5);margin-bottom:4px;font-weight:600}
-.form-group input,.form-group select{width:100%;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:9px 12px;color:#fff;font-family:'Heebo',sans-serif;font-size:0.88rem;outline:none;transition:border-color 0.2s}
-.form-group input:focus,.form-group select:focus{border-color:#ffc107}
-.form-group input::placeholder{color:rgba(255,255,255,0.3)}
-.form-group select option{background:#1a2035}
-.submit-btn{width:100%;background:#ffc107;color:#1a2035;border:none;padding:11px;border-radius:6px;font-family:'Heebo',sans-serif;font-size:0.95rem;font-weight:800;cursor:pointer;transition:all 0.2s;margin-top:4px}
-.submit-btn:hover{background:#ffca2c;transform:translateY(-1px)}
-.form-note{text-align:center;font-size:0.72rem;color:rgba(255,255,255,0.35);margin-top:8px}
+.hero-form-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);backdrop-filter:blur(8px);padding:32px;width:320px;flex-shrink:0;border-top:3px solid var(--amber)}
+.hero-form-card h3{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:#fff;letter-spacing:0.08em;margin-bottom:4px}
+.hero-form-card p{font-size:0.78rem;color:rgba(255,255,255,0.35);margin-bottom:20px}
+.fg{margin-bottom:10px}
+.fg label{display:block;font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:5px}
+.fg input,.fg select{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);padding:10px 12px;color:#fff;font-family:'Heebo',sans-serif;font-size:0.88rem;outline:none;transition:border-color 0.2s}
+.fg input:focus,.fg select:focus{border-color:var(--amber)}
+.fg input::placeholder{color:rgba(255,255,255,0.18)}
+.fg select option{background:var(--slate)}
+.form-sub{width:100%;background:var(--amber);color:#fff;border:none;padding:12px;font-family:'Heebo',sans-serif;font-size:0.88rem;font-weight:800;cursor:pointer;transition:background 0.2s;margin-top:6px;text-transform:uppercase;letter-spacing:0.06em}
+.form-sub:hover{background:#b8740e}
+.form-note{font-size:0.68rem;color:rgba(255,255,255,0.22);text-align:center;margin-top:8px}
 
-/* TRUST STRIP */
-.trust-strip{background:#fff;padding:28px 5%;border-bottom:1px solid #e8e8e8}
-.trust-items{display:flex;justify-content:space-around;align-items:center;max-width:1000px;margin:0 auto;flex-wrap:wrap;gap:16px}
-.trust-item{text-align:center;flex:1;min-width:130px}
-.trust-num{font-size:1.6rem;font-weight:900;color:#1a2035}
-.trust-label{font-size:0.78rem;color:#888;margin-top:2px}
-.trust-divider{width:1px;height:40px;background:#e0e0e0}
+.trust-strip{background:var(--cream);padding:24px 5%;display:flex;gap:0;border-bottom:1px solid var(--border)}
+.ts{flex:1;padding:14px 20px;border-left:1px solid var(--border);display:flex;align-items:center;gap:12px}
+.ts:last-child{border-left:none}
+.ts-icon{width:40px;height:40px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ts-icon svg{width:18px;height:18px;stroke:var(--amber)}
+.ts-text{font-size:0.78rem;color:var(--stone);line-height:1.4}
+.ts-text strong{display:block;font-size:0.82rem;color:var(--ink);font-weight:700;margin-bottom:1px}
 
-/* SECTIONS COMMON */
-.section{padding:70px 5%}
-.section-header{margin-bottom:50px}
-.section-tag{display:inline-block;background:rgba(255,193,7,0.1);border:1px solid rgba(255,193,7,0.3);color:#b8860b;padding:5px 14px;border-radius:20px;font-size:0.75rem;font-weight:700;margin-bottom:12px}
-.section-title{font-size:2rem;font-weight:900;color:#1a2035;margin-bottom:8px}
-.section-sub{color:#666;font-size:1rem;line-height:1.6;max-width:550px}
-.yellow-bar{width:48px;height:4px;background:#ffc107;border-radius:2px;margin-top:16px}
+.section{padding:80px 5%}
+.se{font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--amber);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.se::before{content:'';width:20px;height:2px;background:var(--amber)}
+.st{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5vw,4.5rem);color:var(--ink);line-height:0.95;margin-bottom:48px;letter-spacing:0.04em}
+.st span{color:var(--amber)}
 
-/* BEFORE/AFTER */
-.before-after-section{background:#f5f5f5;padding:70px 5%}
-.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
-.project-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.08);transition:transform 0.3s,box-shadow 0.3s}
-.project-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.15)}
-.ba-images{display:grid;grid-template-columns:1fr 1fr;height:200px}
-.ba-half{position:relative;overflow:hidden}
-.ba-half img{width:100%;height:100%;object-fit:cover;display:block}
-.ba-label{position:absolute;top:10px;right:10px;background:rgba(0,0,0,0.7);color:#fff;padding:3px 10px;border-radius:4px;font-size:0.72rem;font-weight:700}
-.ba-label.after{background:#ffc107;color:#1a2035;right:auto;left:10px}
-.project-info{padding:18px 20px}
-.project-title{font-size:1rem;font-weight:800;color:#1a2035;margin-bottom:4px}
-.project-meta{font-size:0.8rem;color:#888}
+.services-section{background:var(--bg)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.serv{background:var(--cream);padding:32px;transition:background 0.2s;cursor:default;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start}
+.serv:hover{background:#fff}
+.serv-num{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--amber-pale);line-height:1;padding-top:2px}
+.serv-content{}
+.serv-name{font-size:0.95rem;font-weight:700;color:var(--ink);margin-bottom:8px}
+.serv-desc{font-size:0.82rem;color:var(--stone);line-height:1.65}
 
-/* SERVICES */
-.services-section{background:#fff;padding:70px 5%}
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
-.service-card{background:#f5f5f5;border:2px solid transparent;border-radius:14px;padding:28px 24px;transition:all 0.3s;cursor:default}
-.service-card:hover{border-color:#ffc107;background:#fff;box-shadow:0 8px 30px rgba(255,193,7,0.12)}
-.service-icon{font-size:2rem;margin-bottom:14px}
-.service-card h3{font-size:1rem;font-weight:800;color:#1a2035;margin-bottom:8px}
-.service-card p{font-size:0.85rem;color:#666;line-height:1.6}
+.portfolio-section{background:var(--slate);padding:80px 5%;border-top:2px solid var(--amber)}
+.portfolio-section .se{color:rgba(212,137,26,0.7)}
+.portfolio-section .st{color:#fff}
+.portfolio-section .st span{color:var(--amber)}
+.portfolio-grid{display:grid;grid-template-columns:2fr 1fr;gap:4px;height:480px}
+.portfolio-grid-right{display:grid;grid-template-rows:1fr 1fr;gap:4px}
+.port-img{overflow:hidden;position:relative;cursor:pointer}
+.port-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s}
+.port-img:hover img{transform:scale(1.04)}
+.port-img-label{position:absolute;bottom:0;left:0;right:0;padding:16px;background:linear-gradient(to top,rgba(45,49,66,0.9),transparent);opacity:0;transition:opacity 0.3s}
+.port-img:hover .port-img-label{opacity:1}
+.port-img-label span{font-size:0.75rem;color:rgba(255,255,255,0.8);font-weight:600}
 
-/* HOW IT WORKS */
-.process-section{background:#1a2035;padding:70px 5%}
-.process-section .section-title{color:#fff}
-.process-section .section-sub{color:rgba(255,255,255,0.55)}
-.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:50px;position:relative}
-.process-steps::before{content:'';position:absolute;top:28px;right:12.5%;left:12.5%;height:2px;background:rgba(255,193,7,0.3)}
-.process-step{text-align:center;padding:0 16px;position:relative}
-.step-num{width:56px;height:56px;border-radius:50%;background:#ffc107;color:#1a2035;font-size:1.3rem;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;border:3px solid #1a2035;position:relative;z-index:1}
-.step-title{font-size:0.92rem;font-weight:800;color:#fff;margin-bottom:6px}
-.step-desc{font-size:0.8rem;color:rgba(255,255,255,0.5);line-height:1.5}
+.process-section{background:var(--bg);padding:80px 5%;border-top:1px solid var(--border)}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:48px;position:relative}
+.process-steps::before{content:'';position:absolute;top:32px;right:12.5%;left:12.5%;height:2px;background:linear-gradient(to left,var(--amber),var(--amber-pale));z-index:0}
+.step{padding:0 20px;position:relative;z-index:1;text-align:center}
+.step-num{width:64px;height:64px;border:2px solid var(--amber);background:var(--bg);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--amber)}
+.step-title{font-size:0.88rem;font-weight:700;color:var(--ink);margin-bottom:8px}
+.step-desc{font-size:0.78rem;color:var(--stone);line-height:1.6}
 
-/* GALLERY */
-.gallery-section{background:#2d3347;padding:70px 5%}
-.gallery-section .section-title{color:#fff}
-.gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,260px);gap:16px;margin-top:40px}
-.gallery-item{border-radius:12px;overflow:hidden;position:relative}
-.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s}
-.gallery-item:hover img{transform:scale(1.05)}
-.gallery-item:first-child{grid-row:span 2}
+.pricing-section{background:var(--cream);padding:80px 5%;border-top:1px solid var(--border)}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:48px}
+.price{background:var(--bg);padding:36px;transition:background 0.2s;position:relative}
+.price.featured{background:var(--slate);border-top:3px solid var(--amber)}
+.price:not(.featured):hover{background:#fff}
+.price-plan{font-size:0.62rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--stone);margin-bottom:10px}
+.price.featured .price-plan{color:rgba(255,255,255,0.4)}
+.price-range{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--ink);line-height:1;margin-bottom:6px}
+.price.featured .price-range{color:#fff}
+.price-unit{font-size:0.72rem;color:var(--stone);margin-bottom:22px}
+.price.featured .price-unit{color:rgba(255,255,255,0.35)}
+.price-features{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:28px}
+.price-features li{display:flex;align-items:start;gap:10px;font-size:0.82rem;color:var(--stone);line-height:1.4}
+.price.featured .price-features li{color:rgba(255,255,255,0.65)}
+.price-features li svg{flex-shrink:0;margin-top:2px;stroke:var(--amber)}
+.price-btn{width:100%;padding:12px;font-family:'Heebo',sans-serif;font-size:0.88rem;font-weight:800;cursor:pointer;transition:all 0.2s;border:none;text-transform:uppercase;letter-spacing:0.06em}
+.price:not(.featured) .price-btn{background:transparent;color:var(--ink);border:1.5px solid var(--border)}
+.price:not(.featured) .price-btn:hover{border-color:var(--amber);color:var(--amber)}
+.price.featured .price-btn{background:var(--amber);color:#fff}
+.price.featured .price-btn:hover{background:#b8740e}
 
-/* TEAM */
-.team-section{background:#1a2035;padding:70px 5%}
-.team-section .section-title{color:#fff}
-.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:40px}
-.team-card{text-align:center;padding:32px 24px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,193,7,0.12);border-radius:16px;transition:all 0.3s}
-.team-card:hover{border-color:rgba(255,193,7,0.35);background:rgba(255,193,7,0.04)}
-.team-photo{width:100px;height:100px;border-radius:50%;margin:0 auto 16px;overflow:hidden;border:3px solid #ffc107}
-.team-photo img{width:100%;height:100%;object-fit:cover}
-.team-name{font-size:1.05rem;font-weight:800;color:#fff;margin-bottom:4px}
-.team-role{font-size:0.82rem;color:#ffc107;margin-bottom:8px;font-weight:600}
-.team-years{font-size:0.78rem;color:rgba(255,255,255,0.45)}
+.testimonials-section{background:var(--slate);padding:80px 5%;border-top:2px solid var(--amber)}
+.testimonials-section .se{color:rgba(212,137,26,0.7)}
+.testimonials-section .st{color:#fff}
+.testimonials-section .st span{color:var(--amber)}
+.testi-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:1px;background:rgba(255,255,255,0.06);margin-top:48px}
+.testi-main{background:var(--amber);padding:36px;display:flex;flex-direction:column;gap:18px}
+.testi-main .mark{font-family:'Bebas Neue',sans-serif;font-size:5rem;color:rgba(255,255,255,0.3);line-height:0.6;display:block}
+.testi-main .quote{font-size:1rem;color:#fff;line-height:1.7}
+.testi-main .auth{font-size:0.78rem;color:rgba(255,255,255,0.65);font-weight:600}
+.testi-card{background:rgba(255,255,255,0.03);padding:28px;display:flex;flex-direction:column;gap:14px}
+.testi-card .quote{font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.7}
+.testi-card .auth{font-size:0.78rem;font-weight:700;color:#fff}
+.testi-card .proj{font-size:0.72rem;color:var(--amber);margin-top:2px}
 
-/* TESTIMONIALS */
-.testimonials-section{background:#f5f5f5;padding:70px 5%}
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
-.testi-card{background:#fff;border-radius:16px;padding:28px;box-shadow:0 4px 20px rgba(0,0,0,0.06);border:1px solid #e8e8e8}
-.testi-stars{color:#ffc107;font-size:1rem;margin-bottom:12px;letter-spacing:2px}
-.testi-text{font-size:0.9rem;color:#444;line-height:1.7;margin-bottom:16px;font-style:italic}
-.testi-author{display:flex;align-items:center;gap:12px}
-.testi-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#ffc107,#ff8c00);display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:800;color:#1a2035;flex-shrink:0}
-.testi-info{font-size:0.82rem}
-.testi-name{font-weight:800;color:#1a2035}
-.testi-detail{color:#888;font-size:0.76rem}
+.cta-final{background:var(--ink);padding:80px 5%;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.cta-text h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,6vw,5.5rem);color:#fff;line-height:0.9;margin-bottom:18px;letter-spacing:0.04em}
+.cta-text h2 span{color:var(--amber)}
+.cta-text p{font-size:0.95rem;color:rgba(255,255,255,0.45);line-height:1.78;margin-bottom:32px}
+.cta-form{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-top:3px solid var(--amber);padding:36px}
+.cta-form-title{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:#fff;letter-spacing:0.06em;margin-bottom:20px}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cf-fg{margin-bottom:12px}
+.cf-fg label{display:block;font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:6px}
+.cf-fg input,.cf-fg select{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);padding:10px 12px;color:#fff;font-family:'Heebo',sans-serif;font-size:0.88rem;outline:none;transition:border-color 0.2s}
+.cf-fg input:focus,.cf-fg select:focus{border-color:var(--amber)}
+.cf-fg input::placeholder{color:rgba(255,255,255,0.18)}
+.cf-fg select option{background:var(--ink)}
+.cf-submit{width:100%;background:var(--amber);color:#fff;border:none;padding:14px;font-family:'Heebo',sans-serif;font-size:0.9rem;font-weight:800;cursor:pointer;transition:background 0.2s;text-transform:uppercase;letter-spacing:0.06em;margin-top:6px}
+.cf-submit:hover{background:#b8740e}
+.cf-note{text-align:center;font-size:0.7rem;color:rgba(255,255,255,0.2);margin-top:8px}
 
-/* WHY US */
-.why-us-section{background:#ffc107;padding:60px 5%}
-.why-pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:40px}
-.pillar{background:rgba(26,32,53,0.08);padding:32px 24px;text-align:center;border-radius:12px;margin:2px}
-.pillar-icon{font-size:2.2rem;margin-bottom:12px}
-.pillar-title{font-size:1rem;font-weight:900;color:#1a2035;margin-bottom:8px}
-.pillar-desc{font-size:0.82rem;color:rgba(26,32,53,0.65);line-height:1.5}
-.why-us-section .section-title{color:#1a2035}
-.why-us-section .section-sub{color:rgba(26,32,53,0.65)}
-
-/* SECOND FORM */
-.cta-form-section{background:#1a2035;padding:70px 5%}
-.cta-form-inner{max-width:700px;margin:0 auto}
-.cta-form-section .section-title{color:#fff;text-align:center}
-.cta-form-section .section-sub{color:rgba(255,255,255,0.55);text-align:center}
-.cta-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:32px}
-.cta-form-grid .form-group label{color:rgba(255,255,255,0.55)}
-.cta-form-section .submit-btn{grid-column:span 2;font-size:1.05rem;padding:14px}
-
-/* FOOTER */
-footer{background:#0d1525;padding:50px 5% 30px;color:rgba(255,255,255,0.45)}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
-.footer-brand .nav-logo-text{font-size:1.4rem;color:#fff;display:block;margin-bottom:12px}
-.footer-brand .nav-logo-text span{color:#ffc107}
-.footer-brand p{font-size:0.83rem;line-height:1.7;color:rgba(255,255,255,0.4);max-width:240px}
-.footer-col h4{font-size:0.88rem;font-weight:800;color:#fff;margin-bottom:16px}
-.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
-.footer-col ul li{font-size:0.82rem;color:rgba(255,255,255,0.4);cursor:default;transition:color 0.2s}
-.footer-col ul li:hover{color:#ffc107}
-.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.footer-bottom p{font-size:0.78rem;color:rgba(255,255,255,0.3)}
-.footer-bottom a{color:rgba(255,193,7,0.7);transition:color 0.2s}
-.footer-bottom a:hover{color:#ffc107}
-.footer-phone{color:#ffc107;font-weight:700;font-size:0.9rem}
-
-/* MOBILE */
-@media(max-width:768px){
-  nav{padding:0 4%}
-  .nav-trust{display:none}
-  .nav-phone{font-size:0.85rem}
-  .hero{grid-template-columns:1fr;height:auto}
-  .hero-image{height:260px}
-  .hero-content{padding:32px 24px}
-  .hero-content h1{font-size:32px}
-  .form-row{grid-template-columns:1fr}
-  .trust-items{gap:20px}
-  .trust-divider{display:none}
-  .projects-grid{grid-template-columns:1fr}
-  .services-grid{grid-template-columns:1fr 1fr}
-  .process-steps{grid-template-columns:1fr 1fr;gap:20px}
-  .process-steps::before{display:none}
-  .gallery-grid{grid-template-columns:1fr;grid-template-rows:auto}
-  .gallery-item:first-child{grid-row:span 1;height:200px}
-  .gallery-item{height:200px}
-  .team-grid{grid-template-columns:1fr}
-  .testi-grid{grid-template-columns:1fr}
-  .why-pillars{grid-template-columns:1fr 1fr}
-  .cta-form-grid{grid-template-columns:1fr}
-  .cta-form-section .submit-btn{grid-column:span 1}
-  .footer-grid{grid-template-columns:1fr 1fr}
-  .footer-bottom{flex-direction:column;text-align:center}
-}
+footer{background:#0d0d0b;padding:36px 5% 22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;border-top:1px solid rgba(255,255,255,0.06)}
+.f-logo{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:#fff;letter-spacing:0.06em}
+.f-logo span{color:var(--amber)}
+.f-info{font-size:0.75rem;color:rgba(255,255,255,0.2);text-align:center}
+.f-credit{font-size:0.75rem}
+.f-credit a{color:var(--amber);font-weight:600}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-logo">
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-      <path d="M15 3H9L3 9v6l6 6h6l6-6V9l-6-6z" fill="#ffc107" opacity="0.2" stroke="#ffc107" stroke-width="1.5"/>
-      <path d="M9 12h6M12 9v6" stroke="#ffc107" stroke-width="2" stroke-linecap="round"/>
-    </svg>
-    <div class="nav-logo-text">Pro<span>Home</span></div>
+    <div class="nav-logo-text">
+      <span class="nav-logo-name">MasterBuild</span>
+      <span class="nav-logo-sub">שיפוצים ועיצוב פנים</span>
+    </div>
   </div>
-  <div class="nav-trust"><strong>✓</strong> רישיון קבלן מוסמך</div>
   <div class="nav-right">
-    <div class="nav-phone">📞 03-765-4321</div>
-    <button class="nav-cta" onclick="return false">הצעת מחיר חינם</button>
+    <span class="nav-phone" dir="ltr"><strong>054-444-5566</strong></span>
+    <button class="nav-cta" onclick="return false">הצעת מחיר</button>
   </div>
 </nav>
 
-<!-- HERO SPLIT -->
 <section class="hero">
-  <div class="hero-image">
-    <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=80&auto=format&fit=crop" alt="מטבח מעוצב מודרני">
-  </div>
-  <div class="hero-content">
-    <div class="hero-badge">⭐ שיפוץ מחיר-איכות הטוב בישראל</div>
-    <h1>שיפוץ הבית שלכם<br>מהחלום<br><span>למציאות</span></h1>
-    <ul class="hero-bullets">
-      <li>הצעת מחיר תוך 24 שעות</li>
-      <li>ניהול פרויקט מלא</li>
-      <li>אחריות 3 שנים בכתב</li>
-      <li>ביטוח מלא לכל עבודה</li>
-    </ul>
-    <div class="hero-form">
-      <h3>🔨 קיבלו הצעה חינם עכשיו</h3>
-      <p>ממלאים פרטים — אנחנו חוזרים תוך שעתיים</p>
-      <form onsubmit="return false">
-        <div class="form-row">
-          <div class="form-group">
-            <label>שם מלא</label>
-            <input type="text" placeholder="ישראל ישראלי">
-          </div>
-          <div class="form-group">
-            <label>טלפון</label>
-            <input type="tel" placeholder="05X-XXX-XXXX">
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>סוג שיפוץ</label>
-            <select>
-              <option>שיפוץ מלא</option>
-              <option>מטבח</option>
-              <option>חדר אמבטיה</option>
-              <option>ריצוף</option>
-              <option>אחר</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>גודל דירה</label>
-            <select>
-              <option>עד 60 מ"ר</option>
-              <option>60–100 מ"ר</option>
-              <option>100–150 מ"ר</option>
-              <option>מעל 150 מ"ר</option>
-            </select>
-          </div>
-        </div>
-        <button type="submit" class="submit-btn">קיבלו הצעה חינם →</button>
-        <div class="form-note">אנחנו יוצרים קשר תוך שעתיים • ללא התחייבות</div>
-      </form>
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-content fade-in">
+      <div class="hero-tag">תל אביב · 15 שנות ניסיון</div>
+      <h1>שיפוץ<br><span>כמו שצריך.</span></h1>
+      <p class="hero-sub">מהתכנון ועד המפתח — אנחנו מנהלים את הפרויקט שלכם מקצה לקצה. ללא הפתעות, ללא איחורים, ועם ערבות בכתב.</p>
+      <div class="hero-actions">
+        <a href="#quote" class="btn-amber" onclick="return false">הצעת מחיר חינם</a>
+        <a href="#portfolio" class="btn-outline" onclick="return false">עבודות שביצענו</a>
+      </div>
+      <div class="hero-cred">
+        <div class="hero-cred-item"><strong>450+</strong><span>פרויקטים</span></div>
+        <div class="hero-cred-item"><strong>15</strong><span>שנות ניסיון</span></div>
+        <div class="hero-cred-item"><strong>97%</strong><span>לקוחות ממליצים</span></div>
+        <div class="hero-cred-item"><strong>30 יום</strong><span>ממוצע פרויקט</span></div>
+      </div>
+    </div>
+    <div class="hero-form-card fade-in">
+      <h3>הצעת מחיר</h3>
+      <p>קבלו הצעה תוך 24 שעות</p>
+      <div class="fg"><label>שם</label><input type="text" placeholder="ישראל ישראלי"></div>
+      <div class="fg"><label>טלפון</label><input type="tel" placeholder="050-0000000" dir="ltr"></div>
+      <div class="fg"><label>גודל הנכס</label>
+        <select><option>בחרו...</option><option>עד 60 מ"ר</option><option>60–90 מ"ר</option><option>90–130 מ"ר</option><option>130+ מ"ר</option><option>בית פרטי</option></select>
+      </div>
+      <div class="fg"><label>סוג הפרויקט</label>
+        <select><option>בחרו...</option><option>שיפוץ כללי</option><option>מטבח</option><option>חדרי שירותים/אמבטיה</option><option>ריצוף</option><option>גבס + צביעה</option><option>פרויקט מלא</option></select>
+      </div>
+      <button class="form-sub" onclick="return false">שלחו לקבלת הצעה</button>
+      <p class="form-note">אין עמלה · ללא התחייבות</p>
     </div>
   </div>
 </section>
 
-<!-- TRUST STRIP -->
-<section class="trust-strip fade-in">
-  <div class="trust-items">
-    <div class="trust-item">
-      <div class="trust-num">500+</div>
-      <div class="trust-label">פרויקטים מוצלחים</div>
-    </div>
-    <div class="trust-divider"></div>
-    <div class="trust-item">
-      <div class="trust-num">12</div>
-      <div class="trust-label">שנות ניסיון</div>
-    </div>
-    <div class="trust-divider"></div>
-    <div class="trust-item">
-      <div class="trust-num">97%</div>
-      <div class="trust-label">לקוחות ממליצים</div>
-    </div>
-    <div class="trust-divider"></div>
-    <div class="trust-item">
-      <div class="trust-num">3 שנים</div>
-      <div class="trust-label">אחריות בכתב</div>
-    </div>
-    <div class="trust-divider"></div>
-    <div class="trust-item">
-      <div class="trust-num">✓</div>
-      <div class="trust-label">רישיון מוסמך</div>
-    </div>
-  </div>
-</section>
+<div class="trust-strip">
+  <div class="ts"><div class="ts-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="ts-text"><strong>ערבות בכתב</strong>על כל פרויקט</div></div>
+  <div class="ts"><div class="ts-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="ts-text"><strong>עמידה בלוחות זמנים</strong>97% מהפרויקטים בזמן</div></div>
+  <div class="ts"><div class="ts-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div><div class="ts-text"><strong>מחיר קבוע</strong>ללא הפתעות בסוף</div></div>
+  <div class="ts"><div class="ts-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div><div class="ts-text"><strong>צוות קבוע</strong>אין קבלני משנה אנונימיים</div></div>
+</div>
 
-<!-- BEFORE / AFTER PROJECTS -->
-<section class="before-after-section">
-  <div class="section-header fade-in">
-    <div class="section-tag">הפרויקטים שלנו</div>
-    <div class="section-title">לפני ואחרי — תוצאות אמיתיות</div>
-    <div class="section-sub">כל פרויקט מנוהל מא' עד ת' עם שקיפות מלאה, לוח זמנים מדויק ואיכות שלא מתפשרת.</div>
-    <div class="yellow-bar"></div>
-  </div>
-  <div class="projects-grid">
-    <div class="project-card fade-in">
-      <div class="ba-images">
-        <div class="ba-half">
-          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&q=80&auto=format&fit=crop" alt="מטבח לפני">
-          <span class="ba-label">לפני</span>
-        </div>
-        <div class="ba-half">
-          <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=500&q=80&auto=format&fit=crop" alt="מטבח אחרי">
-          <span class="ba-label after">אחרי</span>
-        </div>
-      </div>
-      <div class="project-info">
-        <div class="project-title">שיפוץ מטבח מלא</div>
-        <div class="project-meta">3 שבועות | תל אביב | ₪85,000</div>
-      </div>
-    </div>
-    <div class="project-card fade-in">
-      <div class="ba-images">
-        <div class="ba-half">
-          <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=500&q=80&auto=format&fit=crop" alt="אמבטיה לפני">
-          <span class="ba-label">לפני</span>
-        </div>
-        <div class="ba-half">
-          <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=500&q=80&auto=format&fit=crop" alt="אמבטיה אחרי" style="filter:brightness(1.15) saturate(1.2)">
-          <span class="ba-label after">אחרי</span>
-        </div>
-      </div>
-      <div class="project-info">
-        <div class="project-title">שיפוץ חדר אמבטיה</div>
-        <div class="project-meta">2 שבועות | ראשון לציון | ₪42,000</div>
-      </div>
-    </div>
-    <div class="project-card fade-in">
-      <div class="ba-images">
-        <div class="ba-half">
-          <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&q=80&auto=format&fit=crop" alt="סלון לפני">
-          <span class="ba-label">לפני</span>
-        </div>
-        <div class="ba-half">
-          <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&q=80&auto=format&fit=crop" alt="סלון אחרי" style="filter:brightness(1.2) saturate(1.1)">
-          <span class="ba-label after">אחרי</span>
-        </div>
-      </div>
-      <div class="project-info">
-        <div class="project-title">שדרוג סלון מלא</div>
-        <div class="project-meta">4 שבועות | גבעתיים | ₪65,000</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section class="services-section">
-  <div class="section-header fade-in">
-    <div class="section-tag">מה אנחנו עושים</div>
-    <div class="section-title">כל סוגי השיפוצים — במקום אחד</div>
-    <div class="section-sub">מניהול פרויקט מלא ועד שירותים ספציפיים — הצוות שלנו מכסה את כל הצרכים שלכם.</div>
-    <div class="yellow-bar"></div>
-  </div>
+<section class="section services-section" id="services">
+  <div class="se fade-in">השירותים שלנו</div>
+  <h2 class="st fade-in">כל מה ש<span>הבית</span> צריך</h2>
   <div class="services-grid">
-    <div class="service-card fade-in">
-      <div class="service-icon">🏠</div>
-      <h3>שיפוץ דירה מלא</h3>
-      <p>תכנון, פיקוח וביצוע — מהריסה ועד מפתח. מנהל פרויקט צמוד לאורך כל הדרך.</p>
+    <div class="serv fade-in"><span class="serv-num">01</span><div class="serv-content"><div class="serv-name">שיפוץ מלא</div><div class="serv-desc">מתכנון ועד מסירת מפתח — ניהול מלא של הפרויקט כולל תכנון, ביצוע ועיצוב פנים. שקיפות מלאה בכל שלב.</div></div></div>
+    <div class="serv fade-in"><span class="serv-num">02</span><div class="serv-content"><div class="serv-name">מטבחים</div><div class="serv-desc">מטבחים מותאמים אישית — ארונות, משטחים, אינסטלציה וחשמל. עבודה עם ספקי פרמיום בלבד.</div></div></div>
+    <div class="serv fade-in"><span class="serv-num">03</span><div class="serv-content"><div class="serv-name">חדרי שירותים ואמבטיה</div><div class="serv-desc">ריצוף, אינסטלציה, כלים סניטריים, גבס ורטיבות. עבודה נקייה עם אחריות מלאה.</div></div></div>
+    <div class="serv fade-in"><span class="serv-num">04</span><div class="serv-content"><div class="serv-name">ריצוף ופרקט</div><div class="serv-desc">אריחים, פרקט עץ, פרקט מהנדס ו-SPC — הנחה מקצועית עם התאמת גוון ומרקם לחלל.</div></div></div>
+    <div class="serv fade-in"><span class="serv-num">05</span><div class="serv-content"><div class="serv-name">גבס, טיח וצביעה</div><div class="serv-desc">פירוק קירות, בניית מחיצות גבס, איטום, טיח ואיכות צביעה ברמת יזם. גמר שלא נראה בשוק.</div></div></div>
+    <div class="serv fade-in"><span class="serv-num">06</span><div class="serv-content"><div class="serv-name">עיצוב פנים</div><div class="serv-desc">שירות עיצוב פנים מלא עם מעצב מוסמך — בחירת חומרים, צבעים, ריהוט ותאורה.</div></div></div>
+  </div>
+</section>
+
+<section class="portfolio-section" id="portfolio">
+  <div class="se fade-in">עבודות שביצענו</div>
+  <h2 class="st fade-in">תוצאות <span>שמדברות</span></h2>
+  <div class="portfolio-grid fade-in">
+    <div class="port-img">
+      <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80&auto=format&fit=crop" alt="מטבח מודרני">
+      <div class="port-img-label"><span>מטבח מודרני · פלורנטין, ת"א · 85,000 ₪</span></div>
     </div>
-    <div class="service-card fade-in">
-      <div class="service-icon">🍳</div>
-      <h3>מטבחים</h3>
-      <p>מטבח חדש שמשנה את הבית. עיצוב מותאם אישית, נגרות מקצועית, חיבורי חשמל ואינסטלציה.</p>
-    </div>
-    <div class="service-card fade-in">
-      <div class="service-icon">🚿</div>
-      <h3>חדרי אמבטיה</h3>
-      <p>עיצוב ובנייה, אינסטלציה כלולה. חומרים מהמובילים בשוק, גימור ברמה הגבוהה ביותר.</p>
-    </div>
-    <div class="service-card fade-in">
-      <div class="service-icon">🏗</div>
-      <h3>בנייה חדשה</h3>
-      <p>תוספות ממ"ד, בנייה מאפס, הרחבת שטח. כל היתרי הבנייה והניירת — אנחנו מטפלים.</p>
-    </div>
-    <div class="service-card fade-in">
-      <div class="service-icon">🔨</div>
-      <h3>ריצוף ופרקט</h3>
-      <p>כל סוגי הריצוף והגימור — פורצלן, קרמיקה, פרקט עץ ולמינציה. התקנה מקצועית מובטחת.</p>
-    </div>
-    <div class="service-card fade-in">
-      <div class="service-icon">⚡</div>
-      <h3>חשמל ואינסטלציה</h3>
-      <p>עדכון מערכות בנייה ישנות, לוח חשמל חדש, צנרת, דוד שמש. עובדים עם מורשי מקצוע בלבד.</p>
+    <div class="portfolio-grid-right">
+      <div class="port-img">
+        <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80&auto=format&fit=crop" alt="אמבטיה">
+        <div class="port-img-label"><span>חדר רחצה · רמת גן · 35,000 ₪</span></div>
+      </div>
+      <div class="port-img">
+        <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&q=80&auto=format&fit=crop" alt="מטבח">
+        <div class="port-img-label"><span>שיפוץ מלא · הצפון הישן · 180,000 ₪</span></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="process-section">
-  <div class="section-header fade-in" style="text-align:center">
-    <div class="section-tag" style="background:rgba(255,193,7,0.15);color:#ffc107;border-color:rgba(255,193,7,0.3)">איך זה עובד</div>
-    <div class="section-title" style="color:#fff;text-align:center">4 צעדים לבית מחודש</div>
-    <div class="section-sub" style="color:rgba(255,255,255,0.55);margin:0 auto">מהשיחה הראשונה ועד מסירת המפתח — אנחנו לצדכם בכל שלב.</div>
-  </div>
+<section class="process-section" id="process">
+  <div class="se fade-in">איך אנחנו עובדים</div>
+  <h2 class="st fade-in">4 שלבים. <span>תוצאה</span> מושלמת.</h2>
   <div class="process-steps fade-in">
-    <div class="process-step">
-      <div class="step-num">1</div>
-      <div class="step-title">תיאום פגישה חינם</div>
-      <div class="step-desc">מגיעים אליכם לבית, מבינים את הצרכים וסוקרים את הנכס ללא עלות.</div>
+    <div class="step"><div class="step-num">01</div><div class="step-title">פגישה וסקר</div><div class="step-desc">סקר מקדים חינמי בנכס, הבנת הצרכים, בחינת המבנה ואפיון הפרויקט.</div></div>
+    <div class="step"><div class="step-num">02</div><div class="step-title">הצעת מחיר</div><div class="step-desc">הצעה מפורטת עם פירוט כל שלב — ללא הפתעות. מחיר קבוע מראש.</div></div>
+    <div class="step"><div class="step-num">03</div><div class="step-title">ביצוע מנוהל</div><div class="step-desc">צוות קבוע עם מנהל פרויקט אחראי. עדכון שוטף, פוטו-דוקומנטציה.</div></div>
+    <div class="step"><div class="step-num">04</div><div class="step-title">מסירה ואחריות</div><div class="step-desc">בדיקה משותפת, חתימה על מסמך מסירה, ואחריות מלאה ל-2 שנים.</div></div>
+  </div>
+</section>
+
+<section class="pricing-section">
+  <div class="se fade-in">מחירים אינדיקטיביים</div>
+  <h2 class="st fade-in">כמה <span>עולה</span> שיפוץ?</h2>
+  <div class="pricing-grid">
+    <div class="price fade-in">
+      <div class="price-plan">חדר שירותים</div>
+      <div class="price-range">₪18,000–₪35,000</div>
+      <div class="price-unit">לפי גודל ורמת גמר</div>
+      <ul class="price-features">
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>פירוק מלא</li>
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>ריצוף ואריחי קיר</li>
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>כלים סניטריים</li>
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>ארון תלוי + מראה</li>
+      </ul>
+      <button class="price-btn" onclick="return false">לקבלת הצעה</button>
     </div>
-    <div class="process-step">
-      <div class="step-num">2</div>
-      <div class="step-title">הצעת מחיר מפורטת</div>
-      <div class="step-desc">הצעה מפורטת לפי סעיפים, ללא הפתעות, תוך 24 שעות מהפגישה.</div>
+    <div class="price featured fade-in">
+      <div class="price-plan">שיפוץ דירה</div>
+      <div class="price-range">₪120,000–₪280,000</div>
+      <div class="price-unit">לדירה 3–4 חדרים</div>
+      <ul class="price-features">
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>ריצוף + גבס + צביעה</li>
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>מטבח מותאם</li>
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>כל חדרי השירותים</li>
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>ניהול פרויקט מלא</li>
+      </ul>
+      <button class="price-btn" onclick="return false">לקבלת הצעה</button>
     </div>
-    <div class="process-step">
-      <div class="step-num">3</div>
-      <div class="step-title">תחילת עבודה</div>
-      <div class="step-desc">מנהל פרויקט צמוד, עדכונים שוטפים ועמידה בלוח הזמנים המוסכם.</div>
-    </div>
-    <div class="process-step">
-      <div class="step-num">4</div>
-      <div class="step-title">מסירה + אחריות</div>
-      <div class="step-desc">מסירת הבית לאחר ניקיון מקצועי, עם תעודת אחריות ל-3 שנים.</div>
+    <div class="price fade-in">
+      <div class="price-plan">בית פרטי / וילה</div>
+      <div class="price-range">₪350,000+</div>
+      <div class="price-unit">לפי מפרט מדויק</div>
+      <ul class="price-features">
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>כל הכלול בשיפוץ דירה</li>
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>עיצוב פנים מלא</li>
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>עבודות חוץ וגינה</li>
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>מנהל פרויקט צמוד</li>
+      </ul>
+      <button class="price-btn" onclick="return false">לקבלת הצעה</button>
     </div>
   </div>
 </section>
 
-<!-- GALLERY -->
-<section class="gallery-section">
-  <div class="section-header fade-in">
-    <div class="section-tag" style="background:rgba(255,193,7,0.12);color:#ffc107;border-color:rgba(255,193,7,0.25)">גלריית פרויקטים</div>
-    <div class="section-title" style="color:#fff">עבודות שביצענו</div>
-    <div class="yellow-bar"></div>
-  </div>
-  <div class="gallery-grid fade-in">
-    <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&q=80&auto=format&fit=crop" alt="מטבח מעוצב">
-    </div>
-    <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80&auto=format&fit=crop" alt="חדר אמבטיה">
-    </div>
-    <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80&auto=format&fit=crop" alt="שיפוץ מטבח">
-    </div>
-    <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1503174971373-b1f69850bded?w=600&q=80&auto=format&fit=crop" alt="שיפוץ בית">
-    </div>
+<section class="testimonials-section fade-in">
+  <div class="se">לקוחות מספרים</div>
+  <h2 class="st">450+ פרויקטים. <span>0</span> הפתעות.</h2>
+  <div class="testi-grid">
+    <div class="testi-main"><span class="mark">"</span><div class="quote">קנינו דירה בניין ישן ורצינו שיפוץ מלא. MasterBuild נתנו לנו הצעה ביום, עמדו בה בדיוק, ומסרו בזמן שהובטח. אחרי 5 שיפוצים קודמים עם קבלנים אחרים — לבסוף מצאנו את הנכון.</div><div class="auth">ירון ומיכל א. — שיפוץ מלא 4 חדרים</div></div>
+    <div class="testi-card fade-in"><div class="quote">מטבח חלומי שהמתנה לו 6 שנים. הביאו טייסים מצוינים, ניהלו הכל עצמם, ועלות סופית הייתה בדיוק מה שהוסכם. שיפוץ ללא כאב ראש.</div><div class="auth">דנה ל.</div><div class="proj">מטבח פרמיום · רמת אביב</div></div>
+    <div class="testi-card fade-in"><div class="quote">שיפוץ חדר אמבטיה שלקח 12 ימים בלבד. המקצועיות, הניקיון והדיוק — ברמה שלא הכרתי. ממליץ בלב שלם לכל מי שרוצה שיפוץ ברמה אחרת.</div><div class="auth">רמי ב.</div><div class="proj">חדר אמבטיה · גבעתיים</div></div>
   </div>
 </section>
 
-<!-- TEAM -->
-<section class="team-section">
-  <div class="section-header fade-in" style="text-align:center">
-    <div class="section-tag" style="background:rgba(255,193,7,0.12);color:#ffc107;border-color:rgba(255,193,7,0.25)">הצוות שלנו</div>
-    <div class="section-title" style="color:#fff;text-align:center">אנשי המקצוע מאחורי ProHome</div>
-    <div class="section-sub" style="color:rgba(255,255,255,0.5);margin:0 auto">כל אחד מאנשי הצוות שלנו הוא מומחה בתחומו עם ניסיון רב שנים.</div>
+<section class="cta-final" id="quote">
+  <div class="cta-text fade-in">
+    <h2>הבית שרציתם.<br>מתחיל<br><span>כאן.</span></h2>
+    <p>הצעת מחיר מפורטת ב-24 שעות, ללא עלות. מחיר קבוע, לוח זמנים ברור, ואחריות ל-2 שנים.</p>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-top:8px">
+      <div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.45)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d4891a" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.03 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        <span dir="ltr" style="color:var(--amber);font-weight:700">054-444-5566</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.45)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d4891a" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        תל אביב והסביבה · כל האזורים
+      </div>
+    </div>
   </div>
-  <div class="team-grid fade-in">
-    <div class="team-card">
-      <div class="team-photo">
-        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&q=80&auto=format&fit=crop&crop=face" alt="מנהל פרויקטים">
-      </div>
-      <div class="team-name">אלון מזרחי</div>
-      <div class="team-role">מנהל פרויקטים ראשי</div>
-      <div class="team-years">15 שנות ניסיון בניהול פרויקטים</div>
+  <div class="cta-form fade-in">
+    <div class="cta-form-title">בקשת הצעת מחיר</div>
+    <div class="cf-row">
+      <div class="cf-fg"><label>שם</label><input type="text" placeholder="ישראל ישראלי"></div>
+      <div class="cf-fg"><label>טלפון</label><input type="tel" placeholder="050-0000000" dir="ltr"></div>
     </div>
-    <div class="team-card">
-      <div class="team-photo">
-        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80&auto=format&fit=crop&crop=face" alt="אדריכלת">
-      </div>
-      <div class="team-name">ליאת שפירא</div>
-      <div class="team-role">אדריכלת ומעצבת פנים</div>
-      <div class="team-years">11 שנות ניסיון בעיצוב פנים</div>
+    <div class="cf-fg"><label>כתובת הנכס</label><input type="text" placeholder="רחוב, עיר..."></div>
+    <div class="cf-fg"><label>סוג הפרויקט</label>
+      <select><option>בחרו...</option><option>שיפוץ מלא</option><option>מטבח</option><option>חדר שירותים/אמבטיה</option><option>ריצוף בלבד</option><option>גבס + צביעה</option><option>עיצוב פנים</option></select>
     </div>
-    <div class="team-card">
-      <div class="team-photo">
-        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&q=80&auto=format&fit=crop&crop=face" alt="קבלן ראשי">
-      </div>
-      <div class="team-name">יוסי בן דוד</div>
-      <div class="team-role">קבלן ראשי ומוסמך</div>
-      <div class="team-years">18 שנות ניסיון בביצוע</div>
-    </div>
+    <button class="cf-submit" onclick="return false">שלחו לקבלת הצעה</button>
+    <p class="cf-note">הצעה חינמית · ללא התחייבות · תוך 24 שעות</p>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="testimonials-section">
-  <div class="section-header fade-in" style="text-align:center">
-    <div class="section-tag">לקוחות מספרים</div>
-    <div class="section-title" style="text-align:center">מה הלקוחות שלנו אומרים</div>
-    <div class="section-sub" style="margin:0 auto;text-align:center">יותר מ-500 פרויקטים — כולם עם לקוחות מרוצים שחוזרים ומפנים חברים.</div>
-  </div>
-  <div class="testi-grid fade-in">
-    <div class="testi-card">
-      <div class="testi-stars">★★★★★</div>
-      <div class="testi-text">"שיפצנו את המטבח והסלון — העבודה הייתה מהירה, נקייה ומדויקת. מנהל הפרויקט עדכן אותנו כל יום. ממליצים בחום לכל אחד!"</div>
-      <div class="testi-author">
-        <div class="testi-avatar">ד"ו</div>
-        <div class="testi-info">
-          <div class="testi-name">דנה ויינשטיין</div>
-          <div class="testi-detail">שיפוץ מלא | תל אביב</div>
-        </div>
-      </div>
-    </div>
-    <div class="testi-card">
-      <div class="testi-stars">★★★★★</div>
-      <div class="testi-text">"הבאנו כמה הצעות מחיר — ProHome היה הכי מקצועי ושקוף. גמרו לפני הזמן, בדיוק בתקציב שסוכם. לא פחות ממדהים."</div>
-      <div class="testi-author">
-        <div class="testi-avatar">מ"ל</div>
-        <div class="testi-info">
-          <div class="testi-name">מיכאל לוי</div>
-          <div class="testi-detail">חדר אמבטיה | ראשון לציון</div>
-        </div>
-      </div>
-    </div>
-    <div class="testi-card">
-      <div class="testi-stars">★★★★★</div>
-      <div class="testi-text">"העבירו לנו מפתח אחרי 5 שבועות על שיפוץ מלא. הבית נראה כמו שמעולם לא חלמנו. האחריות גם נתנה לנו שקט נפשי אמיתי."</div>
-      <div class="testi-author">
-        <div class="testi-avatar">ר"כ</div>
-        <div class="testi-info">
-          <div class="testi-name">רחל כהן</div>
-          <div class="testi-detail">שיפוץ מלא | גבעתיים</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHY US -->
-<section class="why-us-section">
-  <div class="section-header fade-in" style="text-align:center">
-    <div class="section-tag" style="background:rgba(26,32,53,0.1);color:#1a2035;border-color:rgba(26,32,53,0.2)">למה ProHome?</div>
-    <div class="section-title" style="color:#1a2035;text-align:center">4 סיבות שלקוחות בוחרים בנו</div>
-    <div class="section-sub" style="margin:0 auto;text-align:center">לא רק שיפוץ — חווית שירות שלמה שגורמת לכם לישון בשקט.</div>
-  </div>
-  <div class="why-pillars fade-in">
-    <div class="pillar">
-      <div class="pillar-icon">🏆</div>
-      <div class="pillar-title">ניסיון של 12 שנה</div>
-      <div class="pillar-desc">500+ פרויקטים ביצענו — מדירות קטנות ועד וילות גדולות. הניסיון שלנו מגן עליכם.</div>
-    </div>
-    <div class="pillar">
-      <div class="pillar-icon">🛡️</div>
-      <div class="pillar-title">ביטוח מלא לכל עובד</div>
-      <div class="pillar-desc">כל עובד מבוטח — ביטוח צד ג', ביטוח עובדים ואחריות מקצועית. אין הפתעות.</div>
-    </div>
-    <div class="pillar">
-      <div class="pillar-icon">📋</div>
-      <div class="pillar-title">אחריות 3 שנים בכתב</div>
-      <div class="pillar-desc">כל עבודה מגיעה עם אחריות בכתב לשלוש שנים. תקלה אחרי המסירה? אנחנו מגיעים.</div>
-    </div>
-    <div class="pillar">
-      <div class="pillar-icon">💰</div>
-      <div class="pillar-title">מחיר שקוף ללא הפתעות</div>
-      <div class="pillar-desc">הצעה מפורטת לפי סעיפים. לא יהיו תוספות או שינויים במחיר ללא אישורכם מראש.</div>
-    </div>
-  </div>
-</section>
-
-<!-- SECOND FORM -->
-<section class="cta-form-section">
-  <div class="cta-form-inner fade-in">
-    <div class="section-tag" style="background:rgba(255,193,7,0.12);color:#ffc107;border-color:rgba(255,193,7,0.25);display:inline-block;margin-bottom:12px">מוכנים להתחיל?</div>
-    <div class="section-title" style="color:#fff;text-align:center;font-size:2rem">קיבלו הצעת מחיר חינם</div>
-    <div class="section-sub" style="color:rgba(255,255,255,0.5);text-align:center;margin:12px auto 0">ממלאים פרטים — אנחנו חוזרים תוך שעתיים עם הצעה מפורטת</div>
-    <form onsubmit="return false">
-      <div class="cta-form-grid">
-        <div class="form-group">
-          <label>שם מלא</label>
-          <input type="text" placeholder="ישראל ישראלי">
-        </div>
-        <div class="form-group">
-          <label>טלפון</label>
-          <input type="tel" placeholder="05X-XXX-XXXX">
-        </div>
-        <div class="form-group">
-          <label>סוג שיפוץ</label>
-          <select>
-            <option>שיפוץ מלא</option>
-            <option>מטבח</option>
-            <option>חדר אמבטיה</option>
-            <option>ריצוף</option>
-            <option>אחר</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>גודל דירה</label>
-          <select>
-            <option>עד 60 מ"ר</option>
-            <option>60–100 מ"ר</option>
-            <option>100–150 מ"ר</option>
-            <option>מעל 150 מ"ר</option>
-          </select>
-        </div>
-        <button type="submit" class="submit-btn">מוכנים להתחיל — שלחו הצעה →</button>
-      </div>
-    </form>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer>
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <span class="nav-logo-text">Pro<span>Home</span></span>
-      <p>חברת שיפוצים ובנייה מקצועית. 12 שנות ניסיון, 500+ פרויקטים, אחריות 3 שנים בכתב. משרתים את כל מרכז הארץ.</p>
-    </div>
-    <div class="footer-col">
-      <h4>שירותים</h4>
-      <ul>
-        <li>שיפוץ מלא</li>
-        <li>מטבחים</li>
-        <li>חדרי אמבטיה</li>
-        <li>ריצוף ופרקט</li>
-        <li>בנייה חדשה</li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>אזורי שירות</h4>
-      <ul>
-        <li>תל אביב</li>
-        <li>ראשון לציון</li>
-        <li>גבעתיים</li>
-        <li>רמת גן</li>
-        <li>הרצליה</li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>יצירת קשר</h4>
-      <ul>
-        <li class="footer-phone">📞 03-765-4321</li>
-        <li>info@prohome.co.il</li>
-        <li>א׳-ה׳ 08:00–18:00</li>
-        <li>ו׳ 08:00–13:00</li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2025 ProHome | חברת שיפוצים ובנייה | <a href="https://liorvelikin.github.io/velo-website/" style="color:inherit">נבנה על ידי VELO DIGITAL</a></p>
-    <p>רישיון קבלן מוסמך | כל הזכויות שמורות</p>
-  </div>
+  <div class="f-logo">Master<span>Build</span></div>
+  <div class="f-info">תל אביב והסביבה · 054-444-5566 · © 2025 · רישיון קבלן 123456</div>
+  <div class="f-credit">נבנה על ידי <a href="https://liorvelikin.github.io/velo-website/" target="_blank">VELO DIGITAL</a></div>
 </footer>
 
 <script>
-// Fade-in on scroll
-document.querySelectorAll('.fade-in').forEach(el => {
-  new IntersectionObserver(([e]) => {
-    if(e.isIntersecting) e.target.classList.add('visible');
-  }, {threshold: 0.1}).observe(el);
-});
-
-// Nav scroll shadow
-window.addEventListener('scroll', () => {
-  document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 50);
-});
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.07 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+document.querySelectorAll('a[href="#"],a[href^="#"]').forEach(a => a.addEventListener('click', e => e.preventDefault()));
 </script>
 </body>
 </html>
