@@ -1,9 +1,10 @@
 import { Helmet } from 'react-helmet-async'
-import { Link } from 'react-router-dom'
 import { useReveal } from '../../hooks/useReveal'
 import PageHero from '../../components/shared/PageHero'
 import ContactForm from '../../components/shared/ContactForm'
 import { serviceSchema, breadcrumbSchema } from '../../components/shared/SchemaOrg'
+
+const BASE = import.meta.env.BASE_URL
 
 /* ── Icons ── */
 const IconVideo = () => (
@@ -61,10 +62,70 @@ const processSteps = [
   { num: '04', title: 'לוח שנה ופרסום',         desc: 'מארגנים לוח תוכן חודשי ומסייעים בפרסום הנכון בזמן הנכון.' },
 ]
 
-const projects = [
-  { niche: 'הפקת מדיה', title: 'Zano — סטודיו הפקה', url: 'https://liorvelikin.github.io/Zano-website/', accent: '#c9a84c', live: true },
-  { niche: 'שירותי יופי', title: 'Lilach — עיצוב שיער', url: 'https://liorvelikin.github.io/Lilach-website/', accent: '#e8a0bf', live: true },
-  { niche: 'קוסמטיקה ויופי', title: 'GlowBar — טיפולי פנים', url: 'https://liorvelikin.github.io/velo-website/mockups/landing/beauty/', accent: '#e066a0', live: false },
+const videoAds = [
+  {
+    file: 'videos/alo-yoga-ad.mp4',
+    category: 'Reels Ad',
+    title: 'ספורט ויוגה',
+    desc: 'Reels ממיר לקמפיין Meta — תנועה, מוסיקה ומסר שנוגע',
+    accent: '#4d9fff',
+  },
+  {
+    file: 'videos/channel-perfume-ad.mp4',
+    category: 'Product Ad',
+    title: 'בושם ויוקרה',
+    desc: 'פרסומת מוצר אסתטית — ויזואל שמוכר ברשתות החברתיות',
+    accent: '#c9a84c',
+  },
+  {
+    file: 'videos/ai-avatar-1.mp4',
+    category: 'UGC Ad',
+    title: 'AI Avatar',
+    desc: 'דמות AI שמדברת על המוצר — UGC שנראה אמיתי ומשכנע',
+    accent: '#a07dff',
+  },
+  {
+    file: 'videos/ai-avatar-2.mp4',
+    category: 'UGC Ad',
+    title: 'AI Creator',
+    desc: 'AI Creator לקמפיינים — עולה שברי עלות הפקה מסורתית',
+    accent: '#a07dff',
+  },
+  {
+    file: 'videos/ai-avatar-3.mp4',
+    category: 'Reels',
+    title: 'AI Creator Reel',
+    desc: 'תוכן אורגני מ-AI Creator לאינסטגרם ו-TikTok',
+    accent: '#00d4b8',
+  },
+  {
+    file: 'videos/luxury-unboxing.mp4',
+    category: 'Unboxing',
+    title: 'יוקרה ומוצרים',
+    desc: 'סרטון Unboxing שבונה ציפיות ומוכר חוויה לפני שקנו',
+    accent: '#c9a84c',
+  },
+  {
+    file: 'videos/maya-ugc.mp4',
+    category: 'UGC בעברית',
+    title: 'מאיה — AI Influencer',
+    desc: 'AI Influencer שמדברת עברית — UGC שנראה אמיתי לחלוטין',
+    accent: '#ff85c2',
+  },
+  {
+    file: 'videos/michal-ugc.mp4',
+    category: 'UGC בעברית',
+    title: 'מיכל — AI Creator',
+    desc: 'מספרת על המוצר כמו חברה — עברית טבעית ומשכנעת',
+    accent: '#ff85c2',
+  },
+  {
+    file: 'videos/noa-ugc.mp4',
+    category: 'UGC בעברית',
+    title: 'נועה — AI Influencer',
+    desc: 'AI Influencer ישראלית לקמפיינים ממומנים ואורגניים',
+    accent: '#ff85c2',
+  },
 ]
 
 const faqs = [
@@ -73,6 +134,115 @@ const faqs = [
   { q: 'האם הקופי כולל כתיבת טקסטים?', a: 'כן. כל תוכן ויזואלי מגיע עם קופי בעברית — כיתוב, תיאור ו-CTA מותאמים לפלטפורמה.' },
   { q: 'מה הפלטפורמות שאתם מכינים עבורן?', a: 'Instagram, Facebook, TikTok, YouTube Shorts ו-LinkedIn. מכינים את הפורמט הנכון לכל פלטפורמה.' },
 ]
+
+function PhoneCard({ video }) {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 18, flexShrink: 0, width: 212 }}>
+      {/* iPhone body */}
+      <div style={{
+        width: 196,
+        borderRadius: 40,
+        background: 'linear-gradient(160deg, #2e2e2e 0%, #111 60%, #1a1a1a 100%)',
+        padding: '10px',
+        boxShadow: `
+          inset 0 0 0 1px rgba(255,255,255,0.14),
+          0 0 0 1px rgba(0,0,0,0.9),
+          0 40px 100px rgba(0,0,0,0.75),
+          0 8px 24px rgba(0,0,0,0.5)
+        `,
+        position: 'relative',
+      }}>
+        {/* Power button (right side) */}
+        <div style={{
+          position: 'absolute', right: -3, top: 108,
+          width: 3, height: 56,
+          background: 'linear-gradient(180deg, #333 0%, #222 100%)',
+          borderRadius: '0 3px 3px 0',
+        }} />
+        {/* Mute switch (left side) */}
+        <div style={{
+          position: 'absolute', left: -3, top: 60,
+          width: 3, height: 18,
+          background: 'linear-gradient(180deg, #333 0%, #222 100%)',
+          borderRadius: '3px 0 0 3px',
+        }} />
+        {/* Volume up (left side) */}
+        <div style={{
+          position: 'absolute', left: -3, top: 90,
+          width: 3, height: 34,
+          background: 'linear-gradient(180deg, #333 0%, #222 100%)',
+          borderRadius: '3px 0 0 3px',
+        }} />
+        {/* Volume down (left side) */}
+        <div style={{
+          position: 'absolute', left: -3, top: 132,
+          width: 3, height: 34,
+          background: 'linear-gradient(180deg, #333 0%, #222 100%)',
+          borderRadius: '3px 0 0 3px',
+        }} />
+
+        {/* Screen */}
+        <div style={{
+          borderRadius: 30,
+          overflow: 'hidden',
+          position: 'relative',
+          aspectRatio: '9/19.5',
+          background: '#000',
+        }}>
+          {/* Dynamic Island */}
+          <div style={{
+            position: 'absolute',
+            top: 10,
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: 72,
+            height: 22,
+            background: '#0a0a0a',
+            borderRadius: 100,
+            zIndex: 10,
+            boxShadow: '0 0 0 1px rgba(255,255,255,0.07)',
+          }} />
+
+          {/* Video */}
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            style={{
+              position: 'absolute',
+              top: 0, left: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              display: 'block',
+            }}
+          >
+            <source src={`${BASE}${video.file}`} type="video/mp4" />
+          </video>
+        </div>
+      </div>
+
+      {/* Label */}
+      <div style={{ textAlign: 'center', width: '100%', direction: 'rtl' }}>
+        <span style={{
+          display: 'inline-block',
+          fontSize: '0.68rem',
+          fontWeight: 700,
+          padding: '3px 12px',
+          borderRadius: 100,
+          background: `${video.accent}18`,
+          border: `1px solid ${video.accent}35`,
+          color: video.accent,
+          marginBottom: 7,
+          letterSpacing: '0.04em',
+        }}>{video.category}</span>
+        <p style={{ color: '#fff', fontWeight: 700, fontSize: '0.88rem', margin: '0 0 4px', lineHeight: 1.3 }}>{video.title}</p>
+        <p style={{ color: '#8ba3c7', fontSize: '0.76rem', lineHeight: 1.55, margin: 0 }}>{video.desc}</p>
+      </div>
+    </div>
+  )
+}
 
 export default function AiContentPage() {
   const [contentRef, contentVis] = useReveal()
@@ -189,49 +359,48 @@ export default function AiContentPage() {
         </div>
       </section>
 
-      {/* פרויקטים נבחרים */}
-      <section style={{ padding: 'clamp(56px,8vw,96px) 0', direction: 'rtl', background: 'rgba(77,159,255,0.025)', borderTop: '1px solid rgba(77,159,255,0.06)', borderBottom: '1px solid rgba(77,159,255,0.06)' }}>
-        <div className="max-w-6xl mx-auto px-6">
-          <div style={{ textAlign: 'center', marginBottom: 52 }}>
+      {/* Video Showcase */}
+      <section style={{ padding: 'clamp(56px,8vw,96px) 0', direction: 'rtl', background: 'rgba(77,159,255,0.025)', borderTop: '1px solid rgba(77,159,255,0.06)', borderBottom: '1px solid rgba(77,159,255,0.06)', overflow: 'hidden' }}>
+        <div className="max-w-6xl mx-auto px-6" style={{ marginBottom: 52 }}>
+          <div style={{ textAlign: 'center' }}>
             <div className="tag-pill" style={{ marginBottom: 16, display: 'inline-flex' }}>עבודות</div>
             <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.2vw,2.4rem)', letterSpacing: '-0.02em', color: '#0a0f1e' }}>
-              פרויקטים <span className="gradient-text">נבחרים</span>
+              תוכן AI שהפקנו — <span className="gradient-text">תראו בעצמכם</span>
             </h2>
-            <p style={{ color: '#4a5d7a', fontSize: '0.98rem', lineHeight: 1.75, maxWidth: 580, margin: '16px auto 0' }}>
-              לחצו על כל פרויקט לצפייה
+            <p style={{ color: '#4a5d7a', fontSize: '0.98rem', lineHeight: 1.75, maxWidth: 560, margin: '16px auto 0' }}>
+              סרטוני UGC, Reels ופרסומות — מופקים עם AI בעלות נמוכה, נראים כמו הפקה אמיתית
             </p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
-            {projects.map((p, i) => (
-              <a key={i} href={p.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'block' }}>
-                <div
-                  className="glass-card"
-                  style={{ padding: '28px 26px', cursor: 'pointer' }}
-                  onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-4px)' }}
-                  onMouseLeave={e => { e.currentTarget.style.transform = 'none' }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
-                    <div className="tag-pill">{p.niche}</div>
-                    <span style={{ fontSize: '0.72rem', fontWeight: 700, padding: '3px 10px', borderRadius: 100, background: p.live ? 'rgba(0,212,120,0.12)' : 'rgba(26,111,255,0.1)', border: `1px solid ${p.live ? 'rgba(0,212,120,0.3)' : 'rgba(26,111,255,0.2)'}`, color: p.live ? '#00d478' : '#4d9fff' }}>
-                      {p.live ? 'Live' : 'Demo'}
-                    </span>
-                  </div>
-                  <div style={{ height: 120, borderRadius: 10, background: `linear-gradient(135deg, ${p.accent}18 0%, ${p.accent}08 100%)`, border: `1px solid ${p.accent}30`, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 16 }}>
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={p.accent} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.7 }}>
-                      <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
-                    </svg>
-                  </div>
-                  <h3 style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.98rem', marginBottom: 10 }}>{p.title}</h3>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#4d9fff', fontSize: '0.82rem', fontWeight: 600 }}>
-                    <span>כניסה לאתר</span>
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
-                    </svg>
-                  </div>
-                </div>
-              </a>
-            ))}
-          </div>
+        </div>
+
+        {/* Horizontal scroll carousel */}
+        <div style={{
+          display: 'flex',
+          gap: 28,
+          overflowX: 'auto',
+          paddingInline: 'clamp(24px,6vw,96px)',
+          paddingBottom: 28,
+          paddingTop: 8,
+          scrollbarWidth: 'none',
+          msOverflowStyle: 'none',
+          WebkitOverflowScrolling: 'touch',
+          scrollSnapType: 'x mandatory',
+        }}>
+          {videoAds.map((v, i) => (
+            <div key={i} style={{ scrollSnapAlign: 'start' }}>
+              <PhoneCard video={v} />
+            </div>
+          ))}
+        </div>
+
+        {/* Scroll hint */}
+        <div style={{ textAlign: 'center', marginTop: 20, direction: 'rtl' }}>
+          <span style={{ color: '#8ba3c7', fontSize: '0.78rem', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+            גללו לראות עוד
+          </span>
         </div>
       </section>
 
