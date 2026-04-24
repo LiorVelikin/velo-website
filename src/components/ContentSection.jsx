@@ -4,24 +4,28 @@ const BASE = import.meta.env.BASE_URL
 
 /* ─── Video data ─── */
 const videos = [
-  { src: `${BASE}videos/maya-ugc.mp4`,          label: 'UGC | מאיה',     color: '#1a0a2e', glow: 'rgba(255,133,194,0.55)' },
+  { src: `${BASE}videos/ai-avatar-1.mp4`,        label: 'AI Avatar',      color: '#0e0a20', glow: 'rgba(160,125,255,0.50)' },
+  { src: `${BASE}videos/maya-ugc.mp4`,           label: 'UGC | מאיה',     color: '#1a0a2e', glow: 'rgba(255,133,194,0.55)' },
   { src: `${BASE}videos/alo-yoga-ad.mp4`,        label: 'Reels ספורט',    color: '#0a1a2e', glow: 'rgba(26,111,255,0.55)'  },
   { src: `${BASE}videos/ai-avatar-3.mp4`,        label: 'AI Creator',     color: '#0a2030', glow: 'rgba(0,212,184,0.55)'   },
   { src: `${BASE}videos/channel-perfume-ad.mp4`, label: 'פרסומת מוצר',   color: '#1e1508', glow: 'rgba(201,168,76,0.65)'  },
   { src: `${BASE}videos/luxury-unboxing.mp4`,    label: 'Unboxing יוקרה', color: '#18120a', glow: 'rgba(201,168,76,0.55)'  },
   { src: `${BASE}videos/michal-ugc.mp4`,         label: 'UGC | מיכל',     color: '#2a0a18', glow: 'rgba(255,133,194,0.55)' },
   { src: `${BASE}videos/noa-ugc.mp4`,            label: 'UGC | נועה',     color: '#2a0a18', glow: 'rgba(255,133,194,0.50)' },
+  { src: `${BASE}videos/ai-avatar-2.mp4`,        label: 'UGC Ad',         color: '#0e0a20', glow: 'rgba(160,125,255,0.50)' },
 ]
 
-/* ─── Per-phone layout config ─── */
+/* ─── Per-phone layout config (9 phones, symmetric around center) ─── */
 const phoneConfigs = [
-  { rotate: -8, translateY: 42,  scale: 0.75, opacity: 0.55, floatDelay: '0s'   },
-  { rotate: -5, translateY: 24,  scale: 0.84, opacity: 0.76, floatDelay: '1.2s' },
-  { rotate: -2, translateY: 10,  scale: 0.93, opacity: 0.92, floatDelay: '0.6s' },
-  { rotate:  0, translateY:  0,  scale: 1.00, opacity: 1.00, floatDelay: '0.3s', center: true },
-  { rotate:  2, translateY: 10,  scale: 0.93, opacity: 0.92, floatDelay: '1.8s' },
-  { rotate:  5, translateY: 24,  scale: 0.84, opacity: 0.76, floatDelay: '0.9s' },
-  { rotate:  8, translateY: 42,  scale: 0.75, opacity: 0.55, floatDelay: '1.5s' },
+  { rotate: -12, translateY: 64,  scale: 0.65, opacity: 0.38, floatDelay: '0.4s'  },
+  { rotate:  -8, translateY: 42,  scale: 0.75, opacity: 0.55, floatDelay: '0s'    },
+  { rotate:  -5, translateY: 24,  scale: 0.84, opacity: 0.76, floatDelay: '1.2s'  },
+  { rotate:  -2, translateY: 10,  scale: 0.93, opacity: 0.92, floatDelay: '0.6s'  },
+  { rotate:   0, translateY:  0,  scale: 1.00, opacity: 1.00, floatDelay: '0.3s', center: true },
+  { rotate:   2, translateY: 10,  scale: 0.93, opacity: 0.92, floatDelay: '1.8s'  },
+  { rotate:   5, translateY: 24,  scale: 0.84, opacity: 0.76, floatDelay: '0.9s'  },
+  { rotate:   8, translateY: 42,  scale: 0.75, opacity: 0.55, floatDelay: '1.5s'  },
+  { rotate:  12, translateY: 64,  scale: 0.65, opacity: 0.38, floatDelay: '1.1s'  },
 ]
 
 /* ─── Base iPhone dimensions (center phone, before scale) ─── */
