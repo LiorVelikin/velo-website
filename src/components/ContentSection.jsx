@@ -30,6 +30,15 @@ const BASE_H = 318
 
 function IPhoneMockup({ video, config, index, entered }) {
   const isCenter = config.center
+  const videoRef = useRef(null)
+
+  useEffect(() => {
+    if (!entered || !videoRef.current) return
+    const delay = setTimeout(() => {
+      videoRef.current?.play().catch(() => {})
+    }, index * 120)
+    return () => clearTimeout(delay)
+  }, [entered, index])
 
   return (
     <div
@@ -97,8 +106,10 @@ function IPhoneMockup({ video, config, index, entered }) {
           {/* Screen: video or color placeholder */}
           {video.src ? (
             <video
+              ref={videoRef}
               src={video.src}
-              autoPlay muted loop playsInline
+              muted loop playsInline
+              preload="none"
               style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
             />
           ) : (
