@@ -1,21 +1,21 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 
-/* ─────────────────────────────────────────────
-   Project data — swap img: null → import path
-   when real screenshots are ready
-───────────────────────────────────────────── */
-const projects = {
-  shopify: [
-    { name: 'חנות אופנה',    result: '₪280K בחודש הראשון', tag: 'Shopify',  color: '#0a4f3f', img: null },
-    { name: 'מותג ביוטי',    result: 'המיר ב4.2%',          tag: 'Shopify',  color: '#1a3a2a', img: null },
-    { name: 'חנות תכשיטים', result: 'ROAS x5.1',            tag: 'Shopify',  color: '#0d3528', img: null },
-  ],
-  websites: [
-    { name: 'דף נחיתה נדלן',   result: '240 לידים בחודש',     tag: 'דף נחיתה',  color: '#0a1628', img: null },
-    { name: 'אתר קליניקה',     result: 'פגישות x3',            tag: 'אתר עסקי',  color: '#0f1f3d', img: null },
-    { name: 'דף השקת מוצר',   result: '1,200 רשומים ביום',    tag: 'דף נחיתה',  color: '#162544', img: null },
-  ],
-}
+const BASE = import.meta.env.BASE_URL
+
+/* ─── Shopify store screenshots ─── */
+const shopifyStores = [
+  `${BASE}images/shopify/store-1.png`,
+  `${BASE}images/shopify/store-2.png`,
+  `${BASE}images/shopify/store-3.png`,
+  `${BASE}images/shopify/store-4.png`,
+]
+
+/* ─── Website/landing page project data ─── */
+const websiteProjects = [
+  { name: 'דף נחיתה נדלן',  result: '240 לידים בחודש',  tag: 'דף נחיתה', color: '#0a1628', img: null },
+  { name: 'אתר קליניקה',    result: 'פגישות x3',         tag: 'אתר עסקי', color: '#0f1f3d', img: null },
+  { name: 'דף השקת מוצר',  result: '1,200 רשומים ביום', tag: 'דף נחיתה', color: '#162544', img: null },
+]
 
 /* ─────────────────────────────────────────────
    Skeleton — simulates a real webpage layout
@@ -294,6 +294,58 @@ function Thumbnail({ project, isActive, onClick, isShopify, visible, delay }) {
 }
 
 /* ─────────────────────────────────────────────
+   Shopify image gallery
+───────────────────────────────────────────── */
+function ShopifyGallery({ visible }) {
+  return (
+    <div style={{ marginTop: 8 }}>
+      <p style={{
+        textAlign: 'center',
+        fontWeight: 800,
+        fontSize: 'clamp(1.1rem,2vw,1.5rem)',
+        color: '#fff',
+        marginBottom: 32,
+        letterSpacing: '-0.02em',
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'none' : 'translateY(12px)',
+        transition: 'opacity 0.5s ease, transform 0.5s ease',
+        direction: 'rtl',
+      }}>
+        הצצה לחנויות שלנו
+      </p>
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr',
+        gap: 16,
+      }}>
+        {shopifyStores.map((src, i) => (
+          <div
+            key={i}
+            style={{
+              borderRadius: 16,
+              overflow: 'hidden',
+              border: '1px solid rgba(255,255,255,0.09)',
+              borderTopColor: 'rgba(77,159,255,0.18)',
+              boxShadow: '0 8px 40px rgba(0,0,0,0.35), 0 1px 0 rgba(255,255,255,0.05) inset',
+              aspectRatio: '16/10',
+              opacity: visible ? 1 : 0,
+              transform: visible ? 'none' : 'translateY(16px)',
+              transition: `opacity 0.5s ease ${i * 80}ms, transform 0.5s ease ${i * 80}ms`,
+            }}
+          >
+            <img
+              src={src}
+              alt=""
+              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+/* ─────────────────────────────────────────────
    Main section
 ───────────────────────────────────────────── */
 export default function WebsitesSection() {
@@ -327,7 +379,7 @@ export default function WebsitesSection() {
     return () => observers.forEach(o => o.disconnect())
   }, [])
 
-  const list = projects[tab]
+  const list = websiteProjects
   const activeProject = list[activeIdx]
 
   return (
@@ -437,44 +489,51 @@ export default function WebsitesSection() {
             </div>
           </div>
 
-          {/* ── Browser mockup ── */}
-          <div
-            ref={mockupRef}
-            style={{ width: '75%', margin: '0 auto 40px', minWidth: 300 }}
-            className="max-md:w-full"
-          >
-            <BrowserMockup
-              project={activeProject}
-              tabKey={tab}
-              visible={mockupVis}
-            />
-          </div>
+          {/* ── Content: Shopify gallery OR website browser mockup ── */}
+          {tab === 'shopify' ? (
+            <div ref={mockupRef} style={{ width: '80%', margin: '0 auto', minWidth: 300 }} className="max-md:w-full">
+              <ShopifyGallery visible={mockupVis} />
+            </div>
+          ) : (
+            <>
+              <div
+                ref={mockupRef}
+                style={{ width: '75%', margin: '0 auto 40px', minWidth: 300 }}
+                className="max-md:w-full"
+              >
+                <BrowserMockup
+                  project={activeProject}
+                  tabKey={tab}
+                  visible={mockupVis}
+                />
+              </div>
 
-          {/* ── Thumbnail row ── */}
-          <div
-            ref={thumbRef}
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              gap: 'clamp(10px, 1.8vw, 18px)',
-              flexWrap: 'nowrap',
-              overflowX: 'auto',
-              padding: '8px 4px 16px',
-              scrollbarWidth: 'none',
-            }}
-          >
-            {list.map((project, i) => (
-              <Thumbnail
-                key={`${tab}-${i}`}
-                project={project}
-                isActive={activeIdx === i}
-                onClick={() => setActiveIdx(i)}
-                isShopify={tab === 'shopify'}
-                visible={thumbVis}
-                delay={i * 80}
-              />
-            ))}
-          </div>
+              <div
+                ref={thumbRef}
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  gap: 'clamp(10px, 1.8vw, 18px)',
+                  flexWrap: 'nowrap',
+                  overflowX: 'auto',
+                  padding: '8px 4px 16px',
+                  scrollbarWidth: 'none',
+                }}
+              >
+                {list.map((project, i) => (
+                  <Thumbnail
+                    key={`${tab}-${i}`}
+                    project={project}
+                    isActive={activeIdx === i}
+                    onClick={() => setActiveIdx(i)}
+                    isShopify={false}
+                    visible={thumbVis}
+                    delay={i * 80}
+                  />
+                ))}
+              </div>
+            </>
+          )}
 
           {/* ── Bottom narrative bridge ── */}
           <div style={{
