@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>גולדברג ושות' | עורכי דין ונוטריון — תל אביב</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Heebo',sans-serif;background:#f4f0e6;color:#1a2a1a;direction:rtl}
+a{text-decoration:none;color:inherit}
+img{display:block;width:100%;height:100%;object-fit:cover}
+
+:root{
+  --parchment:#f4f0e6;
+  --ink:#1a2a1a;
+  --forest:#1d3a2f;
+  --bronze:#8b6f47;
+  --bronze-light:#c8a870;
+  --stone:#6b6358;
+  --border:#d8cfc0;
+  --white:#fff;
+}
+
+.fade-in{opacity:0;transform:translateY(18px);transition:opacity 0.7s ease,transform 0.7s ease}
+.fade-in.visible{opacity:1;transform:none}
+
+nav{position:sticky;top:0;z-index:200;background:var(--forest);border-bottom:1px solid rgba(200,168,112,0.2);padding:0 6%;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-logo{display:flex;align-items:center;gap:14px}
+.nav-logo-seal{width:36px;height:36px;border:1.5px solid rgba(200,168,112,0.5);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.nav-logo-seal svg{width:18px;height:18px;stroke:var(--bronze-light)}
+.nav-logo-text{display:flex;flex-direction:column;gap:1px}
+.nav-logo-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:#f4f0e6;letter-spacing:0.04em;line-height:1}
+.nav-logo-sub{font-size:0.58rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:rgba(200,168,112,0.7)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:0.82rem;color:rgba(244,240,230,0.55);font-weight:500;letter-spacing:0.04em;transition:color 0.2s}
+.nav-links a:hover{color:var(--bronze-light)}
+.nav-cta{background:transparent;color:var(--bronze-light);border:1px solid rgba(200,168,112,0.5);padding:8px 20px;font-size:0.8rem;font-weight:700;cursor:pointer;font-family:'Heebo',sans-serif;transition:all 0.2s;letter-spacing:0.04em}
+.nav-cta:hover{background:var(--bronze-light);color:var(--forest)}
+
+.hero{background:var(--forest);padding:96px 6% 80px;display:grid;grid-template-columns:1fr 400px;gap:88px;align-items:center;position:relative;overflow:hidden;min-height:600px}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 40%,rgba(139,111,71,0.1) 0%,transparent 65%);pointer-events:none}
+.hero::after{content:'';position:absolute;top:0;bottom:0;right:0;width:1px;background:linear-gradient(to bottom,transparent,rgba(200,168,112,0.3),transparent)}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--bronze-light);margin-bottom:28px;opacity:0.8}
+.hero-badge::before{content:'';width:20px;height:1px;background:var(--bronze-light)}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(4rem,7vw,7.5rem);font-weight:600;color:#f4f0e6;line-height:0.9;margin-bottom:28px;letter-spacing:-1px}
+.hero h1 em{font-style:italic;color:var(--bronze-light)}
+.hero-rule{width:64px;height:1px;background:rgba(139,111,71,0.5);margin-bottom:24px}
+.hero-sub{font-size:0.95rem;color:rgba(244,240,230,0.5);line-height:1.85;max-width:480px;margin-bottom:36px}
+.hero-actions{display:flex;gap:14px;align-items:center}
+.btn-bronze{background:var(--bronze);color:#f4f0e6;padding:12px 26px;font-size:0.85rem;font-weight:700;border:none;cursor:pointer;font-family:'Heebo',sans-serif;transition:background 0.2s;display:inline-block;letter-spacing:0.04em}
+.btn-bronze:hover{background:var(--bronze-light)}
+.btn-ghost{background:transparent;color:rgba(244,240,230,0.6);padding:11px 24px;font-size:0.85rem;font-weight:600;border:1px solid rgba(244,240,230,0.18);cursor:pointer;font-family:'Heebo',sans-serif;transition:all 0.2s;display:inline-block}
+.btn-ghost:hover{border-color:rgba(244,240,230,0.4);color:#f4f0e6}
+.hero-photo{position:relative}
+.hero-frame{height:460px;overflow:hidden;border:1px solid rgba(200,168,112,0.2);box-shadow:0 40px 100px rgba(0,0,0,0.4);transform:rotate(-1.5deg);transition:transform 0.4s}
+.hero-frame:hover{transform:rotate(0deg)}
+.hero-frame img{width:100%;height:100%;object-fit:cover;filter:sepia(10%)}
+.hero-year{position:absolute;bottom:-18px;left:-18px;background:var(--bronze);color:#f4f0e6;padding:14px 18px;font-size:0.78rem;font-weight:800;letter-spacing:0.08em;z-index:2}
+
+.stats-bar{background:var(--parchment);padding:36px 6%;display:flex;gap:0;border-bottom:1px solid var(--border)}
+.stat-col{flex:1;padding:0 32px;border-left:1px solid var(--border);text-align:center}
+.stat-col:first-child{border-left:none;padding-right:0}
+.stat-col:last-child{padding-left:0}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:600;color:var(--forest);line-height:1;display:block}
+.stat-l{font-size:0.72rem;color:var(--stone);letter-spacing:0.08em;margin-top:6px;display:block}
+
+.section{padding:80px 6%}
+.section-tag{display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--bronze);border-bottom:1px solid rgba(139,111,71,0.3);padding-bottom:5px;margin-bottom:16px}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.5rem);font-weight:600;color:var(--ink);line-height:1.15;margin-bottom:48px}
+.section-title em{font-style:italic;color:var(--forest)}
+
+.areas{background:var(--parchment)}
+.areas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border)}
+.area{padding:32px 28px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);position:relative;transition:background 0.2s;cursor:default;display:flex;gap:20px;align-items:flex-start}
+.area:nth-child(3n){border-right:none}
+.area:nth-last-child(-n+3){border-bottom:none}
+.area:hover{background:#fff}
+.area::before{content:'';position:absolute;right:0;top:0;bottom:0;width:2px;background:var(--forest);transform:scaleY(0);transition:transform 0.25s;transform-origin:bottom}
+.area:hover::before{transform:scaleY(1)}
+.area-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:rgba(29,58,47,0.12);line-height:1;flex-shrink:0;padding-top:2px}
+.area-content{}
+.area-title{font-size:0.95rem;font-weight:700;color:var(--ink);margin-bottom:8px}
+.area-desc{font-size:0.82rem;color:var(--stone);line-height:1.65}
+
+.team-section{background:#fff;padding:80px 6%;border-top:1px solid var(--border)}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:var(--border);border:1px solid var(--border);margin-top:0}
+.partner{background:#fff;overflow:hidden;transition:background 0.2s}
+.partner:hover{background:var(--parchment)}
+.partner-photo{height:320px;overflow:hidden}
+.partner-photo img{width:100%;height:100%;object-fit:cover;object-position:top;filter:grayscale(30%) sepia(10%);transition:filter 0.4s,transform 0.4s}
+.partner:hover .partner-photo img{filter:grayscale(0%) sepia(0%);transform:scale(1.03)}
+.partner-info{padding:28px 28px 32px;border-top:2px solid transparent;transition:border-color 0.2s}
+.partner:hover .partner-info{border-top-color:var(--bronze)}
+.partner-name{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--ink);margin-bottom:4px}
+.partner-title{font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--bronze);margin-bottom:14px}
+.partner-bio{font-size:0.82rem;color:var(--stone);line-height:1.65}
+.partner-edu{font-size:0.75rem;color:var(--bronze);margin-top:10px;font-weight:500}
+
+.awards-section{background:var(--forest);padding:56px 6%;display:flex;align-items:center;gap:80px}
+.awards-label{font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--bronze-light);white-space:nowrap;opacity:0.7}
+.awards-line{width:1px;height:40px;background:rgba(200,168,112,0.2);flex-shrink:0}
+.awards-list{display:flex;gap:48px;flex-wrap:wrap;align-items:center}
+.award-item{display:flex;flex-direction:column;gap:3px;text-align:center}
+.award-name{font-family:'Cormorant Garamond',serif;font-size:0.95rem;font-weight:600;color:rgba(244,240,230,0.8)}
+.award-year{font-size:0.62rem;letter-spacing:0.1em;color:var(--bronze-light);opacity:0.7}
+
+.testimonials-section{background:var(--parchment);padding:80px 6%;border-top:1px solid var(--border)}
+.testi-layout{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:28px;margin-top:48px}
+.testi-main{background:var(--forest);padding:40px;display:flex;flex-direction:column;gap:20px}
+.testi-main .mark{font-family:'Cormorant Garamond',serif;font-size:5rem;color:var(--bronze-light);opacity:0.4;line-height:0.5;display:block}
+.testi-main .quote{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;color:rgba(244,240,230,0.85);line-height:1.7}
+.testi-main .author{font-size:0.78rem;color:rgba(244,240,230,0.4);font-weight:600;letter-spacing:0.06em}
+.testi-card{padding:28px;border:1px solid var(--border);display:flex;flex-direction:column;gap:16px;transition:border-color 0.2s}
+.testi-card:hover{border-color:rgba(139,111,71,0.4)}
+.testi-card .quote{font-size:0.875rem;color:var(--stone);line-height:1.7;font-style:italic}
+.testi-card .author{font-size:0.78rem;font-weight:700;color:var(--ink)}
+.testi-card .matter{font-size:0.72rem;color:var(--bronze);margin-top:2px}
+
+.contact-section{padding:80px 6%;background:#fff;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;border-top:1px solid var(--border)}
+.contact-form{background:var(--forest);padding:44px}
+.contact-form h3{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:600;color:#f4f0e6;margin-bottom:8px}
+.contact-form .sub{font-size:0.85rem;color:rgba(244,240,230,0.4);margin-bottom:28px;line-height:1.65}
+.form-r{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:0.65rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(244,240,230,0.4);margin-bottom:8px}
+.fg input,.fg select,.fg textarea{width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);padding:11px 14px;color:#f4f0e6;font-family:'Heebo',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--bronze-light)}
+.fg input::placeholder{color:rgba(244,240,230,0.2)}
+.fg select option{background:var(--forest)}
+.fg textarea{resize:none;height:90px}
+.form-submit{width:100%;background:var(--bronze);color:#f4f0e6;border:none;padding:14px;font-family:'Heebo',sans-serif;font-size:0.9rem;font-weight:700;cursor:pointer;transition:background 0.2s;margin-top:4px;letter-spacing:0.04em}
+.form-submit:hover{background:var(--bronze-light)}
+.form-note{text-align:center;font-size:0.72rem;color:rgba(244,240,230,0.25);margin-top:10px}
+.contact-info h3{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:600;color:var(--ink);line-height:1.1;margin-bottom:18px}
+.contact-info p{font-size:0.9rem;color:var(--stone);line-height:1.85;margin-bottom:36px}
+.ci-list{display:flex;flex-direction:column;gap:20px}
+.ci{display:flex;gap:16px;align-items:flex-start}
+.ci-icon{width:40px;height:40px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ci-icon svg{width:16px;height:16px;stroke:var(--bronze)}
+.ci-label{font-size:0.62rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--bronze);margin-bottom:4px}
+.ci-val{font-size:0.875rem;color:var(--ink);line-height:1.5}
+.office-hours{margin-top:32px;background:var(--parchment);border:1px solid var(--border);padding:24px}
+.oh-title{font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--bronze);margin-bottom:14px}
+.oh-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:0.845rem}
+.oh-row:last-child{border-bottom:none}
+.oh-day{color:var(--stone)}
+.oh-time{color:var(--ink);font-weight:600}
+
+footer{background:#0f1f14;padding:52px 6% 28px}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:52px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,0.07)}
+.footer-seal{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.footer-seal-circle{width:44px;height:44px;border:1.5px solid rgba(200,168,112,0.35);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.footer-seal-circle svg{width:20px;height:20px;stroke:var(--bronze-light)}
+.footer-seal-text{display:flex;flex-direction:column;gap:2px}
+.footer-firm{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:#f4f0e6;line-height:1}
+.footer-firm-sub{font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(200,168,112,0.55)}
+.footer-desc{font-size:0.82rem;color:rgba(244,240,230,0.3);line-height:1.7;max-width:250px}
+.footer-col h4{font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#f4f0e6;margin-bottom:18px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col ul li a{font-size:0.845rem;color:rgba(244,240,230,0.3);transition:color 0.2s}
+.footer-col ul li a:hover{color:var(--bronze-light)}
+.footer-bottom{padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:0.75rem;color:rgba(244,240,230,0.2);flex-wrap:wrap;gap:8px}
+.footer-credit a{color:var(--bronze-light);font-weight:600}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-seal">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 2L3 7v10l9 5 9-5V7L12 2z"/></svg>
+    </div>
+    <div class="nav-logo-text">
+      <span class="nav-logo-name">גולדברג ושות'</span>
+      <span class="nav-logo-sub">עורכי דין ונוטריון</span>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#">תחומי עיסוק</a></li>
+    <li><a href="#">השותפים</a></li>
+    <li><a href="#">הצלחות</a></li>
+    <li><a href="#">אודות</a></li>
+    <li><a href="#">קשר</a></li>
+  </ul>
+  <button class="nav-cta" onclick="return false">פגישת ייעוץ</button>
+</nav>
+
+<section class="hero">
+  <div class="fade-in">
+    <div class="hero-badge">תל אביב · מאז 1994</div>
+    <h1>צדק.<br><em>ניסיון.</em><br>תוצאות.</h1>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">שלושה עשורים של ייצוג לקוחות בסוגיות מורכבות — ממשפחה ועד נדל"ן, מדיני עבודה ועד ליטיגציה מסחרית. הצוות שלנו מכיר את החוק לעומק ויודע מה לעשות איתו.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-bronze" onclick="return false">פגישת ייעוץ ראשונה</a>
+      <a href="#areas" class="btn-ghost" onclick="return false">תחומי עיסוק</a>
+    </div>
+  </div>
+  <div class="hero-photo fade-in">
+    <div class="hero-frame">
+      <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=700&q=80&auto=format&fit=crop" alt="משרד עורכי דין">
+    </div>
+    <div class="hero-year">EST. 1994</div>
+  </div>
+</section>
+
+<div class="stats-bar fade-in">
+  <div class="stat-col"><span class="stat-n">30+</span><span class="stat-l">שנות פעילות</span></div>
+  <div class="stat-col"><span class="stat-n">1,800+</span><span class="stat-l">תיקים טופלו</span></div>
+  <div class="stat-col"><span class="stat-n">94%</span><span class="stat-l">שיעור הצלחה</span></div>
+  <div class="stat-col"><span class="stat-n">12</span><span class="stat-l">עורכי דין בצוות</span></div>
+</div>
+
+<section class="section areas" id="areas">
+  <div class="fade-in">
+    <div class="section-tag">תחומי עיסוק</div>
+    <h2 class="section-title">מומחיות <em>רחבה</em>, עומק <em>מקצועי</em></h2>
+  </div>
+  <div class="areas-grid">
+    <div class="area fade-in">
+      <span class="area-num">01</span>
+      <div class="area-content">
+        <div class="area-title">דיני משפחה וירושה</div>
+        <div class="area-desc">גירושים, הסכמי ממון, אפוטרופסות, ירושות וצוואות. ליווי אנושי ומקצועי בתקופות רגישות.</div>
+      </div>
+    </div>
+    <div class="area fade-in">
+      <span class="area-num">02</span>
+      <div class="area-content">
+        <div class="area-title">נדל"ן ועסקאות מקרקעין</div>
+        <div class="area-desc">רכישה ומכירה, עסקאות קומבינציה, תמ"א 38, ייצוג ועדות ובוררויות.</div>
+      </div>
+    </div>
+    <div class="area fade-in">
+      <span class="area-num">03</span>
+      <div class="area-content">
+        <div class="area-title">דיני עבודה</div>
+        <div class="area-desc">ייצוג עובדים ומעסיקים בסכסוכי עבודה, פיטורים שלא כדין, הסכמים קיבוציים.</div>
+      </div>
+    </div>
+    <div class="area fade-in">
+      <span class="area-num">04</span>
+      <div class="area-content">
+        <div class="area-title">ליטיגציה מסחרית</div>
+        <div class="area-desc">ייצוג בבתי משפט וביטולי חוזים, הפרת אמון, תחרות בלתי הוגנת, ערעורים.</div>
+      </div>
+    </div>
+    <div class="area fade-in">
+      <span class="area-num">05</span>
+      <div class="area-content">
+        <div class="area-title">דיני חברות ועסקים</div>
+        <div class="area-desc">הקמת חברות ושותפויות, הסכמי מייסדים, M&A, חוזי הפצה ולייסנסינג.</div>
+      </div>
+    </div>
+    <div class="area fade-in">
+      <span class="area-num">06</span>
+      <div class="area-content">
+        <div class="area-title">נוטריון</div>
+        <div class="area-desc">אישור מסמכים לחו"ל, יפויי כוח נוטריוניים, תרגומים מאושרים, אמנת האג.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="team-section" id="team">
+  <div class="section-tag fade-in">השותפים</div>
+  <h2 class="section-title fade-in">שלושה עשורים<br><em>של מומחיות</em></h2>
+  <div class="team-grid">
+    <div class="partner fade-in">
+      <div class="partner-photo">
+        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80&auto=format&fit=crop&crop=faces" alt="עו&quot;ד דוד גולדברג">
+      </div>
+      <div class="partner-info">
+        <div class="partner-name">עו"ד דוד גולדברג</div>
+        <div class="partner-title">שותף מייסד | ליטיגציה מסחרית</div>
+        <div class="partner-bio">בוגר הפקולטה למשפטים בת"א, דוקטורט מ-LSE לונדון. מוביל תיקים מסחריים מורכבים זה 30 שנה. לשעבר סגן נשיא לשכת עורכי הדין.</div>
+        <div class="partner-edu">LL.B. TAU · LL.D. London School of Economics</div>
+      </div>
+    </div>
+    <div class="partner fade-in">
+      <div class="partner-photo">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80&auto=format&fit=crop&crop=faces" alt="עו&quot;ד רחל שטרן">
+      </div>
+      <div class="partner-info">
+        <div class="partner-name">עו"ד רחל שטרן</div>
+        <div class="partner-title">שותפה | דיני משפחה וירושה</div>
+        <div class="partner-bio">מומחית בדיני משפחה עם 22 שנות ניסיון. טיפלה בתיקי ירושה ומשפחה מורכבים בבית המשפט לענייני משפחה ובבית המשפט העליון.</div>
+        <div class="partner-edu">LL.B. Hebrew University · Mediator Certified</div>
+      </div>
+    </div>
+    <div class="partner fade-in">
+      <div class="partner-photo">
+        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&q=80&auto=format&fit=crop&crop=faces" alt="עו&quot;ד יותם כהן">
+      </div>
+      <div class="partner-info">
+        <div class="partner-name">עו"ד יותם כהן</div>
+        <div class="partner-title">שותף | נדל"ן ועסקים</div>
+        <div class="partner-bio">מומחה בדיני נדל"ן ועסקאות מורכבות. מלווה יזמים ומשקיעים בעסקאות קומבינציה, תמ"א 38 ורכישות קבוצתיות.</div>
+        <div class="partner-edu">LL.B. Bar-Ilan University · Notary Certified</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="awards-section fade-in">
+  <div class="awards-label">הוכרו על ידי</div>
+  <div class="awards-line"></div>
+  <div class="awards-list">
+    <div class="award-item"><div class="award-name">BDI משרד השנה</div><div class="award-year">2023, 2021, 2019</div></div>
+    <div class="award-item"><div class="award-name">Legal 500 Israel</div><div class="award-year">מדורג מאז 2016</div></div>
+    <div class="award-item"><div class="award-name">The Marker</div><div class="award-year">עורכי דין מובילים 2024</div></div>
+    <div class="award-item"><div class="award-name">Chambers & Partners</div><div class="award-year">Band 2 — Israel</div></div>
+  </div>
+</div>
+
+<section class="testimonials-section fade-in">
+  <div class="section-tag">לקוחות מספרים</div>
+  <h2 class="section-title">אמון <em>שנבנה</em> לאורך שנים</h2>
+  <div class="testi-layout">
+    <div class="testi-main">
+      <span class="mark">"</span>
+      <div class="quote">ב-30 שנה שאני מכיר את משרד גולדברג, עברתי איתם שלוש עסקאות נדל"ן גדולות, ירושה מורכבת ומחלוקת עסקית שנראתה אבודה. בכל פעם — מקצועיות ברמה שמעל הציפיות וזמינות שאין בשום מקום אחר.</div>
+      <div class="author">משה ב. — לקוח משנת 1997</div>
+    </div>
+    <div class="testi-card fade-in">
+      <div class="quote">עו"ד שטרן ניהלה את תיק הגירושים שלי בחוכמה ובאנושיות. הגענו להסכם מחוץ לבית המשפט תוך 4 חודשים — נחסך לנו עוגמת נפש רבה.</div>
+      <div class="author">ש. פ.</div>
+      <div class="matter">דיני משפחה</div>
+    </div>
+    <div class="testi-card fade-in">
+      <div class="quote">יותם ליווה עסקת תמ"א מורכבת עם 12 דיירים. תהליך מסובך שניהל ביד יציבה ובמקצועיות יוצאת דופן. ממליץ בחום לכל יזם.</div>
+      <div class="author">ר. ל.</div>
+      <div class="matter">נדל"ן — תמ"א 38</div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="contact-form fade-in">
+    <h3>פגישת ייעוץ</h3>
+    <p class="sub">שלחו פרטים ואחד מהשותפים יחזור אליכם תוך יום עסקים אחד.</p>
+    <div class="form-r">
+      <div class="fg"><label>שם פרטי</label><input type="text" placeholder="ישראל"></div>
+      <div class="fg"><label>שם משפחה</label><input type="text" placeholder="ישראלי"></div>
+    </div>
+    <div class="form-r">
+      <div class="fg"><label>טלפון</label><input type="tel" placeholder="050-0000000" dir="ltr"></div>
+      <div class="fg"><label>דוא"ל</label><input type="email" placeholder="name@email.com" dir="ltr"></div>
+    </div>
+    <div class="fg"><label>תחום הפנייה</label><select><option>בחרו תחום...</option><option>דיני משפחה וירושה</option><option>נדל"ן ומקרקעין</option><option>דיני עבודה</option><option>ליטיגציה מסחרית</option><option>דיני חברות</option><option>נוטריון</option></select></div>
+    <div class="fg"><label>תיאור קצר</label><textarea placeholder="תארו בקצרה את הנושא שבו אתם זקוקים לעזרה..."></textarea></div>
+    <button class="form-submit" onclick="return false">שלחו פנייה</button>
+    <p class="form-note">פגישת הייעוץ הראשונה ללא עלות · פרטיות מלאה</p>
+  </div>
+  <div class="contact-info fade-in">
+    <h3>פנו אלינו. נשמח לעזור.</h3>
+    <p>30 שנות ניסיון, שקיפות מלאה וזמינות שאינה מובנת מאליה — זהו הסטנדרט שלנו לכל לקוח.</p>
+    <div class="ci-list">
+      <div class="ci"><div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="ci-label">כתובת</div><div class="ci-val">מנחם בגין 154, תל אביב<br>מגדל ב.ס.ר, קומה 26</div></div></div>
+      <div class="ci"><div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.03 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div><div><div class="ci-label">טלפון</div><div class="ci-val" dir="ltr">03-555-6677</div></div></div>
+      <div class="ci"><div class="ci-icon"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="ci-label">דוא"ל</div><div class="ci-val" dir="ltr">info@goldberg-law.co.il</div></div></div>
+    </div>
+    <div class="office-hours">
+      <div class="oh-title">שעות פעילות</div>
+      <div class="oh-row"><span class="oh-day">ראשון – חמישי</span><span class="oh-time">08:30 – 18:30</span></div>
+      <div class="oh-row"><span class="oh-day">שישי</span><span class="oh-time">09:00 – 13:00</span></div>
+      <div class="oh-row"><span class="oh-day">שבת</span><span class="oh-time">סגור</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-seal">
+        <div class="footer-seal-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 2L3 7v10l9 5 9-5V7L12 2z"/></svg></div>
+        <div class="footer-seal-text"><span class="footer-firm">גולדברג ושות'</span><span class="footer-firm-sub">עורכי דין ונוטריון</span></div>
+      </div>
+      <p class="footer-desc">שלושה עשורים של מקצועיות, אמינות וזמינות. תל אביב, מאז 1994.</p>
+    </div>
+    <div class="footer-col"><h4>תחומי עיסוק</h4><ul><li><a href="#">דיני משפחה</a></li><li><a href="#">נדל"ן</a></li><li><a href="#">דיני עבודה</a></li><li><a href="#">ליטיגציה</a></li><li><a href="#">נוטריון</a></li></ul></div>
+    <div class="footer-col"><h4>המשרד</h4><ul><li><a href="#">השותפים</a></li><li><a href="#">הצוות</a></li><li><a href="#">הצלחות בולטות</a></li><li><a href="#">כתבות ופרסומים</a></li></ul></div>
+    <div class="footer-col"><h4>צרו קשר</h4><ul><li><a href="#">פגישת ייעוץ</a></li><li><a href="#">כתובת ומפה</a></li><li><a href="#">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 גולדברג ושות', עורכי דין. כל הזכויות שמורות. ח.פ. 123456789</span>
+    <span class="footer-credit">נבנה על ידי <a href="https://liorvelikin.github.io/velo-website/" target="_blank">VELO DIGITAL</a></span>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  nav.style.boxShadow = window.scrollY > 10 ? '0 2px 24px rgba(0,0,0,0.3)' : 'none';
+});
+document.querySelectorAll('a[href="#"],a[href^="#"]').forEach(a => a.addEventListener('click', e => e.preventDefault()));
+</script>
+</body>
+</html>

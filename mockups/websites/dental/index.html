@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VisualDent | מרפאת שיניים פרטית — תל אביב</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Heebo',sans-serif;background:#f8f5f0;color:#1b2834;direction:rtl}
+a{text-decoration:none;color:inherit}
+img{display:block;width:100%;height:100%;object-fit:cover}
+
+:root{
+  --bg:#f8f5f0;
+  --white:#ffffff;
+  --dark:#1b2834;
+  --copper:#b87d4b;
+  --copper-pale:#f0e5d8;
+  --gray:#6b7d8a;
+  --border:#e2d9cf;
+  --dark2:#2c3e50;
+}
+
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity 0.7s ease,transform 0.7s ease}
+.fade-in.visible{opacity:1;transform:none}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:72px;transition:box-shadow 0.3s}
+nav.scrolled{box-shadow:0 2px 24px rgba(27,40,52,0.08)}
+.nav-logo{display:flex;flex-direction:column;gap:2px}
+.nav-logo-name{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700;color:var(--dark);letter-spacing:-0.3px;line-height:1}
+.nav-logo-sub{font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--copper)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:0.875rem;color:var(--gray);font-weight:500;transition:color 0.2s}
+.nav-links a:hover{color:var(--dark)}
+.nav-actions{display:flex;align-items:center;gap:16px}
+.nav-phone{font-size:0.85rem;color:var(--gray);font-weight:500;direction:ltr}
+.nav-cta{background:var(--dark);color:var(--bg);padding:10px 22px;border-radius:3px;font-size:0.85rem;font-weight:700;cursor:pointer;border:none;font-family:'Heebo',sans-serif;transition:background 0.2s;white-space:nowrap}
+.nav-cta:hover{background:var(--copper)}
+
+/* HERO */
+.hero{display:grid;grid-template-columns:52% 48%;min-height:calc(100vh - 72px)}
+.hero-content{display:flex;flex-direction:column;justify-content:center;padding:72px 6% 72px 5%}
+.hero-eyebrow{font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--copper);margin-bottom:22px;display:flex;align-items:center;gap:12px}
+.hero-eyebrow::after{content:'';flex:0 0 36px;height:1px;background:var(--copper);opacity:0.6}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,4.8vw,5rem);font-weight:900;line-height:1.05;color:var(--dark);margin-bottom:24px;letter-spacing:-1px}
+.hero h1 em{font-style:italic;color:var(--copper)}
+.hero-sub{font-size:1rem;color:var(--gray);line-height:1.8;max-width:420px;margin-bottom:36px}
+.hero-actions{display:flex;gap:14px;align-items:center;margin-bottom:52px;flex-wrap:wrap}
+.btn-primary{background:var(--dark);color:var(--bg);padding:13px 26px;border-radius:3px;font-size:0.9rem;font-weight:700;border:none;cursor:pointer;font-family:'Heebo',sans-serif;transition:background 0.25s;display:inline-block}
+.btn-primary:hover{background:var(--copper)}
+.btn-secondary{background:transparent;color:var(--dark);padding:12px 24px;border-radius:3px;font-size:0.9rem;font-weight:600;border:1.5px solid var(--border);cursor:pointer;font-family:'Heebo',sans-serif;transition:all 0.25s;display:inline-block}
+.btn-secondary:hover{border-color:var(--dark);background:var(--dark);color:var(--bg)}
+.hero-stats{display:flex;gap:36px;padding-top:36px;border-top:1px solid var(--border)}
+.hero-stat strong{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--dark);display:block;line-height:1}
+.hero-stat span{font-size:0.78rem;color:var(--gray);font-weight:500;margin-top:4px;display:block}
+
+.hero-visual{position:relative;overflow:hidden}
+.hero-visual img{width:100%;height:100%;object-fit:cover;min-height:560px}
+.hero-visual::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--bg) 0%,transparent 10%)}
+.hero-badge{position:absolute;bottom:32px;right:32px;background:var(--white);padding:18px 22px;border-radius:3px;box-shadow:0 8px 32px rgba(27,40,52,0.12)}
+.hero-badge-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--copper);line-height:1}
+.hero-badge-text{font-size:0.75rem;color:var(--gray);margin-top:4px;font-weight:500}
+
+/* SERVICES */
+.services{padding:88px 5%;background:var(--white);border-top:1px solid var(--border)}
+.section-header{margin-bottom:52px}
+.section-eyebrow{font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--copper);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.section-eyebrow::before{content:'';width:24px;height:1px;background:var(--copper)}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.2vw,3rem);font-weight:700;color:var(--dark);line-height:1.15}
+.section-title em{font-style:italic;color:var(--copper)}
+
+.services-list{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border)}
+.service-row{padding:32px;border-bottom:1px solid var(--border);border-left:1px solid var(--border);display:grid;grid-template-columns:44px 1fr auto;gap:20px;align-items:start;transition:background 0.2s;cursor:default}
+.service-row:nth-child(even){border-left:none}
+.service-row:nth-last-child(-n+2){border-bottom:none}
+.service-row:hover{background:var(--bg)}
+.service-number{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--copper-pale);line-height:1;padding-top:3px}
+.service-text{}
+.service-name{font-size:0.98rem;font-weight:700;color:var(--dark);margin-bottom:7px}
+.service-desc{font-size:0.845rem;color:var(--gray);line-height:1.65}
+.service-meta{text-align:left;padding-top:4px}
+.service-price{font-size:0.8rem;color:var(--copper);font-weight:700;white-space:nowrap}
+.service-duration{font-size:0.72rem;color:var(--gray);margin-top:3px;white-space:nowrap}
+
+/* DARK BAND */
+.dark-band{background:var(--dark);padding:80px 5%;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.dark-band-content{}
+.dark-band-eyebrow{font-size:0.7rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(184,125,75,0.8);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.dark-band-eyebrow::before{content:'';width:24px;height:1px;background:var(--copper)}
+.dark-band h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,3.2rem);font-weight:700;color:#f8f5f0;line-height:1.15;margin-bottom:20px}
+.dark-band h2 em{font-style:italic;color:var(--copper)}
+.dark-band-desc{font-size:0.95rem;color:rgba(248,245,240,0.55);line-height:1.8;margin-bottom:32px}
+.tech-list{list-style:none;display:flex;flex-direction:column;gap:16px}
+.tech-list li{display:flex;align-items:start;gap:14px;font-size:0.9rem;color:rgba(248,245,240,0.75);line-height:1.5}
+.tech-list li svg{flex-shrink:0;margin-top:2px}
+.tech-check{color:var(--copper)}
+.dark-band-visual{position:relative;height:440px;border-radius:2px;overflow:hidden}
+.dark-band-visual img{width:100%;height:100%;object-fit:cover}
+.dark-band-visual::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(27,40,52,0.7) 0%,transparent 50%);z-index:1}
+.dark-band-caption{position:absolute;bottom:24px;right:24px;left:24px;z-index:2}
+.dark-band-caption strong{display:block;font-family:'Playfair Display',serif;font-size:1.1rem;color:#f8f5f0;margin-bottom:3px}
+.dark-band-caption span{font-size:0.78rem;color:rgba(248,245,240,0.6)}
+
+/* TEAM */
+.team{padding:88px 5%;background:var(--bg);border-top:1px solid var(--border)}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:52px}
+.team-card{background:var(--bg);overflow:hidden;transition:background 0.25s}
+.team-card:hover{background:var(--white)}
+.team-photo{height:300px;overflow:hidden;position:relative}
+.team-photo img{width:100%;height:100%;object-fit:cover;object-position:top;filter:saturate(0.85);transition:filter 0.4s,transform 0.4s}
+.team-card:hover .team-photo img{filter:saturate(1);transform:scale(1.03)}
+.team-info{padding:28px 28px 32px}
+.team-name{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--dark);margin-bottom:5px}
+.team-title{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--copper);margin-bottom:14px}
+.team-bio{font-size:0.845rem;color:var(--gray);line-height:1.65}
+
+/* REVIEWS */
+.reviews{padding:88px 5%;background:var(--white);border-top:1px solid var(--border)}
+.reviews-layout{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:28px;margin-top:52px}
+.review-featured{padding:40px;background:var(--dark);display:flex;flex-direction:column;gap:20px}
+.review-featured .quote-icon{font-family:'Playfair Display',serif;font-size:6rem;line-height:0.5;color:var(--copper);opacity:0.5;display:block}
+.review-featured .quote{font-family:'Playfair Display',serif;font-size:1.1rem;font-style:italic;color:rgba(248,245,240,0.9);line-height:1.7}
+.review-featured .author{font-size:0.8rem;color:rgba(248,245,240,0.45);font-weight:600;letter-spacing:0.06em;margin-top:4px}
+.review-card{padding:28px;border:1px solid var(--border);display:flex;flex-direction:column;gap:16px;transition:border-color 0.25s}
+.review-card:hover{border-color:rgba(184,125,75,0.4)}
+.review-stars{display:flex;gap:4px}
+.review-stars svg{width:13px;height:13px;fill:var(--copper)}
+.review-text{font-size:0.875rem;color:var(--dark);line-height:1.65}
+.review-author{font-size:0.78rem;color:var(--gray);font-weight:600}
+.review-treatment{font-size:0.72rem;color:var(--copper);font-weight:500;margin-top:2px}
+
+/* BOOKING */
+.booking{padding:88px 5%;background:var(--bg);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;border-top:1px solid var(--border)}
+.booking-form-wrap{background:var(--white);border:1px solid var(--border);padding:44px}
+.booking-form-wrap h3{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;color:var(--dark);margin-bottom:8px}
+.booking-form-wrap .form-sub{font-size:0.88rem;color:var(--gray);line-height:1.6;margin-bottom:32px}
+.form-two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--dark);margin-bottom:8px}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:var(--bg);border:1px solid var(--border);padding:11px 14px;color:var(--dark);font-family:'Heebo',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s;border-radius:2px}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--dark)}
+.form-group input::placeholder{color:#c0b8b0}
+.form-group textarea{resize:none;height:88px}
+.form-group select option{background:var(--white)}
+.form-submit{width:100%;background:var(--dark);color:var(--bg);border:none;padding:14px;font-family:'Heebo',sans-serif;font-size:0.95rem;font-weight:700;cursor:pointer;transition:background 0.25s;border-radius:2px;margin-top:4px}
+.form-submit:hover{background:var(--copper)}
+.form-note{text-align:center;font-size:0.72rem;color:var(--gray);margin-top:10px}
+.booking-details h3{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--dark);line-height:1.15;margin-bottom:18px}
+.booking-details p{font-size:0.95rem;color:var(--gray);line-height:1.8;margin-bottom:36px}
+.contact-list{display:flex;flex-direction:column;gap:20px}
+.contact-row{display:flex;gap:16px;align-items:flex-start}
+.contact-icon-box{width:42px;height:42px;border:1px solid var(--border);background:var(--white);display:flex;align-items:center;justify-content:center;flex-shrink:0;border-radius:2px}
+.contact-icon-box svg{width:18px;height:18px;stroke:var(--copper)}
+.contact-label{font-size:0.68rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gray);margin-bottom:4px}
+.contact-val{font-size:0.9rem;color:var(--dark);line-height:1.5}
+.hours-box{margin-top:32px;background:var(--white);border:1px solid var(--border);padding:24px}
+.hours-box-title{font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--copper);margin-bottom:16px}
+.hours-row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border);font-size:0.875rem}
+.hours-row:last-child{border-bottom:none}
+.hours-row .day{color:var(--gray);font-weight:500}
+.hours-row .time{color:var(--dark);font-weight:600}
+.hours-row .closed{color:var(--gray)}
+
+/* FOOTER */
+footer{background:var(--dark);padding:52px 5% 28px}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:64px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,0.08)}
+.footer-brand-name{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:#f8f5f0;margin-bottom:6px}
+.footer-brand-sub{font-size:0.68rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--copper);margin-bottom:18px}
+.footer-desc{font-size:0.845rem;color:rgba(248,245,240,0.45);line-height:1.7;max-width:280px}
+.footer-col h4{font-size:0.68rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#f8f5f0;margin-bottom:20px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-col ul li a{font-size:0.875rem;color:rgba(248,245,240,0.45);transition:color 0.2s}
+.footer-col ul li a:hover{color:var(--copper)}
+.footer-bottom{padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;color:rgba(248,245,240,0.35);flex-wrap:wrap;gap:8px}
+.footer-credit a{color:var(--copper);font-weight:600}
+.footer-credit a:hover{color:#d4976a}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <span class="nav-logo-name">VisualDent</span>
+    <span class="nav-logo-sub">מרפאה פרטית · תל אביב</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#">טיפולים</a></li>
+    <li><a href="#">הצוות</a></li>
+    <li><a href="#">טכנולוגיה</a></li>
+    <li><a href="#">מחירון</a></li>
+    <li><a href="#">יצירת קשר</a></li>
+  </ul>
+  <div class="nav-actions">
+    <span class="nav-phone" dir="ltr">03-777-8899</span>
+    <button class="nav-cta" onclick="return false">קביעת תור</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content fade-in">
+    <div class="hero-eyebrow">מרפאה פרטית — הצפון הישן, תל אביב</div>
+    <h1>רפואת שיניים<br>ב<em>רמה</em> שלא<br>הכרתם.</h1>
+    <p class="hero-sub">מהלבנה ועד שתלים, מ-Invisalign ועד Smile Makeover מלא — הצוות שלנו מביא ניסיון בין-לאומי לפתחכם. בלי תורים ממתינים, בלי פשרות.</p>
+    <div class="hero-actions">
+      <a href="#booking" class="btn-primary" onclick="return false">קביעת תור ראשוני</a>
+      <a href="#treatments" class="btn-secondary" onclick="return false">הטיפולים שלנו</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>17+</strong><span>שנות ניסיון</span></div>
+      <div class="hero-stat"><strong>4,200+</strong><span>מטופלים</span></div>
+      <div class="hero-stat"><strong>98%</strong><span>שביעות רצון</span></div>
+      <div class="hero-stat"><strong>6</strong><span>מומחים</span></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=900&q=80&auto=format&fit=crop" alt="מרפאת VisualDent">
+    <div class="hero-badge">
+      <div class="hero-badge-num">★ 4.9</div>
+      <div class="hero-badge-text">180+ ביקורות גוגל</div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="treatments">
+  <div class="section-header fade-in">
+    <div class="section-eyebrow">הטיפולים שלנו</div>
+    <h2 class="section-title">פתרון לכל <em>צורך דנטלי</em></h2>
+  </div>
+  <div class="services-list">
+    <div class="service-row fade-in">
+      <span class="service-number">01</span>
+      <div class="service-text">
+        <div class="service-name">ייפוי חיוך — Smile Makeover</div>
+        <div class="service-desc">תוכנית אישית הכוללת ציפויים, הלבנה ותיקון צורה. תכנון ממוחשב מלא לפני הטיפול — תראו את התוצאה לפני שמתחילים.</div>
+      </div>
+      <div class="service-meta">
+        <div class="service-price">החל מ-₪4,800</div>
+        <div class="service-duration">2–4 פגישות</div>
+      </div>
+    </div>
+    <div class="service-row fade-in">
+      <span class="service-number">02</span>
+      <div class="service-text">
+        <div class="service-name">שתלי שיניים</div>
+        <div class="service-desc">שתלים מטיטניום עם כתרים מחרסינה — פתרון קבוע ואסתטי לשיניים חסרות. שיעור הצלחה של 99.1% ב-1,200+ שתלים שביצענו.</div>
+      </div>
+      <div class="service-meta">
+        <div class="service-price">₪3,200 לשתל</div>
+        <div class="service-duration">3–6 חודשים</div>
+      </div>
+    </div>
+    <div class="service-row fade-in">
+      <span class="service-number">03</span>
+      <div class="service-text">
+        <div class="service-name">Invisalign — יישור שקוף</div>
+        <div class="service-desc">מתקני יישור שקופים ונשלפים. Certified Diamond Provider עם מעקב דיגיטלי שוטף. מתאים לכל גיל.</div>
+      </div>
+      <div class="service-meta">
+        <div class="service-price">החל מ-₪8,500</div>
+        <div class="service-duration">10–18 חודשים</div>
+      </div>
+    </div>
+    <div class="service-row fade-in">
+      <span class="service-number">04</span>
+      <div class="service-text">
+        <div class="service-name">ציפויי חרסינה — Veneers</div>
+        <div class="service-desc">ציפויים אולטרה-דקים שמשנים צבע, צורה ומיקום. עבודת יד של מעבדת שיניים בוטיק — תוצאות טבעיות לחלוטין.</div>
+      </div>
+      <div class="service-meta">
+        <div class="service-price">₪1,200–₪1,800/שן</div>
+        <div class="service-duration">2 פגישות</div>
+      </div>
+    </div>
+    <div class="service-row fade-in">
+      <span class="service-number">05</span>
+      <div class="service-text">
+        <div class="service-name">הלבנת שיניים מקצועית</div>
+        <div class="service-desc">הלבנה בטכנולוגיית לייזר וג'ל מתקדם — עד 8 גוונים בהירים יותר בטיפול אחד. בטוח לאמייל, מתאים לרגישות.</div>
+      </div>
+      <div class="service-meta">
+        <div class="service-price">₪980</div>
+        <div class="service-duration">שעה וחצי</div>
+      </div>
+    </div>
+    <div class="service-row fade-in">
+      <span class="service-number">06</span>
+      <div class="service-text">
+        <div class="service-name">טיפולי שורש — אנדודונטיה</div>
+        <div class="service-desc">טיפולי שורש מתקדמים בהרדמה מלאה, ללא כאב, עם מיקרוסקופ דנטלי. שמירה על השן הטבעית לשנים רבות.</div>
+      </div>
+      <div class="service-meta">
+        <div class="service-price">החל מ-₪1,600</div>
+        <div class="service-duration">1–2 פגישות</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark-band fade-in">
+  <div class="dark-band-content">
+    <div class="dark-band-eyebrow">הטכנולוגיה שלנו</div>
+    <h2>מרפאה של <em>העתיד</em>,<br>כאן, היום.</h2>
+    <p class="dark-band-desc">השקענו בציוד הרפואי המתקדם ביותר — כי תוצאות טובות מתחילות בכלים הנכונים. כל מכשיר נבחר אחרי מחקר מעמיק.</p>
+    <ul class="tech-list">
+      <li>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b87d4b" stroke-width="2" class="tech-check"><polyline points="20 6 9 17 4 12"/></svg>
+        סריקת CBCT תלת-ממדית — אבחון מדויק ללא ניחושים
+      </li>
+      <li>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b87d4b" stroke-width="2" class="tech-check"><polyline points="20 6 9 17 4 12"/></svg>
+        סימולציית חיוך דיגיטלית לפני כל טיפול אסתטי
+      </li>
+      <li>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b87d4b" stroke-width="2" class="tech-check"><polyline points="20 6 9 17 4 12"/></svg>
+        טכנולוגיית CEREC — כתר מלא ביום אחד
+      </li>
+      <li>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b87d4b" stroke-width="2" class="tech-check"><polyline points="20 6 9 17 4 12"/></svg>
+        לייזר Waterlase לטיפולי חניכיים ורקמה רכה
+      </li>
+      <li>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b87d4b" stroke-width="2" class="tech-check"><polyline points="20 6 9 17 4 12"/></svg>
+        מיקרוסקופ דנטלי Carl Zeiss לטיפולי שורש
+      </li>
+    </ul>
+  </div>
+  <div class="dark-band-visual">
+    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80&auto=format&fit=crop" alt="ציוד דנטלי מתקדם">
+    <div class="dark-band-caption">
+      <strong>CBCT Scan — Planmeca ProMax</strong>
+      <span>הדמיה תלת-ממדית ברזולוציה של 0.1mm</span>
+    </div>
+  </div>
+</section>
+
+<section class="team" id="team">
+  <div class="section-header fade-in">
+    <div class="section-eyebrow">הצוות שלנו</div>
+    <h2 class="section-title">הרופאים שלנו —<br><em>המיטב של המקצוע</em></h2>
+  </div>
+  <div class="team-grid">
+    <div class="team-card fade-in">
+      <div class="team-photo">
+        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80&auto=format&fit=crop&crop=faces" alt="ד&quot;ר מיה כהן">
+      </div>
+      <div class="team-info">
+        <div class="team-name">ד"ר מיה כהן</div>
+        <div class="team-title">מנהלת המרפאה | אסתטיקה דנטלית</div>
+        <div class="team-bio">בוגרת הדסה, התמחות בפריז ובלונדון. 16 שנות ניסיון בטיפולי ייפוי חיוך. מרצה בכנסי ISID ופרסום בכתבי עת מקצועיים.</div>
+      </div>
+    </div>
+    <div class="team-card fade-in">
+      <div class="team-photo">
+        <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=600&q=80&auto=format&fit=crop&crop=faces" alt="ד&quot;ר אמיר לוי">
+      </div>
+      <div class="team-info">
+        <div class="team-name">ד"ר אמיר לוי</div>
+        <div class="team-title">מומחה שתלים | כירורגיה פה ולסת</div>
+        <div class="team-bio">בוגר NYU College of Dentistry. ביצע מעל 1,200 שתלים עם שיעור הצלחה של 99.1%. מומחה בשתלים מייידיים ובניית עצם.</div>
+      </div>
+    </div>
+    <div class="team-card fade-in">
+      <div class="team-photo">
+        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80&auto=format&fit=crop&crop=faces" alt="ד&quot;ר נועה שמיר">
+      </div>
+      <div class="team-info">
+        <div class="team-name">ד"ר נועה שמיר</div>
+        <div class="team-title">אורתודונטיה | Invisalign Diamond Provider</div>
+        <div class="team-bio">מומחית יישור עם תואר שני מאוניברסיטת ת"א. Certified Invisalign Diamond Provider. מטפלת בכל הגילאים עם תוצאות מוכחות.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews fade-in">
+  <div class="section-header">
+    <div class="section-eyebrow">חוות דעת מטופלים</div>
+    <h2 class="section-title">מה אומרים <em>אלה שכבר טופלו</em></h2>
+  </div>
+  <div class="reviews-layout">
+    <div class="review-featured">
+      <span class="quote-icon">"</span>
+      <div class="quote">אחרי שנים שחששתי מטיפולי שיניים, הגעתי ל-VisualDent בהמלצה. מהרגע הראשון הרגשתי שזה מקום שונה לגמרי. הצוות סבלני, הטיפול ללא כאב, והתוצאות — פשוט מדהימות. חיוך שאני גאה להציג.</div>
+      <div class="author">רותם א. — Smile Makeover מלא</div>
+    </div>
+    <div class="review-card fade-in">
+      <div class="review-stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <div class="review-text">ד"ר לוי הסביר הכל בסבלנות לפני השתל. ההליך היה נוח מהצפוי והתוצאה — אי אפשר להבדיל מהשן האמיתית.</div>
+      <div class="review-author">דני מ.</div>
+      <div class="review-treatment">שתל שיניים</div>
+    </div>
+    <div class="review-card fade-in">
+      <div class="review-stars">
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
+      <div class="review-text">Invisalign עם ד"ר שמיר היה חוויה מדהימה. 14 חודשים, מעקב צמוד, ותוצאה ישרה לחלוטין. שווה כל שקל.</div>
+      <div class="review-author">שירה ב.</div>
+      <div class="review-treatment">Invisalign Full</div>
+    </div>
+  </div>
+</section>
+
+<section class="booking" id="booking">
+  <div class="booking-form-wrap fade-in">
+    <h3>קביעת תור</h3>
+    <p class="form-sub">מלאו את הפרטים ונחזור אליכם תוך שעה בשעות הפעילות. ללא עלות לפגישת הייעוץ הראשונה.</p>
+    <div class="form-two">
+      <div class="form-group"><label>שם פרטי</label><input type="text" placeholder="ישראל"></div>
+      <div class="form-group"><label>שם משפחה</label><input type="text" placeholder="ישראלי"></div>
+    </div>
+    <div class="form-two">
+      <div class="form-group"><label>טלפון</label><input type="tel" placeholder="050-0000000" dir="ltr"></div>
+      <div class="form-group"><label>דוא"ל</label><input type="email" placeholder="name@email.com" dir="ltr"></div>
+    </div>
+    <div class="form-group">
+      <label>סוג הטיפול הרצוי</label>
+      <select>
+        <option>בחרו טיפול...</option>
+        <option>ייפוי חיוך — Smile Makeover</option>
+        <option>שתל שיניים</option>
+        <option>Invisalign</option>
+        <option>ציפויי חרסינה</option>
+        <option>הלבנת שיניים</option>
+        <option>טיפול שורש</option>
+        <option>בדיקה ראשונה</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>הערות</label>
+      <textarea placeholder="תארו בקצרה את הצורך שלכם..."></textarea>
+    </div>
+    <button class="form-submit" onclick="return false">שלחו פנייה</button>
+    <p class="form-note">ללא עלות · ללא התחייבות · פרטיות מלאה</p>
+  </div>
+  <div class="booking-details fade-in">
+    <h3>נשמח לראותכם<br><em style="font-family:'Playfair Display',serif;color:var(--copper);font-style:italic">במרפאה</em></h3>
+    <p>המרפאה נמצאת בלב הצפון הישן של תל אביב. חניה ציבורית בשפע ונגישות תחבורה ציבורית מצוינת — קוי 7, 25, 63.</p>
+    <div class="contact-list">
+      <div class="contact-row">
+        <div class="contact-icon-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div><div class="contact-label">כתובת</div><div class="contact-val">אבן גבירול 112, תל אביב<br>קומה 3, כניסה ב'</div></div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.03 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div><div class="contact-label">טלפון</div><div class="contact-val" dir="ltr">03-777-8899</div></div>
+      </div>
+      <div class="contact-row">
+        <div class="contact-icon-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div><div class="contact-label">דוא"ל</div><div class="contact-val" dir="ltr">info@visualdent.co.il</div></div>
+      </div>
+    </div>
+    <div class="hours-box">
+      <div class="hours-box-title">שעות פתיחה</div>
+      <div class="hours-row"><span class="day">ראשון – חמישי</span><span class="time">08:00 – 20:00</span></div>
+      <div class="hours-row"><span class="day">שישי</span><span class="time">08:00 – 14:00</span></div>
+      <div class="hours-row"><span class="day">שבת</span><span class="closed">סגור</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">VisualDent</div>
+      <div class="footer-brand-sub">מרפאת שיניים פרטית · תל אביב</div>
+      <p class="footer-desc">טיפולי שיניים מתקדמים בסביבה נעימה ומקצועית. 17 שנות ניסיון, 6 מומחים, 4,200+ מטופלים מרוצים.</p>
+    </div>
+    <div class="footer-col">
+      <h4>טיפולים</h4>
+      <ul>
+        <li><a href="#">ייפוי חיוך</a></li>
+        <li><a href="#">שתלי שיניים</a></li>
+        <li><a href="#">Invisalign</a></li>
+        <li><a href="#">ציפויי חרסינה</a></li>
+        <li><a href="#">הלבנה</a></li>
+        <li><a href="#">טיפולי שורש</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>מרפאה</h4>
+      <ul>
+        <li><a href="#">הצוות שלנו</a></li>
+        <li><a href="#">הטכנולוגיה</a></li>
+        <li><a href="#">שאלות נפוצות</a></li>
+        <li><a href="#">מחירון</a></li>
+        <li><a href="#">קביעת תור</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 VisualDent. כל הזכויות שמורות.</span>
+    <span class="footer-credit">נבנה על ידי <a href="https://liorvelikin.github.io/velo-website/" target="_blank">VELO DIGITAL</a></span>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+window.addEventListener('scroll', () => {
+  document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 20);
+});
+document.querySelectorAll('a[href="#"],a[href^="#"]').forEach(a => a.addEventListener('click', e => e.preventDefault()));
+document.querySelectorAll('form').forEach(f => f.addEventListener('submit', e => e.preventDefault()));
+</script>
+</body>
+</html>

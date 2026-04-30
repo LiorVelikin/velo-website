@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shield Financial | ייעוץ ביטוח ופנסיה — יועץ עצמאי</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Heebo',sans-serif;background:#030d1a;color:#fff;direction:rtl}
+a{text-decoration:none;color:inherit}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+.fade-in.visible{opacity:1;transform:none}
+
+nav{position:sticky;top:0;z-index:200;background:rgba(3,13,26,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(26,111,255,.2);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-logo{display:flex;align-items:center;gap:10px;font-size:1.05rem;font-weight:800;color:#fff}
+.nav-logo svg{flex-shrink:0}
+.nav-license{font-size:.72rem;color:rgba(255,255,255,.35);font-weight:500}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-phone{font-size:.9rem;font-weight:700;color:#00d4ff}
+.nav-cta{background:#1a6fff;color:#fff;padding:9px 22px;border-radius:6px;font-size:.85rem;font-weight:700;transition:background .2s}
+.nav-cta:hover{background:#1557dd}
+
+.hero{display:grid;grid-template-columns:1fr 480px;min-height:640px;align-items:stretch}
+.hero-left{background:#030d1a;padding:72px 5% 72px 6%;display:flex;flex-direction:column;justify-content:center}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(26,111,255,.12);border:1px solid rgba(26,111,255,.3);border-radius:6px;padding:7px 16px;font-size:.78rem;color:#00d4ff;font-weight:700;margin-bottom:22px}
+.hero h1{font-size:clamp(2.2rem,4vw,3.2rem);font-weight:900;line-height:1.1;color:#fff;margin-bottom:16px}
+.hero h1 span{color:#00d4ff}
+.hero-sub{font-size:.97rem;color:rgba(255,255,255,.55);line-height:1.75;margin-bottom:24px;max-width:460px}
+.hero-form{background:rgba(255,255,255,.04);border:1px solid rgba(26,111,255,.25);border-radius:14px;padding:28px}
+.hero-form h3{font-size:1rem;font-weight:800;color:#fff;margin-bottom:6px}
+.hero-form .sub{font-size:.78rem;color:rgba(255,255,255,.35);margin-bottom:18px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.f-group{margin-bottom:10px}
+.f-group label{display:block;font-size:.75rem;color:rgba(255,255,255,.4);margin-bottom:4px;font-weight:600}
+.f-group input,.f-group select{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(26,111,255,.25);border-radius:8px;padding:10px 13px;color:#fff;font-family:'Heebo',sans-serif;font-size:.88rem;outline:none;transition:border-color .2s}
+.f-group input:focus,.f-group select:focus{border-color:#1a6fff}
+.f-group input::placeholder{color:rgba(255,255,255,.25)}
+.f-group select option{background:#0a1628}
+.age-row{display:flex;gap:6px;flex-wrap:wrap}
+.age-btn{flex:1;min-width:60px;background:rgba(26,111,255,.08);border:1px solid rgba(26,111,255,.2);border-radius:6px;padding:8px 6px;font-size:.78rem;font-weight:600;color:rgba(255,255,255,.5);cursor:pointer;text-align:center;transition:all .2s;font-family:'Heebo',sans-serif}
+.age-btn:hover{background:rgba(26,111,255,.2);color:#fff;border-color:#1a6fff}
+.f-submit{width:100%;background:#1a6fff;color:#fff;border:none;padding:13px;border-radius:8px;font-size:.95rem;font-weight:800;cursor:pointer;font-family:'Heebo',sans-serif;margin-top:6px;transition:background .2s}
+.f-submit:hover{background:#1557dd}
+.f-trust{display:flex;gap:14px;margin-top:10px;flex-wrap:wrap;justify-content:center}
+.f-trust-item{font-size:.7rem;color:rgba(255,255,255,.3);display:flex;align-items:center;gap:4px}
+
+.hero-right{position:relative;overflow:hidden}
+.hero-right img{width:100%;height:100%;object-fit:cover}
+.hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(3,13,26,.6) 0%,rgba(3,13,26,.1) 100%)}
+
+.trust-strip{background:rgba(255,255,255,.02);border-top:1px solid rgba(26,111,255,.1);border-bottom:1px solid rgba(26,111,255,.1);padding:36px 5%;display:flex;justify-content:center;flex-wrap:wrap}
+.t-item{text-align:center;padding:10px 44px;border-left:1px solid rgba(26,111,255,.12)}
+.t-item:last-child{border-left:none}
+.t-num{font-size:1.9rem;font-weight:900;color:#1a6fff;display:block}
+.t-lbl{font-size:.72rem;color:rgba(255,255,255,.35);margin-top:3px;letter-spacing:.04em}
+
+.problem-section{background:rgba(26,111,255,.06);border-top:1px solid rgba(26,111,255,.1);border-bottom:1px solid rgba(26,111,255,.1);padding:72px 5%}
+.problem-inner{max-width:900px;margin:0 auto;text-align:center}
+.problem-inner h2{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;color:#fff;margin-bottom:12px}
+.problem-inner h2 span{color:#00d4ff}
+.problem-inner p{color:rgba(255,255,255,.5);font-size:.95rem;line-height:1.75;margin-bottom:40px}
+.problem-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.prob-stat{background:rgba(3,13,26,.7);border:1px solid rgba(26,111,255,.2);border-radius:12px;padding:28px 20px;text-align:center}
+.prob-stat .icon{font-size:2rem;margin-bottom:10px}
+.prob-stat .pn{font-size:1.6rem;font-weight:900;color:#1a6fff;margin-bottom:6px}
+.prob-stat p{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.6}
+
+.section{padding:80px 5%;max-width:1100px;margin:0 auto}
+.s-tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1a6fff;background:rgba(26,111,255,.1);border:1px solid rgba(26,111,255,.25);border-radius:4px;padding:5px 14px;margin-bottom:16px}
+.s-title{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:900;color:#fff;margin-bottom:8px;line-height:1.2}
+.s-title span{color:#00d4ff}
+
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.svc-card{background:rgba(255,255,255,.03);border:1px solid rgba(26,111,255,.15);border-radius:12px;padding:28px 22px;transition:border-color .25s,background .25s}
+.svc-card:hover{border-color:rgba(26,111,255,.45);background:rgba(26,111,255,.07)}
+.svc-icon{width:46px;height:46px;border-radius:10px;background:rgba(26,111,255,.12);border:1px solid rgba(26,111,255,.25);display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:14px}
+.svc-card h3{font-size:.97rem;font-weight:800;color:#fff;margin-bottom:7px}
+.svc-card p{font-size:.83rem;color:rgba(255,255,255,.45);line-height:1.65}
+
+.team-section{background:rgba(255,255,255,.02);border-top:1px solid rgba(26,111,255,.08);border-bottom:1px solid rgba(26,111,255,.08);padding:80px 5%}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:900px;margin:48px auto 0}
+.team-card{background:#030d1a;border:1px solid rgba(26,111,255,.15);border-radius:14px;overflow:hidden;text-align:center;padding-bottom:24px;transition:border-color .25s}
+.team-card:hover{border-color:rgba(26,111,255,.4)}
+.team-img{height:240px;overflow:hidden;position:relative}
+.team-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.team-card:hover .team-img img{transform:scale(1.04)}
+.team-card h3{font-size:1rem;font-weight:800;color:#fff;margin:16px 0 4px;padding:0 14px}
+.team-spec{font-size:.78rem;color:#1a6fff;font-weight:700;margin-bottom:8px}
+.team-bio{font-size:.79rem;color:rgba(255,255,255,.4);line-height:1.6;padding:0 18px;margin-bottom:12px}
+.team-cta{font-size:.78rem;font-weight:700;color:#00d4ff;border:1px solid rgba(0,212,255,.3);padding:6px 18px;border-radius:100px;transition:all .2s;display:inline-block}
+.team-cta:hover{background:rgba(0,212,255,.1)}
+
+.process-section{padding:80px 5%;max-width:1000px;margin:0 auto}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px;position:relative}
+.process-steps::before{content:'';position:absolute;top:28px;right:12.5%;left:12.5%;height:1px;background:rgba(26,111,255,.2);z-index:0}
+.step{text-align:center;position:relative;z-index:1}
+.step-num{width:56px;height:56px;border-radius:50%;background:#030d1a;border:2px solid #1a6fff;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:900;color:#1a6fff;margin:0 auto 14px}
+.step h3{font-size:.9rem;font-weight:800;color:#fff;margin-bottom:6px}
+.step p{font-size:.78rem;color:rgba(255,255,255,.4);line-height:1.6}
+
+.family-section{position:relative;height:400px;overflow:hidden;margin:0}
+.family-section img{width:100%;height:100%;object-fit:cover}
+.family-section::after{content:'';position:absolute;inset:0;background:linear-gradient(to left,rgba(3,13,26,.4) 0%,rgba(3,13,26,.75) 100%)}
+.family-content{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;padding:0 6%}
+.family-content h2{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:900;color:#fff;text-align:right;max-width:480px;margin-bottom:12px}
+.family-content p{font-size:.95rem;color:rgba(255,255,255,.6);max-width:400px;text-align:right;margin-bottom:24px}
+.family-btn{background:#1a6fff;color:#fff;padding:12px 26px;border-radius:6px;font-weight:700;font-size:.9rem;display:inline-block;transition:background .2s}
+.family-btn:hover{background:#1557dd}
+
+.testi-section{background:rgba(255,255,255,.02);padding:80px 5%}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1100px;margin:48px auto 0}
+.t-card{background:#030d1a;border:1px solid rgba(26,111,255,.12);border-radius:12px;padding:28px}
+.t-stars{color:#fbbf24;font-size:.9rem;letter-spacing:2px;margin-bottom:12px}
+.t-card p{font-size:.87rem;color:rgba(255,255,255,.6);line-height:1.7;font-style:italic;margin-bottom:16px}
+.t-meta{display:flex;align-items:center;gap:12px}
+.t-meta img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid rgba(26,111,255,.3)}
+.t-name{font-weight:700;font-size:.85rem;color:#00d4ff}
+.t-detail{font-size:.73rem;color:rgba(255,255,255,.3)}
+
+.cta-section{background:linear-gradient(135deg,rgba(26,111,255,.15) 0%,rgba(0,212,255,.06) 100%);border-top:1px solid rgba(26,111,255,.2);border-bottom:1px solid rgba(26,111,255,.2);padding:80px 5%;text-align:center}
+.cta-section h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:900;color:#fff;margin-bottom:12px}
+.cta-section h2 span{color:#00d4ff}
+.cta-section p{color:rgba(255,255,255,.45);font-size:.95rem;margin-bottom:36px}
+.cta-form-wrap{max-width:640px;margin:0 auto;background:rgba(3,13,26,.8);border:1px solid rgba(26,111,255,.25);border-radius:16px;padding:32px}
+.cta-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.cta-form-wrap .f-group label{color:rgba(255,255,255,.4)}
+.cta-submit{width:100%;background:#1a6fff;color:#fff;border:none;padding:13px;border-radius:8px;font-size:.95rem;font-weight:800;cursor:pointer;font-family:'Heebo',sans-serif;transition:background .2s}
+.cta-submit:hover{background:#1557dd}
+.cta-trust{display:flex;gap:18px;justify-content:center;margin-top:14px;flex-wrap:wrap}
+.cta-trust span{font-size:.72rem;color:rgba(255,255,255,.3);display:flex;align-items:center;gap:4px}
+
+footer{background:#000;border-top:1px solid rgba(26,111,255,.1);padding:40px 5% 24px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:36px;max-width:1100px;margin:0 auto 36px}
+.f-brand .logo{font-size:1.05rem;font-weight:800;color:#fff;margin-bottom:8px}
+.f-brand p{font-size:.8rem;color:rgba(255,255,255,.25);line-height:1.7}
+.f-col h4{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#1a6fff;margin-bottom:14px}
+.f-col ul{list-style:none}
+.f-col ul li{margin-bottom:8px}
+.f-col ul li a{font-size:.8rem;color:rgba(255,255,255,.3);transition:color .2s}
+.f-col ul li a:hover{color:#1a6fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;max-width:1100px;margin:0 auto}
+.footer-bottom p{font-size:.73rem;color:rgba(255,255,255,.2)}
+.footer-bottom a{color:rgba(26,111,255,.6);font-weight:600}
+.footer-bottom a:hover{color:#1a6fff}
+.footer-disclaimer{font-size:.68rem;color:rgba(255,255,255,.15);max-width:1100px;margin:16px auto 0;text-align:center}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .f-row,.cta-form-grid{grid-template-columns:1fr}
+  .services-grid,.team-grid,.testi-grid{grid-template-columns:1fr}
+  .problem-stats{grid-template-columns:1fr}
+  .process-steps{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .t-item{padding:10px 20px;border-left:none;border-bottom:1px solid rgba(26,111,255,.08)}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1a6fff" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    Shield Financial
+  </div>
+  <div class="nav-license">מורשה ומפוקח — רשות שוק ההון</div>
+  <div class="nav-right">
+    <div class="nav-phone">03-456-7890</div>
+    <a href="#" class="nav-cta" onclick="return false">ייעוץ חינם</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-left fade-in">
+    <div class="hero-badge">✓ יועץ ביטוח עצמאי — ללא קשר לחברת ביטוח</div>
+    <h1>הביטוח שלכם<br>שווה<br><span>הרבה יותר</span></h1>
+    <p class="hero-sub">יועץ ביטוח עצמאי שעובד עבורכם — לא עבור חברת הביטוח. בדיקת פוליסה חינם וייעוץ ללא התחייבות.</p>
+    <div class="hero-form">
+      <h3>קיבלו ייעוץ חינם</h3>
+      <p class="sub">חוזרים אליכם תוך 30 דקות</p>
+      <form onsubmit="return false">
+        <div class="f-row">
+          <div class="f-group"><label>שם מלא</label><input type="text" placeholder="ישראל ישראלי"></div>
+          <div class="f-group"><label>טלפון</label><input type="tel" placeholder="05X-XXX-XXXX"></div>
+        </div>
+        <div class="f-group">
+          <label>מה מעניין אתכם?</label>
+          <select><option>בחרו נושא...</option><option>ביטוח חיים</option><option>ביטוח בריאות</option><option>פנסיה וחיסכון</option><option>קרן השתלמות</option><option>ביטוח עסקי</option><option>כל הנ"ל</option></select>
+        </div>
+        <div class="f-group">
+          <label>גיל</label>
+          <div class="age-row">
+            <button class="age-btn" type="button">18–30</button>
+            <button class="age-btn" type="button">31–45</button>
+            <button class="age-btn" type="button">46–60</button>
+            <button class="age-btn" type="button">60+</button>
+          </div>
+        </div>
+        <button type="submit" class="f-submit">קיבלו ייעוץ חינם ←</button>
+        <div class="f-trust">
+          <span class="f-trust-item">⏱ תוך 30 דקות</span>
+          <span class="f-trust-item">🔒 פרטיות מלאה</span>
+          <span class="f-trust-item">✓ ללא התחייבות</span>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800&q=80&auto=format&fit=crop" alt="יועץ ביטוח מקצועי">
+  </div>
+</section>
+
+<div class="trust-strip">
+  <div class="t-item fade-in"><span class="t-num">2,400+</span><span class="t-lbl">לקוחות מרוצים</span></div>
+  <div class="t-item fade-in" style="transition-delay:.07s"><span class="t-num">18</span><span class="t-lbl">שנות ניסיון</span></div>
+  <div class="t-item fade-in" style="transition-delay:.14s"><span class="t-num">35%</span><span class="t-lbl">חיסכון ממוצע</span></div>
+  <div class="t-item fade-in" style="transition-delay:.21s"><span class="t-num">מורשה</span><span class="t-lbl">ומפוקח</span></div>
+  <div class="t-item fade-in" style="transition-delay:.28s"><span class="t-num">חינם</span><span class="t-lbl">ייעוץ ראשוני</span></div>
+</div>
+
+<section class="problem-section">
+  <div class="problem-inner fade-in">
+    <h2>האם אתם <span>מוגנים מספיק?</span></h2>
+    <p>רוב הישראלים לא יודעים שהם מבוטחים חסר — ומשלמים יותר ממה שצריך</p>
+    <div class="problem-stats">
+      <div class="prob-stat fade-in">
+        <div class="icon">😮</div>
+        <div class="pn">67%</div>
+        <p>מהישראלים מבוטחים חסר לפי נתוני רשות שוק ההון</p>
+      </div>
+      <div class="prob-stat fade-in" style="transition-delay:.1s">
+        <div class="icon">💸</div>
+        <div class="pn">₪3,200</div>
+        <p>חיסכון שנתי ממוצע שמשפחה ישראלית יכולה לחסוך עם ייעוץ נכון</p>
+      </div>
+      <div class="prob-stat fade-in" style="transition-delay:.2s">
+        <div class="icon">❓</div>
+        <div class="pn">1 מ-3</div>
+        <p>ישראלים לא יודע מה בדיוק כלול בביטוח שהם משלמים עליו כל חודש</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="fade-in">
+    <span class="s-tag">השירותים שלנו</span>
+    <h2 class="s-title">הכיסוי <span>המלא שלכם</span></h2>
+  </div>
+  <div class="services-grid fade-in" style="transition-delay:.1s">
+    <div class="svc-card"><div class="svc-icon">🛡</div><h3>ביטוח חיים</h3><p>כיסוי מותאם לגיל, מצב משפחתי וצרכים — לא מוצר תקני שמתאים לכולם.</p></div>
+    <div class="svc-card"><div class="svc-icon">🏥</div><h3>ביטוח בריאות</h3><p>ניתוחים, תרופות, שיניים, ועוד — בדיקת כיסוי וביטוח משלים מתאים.</p></div>
+    <div class="svc-card"><div class="svc-icon">🏦</div><h3>פנסיה וגמל</h3><p>בניית חיסכון לפרישה אמיתית — ניהול, איחוד קרנות ואופטימיזציה.</p></div>
+    <div class="svc-card"><div class="svc-icon">📈</div><h3>קרן השתלמות</h3><p>חיסכון נזיל לטווח בינוני — מסלול ההשקעה הנכון לפרופיל שלכם.</p></div>
+    <div class="svc-card"><div class="svc-icon">🏢</div><h3>ביטוח עסקי</h3><p>הגנה על העסק, הציוד והעובדים — חבילות מותאמות לעצמאים וחברות.</p></div>
+    <div class="svc-card"><div class="svc-icon">🚗</div><h3>ביטוח רכב</h3><p>מחיר הטוב ביותר בשוק עם כיסוי מלא — השוואה מול כל חברות הביטוח.</p></div>
+  </div>
+</section>
+
+<section class="team-section">
+  <div class="fade-in" style="text-align:center;max-width:900px;margin:0 auto">
+    <span class="s-tag">הצוות שלנו</span>
+    <h2 class="s-title">היועצים <span>שלנו</span></h2>
+  </div>
+  <div class="team-grid">
+    <div class="team-card fade-in">
+      <div class="team-img"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&q=80&auto=format&fit=crop&crop=top" alt="רן מזרחי"></div>
+      <h3>רן מזרחי</h3>
+      <div class="team-spec">מנהל | פנסיה ופיננסים</div>
+      <p class="team-bio">18 שנות ניסיון בביטוח ופנסיה. לשעבר יועץ בכיר באלטשולר שחם.</p>
+      <a href="#" class="team-cta" onclick="return false">לייעוץ עם רן →</a>
+    </div>
+    <div class="team-card fade-in" style="transition-delay:.1s">
+      <div class="team-img"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=500&q=80&auto=format&fit=crop&crop=top" alt="נועה ברקוביץ"></div>
+      <h3>נועה ברקוביץ</h3>
+      <div class="team-spec">ביטוח בריאות ומשלים</div>
+      <p class="team-bio">מומחית ביטוח בריאות. עזרה ל-500+ משפחות לשפר כיסוי ולחסוך.</p>
+      <a href="#" class="team-cta" onclick="return false">לייעוץ עם נועה →</a>
+    </div>
+    <div class="team-card fade-in" style="transition-delay:.2s">
+      <div class="team-img"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&q=80&auto=format&fit=crop&crop=top" alt="עמית שלו"></div>
+      <h3>עמית שלו</h3>
+      <div class="team-spec">ביטוח עסקי ורכב</div>
+      <p class="team-bio">מתמחה בביטוחי עסקים ועצמאיים. לשעבר מנהל סניף הראל ביטוח.</p>
+      <a href="#" class="team-cta" onclick="return false">לייעוץ עם עמית →</a>
+    </div>
+  </div>
+</section>
+
+<section class="process-section">
+  <div class="fade-in" style="text-align:center">
+    <span class="s-tag">תהליך הייעוץ</span>
+    <h2 class="s-title">איך זה <span>עובד</span></h2>
+  </div>
+  <div class="process-steps fade-in" style="transition-delay:.1s">
+    <div class="step"><div class="step-num">1</div><h3>ייעוץ ראשוני חינם</h3><p>שיחה של 20 דקות להבנת הצרכים</p></div>
+    <div class="step"><div class="step-num">2</div><h3>ניתוח פוליסות קיימות</h3><p>נבחן מה יש לכם ומה חסר</p></div>
+    <div class="step"><div class="step-num">3</div><h3>המלצה מותאמת</h3><p>פתרון שמתאים בדיוק לכם</p></div>
+    <div class="step"><div class="step-num">4</div><h3>יישום וליווי שוטף</h3><p>מטפלים בכל הביורוקרטיה</p></div>
+  </div>
+</section>
+
+<div class="family-section">
+  <img src="https://images.unsplash.com/photo-1511895426328-dc8714191011?w=1600&q=80&auto=format&fit=crop" alt="משפחה מוגנת">
+  <div class="family-content">
+    <h2>כי מה שחשוב באמת — זה לדאוג למשפחה</h2>
+    <p>בואו נוודא שהם מוגנים — לא משנה מה יקרה</p>
+    <a href="#" class="family-btn" onclick="return false">קיבלו ייעוץ חינם ←</a>
+  </div>
+</div>
+
+<section class="testi-section">
+  <div class="fade-in" style="text-align:center;max-width:1100px;margin:0 auto">
+    <span class="s-tag">לקוחות מספרים</span>
+    <h2 class="s-title">מה אמרו <span>עלינו</span></h2>
+  </div>
+  <div class="testi-grid">
+    <div class="t-card fade-in">
+      <div class="t-stars">★★★★★</div>
+      <p>"רן בדק את הפוליסות שלנו ומצא שאנחנו משלמים ₪380 בחודש יותר ממה שצריך. תוך שבוע חסכנו ₪4,500 בשנה."</p>
+      <div class="t-meta">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&q=80&auto=format&fit=crop&crop=face" alt="">
+        <div><div class="t-name">אבי ש.</div><div class="t-detail">ביטוח חיים ובריאות</div></div>
+      </div>
+    </div>
+    <div class="t-card fade-in" style="transition-delay:.1s">
+      <div class="t-stars">★★★★★</div>
+      <p>"לא ידעתי שיש לי ביטוח בריאות שכפול מהמעסיק ומביטוח פרטי. נועה גילתה את זה וחסכה לי ₪200 בחודש."</p>
+      <div class="t-meta">
+        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=60&q=80&auto=format&fit=crop&crop=face" alt="">
+        <div><div class="t-name">שירה ל.</div><div class="t-detail">ביטוח בריאות</div></div>
+      </div>
+    </div>
+    <div class="t-card fade-in" style="transition-delay:.2s">
+      <div class="t-stars">★★★★★</div>
+      <p>"פתחתי עסק ולא ידעתי מה צריך לבטח. עמית הכין לי חבילה מלאה תוך יומיים. שירות מעולה ומחיר הוגן."</p>
+      <div class="t-meta">
+        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=60&q=80&auto=format&fit=crop&crop=face" alt="">
+        <div><div class="t-name">גיל מ.</div><div class="t-detail">ביטוח עסקי</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2>ייעוץ חינם —<br><span>ללא התחייבות</span></h2>
+  <p>חוזרים אליכם תוך 30 דקות. אין מה להפסיד — רק להרוויח.</p>
+  <div class="cta-form-wrap fade-in" style="transition-delay:.1s">
+    <form onsubmit="return false">
+      <div class="cta-form-grid">
+        <div class="f-group"><label>שם מלא</label><input type="text" placeholder="ישראל ישראלי"></div>
+        <div class="f-group"><label>טלפון</label><input type="tel" placeholder="05X-XXX-XXXX"></div>
+        <div class="f-group"><label>נושא</label><select><option>בחרו נושא...</option><option>ביטוח חיים</option><option>ביטוח בריאות</option><option>פנסיה</option><option>כל הנ"ל</option></select></div>
+        <div class="f-group"><label>עיר מגורים</label><input type="text" placeholder="תל אביב"></div>
+      </div>
+      <button type="submit" class="cta-submit">קיבלו ייעוץ חינם ←</button>
+      <div class="cta-trust">
+        <span>🔒 מידע מוגן</span>
+        <span>📞 תוך 30 דקות</span>
+        <span>✓ ללא ספאם</span>
+        <span>⚡ ייעוץ עצמאי</span>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="f-brand">
+      <div class="logo">Shield Financial</div>
+      <p>יועצי ביטוח ופנסיה עצמאיים. עובדים עבורכם — לא עבור חברות הביטוח. רישיון 185/18.</p>
+    </div>
+    <div class="f-col"><h4>שירותים</h4><ul><li><a href="#">ביטוח חיים</a></li><li><a href="#">ביטוח בריאות</a></li><li><a href="#">פנסיה וגמל</a></li><li><a href="#">קרן השתלמות</a></li><li><a href="#">ביטוח עסקי</a></li></ul></div>
+    <div class="f-col"><h4>חברה</h4><ul><li><a href="#">אודות</a></li><li><a href="#">הצוות</a></li><li><a href="#">קריירה</a></li><li><a href="#">בלוג</a></li></ul></div>
+    <div class="f-col"><h4>צור קשר</h4><ul><li><a href="#">03-456-7890</a></li><li><a href="#">info@shield-fin.co.il</a></li><li><a href="#">תל אביב | חיפה | ירושלים</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Shield Financial | <a href="https://liorvelikin.github.io/velo-website/">נבנה על ידי VELO DIGITAL</a></p>
+  </div>
+  <p class="footer-disclaimer">Shield Financial הינה חברת ייעוץ ביטוח עצמאית. אין באמור ייעוץ פנסיוני מוסדר. הכיסוי הביטוחי כפוף לתנאי הפוליסה.</p>
+</footer>
+
+<script>
+document.querySelectorAll('.fade-in').forEach(el=>{
+  new IntersectionObserver(([e])=>{if(e.isIntersecting)e.target.classList.add('visible')},{threshold:0.1}).observe(el);
+});
+document.querySelectorAll('.age-btn').forEach(btn=>{
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.age-btn').forEach(b=>b.style.cssText='');
+    this.style.background='rgba(26,111,255,0.25)';
+    this.style.color='#fff';
+    this.style.borderColor='#1a6fff';
+  });
+});
+</script>
+</body>
+</html>

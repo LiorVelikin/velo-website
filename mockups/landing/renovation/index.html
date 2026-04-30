@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MasterBuild | שיפוצים ועיצוב פנים — תל אביב</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Heebo',sans-serif;background:#f2ede6;color:#1a1a18;direction:rtl}
+a{text-decoration:none;color:inherit}
+img{display:block;width:100%;height:100%;object-fit:cover}
+
+:root{
+  --bg:#f2ede6;
+  --ink:#1a1a18;
+  --amber:#d4891a;
+  --amber-pale:#f5e8cf;
+  --slate:#2d3142;
+  --stone:#6b6558;
+  --cream:#fffcf7;
+  --border:#ddd7cc;
+}
+
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity 0.65s ease,transform 0.65s ease}
+.fade-in.visible{opacity:1;transform:none}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:300;height:68px;background:var(--slate);border-bottom:2px solid var(--amber);display:flex;align-items:center;justify-content:space-between;padding:0 5%}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo-mark{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--amber);letter-spacing:0.04em;line-height:1}
+.nav-logo-text{display:flex;flex-direction:column;gap:0}
+.nav-logo-name{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:#fff;letter-spacing:0.06em;line-height:1}
+.nav-logo-sub{font-size:0.58rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.4)}
+.nav-right{display:flex;align-items:center;gap:20px}
+.nav-phone{font-size:0.9rem;color:rgba(255,255,255,0.65);font-weight:700;direction:ltr}
+.nav-phone strong{color:var(--amber)}
+.nav-cta{background:var(--amber);color:#fff;padding:9px 22px;font-size:0.82rem;font-weight:800;border:none;cursor:pointer;font-family:'Heebo',sans-serif;transition:background 0.2s;text-transform:uppercase;letter-spacing:0.06em}
+.nav-cta:hover{background:#b8740e}
+
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding-top:68px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1800&q=80&auto=format&fit=crop');background-size:cover;background-position:center}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(26,26,24,0.96) 45%,rgba(26,26,24,0.3) 100%)}
+.hero-inner{position:relative;z-index:2;width:100%;padding:5rem 5%;display:flex;align-items:flex-end;justify-content:space-between;gap:4rem;flex-wrap:wrap;min-height:calc(100vh - 68px)}
+.hero-content{max-width:580px;padding-bottom:2rem}
+.hero-tag{font-size:0.62rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--amber);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.hero-tag::after{content:'';flex:0 0 28px;height:2px;background:var(--amber)}
+.hero-content h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(5rem,9vw,9rem);line-height:0.9;color:#fff;margin-bottom:28px;letter-spacing:0.04em}
+.hero-content h1 span{color:var(--amber);display:block}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,0.5);line-height:1.78;max-width:440px;margin-bottom:32px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px}
+.btn-amber{background:var(--amber);color:#fff;padding:14px 30px;font-size:0.9rem;font-weight:800;border:none;cursor:pointer;font-family:'Heebo',sans-serif;transition:background 0.25s;display:inline-block;text-transform:uppercase;letter-spacing:0.06em}
+.btn-amber:hover{background:#b8740e}
+.btn-outline{background:transparent;color:#fff;padding:13px 28px;font-size:0.9rem;font-weight:700;border:1.5px solid rgba(255,255,255,0.25);cursor:pointer;font-family:'Heebo',sans-serif;transition:all 0.25s;display:inline-block}
+.btn-outline:hover{border-color:#fff}
+.hero-cred{display:flex;gap:32px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.1);flex-wrap:wrap}
+.hero-cred-item strong{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;color:var(--amber);display:block;line-height:1}
+.hero-cred-item span{font-size:0.7rem;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;display:block;margin-top:3px}
+
+.hero-form-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);backdrop-filter:blur(8px);padding:32px;width:320px;flex-shrink:0;border-top:3px solid var(--amber)}
+.hero-form-card h3{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:#fff;letter-spacing:0.08em;margin-bottom:4px}
+.hero-form-card p{font-size:0.78rem;color:rgba(255,255,255,0.35);margin-bottom:20px}
+.fg{margin-bottom:10px}
+.fg label{display:block;font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:5px}
+.fg input,.fg select{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.12);padding:10px 12px;color:#fff;font-family:'Heebo',sans-serif;font-size:0.88rem;outline:none;transition:border-color 0.2s}
+.fg input:focus,.fg select:focus{border-color:var(--amber)}
+.fg input::placeholder{color:rgba(255,255,255,0.18)}
+.fg select option{background:var(--slate)}
+.form-sub{width:100%;background:var(--amber);color:#fff;border:none;padding:12px;font-family:'Heebo',sans-serif;font-size:0.88rem;font-weight:800;cursor:pointer;transition:background 0.2s;margin-top:6px;text-transform:uppercase;letter-spacing:0.06em}
+.form-sub:hover{background:#b8740e}
+.form-note{font-size:0.68rem;color:rgba(255,255,255,0.22);text-align:center;margin-top:8px}
+
+.trust-strip{background:var(--cream);padding:24px 5%;display:flex;gap:0;border-bottom:1px solid var(--border)}
+.ts{flex:1;padding:14px 20px;border-left:1px solid var(--border);display:flex;align-items:center;gap:12px}
+.ts:last-child{border-left:none}
+.ts-icon{width:40px;height:40px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ts-icon svg{width:18px;height:18px;stroke:var(--amber)}
+.ts-text{font-size:0.78rem;color:var(--stone);line-height:1.4}
+.ts-text strong{display:block;font-size:0.82rem;color:var(--ink);font-weight:700;margin-bottom:1px}
+
+.section{padding:80px 5%}
+.se{font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--amber);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.se::before{content:'';width:20px;height:2px;background:var(--amber)}
+.st{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,5vw,4.5rem);color:var(--ink);line-height:0.95;margin-bottom:48px;letter-spacing:0.04em}
+.st span{color:var(--amber)}
+
+.services-section{background:var(--bg)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.serv{background:var(--cream);padding:32px;transition:background 0.2s;cursor:default;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start}
+.serv:hover{background:#fff}
+.serv-num{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--amber-pale);line-height:1;padding-top:2px}
+.serv-content{}
+.serv-name{font-size:0.95rem;font-weight:700;color:var(--ink);margin-bottom:8px}
+.serv-desc{font-size:0.82rem;color:var(--stone);line-height:1.65}
+
+.portfolio-section{background:var(--slate);padding:80px 5%;border-top:2px solid var(--amber)}
+.portfolio-section .se{color:rgba(212,137,26,0.7)}
+.portfolio-section .st{color:#fff}
+.portfolio-section .st span{color:var(--amber)}
+.portfolio-grid{display:grid;grid-template-columns:2fr 1fr;gap:4px;height:480px}
+.portfolio-grid-right{display:grid;grid-template-rows:1fr 1fr;gap:4px}
+.port-img{overflow:hidden;position:relative;cursor:pointer}
+.port-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s}
+.port-img:hover img{transform:scale(1.04)}
+.port-img-label{position:absolute;bottom:0;left:0;right:0;padding:16px;background:linear-gradient(to top,rgba(45,49,66,0.9),transparent);opacity:0;transition:opacity 0.3s}
+.port-img:hover .port-img-label{opacity:1}
+.port-img-label span{font-size:0.75rem;color:rgba(255,255,255,0.8);font-weight:600}
+
+.process-section{background:var(--bg);padding:80px 5%;border-top:1px solid var(--border)}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:48px;position:relative}
+.process-steps::before{content:'';position:absolute;top:32px;right:12.5%;left:12.5%;height:2px;background:linear-gradient(to left,var(--amber),var(--amber-pale));z-index:0}
+.step{padding:0 20px;position:relative;z-index:1;text-align:center}
+.step-num{width:64px;height:64px;border:2px solid var(--amber);background:var(--bg);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--amber)}
+.step-title{font-size:0.88rem;font-weight:700;color:var(--ink);margin-bottom:8px}
+.step-desc{font-size:0.78rem;color:var(--stone);line-height:1.6}
+
+.pricing-section{background:var(--cream);padding:80px 5%;border-top:1px solid var(--border)}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:48px}
+.price{background:var(--bg);padding:36px;transition:background 0.2s;position:relative}
+.price.featured{background:var(--slate);border-top:3px solid var(--amber)}
+.price:not(.featured):hover{background:#fff}
+.price-plan{font-size:0.62rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--stone);margin-bottom:10px}
+.price.featured .price-plan{color:rgba(255,255,255,0.4)}
+.price-range{font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--ink);line-height:1;margin-bottom:6px}
+.price.featured .price-range{color:#fff}
+.price-unit{font-size:0.72rem;color:var(--stone);margin-bottom:22px}
+.price.featured .price-unit{color:rgba(255,255,255,0.35)}
+.price-features{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:28px}
+.price-features li{display:flex;align-items:start;gap:10px;font-size:0.82rem;color:var(--stone);line-height:1.4}
+.price.featured .price-features li{color:rgba(255,255,255,0.65)}
+.price-features li svg{flex-shrink:0;margin-top:2px;stroke:var(--amber)}
+.price-btn{width:100%;padding:12px;font-family:'Heebo',sans-serif;font-size:0.88rem;font-weight:800;cursor:pointer;transition:all 0.2s;border:none;text-transform:uppercase;letter-spacing:0.06em}
+.price:not(.featured) .price-btn{background:transparent;color:var(--ink);border:1.5px solid var(--border)}
+.price:not(.featured) .price-btn:hover{border-color:var(--amber);color:var(--amber)}
+.price.featured .price-btn{background:var(--amber);color:#fff}
+.price.featured .price-btn:hover{background:#b8740e}
+
+.testimonials-section{background:var(--slate);padding:80px 5%;border-top:2px solid var(--amber)}
+.testimonials-section .se{color:rgba(212,137,26,0.7)}
+.testimonials-section .st{color:#fff}
+.testimonials-section .st span{color:var(--amber)}
+.testi-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:1px;background:rgba(255,255,255,0.06);margin-top:48px}
+.testi-main{background:var(--amber);padding:36px;display:flex;flex-direction:column;gap:18px}
+.testi-main .mark{font-family:'Bebas Neue',sans-serif;font-size:5rem;color:rgba(255,255,255,0.3);line-height:0.6;display:block}
+.testi-main .quote{font-size:1rem;color:#fff;line-height:1.7}
+.testi-main .auth{font-size:0.78rem;color:rgba(255,255,255,0.65);font-weight:600}
+.testi-card{background:rgba(255,255,255,0.03);padding:28px;display:flex;flex-direction:column;gap:14px}
+.testi-card .quote{font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.7}
+.testi-card .auth{font-size:0.78rem;font-weight:700;color:#fff}
+.testi-card .proj{font-size:0.72rem;color:var(--amber);margin-top:2px}
+
+.cta-final{background:var(--ink);padding:80px 5%;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.cta-text h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,6vw,5.5rem);color:#fff;line-height:0.9;margin-bottom:18px;letter-spacing:0.04em}
+.cta-text h2 span{color:var(--amber)}
+.cta-text p{font-size:0.95rem;color:rgba(255,255,255,0.45);line-height:1.78;margin-bottom:32px}
+.cta-form{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-top:3px solid var(--amber);padding:36px}
+.cta-form-title{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:#fff;letter-spacing:0.06em;margin-bottom:20px}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cf-fg{margin-bottom:12px}
+.cf-fg label{display:block;font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:6px}
+.cf-fg input,.cf-fg select{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);padding:10px 12px;color:#fff;font-family:'Heebo',sans-serif;font-size:0.88rem;outline:none;transition:border-color 0.2s}
+.cf-fg input:focus,.cf-fg select:focus{border-color:var(--amber)}
+.cf-fg input::placeholder{color:rgba(255,255,255,0.18)}
+.cf-fg select option{background:var(--ink)}
+.cf-submit{width:100%;background:var(--amber);color:#fff;border:none;padding:14px;font-family:'Heebo',sans-serif;font-size:0.9rem;font-weight:800;cursor:pointer;transition:background 0.2s;text-transform:uppercase;letter-spacing:0.06em;margin-top:6px}
+.cf-submit:hover{background:#b8740e}
+.cf-note{text-align:center;font-size:0.7rem;color:rgba(255,255,255,0.2);margin-top:8px}
+
+footer{background:#0d0d0b;padding:36px 5% 22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;border-top:1px solid rgba(255,255,255,0.06)}
+.f-logo{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:#fff;letter-spacing:0.06em}
+.f-logo span{color:var(--amber)}
+.f-info{font-size:0.75rem;color:rgba(255,255,255,0.2);text-align:center}
+.f-credit{font-size:0.75rem}
+.f-credit a{color:var(--amber);font-weight:600}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-text">
+      <span class="nav-logo-name">MasterBuild</span>
+      <span class="nav-logo-sub">שיפוצים ועיצוב פנים</span>
+    </div>
+  </div>
+  <div class="nav-right">
+    <span class="nav-phone" dir="ltr"><strong>054-444-5566</strong></span>
+    <button class="nav-cta" onclick="return false">הצעת מחיר</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-content fade-in">
+      <div class="hero-tag">תל אביב · 15 שנות ניסיון</div>
+      <h1>שיפוץ<br><span>כמו שצריך.</span></h1>
+      <p class="hero-sub">מהתכנון ועד המפתח — אנחנו מנהלים את הפרויקט שלכם מקצה לקצה. ללא הפתעות, ללא איחורים, ועם ערבות בכתב.</p>
+      <div class="hero-actions">
+        <a href="#quote" class="btn-amber" onclick="return false">הצעת מחיר חינם</a>
+        <a href="#portfolio" class="btn-outline" onclick="return false">עבודות שביצענו</a>
+      </div>
+      <div class="hero-cred">
+        <div class="hero-cred-item"><strong>450+</strong><span>פרויקטים</span></div>
+        <div class="hero-cred-item"><strong>15</strong><span>שנות ניסיון</span></div>
+        <div class="hero-cred-item"><strong>97%</strong><span>לקוחות ממליצים</span></div>
+        <div class="hero-cred-item"><strong>30 יום</strong><span>ממוצע פרויקט</span></div>
+      </div>
+    </div>
+    <div class="hero-form-card fade-in">
+      <h3>הצעת מחיר</h3>
+      <p>קבלו הצעה תוך 24 שעות</p>
+      <div class="fg"><label>שם</label><input type="text" placeholder="ישראל ישראלי"></div>
+      <div class="fg"><label>טלפון</label><input type="tel" placeholder="050-0000000" dir="ltr"></div>
+      <div class="fg"><label>גודל הנכס</label>
+        <select><option>בחרו...</option><option>עד 60 מ"ר</option><option>60–90 מ"ר</option><option>90–130 מ"ר</option><option>130+ מ"ר</option><option>בית פרטי</option></select>
+      </div>
+      <div class="fg"><label>סוג הפרויקט</label>
+        <select><option>בחרו...</option><option>שיפוץ כללי</option><option>מטבח</option><option>חדרי שירותים/אמבטיה</option><option>ריצוף</option><option>גבס + צביעה</option><option>פרויקט מלא</option></select>
+      </div>
+      <button class="form-sub" onclick="return false">שלחו לקבלת הצעה</button>
+      <p class="form-note">אין עמלה · ללא התחייבות</p>
+    </div>
+  </div>
+</section>
+
+<div class="trust-strip">
+  <div class="ts"><div class="ts-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="ts-text"><strong>ערבות בכתב</strong>על כל פרויקט</div></div>
+  <div class="ts"><div class="ts-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="ts-text"><strong>עמידה בלוחות זמנים</strong>97% מהפרויקטים בזמן</div></div>
+  <div class="ts"><div class="ts-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div><div class="ts-text"><strong>מחיר קבוע</strong>ללא הפתעות בסוף</div></div>
+  <div class="ts"><div class="ts-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div><div class="ts-text"><strong>צוות קבוע</strong>אין קבלני משנה אנונימיים</div></div>
+</div>
+
+<section class="section services-section" id="services">
+  <div class="se fade-in">השירותים שלנו</div>
+  <h2 class="st fade-in">כל מה ש<span>הבית</span> צריך</h2>
+  <div class="services-grid">
+    <div class="serv fade-in"><span class="serv-num">01</span><div class="serv-content"><div class="serv-name">שיפוץ מלא</div><div class="serv-desc">מתכנון ועד מסירת מפתח — ניהול מלא של הפרויקט כולל תכנון, ביצוע ועיצוב פנים. שקיפות מלאה בכל שלב.</div></div></div>
+    <div class="serv fade-in"><span class="serv-num">02</span><div class="serv-content"><div class="serv-name">מטבחים</div><div class="serv-desc">מטבחים מותאמים אישית — ארונות, משטחים, אינסטלציה וחשמל. עבודה עם ספקי פרמיום בלבד.</div></div></div>
+    <div class="serv fade-in"><span class="serv-num">03</span><div class="serv-content"><div class="serv-name">חדרי שירותים ואמבטיה</div><div class="serv-desc">ריצוף, אינסטלציה, כלים סניטריים, גבס ורטיבות. עבודה נקייה עם אחריות מלאה.</div></div></div>
+    <div class="serv fade-in"><span class="serv-num">04</span><div class="serv-content"><div class="serv-name">ריצוף ופרקט</div><div class="serv-desc">אריחים, פרקט עץ, פרקט מהנדס ו-SPC — הנחה מקצועית עם התאמת גוון ומרקם לחלל.</div></div></div>
+    <div class="serv fade-in"><span class="serv-num">05</span><div class="serv-content"><div class="serv-name">גבס, טיח וצביעה</div><div class="serv-desc">פירוק קירות, בניית מחיצות גבס, איטום, טיח ואיכות צביעה ברמת יזם. גמר שלא נראה בשוק.</div></div></div>
+    <div class="serv fade-in"><span class="serv-num">06</span><div class="serv-content"><div class="serv-name">עיצוב פנים</div><div class="serv-desc">שירות עיצוב פנים מלא עם מעצב מוסמך — בחירת חומרים, צבעים, ריהוט ותאורה.</div></div></div>
+  </div>
+</section>
+
+<section class="portfolio-section" id="portfolio">
+  <div class="se fade-in">עבודות שביצענו</div>
+  <h2 class="st fade-in">תוצאות <span>שמדברות</span></h2>
+  <div class="portfolio-grid fade-in">
+    <div class="port-img">
+      <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80&auto=format&fit=crop" alt="מטבח מודרני">
+      <div class="port-img-label"><span>מטבח מודרני · פלורנטין, ת"א · 85,000 ₪</span></div>
+    </div>
+    <div class="portfolio-grid-right">
+      <div class="port-img">
+        <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80&auto=format&fit=crop" alt="אמבטיה">
+        <div class="port-img-label"><span>חדר רחצה · רמת גן · 35,000 ₪</span></div>
+      </div>
+      <div class="port-img">
+        <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=600&q=80&auto=format&fit=crop" alt="מטבח">
+        <div class="port-img-label"><span>שיפוץ מלא · הצפון הישן · 180,000 ₪</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process-section" id="process">
+  <div class="se fade-in">איך אנחנו עובדים</div>
+  <h2 class="st fade-in">4 שלבים. <span>תוצאה</span> מושלמת.</h2>
+  <div class="process-steps fade-in">
+    <div class="step"><div class="step-num">01</div><div class="step-title">פגישה וסקר</div><div class="step-desc">סקר מקדים חינמי בנכס, הבנת הצרכים, בחינת המבנה ואפיון הפרויקט.</div></div>
+    <div class="step"><div class="step-num">02</div><div class="step-title">הצעת מחיר</div><div class="step-desc">הצעה מפורטת עם פירוט כל שלב — ללא הפתעות. מחיר קבוע מראש.</div></div>
+    <div class="step"><div class="step-num">03</div><div class="step-title">ביצוע מנוהל</div><div class="step-desc">צוות קבוע עם מנהל פרויקט אחראי. עדכון שוטף, פוטו-דוקומנטציה.</div></div>
+    <div class="step"><div class="step-num">04</div><div class="step-title">מסירה ואחריות</div><div class="step-desc">בדיקה משותפת, חתימה על מסמך מסירה, ואחריות מלאה ל-2 שנים.</div></div>
+  </div>
+</section>
+
+<section class="pricing-section">
+  <div class="se fade-in">מחירים אינדיקטיביים</div>
+  <h2 class="st fade-in">כמה <span>עולה</span> שיפוץ?</h2>
+  <div class="pricing-grid">
+    <div class="price fade-in">
+      <div class="price-plan">חדר שירותים</div>
+      <div class="price-range">₪18,000–₪35,000</div>
+      <div class="price-unit">לפי גודל ורמת גמר</div>
+      <ul class="price-features">
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>פירוק מלא</li>
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>ריצוף ואריחי קיר</li>
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>כלים סניטריים</li>
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>ארון תלוי + מראה</li>
+      </ul>
+      <button class="price-btn" onclick="return false">לקבלת הצעה</button>
+    </div>
+    <div class="price featured fade-in">
+      <div class="price-plan">שיפוץ דירה</div>
+      <div class="price-range">₪120,000–₪280,000</div>
+      <div class="price-unit">לדירה 3–4 חדרים</div>
+      <ul class="price-features">
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>ריצוף + גבס + צביעה</li>
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>מטבח מותאם</li>
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>כל חדרי השירותים</li>
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>ניהול פרויקט מלא</li>
+      </ul>
+      <button class="price-btn" onclick="return false">לקבלת הצעה</button>
+    </div>
+    <div class="price fade-in">
+      <div class="price-plan">בית פרטי / וילה</div>
+      <div class="price-range">₪350,000+</div>
+      <div class="price-unit">לפי מפרט מדויק</div>
+      <ul class="price-features">
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>כל הכלול בשיפוץ דירה</li>
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>עיצוב פנים מלא</li>
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>עבודות חוץ וגינה</li>
+        <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>מנהל פרויקט צמוד</li>
+      </ul>
+      <button class="price-btn" onclick="return false">לקבלת הצעה</button>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials-section fade-in">
+  <div class="se">לקוחות מספרים</div>
+  <h2 class="st">450+ פרויקטים. <span>0</span> הפתעות.</h2>
+  <div class="testi-grid">
+    <div class="testi-main"><span class="mark">"</span><div class="quote">קנינו דירה בניין ישן ורצינו שיפוץ מלא. MasterBuild נתנו לנו הצעה ביום, עמדו בה בדיוק, ומסרו בזמן שהובטח. אחרי 5 שיפוצים קודמים עם קבלנים אחרים — לבסוף מצאנו את הנכון.</div><div class="auth">ירון ומיכל א. — שיפוץ מלא 4 חדרים</div></div>
+    <div class="testi-card fade-in"><div class="quote">מטבח חלומי שהמתנה לו 6 שנים. הביאו טייסים מצוינים, ניהלו הכל עצמם, ועלות סופית הייתה בדיוק מה שהוסכם. שיפוץ ללא כאב ראש.</div><div class="auth">דנה ל.</div><div class="proj">מטבח פרמיום · רמת אביב</div></div>
+    <div class="testi-card fade-in"><div class="quote">שיפוץ חדר אמבטיה שלקח 12 ימים בלבד. המקצועיות, הניקיון והדיוק — ברמה שלא הכרתי. ממליץ בלב שלם לכל מי שרוצה שיפוץ ברמה אחרת.</div><div class="auth">רמי ב.</div><div class="proj">חדר אמבטיה · גבעתיים</div></div>
+  </div>
+</section>
+
+<section class="cta-final" id="quote">
+  <div class="cta-text fade-in">
+    <h2>הבית שרציתם.<br>מתחיל<br><span>כאן.</span></h2>
+    <p>הצעת מחיר מפורטת ב-24 שעות, ללא עלות. מחיר קבוע, לוח זמנים ברור, ואחריות ל-2 שנים.</p>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-top:8px">
+      <div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.45)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d4891a" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.03 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        <span dir="ltr" style="color:var(--amber);font-weight:700">054-444-5566</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;font-size:0.85rem;color:rgba(255,255,255,0.45)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d4891a" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        תל אביב והסביבה · כל האזורים
+      </div>
+    </div>
+  </div>
+  <div class="cta-form fade-in">
+    <div class="cta-form-title">בקשת הצעת מחיר</div>
+    <div class="cf-row">
+      <div class="cf-fg"><label>שם</label><input type="text" placeholder="ישראל ישראלי"></div>
+      <div class="cf-fg"><label>טלפון</label><input type="tel" placeholder="050-0000000" dir="ltr"></div>
+    </div>
+    <div class="cf-fg"><label>כתובת הנכס</label><input type="text" placeholder="רחוב, עיר..."></div>
+    <div class="cf-fg"><label>סוג הפרויקט</label>
+      <select><option>בחרו...</option><option>שיפוץ מלא</option><option>מטבח</option><option>חדר שירותים/אמבטיה</option><option>ריצוף בלבד</option><option>גבס + צביעה</option><option>עיצוב פנים</option></select>
+    </div>
+    <button class="cf-submit" onclick="return false">שלחו לקבלת הצעה</button>
+    <p class="cf-note">הצעה חינמית · ללא התחייבות · תוך 24 שעות</p>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo">Master<span>Build</span></div>
+  <div class="f-info">תל אביב והסביבה · 054-444-5566 · © 2025 · רישיון קבלן 123456</div>
+  <div class="f-credit">נבנה על ידי <a href="https://liorvelikin.github.io/velo-website/" target="_blank">VELO DIGITAL</a></div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.07 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+document.querySelectorAll('a[href="#"],a[href^="#"]').forEach(a => a.addEventListener('click', e => e.preventDefault()));
+</script>
+</body>
+</html>
