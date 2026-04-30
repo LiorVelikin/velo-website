@@ -341,14 +341,6 @@ export default function WebsitesSection() {
             </svg>
           </a>
 
-          <div style={{
-            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-            animation: 'phoneFloat 2s ease-in-out infinite', opacity: 0.45,
-          }}>
-            <svg width="22" height="14" viewBox="0 0 22 14" fill="none">
-              <path d="M1 1L11 12L21 1" stroke="#4d9fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </div>
         </div>
 
       </div>
