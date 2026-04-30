@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async'
+﻿import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { useReveal } from '../../hooks/useReveal'
 import PageHero from '../../components/shared/PageHero'
@@ -162,7 +162,7 @@ export default function PaidAdsPage() {
               הפלטפורמות שאנחנו <span className="gradient-text">שולטים בהן</span>
             </h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
+          <div className="grid-cols-3" style={{ gap: 24 }}>
             {channels.map((ch, i) => (
               <div
                 key={i}
@@ -194,7 +194,7 @@ export default function PaidAdsPage() {
               ניהול <span className="gradient-text">קמפיין שלם</span>
             </h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+          <div className="grid-cols-3" style={{ gap: 20 }}>
             {features.map((f, i) => (
               <div
                 key={i}
@@ -226,7 +226,7 @@ export default function PaidAdsPage() {
               מהאבחון <span className="gradient-text">לתוצאות</span>
             </h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20 }}>
+          <div className="grid-cols-2" style={{ gap: 20 }}>
             {processSteps.map((step, i) => (
               <div
                 key={i}
@@ -263,7 +263,7 @@ export default function PaidAdsPage() {
               דפי נחיתה שבנינו לקמפיינים — לחצו לצפייה
             </p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
+          <div className="grid-cols-3" style={{ gap: 24 }}>
             {projects.map((p, i) => (
               <a key={i} href={p.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'block' }}>
                 <div

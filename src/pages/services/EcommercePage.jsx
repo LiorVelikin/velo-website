@@ -1,9 +1,19 @@
+﻿import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { useReveal } from '../../hooks/useReveal'
 import PageHero from '../../components/shared/PageHero'
 import ContactForm from '../../components/shared/ContactForm'
 import { serviceSchema, breadcrumbSchema } from '../../components/shared/SchemaOrg'
+
+const BASE = import.meta.env.BASE_URL
+
+const shopifyImages = [
+  `${BASE}images/shopify/store-1.png`,
+  `${BASE}images/shopify/store-2.png`,
+  `${BASE}images/shopify/store-3.png`,
+  `${BASE}images/shopify/store-4.png`,
+]
 
 /* ── Icons ── */
 const IconPackage = () => (
@@ -68,7 +78,18 @@ const faqs = [
 
 export default function EcommercePage() {
   const [featuresRef, featuresVis] = useReveal()
-  const [processRef, processVis] = useReveal()
+  const [processRef, processVis]   = useReveal()
+  const [galleryRef, galleryVis]   = useReveal()
+  const [shopifyActive, setShopifyActive] = useState(0)
+  const [shopifyFading, setShopifyFading] = useState(false)
+
+  const handleShopifySwitch = (idx) => {
+    if (idx === shopifyActive) return
+    setShopifyFading(true)
+    setTimeout(() => { setShopifyActive(idx); setShopifyFading(false) }, 220)
+  }
+
+  const shopifyThumbs = shopifyImages.map((src, i) => ({ src, i })).filter(({ i }) => i !== shopifyActive)
 
   return (
     <>
@@ -121,7 +142,7 @@ export default function EcommercePage() {
               חנות שבנויה <span className="gradient-text">לצמיחה</span>
             </h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+          <div className="grid-cols-3" style={{ gap: 20 }}>
             {features.map((f, i) => (
               <div
                 key={i}
@@ -153,7 +174,7 @@ export default function EcommercePage() {
               מהקונספט <span className="gradient-text">עד המכירה הראשונה</span>
             </h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20 }}>
+          <div className="grid-cols-2" style={{ gap: 20 }}>
             {processSteps.map((step, i) => (
               <div
                 key={i}
@@ -178,6 +199,119 @@ export default function EcommercePage() {
         </div>
       </section>
 
+      {/* Shopify store gallery — interactive hero + thumbnails */}
+      <section ref={galleryRef} style={{ padding: 'clamp(56px,8vw,96px) 0', direction: 'rtl' }}>
+        <div className="max-w-6xl mx-auto px-6">
+          <div style={{ textAlign: 'center', marginBottom: 48 }}>
+            <div className="tag-pill" style={{ marginBottom: 16, display: 'inline-flex' }}>הצצה לעבודות</div>
+            <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.2vw,2.4rem)', letterSpacing: '-0.02em', color: '#0a0f1e' }}>
+              הצצה <span className="gradient-text">לחנויות שלנו</span>
+            </h2>
+          </div>
+
+          {/* Hero image */}
+          <div
+            style={{
+              borderRadius: 18,
+              overflow: 'hidden',
+              border: '1.5px solid rgba(255,255,255,0.14)',
+              borderTopColor: 'rgba(77,159,255,0.28)',
+              boxShadow: '0 24px 70px rgba(0,0,0,0.45), 0 1px 0 rgba(255,255,255,0.08) inset',
+              aspectRatio: '16/9',
+              position: 'relative',
+              marginBottom: 16,
+              opacity: galleryVis ? 1 : 0,
+              transform: galleryVis ? 'none' : 'translateY(24px)',
+              transition: 'opacity 0.55s ease, transform 0.55s ease',
+            }}
+          >
+            <img
+              src={shopifyImages[shopifyActive]}
+              alt=""
+              style={{
+                width: '100%', height: '100%',
+                objectFit: 'cover', objectPosition: 'top',
+                display: 'block',
+                opacity: shopifyFading ? 0 : 1,
+                transition: 'opacity 0.22s ease',
+              }}
+            />
+            {/* Active store indicator */}
+            <div style={{
+              position: 'absolute', bottom: 14, right: 16,
+              display: 'flex', gap: 6,
+            }}>
+              {shopifyImages.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => handleShopifySwitch(i)}
+                  style={{
+                    width: i === shopifyActive ? 20 : 7,
+                    height: 7,
+                    borderRadius: 100,
+                    background: i === shopifyActive ? '#fff' : 'rgba(255,255,255,0.45)',
+                    border: 'none',
+                    cursor: 'pointer',
+                    padding: 0,
+                    transition: 'all 0.3s cubic-bezier(0.16,1,0.3,1)',
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* 3 thumbnails below */}
+          <div style={{ display: 'flex', gap: 14 }}>
+            {shopifyThumbs.map(({ src, i }, ti) => (
+              <div
+                key={i}
+                onClick={() => handleShopifySwitch(i)}
+                style={{
+                  flex: 1,
+                  aspectRatio: '16/9',
+                  borderRadius: 13,
+                  overflow: 'hidden',
+                  border: '1.5px solid rgba(255,255,255,0.09)',
+                  boxShadow: '0 8px 32px rgba(0,0,0,0.35)',
+                  cursor: 'pointer',
+                  position: 'relative',
+                  transition: 'transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease',
+                  opacity: galleryVis ? 1 : 0,
+                  transform: galleryVis ? 'none' : 'translateY(16px)',
+                  transitionDelay: `${ti * 80 + 120}ms`,
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.transform = 'translateY(-4px)'
+                  e.currentTarget.style.borderColor = 'rgba(77,159,255,0.50)'
+                  e.currentTarget.style.boxShadow = '0 14px 44px rgba(0,0,0,0.45), 0 0 22px rgba(26,111,255,0.18)'
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = 'none'
+                  e.currentTarget.style.borderColor = 'rgba(255,255,255,0.09)'
+                  e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,0,0,0.35)'
+                }}
+              >
+                <img
+                  src={src}
+                  alt=""
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }}
+                />
+                {/* Hover play-to-hero hint */}
+                <div style={{
+                  position: 'absolute', inset: 0,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  background: 'rgba(10,15,30,0)',
+                  transition: 'background 0.22s ease',
+                }}
+                  onMouseEnter={e => e.currentTarget.style.background = 'rgba(10,15,30,0.22)'}
+                  onMouseLeave={e => e.currentTarget.style.background = 'rgba(10,15,30,0)'}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* פרויקטים נבחרים */}
       <section style={{ padding: 'clamp(56px,8vw,96px) 0', direction: 'rtl', background: 'rgba(0,212,184,0.02)', borderTop: '1px solid rgba(0,212,184,0.06)', borderBottom: '1px solid rgba(0,212,184,0.06)' }}>
         <div className="max-w-6xl mx-auto px-6">
@@ -190,7 +324,7 @@ export default function EcommercePage() {
               לחצו על כל פרויקט כדי לצפות בו
             </p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
+          <div className="grid-cols-3" style={{ gap: 24 }}>
             {projects.map((p, i) => (
               <a key={i} href={p.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'block' }}>
                 <div

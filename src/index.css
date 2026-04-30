@@ -510,6 +510,34 @@ body {
   }
 }
 
+/* ─── Service page responsive grids ─── */
+.grid-cols-3        { display: grid; grid-template-columns: repeat(3, 1fr); }
+.grid-cols-2        { display: grid; grid-template-columns: repeat(2, 1fr); }
+.grid-cols-2-gallery { display: grid; grid-template-columns: 1fr 1fr; }
+
+@media (max-width: 768px) {
+  .grid-cols-3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .grid-cols-3,
+  .grid-cols-2,
+  .grid-cols-2-gallery { grid-template-columns: 1fr; }
+}
+
+/* ─── Content section edge fades (responsive) ─── */
+.content-edge-fade {
+  background:
+    radial-gradient(ellipse 35% 100% at 0% 50%,   rgba(255,255,255,0.92) 0%, transparent 70%),
+    radial-gradient(ellipse 35% 100% at 100% 50%,  rgba(255,255,255,0.92) 0%, transparent 70%);
+}
+@media (max-width: 640px) {
+  .content-edge-fade {
+    background:
+      radial-gradient(ellipse 8% 100% at 0% 50%,   rgba(255,255,255,0.90) 0%, transparent 85%),
+      radial-gradient(ellipse 8% 100% at 100% 50%,  rgba(255,255,255,0.90) 0%, transparent 85%);
+  }
+}
+
 /* ─── Dividers ─── */
 .section-divider {
   height: 1px;

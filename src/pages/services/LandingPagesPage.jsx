@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async'
+﻿import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { useReveal } from '../../hooks/useReveal'
 import PageHero from '../../components/shared/PageHero'
@@ -143,7 +143,7 @@ export default function LandingPagesPage() {
               דף שבנוי <span className="gradient-text">להמרה</span>
             </h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+          <div className="grid-cols-3" style={{ gap: 20 }}>
             {features.map((f, i) => (
               <div
                 key={i}
@@ -175,7 +175,7 @@ export default function LandingPagesPage() {
               מהבריף <span className="gradient-text">עד ההשקה</span>
             </h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20 }}>
+          <div className="grid-cols-2" style={{ gap: 20 }}>
             {processSteps.map((step, i) => (
               <div
                 key={i}
@@ -232,7 +232,7 @@ export default function LandingPagesPage() {
               לחצו על כל דף כדי לראות אותו בפעולה
             </p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
+          <div className="grid-cols-3" style={{ gap: 24 }}>
             {projects.map((p, i) => (
               <a
                 key={i}

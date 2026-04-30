@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async'
+﻿import { Helmet } from 'react-helmet-async'
 import { useReveal } from '../../hooks/useReveal'
 import PageHero from '../../components/shared/PageHero'
 import ContactForm from '../../components/shared/ContactForm'
@@ -128,7 +128,7 @@ export default function AiContentPage() {
               כל סוג תוכן מותאם לפלטפורמה, לקהל, ולמטרה השיווקית
             </p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24 }}>
+          <div className="grid-cols-2" style={{ gap: 24 }}>
             {contentTypes.map((ct, i) => (
               <div
                 key={i}
@@ -160,7 +160,7 @@ export default function AiContentPage() {
               מהבריף <span className="gradient-text">לפרסום</span>
             </h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20 }}>
+          <div className="grid-cols-2" style={{ gap: 20 }}>
             {processSteps.map((step, i) => (
               <div
                 key={i}

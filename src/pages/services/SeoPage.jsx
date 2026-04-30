@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async'
+﻿import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { useReveal } from '../../hooks/useReveal'
 import PageHero from '../../components/shared/PageHero'
@@ -134,7 +134,7 @@ export default function SeoPage() {
               גישה הוליסטית — SEO שמכסה את כל הזוויות
             </p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24 }}>
+          <div className="grid-cols-2" style={{ gap: 24 }}>
             {seoServices.map((s, i) => (
               <div
                 key={i}
@@ -166,7 +166,7 @@ export default function SeoPage() {
               מהאודיט <span className="gradient-text">לדף הראשון</span>
             </h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20 }}>
+          <div className="grid-cols-2" style={{ gap: 20 }}>
             {processSteps.map((step, i) => (
               <div
                 key={i}
@@ -203,7 +203,7 @@ export default function SeoPage() {
               לחצו על כל פרויקט לצפייה
             </p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
+          <div className="grid-cols-3" style={{ gap: 24 }}>
             {projects.map((p, i) => (
               <a key={i} href={p.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'block' }}>
                 <div

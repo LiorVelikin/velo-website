@@ -241,14 +241,8 @@ export default function ContentSection() {
         filter: 'blur(60px)', pointerEvents: 'none', zIndex: 0,
       }} />
 
-      {/* Edge fades — fully transparent so global background shows through */}
-      <div className="absolute inset-0 pointer-events-none" style={{
-        background: `
-          radial-gradient(ellipse 35% 100% at 0% 50%, rgba(255,255,255,0.92) 0%, transparent 70%),
-          radial-gradient(ellipse 35% 100% at 100% 50%, rgba(255,255,255,0.92) 0%, transparent 70%)
-        `,
-        zIndex: 2,
-      }} />
+      {/* Edge fades — responsive: narrower on mobile so center phones stay visible */}
+      <div className="absolute inset-0 pointer-events-none content-edge-fade" style={{ zIndex: 2 }} />
 
       <div className="relative max-w-7xl mx-auto px-6" style={{ zIndex: 3 }}>
 

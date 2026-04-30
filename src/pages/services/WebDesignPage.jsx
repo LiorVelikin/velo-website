@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async'
+﻿import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { useReveal } from '../../hooks/useReveal'
 import PageHero from '../../components/shared/PageHero'
@@ -178,7 +178,7 @@ export default function WebDesignPage() {
               אתר שבנוי <span className="gradient-text">לתוצאות</span>
             </h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
+          <div className="grid-cols-3" style={{ gap: 20 }}>
             {features.map((f, i) => (
               <div
                 key={i}
@@ -213,7 +213,7 @@ export default function WebDesignPage() {
               5 שלבים מוכחים — שקיפות מלאה בכל אחד מהם
             </p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20 }}>
+          <div className="grid-cols-2" style={{ gap: 20 }}>
             {processSteps.map((step, i) => (
               <div
                 key={i}
@@ -270,7 +270,7 @@ export default function WebDesignPage() {
               לחצו לכניסה לכל אתר — ראו בעצמכם את האיכות
             </p>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
+          <div className="grid-cols-3" style={{ gap: 24 }}>
             {projects.map((p, i) => (
               <a key={i} href={p.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
                 <div className="glass-card" style={{ padding: '28px 26px', cursor: 'pointer', height: '100%' }}>
