@@ -45,48 +45,63 @@ function Placeholder({ color, isShopify }) {
   )
 }
 
-/* ─── MacBook frame — lid inset by 3% so base looks wider ─── */
+/* ─── Realistic MacBook Pro (Space Gray) ─── */
 function MacBookFrame({ img, color, name, fading, isShopify, isHero = false }) {
-  const cam   = isHero ? 7  : 5
-  const camMb = isHero ? 9  : 6
-  const pad   = isHero ? '11px 14px 7px' : '7px 9px 5px'
-  const bevel = isHero ? 9  : 6
-  const hinge = isHero ? 4  : 3
-  const base  = isHero ? 28 : 20
-  const lbl   = isHero ? '11px' : '9px'
-  const lblPad = isHero ? '4px 12px' : '2px 8px'
-  const lblB  = isHero ? 12 : 7
-  const lblR  = isHero ? 14 : 8
+  const camSize = isHero ? 6 : 4
+  const camGap  = isHero ? 10 : 6
+  const bTop    = isHero ? '12px 7px 7px' : '8px 5px 5px'
+  const baseH   = isHero ? 30 : 18
 
   return (
-    <div style={{ width: '100%', position: 'relative' }}>
+    <div style={{
+      width: isHero ? '82%' : '100%',
+      margin: isHero ? '0 auto' : undefined,
+      position: 'relative',
+    }}>
 
-      {/* LID — inset 3% each side */}
-      <div style={{ padding: '0 3%' }}>
+      {/* ── SCREEN LID ── */}
+      <div style={{
+        /* Space-gray aluminum gradient */
+        background: 'linear-gradient(180deg, #565658 0%, #434345 55%, #363638 100%)',
+        borderRadius: '13px 13px 3px 3px',
+        padding: '3px 3px 1px',
+        boxShadow: [
+          '0 0 0 1px rgba(0,0,0,0.55)',
+          'inset 0 1px 0 rgba(255,255,255,0.09)',
+          isHero
+            ? '0 30px 90px rgba(0,0,0,0.65), 0 8px 24px rgba(0,0,0,0.4)'
+            : '0 14px 48px rgba(0,0,0,0.55)',
+        ].join(', '),
+      }}>
+
+        {/* Inner matte-black bezel */}
         <div style={{
-          background: 'linear-gradient(175deg, #424244 0%, #2e2e30 100%)',
-          borderRadius: '13px 13px 0 0',
-          padding: pad,
-          border: '1.5px solid rgba(255,255,255,0.11)',
-          borderBottom: '2px solid rgba(0,0,0,0.78)',
-          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.08)',
+          background: '#0d0d0f',
+          borderRadius: '11px 11px 2px 2px',
+          padding: bTop,
         }}>
-          {/* Camera */}
-          <div style={{
-            width: cam, height: cam, borderRadius: '50%',
-            background: '#1a1a1c',
-            border: '1px solid rgba(255,255,255,0.04)',
-            margin: `0 auto ${camMb}px`,
-            boxShadow: 'inset 0 0 0 2px rgba(0,0,0,0.35)',
-          }} />
 
-          {/* Screen */}
+          {/* Camera dot */}
+          <div style={{
+            width: camSize, height: camSize, borderRadius: '50%',
+            background: '#232326',
+            margin: `0 auto ${camGap}px`,
+            boxShadow: 'inset 0 0 0 1.5px rgba(0,0,0,0.6)',
+            position: 'relative',
+          }}>
+            <div style={{
+              width: '38%', height: '38%', borderRadius: '50%',
+              background: '#3a3a3e',
+              position: 'absolute', top: '31%', left: '31%',
+            }} />
+          </div>
+
+          {/* Display */}
           <div style={{
             aspectRatio: '16/10',
             background: '#000',
-            borderRadius: isHero ? 4 : 2,
+            borderRadius: isHero ? 3 : 2,
             overflow: 'hidden',
-            border: '1px solid rgba(0,0,0,0.95)',
             position: 'relative',
           }}>
             {img ? (
@@ -107,21 +122,25 @@ function MacBookFrame({ img, color, name, fading, isShopify, isHero = false }) {
               </div>
             )}
 
-            {/* Name label inside screen */}
+            {/* Name label */}
             {name && (
               <div style={{
-                position: 'absolute', bottom: lblB, right: lblR,
+                position: 'absolute',
+                bottom: isHero ? 12 : 7,
+                right:  isHero ? 14 : 8,
                 zIndex: 2,
                 opacity: fading ? 0 : 1,
                 transition: 'opacity 0.2s ease',
                 pointerEvents: 'none',
               }}>
                 <span style={{
-                  fontSize: lbl, fontWeight: 700, color: '#fff',
-                  background: 'rgba(8,12,24,0.72)',
+                  fontSize: isHero ? '11px' : '9px',
+                  fontWeight: 700, color: '#fff',
+                  background: 'rgba(8,12,24,0.76)',
                   backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)',
-                  border: '1px solid rgba(255,255,255,0.15)',
-                  borderRadius: 100, padding: lblPad,
+                  border: '1px solid rgba(255,255,255,0.14)',
+                  borderRadius: 100,
+                  padding: isHero ? '4px 12px' : '2px 8px',
                   letterSpacing: '0.02em',
                 }}>
                   {name}
@@ -129,42 +148,44 @@ function MacBookFrame({ img, color, name, fading, isShopify, isHero = false }) {
               </div>
             )}
           </div>
-
-          {/* Bottom bezel */}
-          <div style={{ height: bevel }} />
         </div>
       </div>
 
-      {/* HINGE */}
+      {/* ── HINGE (thin dark strip) ── */}
       <div style={{
-        height: hinge,
-        background: 'linear-gradient(180deg, #0d0d0f 0%, #262628 100%)',
-        margin: '0 0.6%',
-        borderLeft: '1px solid rgba(0,0,0,0.55)',
-        borderRight: '1px solid rgba(0,0,0,0.55)',
+        height: isHero ? 3 : 2,
+        background: 'linear-gradient(180deg, #111113 0%, #232325 100%)',
+        margin: '0 1.5%',
+        boxShadow: '0 1px 3px rgba(0,0,0,0.5)',
       }} />
 
-      {/* BASE — full width, so 6% wider than lid visually */}
+      {/* ── BASE (slightly wider than lid) ── */}
       <div style={{
-        background: 'linear-gradient(180deg, #383838 0%, #2c2c2e 55%, #202022 100%)',
-        borderRadius: '0 0 9px 9px',
-        height: base,
-        border: '1px solid rgba(255,255,255,0.07)',
-        borderTop: '1px solid rgba(255,255,255,0.03)',
+        background: 'linear-gradient(180deg, #4e4e50 0%, #3c3c3e 55%, #2e2e30 100%)',
+        borderRadius: '0 0 7px 7px',
+        height: baseH,
+        /* extend 3% beyond lid on each side */
+        width: '106%',
+        marginLeft: '-3%',
+        border: '1px solid rgba(0,0,0,0.45)',
+        borderTop: '1px solid rgba(255,255,255,0.04)',
         position: 'relative',
-        boxShadow: '0 14px 52px rgba(0,0,0,0.65)',
+        boxShadow: isHero
+          ? '0 18px 64px rgba(0,0,0,0.70), inset 0 1px 0 rgba(255,255,255,0.06)'
+          : '0 8px 32px rgba(0,0,0,0.60), inset 0 1px 0 rgba(255,255,255,0.04)',
       }}>
         {/* Trackpad */}
         <div style={{
-          width: isHero ? '18%' : '22%',
-          height: isHero ? 11 : 7,
-          background: 'linear-gradient(180deg, #303032 0%, #262628 100%)',
-          border: '1px solid rgba(0,0,0,0.55)',
-          borderRadius: 3,
+          width: isHero ? '19%' : '24%',
+          height: isHero ? 12 : 7,
+          background: 'linear-gradient(180deg, #444446 0%, #383838 100%)',
+          border: '1px solid rgba(0,0,0,0.4)',
+          borderRadius: isHero ? 4 : 3,
           position: 'absolute',
-          bottom: isHero ? 6 : 4,
+          bottom: isHero ? 7 : 4,
           left: '50%',
           transform: 'translateX(-50%)',
+          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.05)',
         }} />
       </div>
 
@@ -211,7 +232,7 @@ export default function WebsitesSection() {
     <section
       ref={sectionRef}
       id="websites"
-      style={{ padding: '120px 0 120px', position: 'relative' }}
+      style={{ padding: '120px 0 100px', position: 'relative' }}
     >
       {/* Ambient glow */}
       <div style={{
@@ -297,6 +318,8 @@ export default function WebsitesSection() {
             opacity: contentVis ? 1 : 0,
             transform: contentVis ? 'none' : 'translateY(28px)',
             transition: 'opacity 0.6s ease, transform 0.6s cubic-bezier(0.16,1,0.3,1)',
+            /* clip overflow from the wider base */
+            overflow: 'visible',
           }}
         >
 
@@ -313,7 +336,7 @@ export default function WebsitesSection() {
           {/* Dot nav */}
           <div style={{
             display: 'flex', justifyContent: 'center', gap: 6,
-            marginTop: 18, marginBottom: 22,
+            marginTop: 20, marginBottom: 24,
           }}>
             {list.map((_, i) => (
               <button
@@ -344,7 +367,7 @@ export default function WebsitesSection() {
                 onClick={() => handleSwitch(i)}
                 style={{
                   flex: '1 1 0',
-                  minWidth: 'clamp(200px, 30%, 420px)',
+                  minWidth: 'clamp(180px, 28%, 380px)',
                   cursor: 'pointer',
                   flexShrink: 0,
                   opacity: contentVis ? 1 : 0,
@@ -353,7 +376,7 @@ export default function WebsitesSection() {
                 onMouseEnter={e => {
                   const el = e.currentTarget
                   el.style.transition = 'transform 0.22s ease'
-                  el.style.transform = 'translateY(-6px)'
+                  el.style.transform = 'translateY(-5px)'
                 }}
                 onMouseLeave={e => {
                   const el = e.currentTarget
@@ -376,7 +399,7 @@ export default function WebsitesSection() {
 
         {/* Bottom bridge */}
         <div style={{
-          textAlign: 'center', marginTop: 56,
+          textAlign: 'center', marginTop: 52,
           opacity: contentVis ? 1 : 0,
           transition: 'opacity 0.6s ease 0.5s',
         }}>
