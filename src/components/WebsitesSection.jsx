@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react'
 
 const BASE = import.meta.env.BASE_URL
 
-/* ─── Shopify store screenshots ─── */
 const shopifyStores = [
   { name: 'Zenora Jewelry',  img: `${BASE}images/shopify/store-1.png`, color: '#1a1228' },
   { name: 'Taylors Wine',    img: `${BASE}images/shopify/store-2.png`, color: '#0a1a10' },
@@ -10,14 +9,12 @@ const shopifyStores = [
   { name: 'Recycled Cotton', img: `${BASE}images/shopify/store-4.png`, color: '#1a1008' },
 ]
 
-/* ─── Website / landing-page projects ─── */
 const websiteProjects = [
   { name: 'Zano — סטודיו הפקה',  tag: 'אתר תדמית', color: '#1a1208', img: `${BASE}images/websites/zano.png`   },
   { name: 'Lilach — עיצוב שיער', tag: 'אתר עסקי',  color: '#1a0818', img: `${BASE}images/websites/lilach.png` },
   { name: 'Windows 4U',           tag: 'דף נחיתה',  color: '#0a1428', img: null },
 ]
 
-/* ─── Placeholder for items without a screenshot ─── */
 function Placeholder({ color, isShopify }) {
   const acc = isShopify ? 'rgba(0,200,140,0.22)' : 'rgba(26,111,255,0.22)'
   const hi  = 'rgba(255,255,255,0.07)'
@@ -42,22 +39,148 @@ function Placeholder({ color, isShopify }) {
         </div>
       </div>
       <div style={{ display: 'flex', gap: 8 }}>
-        {[1,2,3].map(i => <div key={i} style={{ flex: 1, height: 40, borderRadius: 6, background: lo }} />)}
+        {[1, 2, 3].map(i => <div key={i} style={{ flex: 1, height: 40, borderRadius: 6, background: lo }} />)}
       </div>
     </div>
   )
 }
 
-/* ─── Main section ─── */
+/* ─── MacBook frame — lid inset by 3% so base looks wider ─── */
+function MacBookFrame({ img, color, name, fading, isShopify, isHero = false }) {
+  const cam   = isHero ? 7  : 5
+  const camMb = isHero ? 9  : 6
+  const pad   = isHero ? '11px 14px 7px' : '7px 9px 5px'
+  const bevel = isHero ? 9  : 6
+  const hinge = isHero ? 4  : 3
+  const base  = isHero ? 28 : 20
+  const lbl   = isHero ? '11px' : '9px'
+  const lblPad = isHero ? '4px 12px' : '2px 8px'
+  const lblB  = isHero ? 12 : 7
+  const lblR  = isHero ? 14 : 8
+
+  return (
+    <div style={{ width: '100%', position: 'relative' }}>
+
+      {/* LID — inset 3% each side */}
+      <div style={{ padding: '0 3%' }}>
+        <div style={{
+          background: 'linear-gradient(175deg, #424244 0%, #2e2e30 100%)',
+          borderRadius: '13px 13px 0 0',
+          padding: pad,
+          border: '1.5px solid rgba(255,255,255,0.11)',
+          borderBottom: '2px solid rgba(0,0,0,0.78)',
+          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.08)',
+        }}>
+          {/* Camera */}
+          <div style={{
+            width: cam, height: cam, borderRadius: '50%',
+            background: '#1a1a1c',
+            border: '1px solid rgba(255,255,255,0.04)',
+            margin: `0 auto ${camMb}px`,
+            boxShadow: 'inset 0 0 0 2px rgba(0,0,0,0.35)',
+          }} />
+
+          {/* Screen */}
+          <div style={{
+            aspectRatio: '16/10',
+            background: '#000',
+            borderRadius: isHero ? 4 : 2,
+            overflow: 'hidden',
+            border: '1px solid rgba(0,0,0,0.95)',
+            position: 'relative',
+          }}>
+            {img ? (
+              <img
+                src={img}
+                alt={name}
+                style={{
+                  width: '100%', height: '100%',
+                  objectFit: 'cover', objectPosition: 'top',
+                  display: 'block',
+                  opacity: fading ? 0 : 1,
+                  transition: 'opacity 0.2s ease',
+                }}
+              />
+            ) : (
+              <div style={{ width: '100%', height: '100%', opacity: fading ? 0 : 1, transition: 'opacity 0.2s ease' }}>
+                <Placeholder color={color} isShopify={isShopify} />
+              </div>
+            )}
+
+            {/* Name label inside screen */}
+            {name && (
+              <div style={{
+                position: 'absolute', bottom: lblB, right: lblR,
+                zIndex: 2,
+                opacity: fading ? 0 : 1,
+                transition: 'opacity 0.2s ease',
+                pointerEvents: 'none',
+              }}>
+                <span style={{
+                  fontSize: lbl, fontWeight: 700, color: '#fff',
+                  background: 'rgba(8,12,24,0.72)',
+                  backdropFilter: 'blur(14px)', WebkitBackdropFilter: 'blur(14px)',
+                  border: '1px solid rgba(255,255,255,0.15)',
+                  borderRadius: 100, padding: lblPad,
+                  letterSpacing: '0.02em',
+                }}>
+                  {name}
+                </span>
+              </div>
+            )}
+          </div>
+
+          {/* Bottom bezel */}
+          <div style={{ height: bevel }} />
+        </div>
+      </div>
+
+      {/* HINGE */}
+      <div style={{
+        height: hinge,
+        background: 'linear-gradient(180deg, #0d0d0f 0%, #262628 100%)',
+        margin: '0 0.6%',
+        borderLeft: '1px solid rgba(0,0,0,0.55)',
+        borderRight: '1px solid rgba(0,0,0,0.55)',
+      }} />
+
+      {/* BASE — full width, so 6% wider than lid visually */}
+      <div style={{
+        background: 'linear-gradient(180deg, #383838 0%, #2c2c2e 55%, #202022 100%)',
+        borderRadius: '0 0 9px 9px',
+        height: base,
+        border: '1px solid rgba(255,255,255,0.07)',
+        borderTop: '1px solid rgba(255,255,255,0.03)',
+        position: 'relative',
+        boxShadow: '0 14px 52px rgba(0,0,0,0.65)',
+      }}>
+        {/* Trackpad */}
+        <div style={{
+          width: isHero ? '18%' : '22%',
+          height: isHero ? 11 : 7,
+          background: 'linear-gradient(180deg, #303032 0%, #262628 100%)',
+          border: '1px solid rgba(0,0,0,0.55)',
+          borderRadius: 3,
+          position: 'absolute',
+          bottom: isHero ? 6 : 4,
+          left: '50%',
+          transform: 'translateX(-50%)',
+        }} />
+      </div>
+
+    </div>
+  )
+}
+
 export default function WebsitesSection() {
   const sectionRef = useRef(null)
   const contentRef = useRef(null)
 
-  const [tab, setTab]         = useState('shopify')
-  const [activeIdx, setActiveIdx] = useState(0)
-  const [headVis, setHeadVis]   = useState(false)
+  const [tab, setTab]               = useState('shopify')
+  const [activeIdx, setActiveIdx]   = useState(0)
+  const [headVis, setHeadVis]       = useState(false)
   const [contentVis, setContentVis] = useState(false)
-  const [fading, setFading]   = useState(false)
+  const [fading, setFading]         = useState(false)
 
   const list      = tab === 'shopify' ? shopifyStores : websiteProjects
   const active    = list[activeIdx]
@@ -168,85 +291,52 @@ export default function WebsitesSection() {
         </div>
 
         {/* ── Hero + Thumbnails ── */}
-        <div ref={contentRef}>
-
-          {/* Hero */}
-          <div style={{
-            position: 'relative',
-            borderRadius: 18,
-            overflow: 'hidden',
-            aspectRatio: '16/9',
-            border: '1.5px solid rgba(255,255,255,0.16)',
-            borderTopColor: 'rgba(77,159,255,0.30)',
-            boxShadow: '0 28px 80px rgba(0,0,0,0.55), 0 1px 0 rgba(255,255,255,0.08) inset',
-            marginBottom: 14,
+        <div
+          ref={contentRef}
+          style={{
             opacity: contentVis ? 1 : 0,
             transform: contentVis ? 'none' : 'translateY(28px)',
             transition: 'opacity 0.6s ease, transform 0.6s cubic-bezier(0.16,1,0.3,1)',
+          }}
+        >
+
+          {/* Hero MacBook */}
+          <MacBookFrame
+            img={active.img}
+            color={active.color}
+            name={active.name}
+            fading={fading}
+            isShopify={isShopify}
+            isHero={true}
+          />
+
+          {/* Dot nav */}
+          <div style={{
+            display: 'flex', justifyContent: 'center', gap: 6,
+            marginTop: 18, marginBottom: 22,
           }}>
-            {active.img ? (
-              <img
-                src={active.img}
-                alt={active.name}
+            {list.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => handleSwitch(i)}
                 style={{
-                  width: '100%', height: '100%',
-                  objectFit: 'cover', objectPosition: 'top',
-                  display: 'block',
-                  opacity: fading ? 0 : 1,
-                  transition: 'opacity 0.2s ease',
+                  width: i === activeIdx ? 22 : 7, height: 7,
+                  borderRadius: 100,
+                  background: i === activeIdx ? '#4d9fff' : 'rgba(255,255,255,0.22)',
+                  border: 'none', cursor: 'pointer', padding: 0,
+                  transition: 'all 0.3s cubic-bezier(0.16,1,0.3,1)',
                 }}
               />
-            ) : (
-              <div style={{ width: '100%', height: '100%', opacity: fading ? 0 : 1, transition: 'opacity 0.2s ease' }}>
-                <Placeholder color={active.color} isShopify={isShopify} />
-              </div>
-            )}
-
-            {/* Name label bottom-right */}
-            <div style={{
-              position: 'absolute', bottom: 14, right: 16,
-              opacity: fading ? 0 : 1, transition: 'opacity 0.2s ease',
-            }}>
-              <span style={{
-                fontSize: '12px', fontWeight: 700, color: '#fff',
-                background: 'rgba(8,12,24,0.70)', backdropFilter: 'blur(14px)',
-                WebkitBackdropFilter: 'blur(14px)',
-                border: '1px solid rgba(255,255,255,0.15)',
-                borderRadius: 100, padding: '5px 14px',
-                letterSpacing: '0.02em',
-              }}>
-                {active.name}
-              </span>
-            </div>
-
-            {/* Dot nav bottom-center */}
-            <div style={{
-              position: 'absolute', bottom: 16, left: '50%', transform: 'translateX(-50%)',
-              display: 'flex', gap: 5,
-            }}>
-              {list.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => handleSwitch(i)}
-                  style={{
-                    width: i === activeIdx ? 20 : 7, height: 7,
-                    borderRadius: 100,
-                    background: i === activeIdx ? '#fff' : 'rgba(255,255,255,0.38)',
-                    border: 'none', cursor: 'pointer', padding: 0,
-                    transition: 'all 0.3s cubic-bezier(0.16,1,0.3,1)',
-                  }}
-                />
-              ))}
-            </div>
+            ))}
           </div>
 
-          {/* Thumbnails */}
+          {/* Thumbnail MacBooks */}
           <div style={{
             display: 'flex',
-            gap: 12,
+            gap: 20,
             overflowX: 'auto',
             scrollbarWidth: 'none',
-            padding: '2px 1px 4px',
+            padding: '4px 2px 8px',
           }}>
             {thumbs.map(({ img, color, name, i }, ti) => (
               <div
@@ -254,70 +344,39 @@ export default function WebsitesSection() {
                 onClick={() => handleSwitch(i)}
                 style={{
                   flex: '1 1 0',
-                  minWidth: 'clamp(140px, 28%, 320px)',
-                  aspectRatio: '16/9',
-                  borderRadius: 13,
-                  overflow: 'hidden',
-                  border: '1.5px solid rgba(255,255,255,0.10)',
-                  boxShadow: '0 8px 32px rgba(0,0,0,0.35)',
+                  minWidth: 'clamp(200px, 30%, 420px)',
                   cursor: 'pointer',
-                  position: 'relative',
                   flexShrink: 0,
                   opacity: contentVis ? 1 : 0,
                   transition: `opacity 0.5s ease ${ti * 90 + 160}ms`,
                 }}
                 onMouseEnter={e => {
                   const el = e.currentTarget
-                  el.style.transition = 'transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease'
-                  el.style.transform = 'translateY(-5px)'
-                  el.style.borderColor = 'rgba(77,159,255,0.55)'
-                  el.style.boxShadow = '0 16px 48px rgba(0,0,0,0.50), 0 0 24px rgba(26,111,255,0.20)'
+                  el.style.transition = 'transform 0.22s ease'
+                  el.style.transform = 'translateY(-6px)'
                 }}
                 onMouseLeave={e => {
                   const el = e.currentTarget
-                  el.style.transition = 'transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease'
+                  el.style.transition = 'transform 0.22s ease'
                   el.style.transform = ''
-                  el.style.borderColor = 'rgba(255,255,255,0.10)'
-                  el.style.boxShadow = '0 8px 32px rgba(0,0,0,0.35)'
                 }}
               >
-                {img ? (
-                  <img
-                    src={img}
-                    alt={name}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }}
-                  />
-                ) : (
-                  <Placeholder color={color} isShopify={isShopify} />
-                )}
-
-                {/* Hover overlay */}
-                <div
-                  style={{ position: 'absolute', inset: 0, transition: 'background 0.22s ease' }}
-                  onMouseEnter={e => e.currentTarget.style.background = 'rgba(10,15,30,0.22)'}
-                  onMouseLeave={e => e.currentTarget.style.background = ''}
+                <MacBookFrame
+                  img={img}
+                  color={color}
+                  name={name}
+                  isShopify={isShopify}
+                  isHero={false}
                 />
-
-                {/* Name label */}
-                <div style={{
-                  position: 'absolute', bottom: 9, right: 10,
-                  fontSize: '10px', fontWeight: 700, color: 'rgba(255,255,255,0.90)',
-                  background: 'rgba(8,12,24,0.65)', backdropFilter: 'blur(10px)',
-                  WebkitBackdropFilter: 'blur(10px)',
-                  border: '1px solid rgba(255,255,255,0.12)',
-                  borderRadius: 100, padding: '3px 10px',
-                  letterSpacing: '0.02em', pointerEvents: 'none',
-                }}>
-                  {name}
-                </div>
               </div>
             ))}
           </div>
+
         </div>
 
         {/* Bottom bridge */}
         <div style={{
-          textAlign: 'center', marginTop: 60,
+          textAlign: 'center', marginTop: 56,
           opacity: contentVis ? 1 : 0,
           transition: 'opacity 0.6s ease 0.5s',
         }}>
@@ -329,7 +388,7 @@ export default function WebsitesSection() {
             style={{
               color: '#4d9fff', fontSize: '0.9rem', fontWeight: 700,
               textDecoration: 'none', display: 'inline-flex',
-              alignItems: 'center', gap: 6, marginBottom: 40,
+              alignItems: 'center', gap: 6,
               transition: 'opacity 0.2s ease',
             }}
             onMouseEnter={e => e.currentTarget.style.opacity = '0.75'}
@@ -340,7 +399,6 @@ export default function WebsitesSection() {
               <path d="M19 12H5M12 5l-7 7 7 7"/>
             </svg>
           </a>
-
         </div>
 
       </div>
