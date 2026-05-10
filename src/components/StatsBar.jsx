@@ -29,7 +29,7 @@ function Stat({ value, suffix, prefix, label, sub, color, triggered, index }) {
   const count = useCountUp(value, decimals, triggered)
 
   return (
-    <div style={{
+    <div className="stats-item" style={{
       flex: '1 1 200px',
       textAlign: 'center',
       padding: '32px 24px',
@@ -40,10 +40,10 @@ function Stat({ value, suffix, prefix, label, sub, color, triggered, index }) {
     }}>
       {/* Divider (not on last) */}
       {index < stats.length - 1 && (
-        <div style={{
+        <div className="stats-divider" style={{
           position: 'absolute', top: '20%', bottom: '20%',
           left: 0, width: 1,
-          background: 'rgba(10,15,30,0.07)',
+          background: 'rgba(0,212,255,0.1)',
         }} />
       )}
 
@@ -60,7 +60,7 @@ function Stat({ value, suffix, prefix, label, sub, color, triggered, index }) {
       </div>
 
       <div style={{
-        color: '#0a0f1e',
+        color: '#E8F4FF',
         fontWeight: 700,
         fontSize: 'clamp(0.85rem,1.4vw,0.95rem)',
         marginBottom: 6,
@@ -69,7 +69,7 @@ function Stat({ value, suffix, prefix, label, sub, color, triggered, index }) {
         {label}
       </div>
       <div style={{
-        color: '#8a9eb8',
+        color: 'rgba(200,220,255,0.55)',
         fontSize: '0.73rem',
         fontWeight: 500,
         lineHeight: 1.4,
@@ -102,16 +102,17 @@ export default function StatsBar() {
           display: 'flex',
           flexWrap: 'wrap',
           borderRadius: 20,
-          border: '1px solid rgba(10,15,30,0.08)',
-          background: '#fff',
-          boxShadow: '0 4px 32px rgba(0,0,0,0.06), 0 1px 0 rgba(255,255,255,0.8) inset',
+          border: '1px solid rgba(255,255,255,0.07)',
+          borderTopColor: 'rgba(0,212,255,0.22)',
+          background: 'linear-gradient(160deg, rgba(13,22,44,0.92) 0%, rgba(7,11,24,0.96) 100%)',
+          boxShadow: '0 8px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(0,212,255,0.08)',
           overflow: 'hidden',
           position: 'relative',
         }}>
           {/* Top accent line */}
           <div style={{
             position: 'absolute', top: 0, left: '5%', right: '5%', height: 2,
-            background: 'linear-gradient(90deg, transparent, #1a6fff, #a07dff, transparent)',
+            background: 'linear-gradient(90deg, transparent, #00d4ff, #a07dff, transparent)',
             borderRadius: 1,
           }} />
 

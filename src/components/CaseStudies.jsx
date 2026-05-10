@@ -9,9 +9,9 @@ const cases = [
     id: 'zenora',
     name: 'זנורה תכשיטים',
     tag: 'אי-קומרס · AI תוכן · פרסום',
-    color: '#1a6fff',
-    accent: 'rgba(26,111,255,0.08)',
-    border: 'rgba(26,111,255,0.18)',
+    color: '#4d9fff',
+    glowColor: 'rgba(26,111,255,0.15)',
+    borderColor: 'rgba(77,159,255,0.25)',
     img: `${BASE}images/shopify/store-1.png`,
     challenge: 'מותג תכשיטים שרצה לבנות נוכחות דיגיטלית מאפס — ללא תוכן, ללא חנות, ללא קמפיינים.',
     solution: [
@@ -29,9 +29,9 @@ const cases = [
     id: 'windows4u',
     name: 'Windows4U',
     tag: 'אתר עסקי · AI אווטאר · ניהול לידים',
-    color: '#00b96b',
-    accent: 'rgba(0,185,107,0.08)',
-    border: 'rgba(0,185,107,0.18)',
+    color: '#00d478',
+    glowColor: 'rgba(0,212,120,0.15)',
+    borderColor: 'rgba(0,212,120,0.25)',
     img: `${BASE}images/websites/zano.png`,
     challenge: 'חברת חלונות שהסתמכה אך ורק על פה לאוזן. ללא אתר, ללא תוכן, ללא מערכת לידים.',
     solution: [
@@ -55,9 +55,9 @@ function Tag({ children, color }) {
       borderRadius: 100,
       fontSize: '0.7rem',
       fontWeight: 700,
-      color,
-      background: `${color}14`,
-      border: `1px solid ${color}28`,
+      color: 'rgba(255,255,255,0.9)',
+      background: 'rgba(255,255,255,0.1)',
+      border: '1px solid rgba(255,255,255,0.18)',
       marginLeft: 6,
       marginBottom: 4,
     }}>
@@ -70,26 +70,38 @@ function CaseCard({ c, index, triggered }) {
   const tags = c.tag.split(' · ')
 
   return (
-    <div style={{
-      flex: '1 1 420px',
-      background: '#fff',
-      border: `1px solid rgba(10,15,30,0.09)`,
-      borderRadius: 22,
-      overflow: 'hidden',
-      boxShadow: '0 4px 32px rgba(0,0,0,0.06)',
-      opacity: triggered ? 1 : 0,
-      transform: triggered ? 'none' : 'translateY(24px)',
-      transition: `opacity 0.6s ease ${index * 150}ms, transform 0.6s cubic-bezier(0.16,1,0.3,1) ${index * 150}ms`,
-      display: 'flex',
-      flexDirection: 'column',
-    }}>
-
+    <div
+      style={{
+        flex: '1 1 420px',
+        borderRadius: 22,
+        overflow: 'hidden',
+        border: `1px solid ${c.borderColor}`,
+        background: 'linear-gradient(145deg, rgba(13,26,60,0.7) 0%, rgba(7,12,28,0.85) 100%)',
+        boxShadow: `0 8px 48px rgba(0,0,0,0.55), 0 0 0 1px rgba(0,212,255,0.04), inset 0 1px 0 ${c.borderColor}`,
+        opacity: triggered ? 1 : 0,
+        transform: triggered ? 'none' : 'translateY(24px)',
+        transition: `opacity 0.6s ease ${index * 150}ms, transform 0.6s cubic-bezier(0.16,1,0.3,1) ${index * 150}ms`,
+        display: 'flex',
+        flexDirection: 'column',
+        position: 'relative',
+      }}
+      onMouseEnter={e => {
+        e.currentTarget.style.transform = 'translateY(-5px)'
+        e.currentTarget.style.boxShadow = `0 16px 60px rgba(0,0,0,0.6), 0 0 40px ${c.glowColor}, inset 0 1px 0 ${c.borderColor}`
+        e.currentTarget.style.transition = 'transform 0.25s ease, box-shadow 0.25s ease'
+      }}
+      onMouseLeave={e => {
+        e.currentTarget.style.transform = ''
+        e.currentTarget.style.boxShadow = `0 8px 48px rgba(0,0,0,0.55), 0 0 0 1px rgba(0,212,255,0.04), inset 0 1px 0 ${c.borderColor}`
+        e.currentTarget.style.transition = 'transform 0.25s ease, box-shadow 0.25s ease'
+      }}
+    >
       {/* Screenshot */}
       <div style={{
         position: 'relative',
         height: 220,
         overflow: 'hidden',
-        background: '#f0f2f8',
+        background: '#060B18',
         flexShrink: 0,
       }}>
         <img
@@ -97,32 +109,29 @@ function CaseCard({ c, index, triggered }) {
           alt={c.name}
           style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }}
         />
-        {/* Gradient overlay */}
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.45) 100%)',
+          background: 'linear-gradient(to bottom, transparent 30%, rgba(7,12,28,0.85) 100%)',
+        }} />
+        {/* Top accent bar */}
+        <div style={{
+          position: 'absolute', top: 0, left: 0, right: 0, height: 2,
+          background: `linear-gradient(90deg, ${c.color}, ${c.color}66)`,
         }} />
         {/* Name on image */}
-        <div style={{
-          position: 'absolute', bottom: 16, right: 18,
-        }}>
+        <div style={{ position: 'absolute', bottom: 16, right: 18 }}>
           <div style={{
-            color: '#fff', fontWeight: 800,
+            color: '#E8F4FF', fontWeight: 800,
             fontSize: 'clamp(1.1rem,2vw,1.3rem)',
             letterSpacing: '-0.02em',
-            textShadow: '0 2px 12px rgba(0,0,0,0.4)',
+            textShadow: '0 2px 12px rgba(0,0,0,0.6)',
           }}>
             {c.name}
           </div>
           <div style={{ display: 'flex', flexWrap: 'wrap', marginTop: 5 }}>
-            {tags.map(t => <Tag key={t} color="#fff">{t}</Tag>)}
+            {tags.map(t => <Tag key={t} color={c.color}>{t}</Tag>)}
           </div>
         </div>
-        {/* Top accent */}
-        <div style={{
-          position: 'absolute', top: 0, left: 0, right: 0, height: 3,
-          background: `linear-gradient(90deg, ${c.color}, ${c.color}88)`,
-        }} />
       </div>
 
       {/* Body */}
@@ -131,12 +140,12 @@ function CaseCard({ c, index, triggered }) {
         {/* Challenge */}
         <div style={{ marginBottom: 20 }}>
           <div style={{
-            fontSize: '0.7rem', fontWeight: 700, color: '#9aabb8',
-            letterSpacing: '0.08em', marginBottom: 8, textTransform: 'uppercase',
+            fontSize: '0.68rem', fontWeight: 700, color: 'rgba(200,220,255,0.5)',
+            letterSpacing: '0.1em', marginBottom: 8, textTransform: 'uppercase',
           }}>
             האתגר
           </div>
-          <p style={{ color: '#3a4a60', fontSize: '0.88rem', lineHeight: 1.7, margin: 0 }}>
+          <p style={{ color: 'rgba(230,240,255,0.78)', fontSize: '0.88rem', lineHeight: 1.7, margin: 0 }}>
             {c.challenge}
           </p>
         </div>
@@ -144,8 +153,8 @@ function CaseCard({ c, index, triggered }) {
         {/* Solution */}
         <div style={{ marginBottom: 24 }}>
           <div style={{
-            fontSize: '0.7rem', fontWeight: 700, color: '#9aabb8',
-            letterSpacing: '0.08em', marginBottom: 8, textTransform: 'uppercase',
+            fontSize: '0.68rem', fontWeight: 700, color: 'rgba(200,220,255,0.5)',
+            letterSpacing: '0.1em', marginBottom: 8, textTransform: 'uppercase',
           }}>
             הפתרון
           </div>
@@ -154,15 +163,15 @@ function CaseCard({ c, index, triggered }) {
               <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 9 }}>
                 <div style={{
                   width: 18, height: 18, borderRadius: '50%', flexShrink: 0, marginTop: 2,
-                  background: c.accent,
-                  border: `1px solid ${c.border}`,
+                  background: `${c.color}15`,
+                  border: `1px solid ${c.color}35`,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                 }}>
                   <svg width="9" height="9" viewBox="0 0 12 12" fill="none">
                     <path d="M2 6l3 3 5-5" stroke={c.color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                <span style={{ color: '#3a4a60', fontSize: '0.87rem', lineHeight: 1.55 }}>{s}</span>
+                <span style={{ color: 'rgba(230,240,255,0.82)', fontSize: '0.87rem', lineHeight: 1.55 }}>{s}</span>
               </li>
             ))}
           </ul>
@@ -170,9 +179,9 @@ function CaseCard({ c, index, triggered }) {
 
         {/* Results */}
         <div style={{
-          display: 'flex', gap: 2,
-          background: c.accent,
-          border: `1px solid ${c.border}`,
+          display: 'flex', gap: 0,
+          background: `${c.color}08`,
+          border: `1px solid ${c.color}20`,
           borderRadius: 14,
           overflow: 'hidden',
           marginTop: 'auto',
@@ -182,17 +191,17 @@ function CaseCard({ c, index, triggered }) {
               flex: 1,
               padding: '14px 12px',
               textAlign: 'center',
-              borderLeft: i > 0 ? `1px solid ${c.border}` : 'none',
+              borderLeft: i > 0 ? `1px solid ${c.color}18` : 'none',
             }}>
               <div style={{
                 color: c.color, fontWeight: 900,
-                fontSize: 'clamp(1rem,1.8vw,1.25rem)',
+                fontSize: 'clamp(1rem,1.8vw,1.2rem)',
                 letterSpacing: '-0.03em', lineHeight: 1,
                 marginBottom: 5,
               }}>
                 {r.value}
               </div>
-              <div style={{ color: '#4a5d7a', fontSize: '0.68rem', fontWeight: 600, lineHeight: 1.3 }}>
+              <div style={{ color: 'rgba(200,220,255,0.6)', fontSize: '0.68rem', fontWeight: 600, lineHeight: 1.3 }}>
                 {r.label}
               </div>
             </div>
@@ -221,17 +230,17 @@ export default function CaseStudies() {
     <section
       id="case-studies"
       ref={ref}
-      style={{ padding: '100px 0', direction: 'rtl' }}
+      style={{ padding: '100px 0', direction: 'rtl', position: 'relative' }}
     >
-      {/* Subtle bg */}
+      {/* Subtle section glow */}
       <div style={{
-        position: 'absolute', left: 0, right: 0,
-        height: '100%', pointerEvents: 'none',
-        background: 'linear-gradient(180deg, #f8faff 0%, #fff 100%)',
-        zIndex: -1,
+        position: 'absolute', top: '30%', left: '50%', transform: 'translateX(-50%)',
+        width: 800, height: 500,
+        background: 'radial-gradient(ellipse at 50% 50%, rgba(26,111,255,0.06) 0%, transparent 70%)',
+        filter: 'blur(80px)', pointerEvents: 'none', zIndex: 0,
       }} />
 
-      <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(16px,4vw,40px)' }}>
+      <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 clamp(16px,4vw,40px)', position: 'relative', zIndex: 1 }}>
 
         {/* Header */}
         <div style={{
@@ -241,15 +250,15 @@ export default function CaseStudies() {
           transition: 'opacity 0.55s ease, transform 0.55s ease',
         }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, marginBottom: 18 }}>
-            <div style={{ height: 1, width: 40, background: 'linear-gradient(90deg, transparent, #1a6fff)' }} />
+            <div style={{ height: 1, width: 40, background: 'linear-gradient(90deg, transparent, #00d4ff)' }} />
             <div className="tag-pill">תיק עבודות</div>
-            <div style={{ height: 1, width: 40, background: 'linear-gradient(270deg, transparent, #1a6fff)' }} />
+            <div style={{ height: 1, width: 40, background: 'linear-gradient(270deg, transparent, #00d4ff)' }} />
           </div>
-          <h2 className="font-black leading-tight" style={{ fontSize: 'clamp(2rem,4vw,3.2rem)', letterSpacing: '-0.02em', marginBottom: 14 }}>
+          <h2 className="font-black leading-tight" style={{ fontSize: 'clamp(2rem,4vw,3.2rem)', letterSpacing: '-0.02em', marginBottom: 14, color: '#E8F4FF' }}>
             תוצאות שאפשר{' '}
             <span className="gradient-text">למדוד</span>
           </h2>
-          <p style={{ color: '#4a5d7a', fontSize: 'clamp(0.95rem,1.5vw,1.05rem)', maxWidth: 520, margin: '0 auto' }}>
+          <p style={{ color: 'rgba(230,240,255,0.72)', fontSize: 'clamp(0.95rem,1.5vw,1.05rem)', maxWidth: 520, margin: '0 auto' }}>
             שני לקוחות שלקחו את הפתרון המלא — תוכן, אתר וניהול פרסום תחת קורת גג אחת.
           </p>
         </div>
@@ -268,19 +277,7 @@ export default function CaseStudies() {
           transition: 'opacity 0.55s ease 0.4s',
         }}>
           <a href={WA_LINK} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
-            <button style={{
-              display: 'inline-flex', alignItems: 'center', gap: 9,
-              padding: '12px 28px',
-              background: 'linear-gradient(135deg,#1a6fff 0%,#0055ee 100%)',
-              color: '#fff', border: 'none', borderRadius: 12,
-              fontFamily: 'Heebo, sans-serif',
-              fontWeight: 700, fontSize: '0.95rem', cursor: 'pointer',
-              boxShadow: '0 4px 20px rgba(26,111,255,0.35)',
-              transition: 'transform 0.18s ease, box-shadow 0.18s ease',
-            }}
-              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 8px 28px rgba(26,111,255,0.45)' }}
-              onMouseLeave={e => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = '0 4px 20px rgba(26,111,255,0.35)' }}
-            >
+            <button className="btn-primary">
               <span>רוצים תוצאות כאלה? בואו נדבר</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M19 12H5M12 5l-7 7 7 7"/>
