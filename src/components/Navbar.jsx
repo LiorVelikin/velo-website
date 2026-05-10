@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import VeloLogo from './VeloLogo'
 
-/* ── Service sub-links (dropdown) ── */
 const SERVICE_LINKS = [
   {
     label: 'עיצוב אתרים', desc: 'אתרים ממוקדי המרות',
@@ -61,7 +60,6 @@ const SERVICE_LINKS = [
   },
 ]
 
-/* ── Regular nav links (non-dropdown) ── */
 const NAV_LINKS = [
   { label: 'בית',        path: '/',          hash: null             },
   { label: 'תיק עבודות', path: '/',          hash: '#case-studies'  },
@@ -69,7 +67,6 @@ const NAV_LINKS = [
   { label: 'צור קשר',   path: '/contact',   hash: null             },
 ]
 
-/* ── Chevron icon ── */
 const Chevron = ({ open }) => (
   <svg
     width="11" height="11" viewBox="0 0 24 24" fill="none"
@@ -80,31 +77,32 @@ const Chevron = ({ open }) => (
   </svg>
 )
 
+const NAV_LINK_COLOR = 'rgba(230,240,255,0.6)'
+const NAV_LINK_ACTIVE = '#E8F4FF'
+const NAV_LINK_HOVER = '#00d4ff'
+
 export default function Navbar() {
   const [scrolled,       setScrolled]       = useState(false)
   const [menuOpen,       setMenuOpen]       = useState(false)
-  const [dropOpen,       setDropOpen]       = useState(false)  // desktop hover state
-  const [mobileServOpen, setMobileServOpen] = useState(false)  // mobile services accordion
+  const [dropOpen,       setDropOpen]       = useState(false)
+  const [mobileServOpen, setMobileServOpen] = useState(false)
   const [hoveredSvc,     setHoveredSvc]     = useState(null)
   const dropTimerRef = useRef(null)
   const location     = useLocation()
   const isHome       = location.pathname === '/' || location.pathname === ''
 
-  /* ── Close menu on route change ── */
   useEffect(() => {
     setMenuOpen(false)
     setMobileServOpen(false)
     setDropOpen(false)
   }, [location.pathname])
 
-  /* ── Scroll detection ── */
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 60)
     window.addEventListener('scroll', handler, { passive: true })
     return () => window.removeEventListener('scroll', handler)
   }, [])
 
-  /* ── Smooth-scroll on home hash links ── */
   const handleHashNav = (hash, e) => {
     if (isHome && hash) {
       e.preventDefault()
@@ -113,7 +111,6 @@ export default function Navbar() {
     }
   }
 
-  /* ── Desktop dropdown — slight delay prevents flash on fast mouse-pass ── */
   const openDrop  = () => { clearTimeout(dropTimerRef.current); setDropOpen(true)  }
   const closeDrop = () => { dropTimerRef.current = setTimeout(() => setDropOpen(false), 120) }
 
@@ -127,19 +124,19 @@ export default function Navbar() {
         height: scrolled ? '68px' : '100px',
         display: 'flex', flexDirection: 'column', justifyContent: 'center',
         background: scrolled
-          ? 'rgba(224,231,244,0.92)'
-          : menuOpen ? 'rgba(224,231,244,0.97)' : 'transparent',
+          ? 'rgba(6,11,24,0.92)'
+          : menuOpen ? 'rgba(6,11,24,0.97)' : 'transparent',
         backdropFilter: scrolled || menuOpen ? 'blur(24px) saturate(160%)' : 'none',
         WebkitBackdropFilter: scrolled || menuOpen ? 'blur(24px) saturate(160%)' : 'none',
         borderBottom: scrolled
-          ? '1px solid rgba(10,15,30,0.08)'
+          ? '1px solid rgba(0,212,255,0.1)'
           : '1px solid transparent',
-        boxShadow: scrolled ? '0 1px 0 rgba(26,111,255,0.06), 0 4px 16px rgba(0,0,0,0.05)' : 'none',
+        boxShadow: scrolled ? '0 1px 0 rgba(0,212,255,0.06), 0 4px 24px rgba(0,0,0,0.4)' : 'none',
       }}
     >
       <div className="max-w-7xl mx-auto px-6 w-full flex items-center justify-between">
 
-        {/* ── Logo ── */}
+        {/* Logo */}
         <Link to="/" style={{ flexShrink: 0 }}>
           <VeloLogo style={{
             height: scrolled ? '62px' : '100px',
@@ -149,7 +146,7 @@ export default function Navbar() {
           }} />
         </Link>
 
-        {/* ── Desktop Nav ── */}
+        {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-1" style={{ direction: 'rtl' }}>
 
           {/* Home */}
@@ -157,34 +154,30 @@ export default function Navbar() {
             to="/"
             style={{
               padding: '6px 12px',
-              color: location.pathname === '/' ? '#0a0f1e' : '#4a5d7a',
+              color: location.pathname === '/' ? NAV_LINK_ACTIVE : NAV_LINK_COLOR,
               fontSize: '0.875rem', fontWeight: 600,
               textDecoration: 'none', borderRadius: 8,
               transition: 'color 0.2s ease, background 0.2s ease',
               whiteSpace: 'nowrap',
             }}
-            onMouseEnter={e => { e.currentTarget.style.color = '#1a6fff'; e.currentTarget.style.background = 'rgba(26,111,255,0.06)' }}
+            onMouseEnter={e => { e.currentTarget.style.color = NAV_LINK_HOVER; e.currentTarget.style.background = 'rgba(0,212,255,0.07)' }}
             onMouseLeave={e => {
-              e.currentTarget.style.color = location.pathname === '/' ? '#0a0f1e' : '#4a5d7a'
+              e.currentTarget.style.color = location.pathname === '/' ? NAV_LINK_ACTIVE : NAV_LINK_COLOR
               e.currentTarget.style.background = 'transparent'
             }}
           >
             בית
           </Link>
 
-          {/* Services dropdown trigger */}
-          <div
-            style={{ position: 'relative' }}
-            onMouseEnter={openDrop}
-            onMouseLeave={closeDrop}
-          >
+          {/* Services dropdown */}
+          <div style={{ position: 'relative' }} onMouseEnter={openDrop} onMouseLeave={closeDrop}>
             <button
               style={{
                 display: 'flex', alignItems: 'center', gap: 5,
                 padding: '6px 12px',
-                color: isServiceActive ? '#1a6fff' : dropOpen ? '#1a6fff' : '#4a5d7a',
+                color: isServiceActive ? NAV_LINK_HOVER : dropOpen ? NAV_LINK_HOVER : NAV_LINK_COLOR,
                 fontSize: '0.875rem', fontWeight: 600,
-                background: dropOpen ? 'rgba(26,111,255,0.06)' : 'transparent',
+                background: dropOpen ? 'rgba(0,212,255,0.07)' : 'transparent',
                 border: 'none', cursor: 'pointer', borderRadius: 8,
                 transition: 'color 0.2s ease, background 0.2s ease',
                 whiteSpace: 'nowrap',
@@ -194,17 +187,17 @@ export default function Navbar() {
               <Chevron open={dropOpen} />
             </button>
 
-            {/* Dropdown panel */}
+            {/* Dropdown */}
             <div style={{
               position: 'absolute',
               top: 'calc(100% + 12px)',
               right: 0,
               width: 480,
               background: 'linear-gradient(160deg, rgba(10,18,42,0.98) 0%, rgba(6,10,24,0.99) 100%)',
-              border: '1px solid rgba(255,255,255,0.09)',
-              borderTopColor: 'rgba(26,111,255,0.35)',
+              border: '1px solid rgba(255,255,255,0.07)',
+              borderTopColor: 'rgba(0,212,255,0.3)',
               borderRadius: 16,
-              boxShadow: '0 8px 40px rgba(0,0,0,0.45), 0 24px 64px rgba(0,0,0,0.25)',
+              boxShadow: '0 8px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,212,255,0.05)',
               backdropFilter: 'blur(24px)',
               overflow: 'hidden',
               opacity: dropOpen ? 1 : 0,
@@ -214,27 +207,13 @@ export default function Navbar() {
               zIndex: 100,
             }}>
 
-              {/* Top accent */}
-              <div style={{
-                position: 'absolute', top: 0, left: '10%', right: '10%', height: 2,
-                background: 'linear-gradient(90deg, transparent, rgba(26,111,255,0.7), rgba(0,212,255,0.5), transparent)',
-              }} />
-
-              {/* Header */}
-              <div style={{
-                padding: '16px 20px 12px',
-                borderBottom: '1px solid rgba(255,255,255,0.07)',
-              }}>
-                <p style={{ color: '#4d9fff', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.08em', margin: 0 }}>
+              <div style={{ padding: '16px 20px 12px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                <p style={{ color: '#00d4ff', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.08em', margin: 0 }}>
                   כל השירותים שלנו
                 </p>
               </div>
 
-              {/* 2×3 grid of services */}
-              <div style={{
-                display: 'grid', gridTemplateColumns: '1fr 1fr',
-                gap: 2, padding: '8px',
-              }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2, padding: '8px' }}>
                 {SERVICE_LINKS.map((svc) => (
                   <Link
                     key={svc.path}
@@ -246,10 +225,8 @@ export default function Navbar() {
                     <div style={{
                       display: 'flex', alignItems: 'center', gap: 10,
                       padding: '12px 14px', borderRadius: 10,
-                      background: hoveredSvc === svc.path ? `${svc.color}14` : 'transparent',
-                      border: hoveredSvc === svc.path
-                        ? `1px solid ${svc.color}30`
-                        : '1px solid transparent',
+                      background: hoveredSvc === svc.path ? `${svc.color}12` : 'transparent',
+                      border: hoveredSvc === svc.path ? `1px solid ${svc.color}28` : '1px solid transparent',
                       transition: 'all 0.18s ease',
                       direction: 'rtl',
                     }}>
@@ -272,7 +249,7 @@ export default function Navbar() {
                         }}>
                           {svc.label}
                         </p>
-                        <p style={{ color: '#6a80a0', fontSize: '0.7rem', margin: 0, marginTop: 2 }}>
+                        <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.7rem', margin: 0, marginTop: 2 }}>
                           {svc.desc}
                         </p>
                       </div>
@@ -281,19 +258,15 @@ export default function Navbar() {
                 ))}
               </div>
 
-              {/* Footer link to all services */}
-              <div style={{
-                padding: '10px 20px 14px',
-                borderTop: '1px solid rgba(255,255,255,0.07)',
-              }}>
+              <div style={{ padding: '10px 20px 14px', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
                 <Link to="/services" style={{ textDecoration: 'none' }}>
                   <div style={{
                     display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                    color: '#4d9fff', fontSize: '0.78rem', fontWeight: 700,
+                    color: '#00d4ff', fontSize: '0.78rem', fontWeight: 700,
                     padding: '6px 0',
                     transition: 'opacity 0.2s ease',
                   }}
-                    onMouseEnter={e => e.currentTarget.style.opacity = '0.75'}
+                    onMouseEnter={e => e.currentTarget.style.opacity = '0.7'}
                     onMouseLeave={e => e.currentTarget.style.opacity = '1'}
                   >
                     <span>לכל השירותים</span>
@@ -316,14 +289,14 @@ export default function Navbar() {
                 href={href}
                 onClick={(e) => handleHashNav(link.hash, e)}
                 style={{
-                  padding: '6px 12px', color: '#4a5d7a',
+                  padding: '6px 12px', color: NAV_LINK_COLOR,
                   fontSize: '0.875rem', fontWeight: 600,
                   textDecoration: 'none', borderRadius: 8,
                   transition: 'color 0.2s ease, background 0.2s ease',
                   whiteSpace: 'nowrap',
                 }}
-                onMouseEnter={e => { e.currentTarget.style.color = '#1a6fff'; e.currentTarget.style.background = 'rgba(26,111,255,0.06)' }}
-                onMouseLeave={e => { e.currentTarget.style.color = '#4a5d7a'; e.currentTarget.style.background = 'transparent' }}
+                onMouseEnter={e => { e.currentTarget.style.color = NAV_LINK_HOVER; e.currentTarget.style.background = 'rgba(0,212,255,0.07)' }}
+                onMouseLeave={e => { e.currentTarget.style.color = NAV_LINK_COLOR; e.currentTarget.style.background = 'transparent' }}
               >
                 {link.label}
               </a>
@@ -333,15 +306,15 @@ export default function Navbar() {
                 to={link.path}
                 style={{
                   padding: '6px 12px',
-                  color: isActive ? '#1a6fff' : '#4a5d7a',
+                  color: isActive ? NAV_LINK_HOVER : NAV_LINK_COLOR,
                   fontSize: '0.875rem', fontWeight: 600,
                   textDecoration: 'none', borderRadius: 8,
                   transition: 'color 0.2s ease, background 0.2s ease',
                   whiteSpace: 'nowrap',
                 }}
-                onMouseEnter={e => { e.currentTarget.style.color = '#1a6fff'; e.currentTarget.style.background = 'rgba(26,111,255,0.06)' }}
+                onMouseEnter={e => { e.currentTarget.style.color = NAV_LINK_HOVER; e.currentTarget.style.background = 'rgba(0,212,255,0.07)' }}
                 onMouseLeave={e => {
-                  e.currentTarget.style.color = isActive ? '#1a6fff' : '#4a5d7a'
+                  e.currentTarget.style.color = isActive ? NAV_LINK_HOVER : NAV_LINK_COLOR
                   e.currentTarget.style.background = 'transparent'
                 }}
               >
@@ -351,49 +324,36 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* ── Desktop CTA ── */}
+        {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-3">
           <a
-            href="https://wa.me/972544286018?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%9C%D7%99%D7%90%D7%95%D7%A8%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%D7%9D%20%D7%A9%D7%9C%D7%9A"
+            href={`https://wa.me/972544286018?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%9C%D7%99%D7%90%D7%95%D7%A8%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%D7%9D%20%D7%A9%D7%9C%D7%9A`}
             target="_blank" rel="noopener noreferrer"
             style={{ textDecoration: 'none' }}
           >
-            <button style={{
-              display: 'inline-flex', alignItems: 'center', gap: 8,
-              padding: '9px 20px',
-              background: '#25d366', color: '#fff',
-              border: 'none', borderRadius: 10,
-              fontFamily: 'Heebo, sans-serif',
-              fontWeight: 700, fontSize: '0.84rem', cursor: 'pointer',
-              boxShadow: '0 2px 12px rgba(37,211,102,0.3)',
-              transition: 'transform 0.15s ease, box-shadow 0.15s ease',
-              whiteSpace: 'nowrap',
-            }}
-              onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = '0 4px 16px rgba(37,211,102,0.4)' }}
-              onMouseLeave={e => { e.currentTarget.style.transform = ''; e.currentTarget.style.boxShadow = '0 2px 12px rgba(37,211,102,0.3)' }}
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            <button className="btn-primary" style={{ padding: '9px 20px', fontSize: '0.84rem', borderRadius: 10 }}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
               </svg>
-              <span>דברו עם ליאור</span>
+              <span>צרו קשר</span>
             </button>
           </a>
         </div>
 
-        {/* ── Mobile hamburger ── */}
+        {/* Mobile hamburger */}
         <button
           className="md:hidden flex flex-col gap-1.5 p-2"
           onClick={() => setMenuOpen(v => !v)}
           aria-label="תפריט"
           style={{ flexShrink: 0 }}
         >
-          <span className={`block w-6 h-0.5 transition-transform duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} style={{ background: '#0a0f1e' }} />
-          <span className={`block w-6 h-0.5 transition-opacity duration-300 ${menuOpen ? 'opacity-0' : ''}`} style={{ background: '#0a0f1e' }} />
-          <span className={`block w-6 h-0.5 transition-transform duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} style={{ background: '#0a0f1e' }} />
+          <span className={`block w-6 h-0.5 transition-transform duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} style={{ background: 'rgba(255,255,255,0.8)' }} />
+          <span className={`block w-6 h-0.5 transition-opacity duration-300 ${menuOpen ? 'opacity-0' : ''}`} style={{ background: 'rgba(255,255,255,0.8)' }} />
+          <span className={`block w-6 h-0.5 transition-transform duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} style={{ background: 'rgba(255,255,255,0.8)' }} />
         </button>
       </div>
 
-      {/* ── Mobile menu ── */}
+      {/* Mobile menu */}
       <div
         className="md:hidden overflow-hidden"
         style={{
@@ -402,22 +362,21 @@ export default function Navbar() {
         }}
       >
         <div style={{
-          background: 'rgba(224,231,244,0.98)',
-          borderTop: '1px solid rgba(10,15,30,0.08)',
+          background: 'rgba(6,11,24,0.98)',
+          borderTop: '1px solid rgba(0,212,255,0.1)',
           padding: '12px 24px 20px',
           display: 'flex', flexDirection: 'column', gap: 2,
           direction: 'rtl',
         }}>
 
-          {/* Home */}
           <Link
             to="/"
             onClick={() => setMenuOpen(false)}
             style={{
-              padding: '12px 8px', color: '#0a0f1e',
+              padding: '12px 8px', color: NAV_LINK_ACTIVE,
               fontSize: '1rem', fontWeight: 600,
               textDecoration: 'none', display: 'block',
-              borderBottom: '1px solid rgba(10,15,30,0.06)',
+              borderBottom: '1px solid rgba(255,255,255,0.06)',
             }}
           >
             בית
@@ -431,10 +390,10 @@ export default function Navbar() {
                 width: '100%', display: 'flex', alignItems: 'center',
                 justifyContent: 'space-between',
                 padding: '12px 8px',
-                color: mobileServOpen || isServiceActive ? '#1a6fff' : '#0a0f1e',
+                color: mobileServOpen || isServiceActive ? NAV_LINK_HOVER : NAV_LINK_ACTIVE,
                 fontSize: '1rem', fontWeight: 600,
                 background: 'none', border: 'none', cursor: 'pointer',
-                borderBottom: mobileServOpen ? 'none' : '1px solid rgba(10,15,30,0.06)',
+                borderBottom: mobileServOpen ? 'none' : '1px solid rgba(255,255,255,0.06)',
                 direction: 'rtl',
               }}
             >
@@ -442,7 +401,6 @@ export default function Navbar() {
               <Chevron open={mobileServOpen} />
             </button>
 
-            {/* Service sub-items */}
             <div style={{
               maxHeight: mobileServOpen ? '500px' : 0,
               overflow: 'hidden',
@@ -451,8 +409,8 @@ export default function Navbar() {
               <div style={{
                 paddingRight: 12, paddingBottom: 8,
                 display: 'flex', flexDirection: 'column', gap: 2,
-                borderBottom: '1px solid rgba(10,15,30,0.06)',
-                borderRight: '2px solid rgba(26,111,255,0.25)',
+                borderBottom: '1px solid rgba(255,255,255,0.06)',
+                borderRight: '2px solid rgba(0,212,255,0.2)',
               }}>
                 {SERVICE_LINKS.map((svc) => (
                   <Link
@@ -476,10 +434,10 @@ export default function Navbar() {
                         {svc.icon}
                       </div>
                       <div>
-                        <p style={{ color: '#0a0f1e', fontSize: '0.88rem', fontWeight: 600, margin: 0 }}>
+                        <p style={{ color: NAV_LINK_ACTIVE, fontSize: '0.88rem', fontWeight: 600, margin: 0 }}>
                           {svc.label}
                         </p>
-                        <p style={{ color: '#6a80a0', fontSize: '0.72rem', margin: 0 }}>
+                        <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.72rem', margin: 0 }}>
                           {svc.desc}
                         </p>
                       </div>
@@ -489,10 +447,7 @@ export default function Navbar() {
                 <Link
                   to="/services"
                   onClick={() => setMenuOpen(false)}
-                  style={{
-                    textDecoration: 'none', padding: '8px 8px',
-                    color: '#4d9fff', fontSize: '0.8rem', fontWeight: 700,
-                  }}
+                  style={{ textDecoration: 'none', padding: '8px 8px', color: '#00d4ff', fontSize: '0.8rem', fontWeight: 700 }}
                 >
                   לכל השירותים ←
                 </Link>
@@ -500,7 +455,6 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Other links */}
           {NAV_LINKS.filter(l => l.label !== 'בית').map((link) => {
             const href = isHome && link.hash ? link.hash : link.path
             return link.hash && isHome ? (
@@ -509,10 +463,10 @@ export default function Navbar() {
                 href={href}
                 onClick={(e) => handleHashNav(link.hash, e)}
                 style={{
-                  padding: '12px 8px', color: '#0a0f1e',
+                  padding: '12px 8px', color: NAV_LINK_ACTIVE,
                   fontSize: '1rem', fontWeight: 600,
                   textDecoration: 'none', display: 'block',
-                  borderBottom: '1px solid rgba(10,15,30,0.06)',
+                  borderBottom: '1px solid rgba(255,255,255,0.06)',
                 }}
               >
                 {link.label}
@@ -523,10 +477,10 @@ export default function Navbar() {
                 to={link.path}
                 onClick={() => setMenuOpen(false)}
                 style={{
-                  padding: '12px 8px', color: '#0a0f1e',
+                  padding: '12px 8px', color: NAV_LINK_ACTIVE,
                   fontSize: '1rem', fontWeight: 600,
                   textDecoration: 'none', display: 'block',
-                  borderBottom: '1px solid rgba(10,15,30,0.06)',
+                  borderBottom: '1px solid rgba(255,255,255,0.06)',
                 }}
               >
                 {link.label}
@@ -534,7 +488,6 @@ export default function Navbar() {
             )
           })}
 
-          {/* Mobile CTA */}
           <div style={{ paddingTop: 12 }}>
             <Link to="/contact" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none' }}>
               <button className="btn-primary" style={{ width: '100%', justifyContent: 'center', fontSize: '0.95rem' }}>

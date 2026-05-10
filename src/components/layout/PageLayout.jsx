@@ -13,7 +13,18 @@ export default function PageLayout() {
   }, [pathname, hash])
 
   return (
-    <div className="overflow-x-hidden font-heebo page-grid" style={{ color: '#0a0f1e' }}>
+    <div className="overflow-x-hidden font-heebo page-grid" style={{ color: '#E8F4FF' }}>
+      {/* Film-grain noise texture — fixed, pointer-events-none, no GPU repaint */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 9998,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E")`,
+          backgroundSize: '180px 180px',
+          opacity: 0.032,
+          mixBlendMode: 'overlay',
+        }}
+      />
       <Navbar />
       <main>
         <Outlet />

@@ -2,17 +2,17 @@ import { useEffect, useRef, useState } from 'react'
 
 const BASE = import.meta.env.BASE_URL
 
-/* ─── Video data ─── */
+/* ─── Video data — all glow colors blue/cyan only ─── */
 const videos = [
-  { src: `${BASE}videos/ai-avatar-1.mp4`,        label: 'AI Avatar',      color: '#0e0a20', glow: 'rgba(160,125,255,0.50)' },
-  { src: `${BASE}videos/maya-ugc.mp4`,           label: 'UGC | מאיה',     color: '#1a0a2e', glow: 'rgba(255,133,194,0.55)' },
+  { src: `${BASE}videos/ai-avatar-1.mp4`,        label: 'AI Avatar',      color: '#0a1428', glow: 'rgba(26,111,255,0.55)'  },
+  { src: `${BASE}videos/maya-ugc.mp4`,           label: 'UGC | מאיה',     color: '#0a1428', glow: 'rgba(0,212,255,0.50)'   },
   { src: `${BASE}videos/alo-yoga-ad.mp4`,        label: 'Reels ספורט',    color: '#0a1a2e', glow: 'rgba(26,111,255,0.55)'  },
-  { src: `${BASE}videos/ai-avatar-3.mp4`,        label: 'AI Creator',     color: '#0a2030', glow: 'rgba(0,212,184,0.55)'   },
-  { src: `${BASE}videos/channel-perfume-ad.mp4`, label: 'פרסומת מוצר',   color: '#1e1508', glow: 'rgba(201,168,76,0.65)'  },
-  { src: `${BASE}videos/luxury-unboxing.mp4`,    label: 'Unboxing יוקרה', color: '#18120a', glow: 'rgba(201,168,76,0.55)'  },
-  { src: `${BASE}videos/michal-ugc.mp4`,         label: 'UGC | מיכל',     color: '#2a0a18', glow: 'rgba(255,133,194,0.55)' },
-  { src: `${BASE}videos/noa-ugc.mp4`,            label: 'UGC | נועה',     color: '#2a0a18', glow: 'rgba(255,133,194,0.50)' },
-  { src: `${BASE}videos/ai-avatar-2.mp4`,        label: 'UGC Ad',         color: '#0e0a20', glow: 'rgba(160,125,255,0.50)' },
+  { src: `${BASE}videos/ai-avatar-3.mp4`,        label: 'AI Creator',     color: '#0a1428', glow: 'rgba(0,212,255,0.55)'   },
+  { src: `${BASE}videos/channel-perfume-ad.mp4`, label: 'פרסומת מוצר',   color: '#0d1830', glow: 'rgba(77,159,255,0.55)'  },
+  { src: `${BASE}videos/luxury-unboxing.mp4`,    label: 'Unboxing יוקרה', color: '#0a1428', glow: 'rgba(0,212,255,0.50)'   },
+  { src: `${BASE}videos/michal-ugc.mp4`,         label: 'UGC | מיכל',     color: '#0a1428', glow: 'rgba(26,111,255,0.50)'  },
+  { src: `${BASE}videos/noa-ugc.mp4`,            label: 'UGC | נועה',     color: '#0a1428', glow: 'rgba(0,212,255,0.50)'   },
+  { src: `${BASE}videos/ai-avatar-2.mp4`,        label: 'UGC Ad',         color: '#0a1428', glow: 'rgba(77,159,255,0.50)'  },
 ]
 
 /* ─── Per-phone layout config (9 phones, symmetric around center) ─── */
@@ -53,8 +53,8 @@ function IPhoneMockup({ video, config, index, entered }) {
         alignItems: 'center',
         transform: `rotate(${config.rotate}deg) translateY(${config.translateY}px) scale(${config.scale})`,
         opacity: entered ? config.opacity : 0,
-        transition: `opacity 0.55s ease ${index * 60}ms, transform 0.55s cubic-bezier(0.16,1,0.3,1) ${index * 60}ms`,
-        /* entrance slide: phones start lower and rise in */
+        /* all phones enter together — no stagger delay */
+        transition: `opacity 0.6s ease 0ms, transform 0.65s cubic-bezier(0.16,1,0.3,1) 0ms`,
         ...(entered ? {} : { transform: `rotate(${config.rotate}deg) translateY(${config.translateY + 40}px) scale(${config.scale})` }),
         cursor: 'default',
         position: 'relative',
@@ -178,7 +178,7 @@ function IPhoneMockup({ video, config, index, entered }) {
         </div>
       </div>
 
-      {/* Label pill beneath phone */}
+      {/* Label pill beneath phone — white text on blue/cyan tinted pill */}
       <div style={{
         marginTop: 16,
         padding: '4px 12px',
@@ -188,11 +188,11 @@ function IPhoneMockup({ video, config, index, entered }) {
         boxShadow: `0 0 10px ${video.glow.replace(/[\d.]+\)$/, '0.15)')}`,
         backdropFilter: 'blur(8px)',
         opacity: entered ? 1 : 0,
-        transition: `opacity 0.55s ease ${index * 60 + 200}ms`,
+        transition: `opacity 0.6s ease 0.15s`,
       }}>
         <span style={{
           fontSize: '10px', fontWeight: 700,
-          color: '#0a0f1e',
+          color: '#E8F4FF',
           letterSpacing: '0.04em',
           whiteSpace: 'nowrap',
         }}>
@@ -210,14 +210,12 @@ export default function ContentSection() {
   const [headVis, setHeadVis] = useState(false)
 
   useEffect(() => {
-    /* Headline reveal */
     const headObs = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) setHeadVis(true) },
       { threshold: 0.2 }
     )
     if (sectionRef.current) headObs.observe(sectionRef.current)
 
-    /* Phones entrance */
     const phoneObs = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) setEntered(true) },
       { threshold: 0.15 }
@@ -241,7 +239,7 @@ export default function ContentSection() {
         filter: 'blur(60px)', pointerEvents: 'none', zIndex: 0,
       }} />
 
-      {/* Edge fades — responsive: narrower on mobile so center phones stay visible */}
+      {/* Edge fades */}
       <div className="absolute inset-0 pointer-events-none content-edge-fade" style={{ zIndex: 2 }} />
 
       <div className="relative max-w-7xl mx-auto px-6" style={{ zIndex: 3 }}>
@@ -254,7 +252,6 @@ export default function ContentSection() {
           transform: headVis ? 'none' : 'translateY(18px)',
           transition: 'opacity 0.55s ease, transform 0.55s ease',
         }}>
-          {/* Label pill */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, marginBottom: 20 }}>
             <div style={{ height: 1, width: 40, background: 'linear-gradient(90deg, transparent, #1a6fff)' }} />
             <div className="tag-pill">מה אנחנו יוצרים?</div>
@@ -266,8 +263,8 @@ export default function ContentSection() {
             <span className="gradient-text">עסקים קדימה</span>
           </h2>
 
-          <p style={{ color: '#4a5d7a', fontSize: 'clamp(1rem,1.8vw,1.15rem)', maxWidth: 600, margin: '0 auto' }}>
-            היום תוכן הוא נקודת ההתחלה של כל מערכת שיווקית. אנחנו מתמחים ביצירת תוכן AI אותנטי שמושך תשומת לב, מייצר עניין ומחזק אמון, תוך שימוש בכלים שמאפשרים לייצר תוכן בכמות גדולה, במהירות ובעלות נמוכה יותר.
+          <p style={{ color: 'rgba(230,240,255,0.6)', fontSize: 'clamp(1rem,1.8vw,1.15rem)', maxWidth: 600, margin: '0 auto', lineHeight: 1.75 }}>
+            היום תוכן הוא נקודת ההתחלה של כל מערכת שיווקית. אנחנו מתמחים ביצירת תוכן AI אותנטי שמושך תשומת לב, מייצר עניין ומחזק אמון — בקצב גבוה ועלות נמוכה.
           </p>
         </div>
 
@@ -275,7 +272,6 @@ export default function ContentSection() {
         <div
           ref={phonesRef}
           style={{
-            /* Mobile: scroll horizontally; Desktop: centered flex */
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'flex-end',
@@ -300,10 +296,10 @@ export default function ContentSection() {
           textAlign: 'center',
           marginTop: 16,
           opacity: entered ? 1 : 0,
-          transition: 'opacity 0.55s ease 0.5s',
+          transition: 'opacity 0.55s ease 0.3s',
         }}>
           <p style={{
-            color: '#6a88ad',
+            color: 'rgba(200,220,255,0.55)',
             fontSize: 'clamp(0.92rem,1.5vw,1.05rem)',
             letterSpacing: '-0.01em',
             marginBottom: 28,
