@@ -3,68 +3,20 @@ import { Link, useLocation } from 'react-router-dom'
 import VeloLogo from './VeloLogo'
 
 const SERVICE_LINKS = [
-  {
-    label: 'עיצוב אתרים', desc: 'אתרים ממוקדי המרות',
-    path: '/services/web-design', color: '#4d9fff',
-    icon: (
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
-      </svg>
-    ),
-  },
-  {
-    label: 'דפי נחיתה', desc: 'קליקים ללידים',
-    path: '/services/landing-pages', color: '#00c8ff',
-    icon: (
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="3" width="20" height="18" rx="2"/><path d="M2 9h20M9 21V9"/>
-      </svg>
-    ),
-  },
-  {
-    label: 'חנויות Shopify', desc: 'איקומרס שמוכר',
-    path: '/services/ecommerce', color: '#00d4b8',
-    icon: (
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
-      </svg>
-    ),
-  },
-  {
-    label: 'תוכן AI', desc: 'הפקה פרימיום בקצב גבוה',
-    path: '/services/ai-content', color: '#a07dff',
-    icon: (
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 3l1.5 4.6 4.5 1-4.5 1-1.5 4.6-1.5-4.6-4.5-1 4.5-1L12 3z"/>
-        <path d="M5.5 19.5l.5-1.5 1.5-.5-1.5-.5-.5-1.5-.5 1.5-1.5.5 1.5.5.5 1.5z"/>
-      </svg>
-    ),
-  },
-  {
-    label: 'ניהול קמפיינים', desc: 'Meta ו-Google Ads',
-    path: '/services/paid-ads', color: '#00d478',
-    icon: (
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
-      </svg>
-    ),
-  },
-  {
-    label: 'קידום SEO', desc: 'להופיע ראשון בגוגל',
-    path: '/services/seo', color: '#ffb347',
-    icon: (
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
-      </svg>
-    ),
-  },
+  { label: 'עיצוב אתרים',     desc: 'אתרים ממוקדי המרות',      path: '/services/web-design',    color: '#4d9fff' },
+  { label: 'דפי נחיתה',       desc: 'קליקים ללידים',            path: '/services/landing-pages', color: '#00c8ff' },
+  { label: 'חנויות Shopify',  desc: 'איקומרס שמוכר',            path: '/services/ecommerce',     color: '#00d4b8' },
+  { label: 'תוכן AI',         desc: 'הפקה פרימיום בקצב גבוה',   path: '/services/ai-content',    color: '#a07dff' },
+  { label: 'ניהול קמפיינים',  desc: 'Meta ו-Google Ads',        path: '/services/paid-ads',      color: '#00d478' },
+  { label: 'קידום SEO',       desc: 'להופיע ראשון בגוגל',       path: '/services/seo',           color: '#ffb347' },
 ]
 
 const NAV_LINKS = [
-  { label: 'בית',        path: '/',          hash: null             },
-  { label: 'תיק עבודות', path: '/',          hash: '#case-studies'  },
-  { label: 'איך עובדים', path: '/',          hash: '#process'       },
-  { label: 'צור קשר',   path: '/contact',   hash: null             },
+  { label: 'שירותים',  hash: '#services' },
+  { label: 'עבודות',   hash: '#case-studies' },
+  { label: 'תהליך',    hash: '#process' },
+  { label: 'הסוכנות',  hash: '#agency' },
+  { label: 'שאלות',    hash: '#faq' },
 ]
 
 const Chevron = ({ open }) => (
@@ -77,9 +29,9 @@ const Chevron = ({ open }) => (
   </svg>
 )
 
-const NAV_LINK_COLOR = 'rgba(230,240,255,0.6)'
+const NAV_LINK_COLOR  = 'rgba(230,240,255,0.6)'
 const NAV_LINK_ACTIVE = '#E8F4FF'
-const NAV_LINK_HOVER = '#00d4ff'
+const NAV_LINK_HOVER  = '#00d4ff'
 
 export default function Navbar() {
   const [scrolled,       setScrolled]       = useState(false)
@@ -121,25 +73,22 @@ export default function Navbar() {
       style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
         transition: 'all 0.45s cubic-bezier(0.16,1,0.3,1)',
-        height: scrolled ? '68px' : '100px',
+        height: scrolled ? '64px' : '88px',
         display: 'flex', flexDirection: 'column', justifyContent: 'center',
         background: scrolled
-          ? 'rgba(6,11,24,0.92)'
+          ? 'rgba(6,11,24,0.85)'
           : menuOpen ? 'rgba(6,11,24,0.97)' : 'transparent',
-        backdropFilter: scrolled || menuOpen ? 'blur(24px) saturate(160%)' : 'none',
-        WebkitBackdropFilter: scrolled || menuOpen ? 'blur(24px) saturate(160%)' : 'none',
-        borderBottom: scrolled
-          ? '1px solid rgba(0,212,255,0.1)'
-          : '1px solid transparent',
-        boxShadow: scrolled ? '0 1px 0 rgba(0,212,255,0.06), 0 4px 24px rgba(0,0,0,0.4)' : 'none',
+        backdropFilter: scrolled || menuOpen ? 'blur(20px) saturate(160%)' : 'none',
+        WebkitBackdropFilter: scrolled || menuOpen ? 'blur(20px) saturate(160%)' : 'none',
+        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.06)' : '1px solid transparent',
       }}
     >
       <div className="max-w-7xl mx-auto px-6 w-full flex items-center justify-between">
 
         {/* Logo */}
-        <Link to="/" style={{ flexShrink: 0 }}>
+        <Link to="/" style={{ flexShrink: 0, display: 'flex', alignItems: 'center', gap: 10 }}>
           <VeloLogo style={{
-            height: scrolled ? '62px' : '100px',
+            height: scrolled ? '52px' : '78px',
             width: 'auto',
             transition: 'height 0.45s cubic-bezier(0.16,1,0.3,1)',
             objectFit: 'contain',
@@ -149,26 +98,6 @@ export default function Navbar() {
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-1" style={{ direction: 'rtl' }}>
 
-          {/* Home */}
-          <Link
-            to="/"
-            style={{
-              padding: '6px 12px',
-              color: location.pathname === '/' ? NAV_LINK_ACTIVE : NAV_LINK_COLOR,
-              fontSize: '0.875rem', fontWeight: 600,
-              textDecoration: 'none', borderRadius: 8,
-              transition: 'color 0.2s ease, background 0.2s ease',
-              whiteSpace: 'nowrap',
-            }}
-            onMouseEnter={e => { e.currentTarget.style.color = NAV_LINK_HOVER; e.currentTarget.style.background = 'rgba(0,212,255,0.07)' }}
-            onMouseLeave={e => {
-              e.currentTarget.style.color = location.pathname === '/' ? NAV_LINK_ACTIVE : NAV_LINK_COLOR
-              e.currentTarget.style.background = 'transparent'
-            }}
-          >
-            בית
-          </Link>
-
           {/* Services dropdown */}
           <div style={{ position: 'relative' }} onMouseEnter={openDrop} onMouseLeave={closeDrop}>
             <button
@@ -176,11 +105,12 @@ export default function Navbar() {
                 display: 'flex', alignItems: 'center', gap: 5,
                 padding: '6px 12px',
                 color: isServiceActive ? NAV_LINK_HOVER : dropOpen ? NAV_LINK_HOVER : NAV_LINK_COLOR,
-                fontSize: '0.875rem', fontWeight: 600,
-                background: dropOpen ? 'rgba(0,212,255,0.07)' : 'transparent',
+                fontSize: '0.85rem', fontWeight: 500,
+                background: 'transparent',
                 border: 'none', cursor: 'pointer', borderRadius: 8,
-                transition: 'color 0.2s ease, background 0.2s ease',
+                transition: 'color 0.2s ease',
                 whiteSpace: 'nowrap',
+                fontFamily: 'inherit',
               }}
             >
               שירותים
@@ -192,24 +122,23 @@ export default function Navbar() {
               position: 'absolute',
               top: 'calc(100% + 12px)',
               right: 0,
-              width: 480,
+              width: 460,
               background: 'linear-gradient(160deg, rgba(10,18,42,0.98) 0%, rgba(6,10,24,0.99) 100%)',
               border: '1px solid rgba(255,255,255,0.07)',
               borderTopColor: 'rgba(0,212,255,0.3)',
-              borderRadius: 16,
+              borderRadius: 14,
               boxShadow: '0 8px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(0,212,255,0.05)',
               backdropFilter: 'blur(24px)',
               overflow: 'hidden',
               opacity: dropOpen ? 1 : 0,
-              transform: dropOpen ? 'translateY(0) scale(1)' : 'translateY(-8px) scale(0.98)',
+              transform: dropOpen ? 'translateY(0)' : 'translateY(-8px)',
               pointerEvents: dropOpen ? 'auto' : 'none',
               transition: 'opacity 0.2s ease, transform 0.2s cubic-bezier(0.16,1,0.3,1)',
               zIndex: 100,
             }}>
-
-              <div style={{ padding: '16px 20px 12px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-                <p style={{ color: '#00d4ff', fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.08em', margin: 0 }}>
-                  כל השירותים שלנו
+              <div style={{ padding: '14px 18px 10px', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+                <p className="mono-label" style={{ margin: 0 }}>
+                  <span className="num">·</span> <span>all services</span>
                 </p>
               </div>
 
@@ -225,26 +154,21 @@ export default function Navbar() {
                     <div style={{
                       display: 'flex', alignItems: 'center', gap: 10,
                       padding: '12px 14px', borderRadius: 10,
-                      background: hoveredSvc === svc.path ? `${svc.color}12` : 'transparent',
-                      border: hoveredSvc === svc.path ? `1px solid ${svc.color}28` : '1px solid transparent',
+                      background: hoveredSvc === svc.path ? `${svc.color}10` : 'transparent',
+                      border: hoveredSvc === svc.path ? `1px solid ${svc.color}25` : '1px solid transparent',
                       transition: 'all 0.18s ease',
                       direction: 'rtl',
                     }}>
                       <div style={{
-                        width: 34, height: 34, borderRadius: 9, flexShrink: 0,
-                        background: `${svc.color}18`,
-                        border: `1px solid ${svc.color}35`,
-                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        color: svc.color,
-                        boxShadow: hoveredSvc === svc.path ? `0 0 12px ${svc.color}30` : 'none',
+                        width: 6, height: 6, borderRadius: '50%', flexShrink: 0,
+                        background: svc.color,
+                        boxShadow: hoveredSvc === svc.path ? `0 0 12px ${svc.color}` : 'none',
                         transition: 'box-shadow 0.18s ease',
-                      }}>
-                        {svc.icon}
-                      </div>
+                      }} />
                       <div>
                         <p style={{
                           color: hoveredSvc === svc.path ? svc.color : '#e8edf6',
-                          fontSize: '0.84rem', fontWeight: 700, margin: 0, lineHeight: 1.2,
+                          fontSize: '0.86rem', fontWeight: 600, margin: 0, lineHeight: 1.2,
                           transition: 'color 0.18s ease',
                         }}>
                           {svc.label}
@@ -257,86 +181,60 @@ export default function Navbar() {
                   </Link>
                 ))}
               </div>
-
-              <div style={{ padding: '10px 20px 14px', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-                <Link to="/services" style={{ textDecoration: 'none' }}>
-                  <div style={{
-                    display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                    color: '#00d4ff', fontSize: '0.78rem', fontWeight: 700,
-                    padding: '6px 0',
-                    transition: 'opacity 0.2s ease',
-                  }}
-                    onMouseEnter={e => e.currentTarget.style.opacity = '0.7'}
-                    onMouseLeave={e => e.currentTarget.style.opacity = '1'}
-                  >
-                    <span>לכל השירותים</span>
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M19 12H5M12 5l-7 7 7 7"/>
-                    </svg>
-                  </div>
-                </Link>
-              </div>
             </div>
           </div>
 
-          {/* Other nav links */}
-          {NAV_LINKS.filter(l => l.label !== 'בית').map((link) => {
-            const href     = isHome && link.hash ? link.hash : link.path
-            const isActive = !link.hash && location.pathname === link.path
-            return link.hash && isHome ? (
-              <a
-                key={link.label}
-                href={href}
-                onClick={(e) => handleHashNav(link.hash, e)}
-                style={{
-                  padding: '6px 12px', color: NAV_LINK_COLOR,
-                  fontSize: '0.875rem', fontWeight: 600,
-                  textDecoration: 'none', borderRadius: 8,
-                  transition: 'color 0.2s ease, background 0.2s ease',
-                  whiteSpace: 'nowrap',
-                }}
-                onMouseEnter={e => { e.currentTarget.style.color = NAV_LINK_HOVER; e.currentTarget.style.background = 'rgba(0,212,255,0.07)' }}
-                onMouseLeave={e => { e.currentTarget.style.color = NAV_LINK_COLOR; e.currentTarget.style.background = 'transparent' }}
-              >
-                {link.label}
-              </a>
-            ) : (
-              <Link
-                key={link.label}
-                to={link.path}
-                style={{
-                  padding: '6px 12px',
-                  color: isActive ? NAV_LINK_HOVER : NAV_LINK_COLOR,
-                  fontSize: '0.875rem', fontWeight: 600,
-                  textDecoration: 'none', borderRadius: 8,
-                  transition: 'color 0.2s ease, background 0.2s ease',
-                  whiteSpace: 'nowrap',
-                }}
-                onMouseEnter={e => { e.currentTarget.style.color = NAV_LINK_HOVER; e.currentTarget.style.background = 'rgba(0,212,255,0.07)' }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.color = isActive ? NAV_LINK_HOVER : NAV_LINK_COLOR
-                  e.currentTarget.style.background = 'transparent'
-                }}
-              >
-                {link.label}
-              </Link>
-            )
-          })}
+          {/* Section anchor links */}
+          {NAV_LINKS.map((link) => (
+            <a
+              key={link.label}
+              href={isHome ? link.hash : `/${link.hash}`}
+              onClick={(e) => isHome && handleHashNav(link.hash, e)}
+              style={{
+                padding: '6px 12px', color: NAV_LINK_COLOR,
+                fontSize: '0.85rem', fontWeight: 500,
+                textDecoration: 'none', borderRadius: 8,
+                transition: 'color 0.2s ease',
+                whiteSpace: 'nowrap',
+              }}
+              onMouseEnter={e => e.currentTarget.style.color = NAV_LINK_HOVER}
+              onMouseLeave={e => e.currentTarget.style.color = NAV_LINK_COLOR}
+            >
+              {link.label}
+            </a>
+          ))}
         </nav>
 
-        {/* Desktop CTA */}
+        {/* Desktop CTA — minimal hairline button matching Aurora */}
         <div className="hidden md:flex items-center gap-3">
           <a
-            href={`https://wa.me/972544286018?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%9C%D7%99%D7%90%D7%95%D7%A8%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%D7%9D%20%D7%A9%D7%9C%D7%9A`}
-            target="_blank" rel="noopener noreferrer"
-            style={{ textDecoration: 'none' }}
+            href="#cta"
+            onClick={(e) => { e.preventDefault(); document.querySelector('#cta')?.scrollIntoView({ behavior: 'smooth' }) }}
+            style={{
+              textDecoration: 'none',
+              display: 'inline-flex', alignItems: 'center', gap: 8,
+              padding: '9px 18px',
+              border: '1px solid rgba(0,212,255,0.35)',
+              background: 'rgba(0,212,255,0.06)',
+              borderRadius: 100,
+              color: '#E8F4FF',
+              fontSize: '0.82rem',
+              fontWeight: 500,
+              fontFamily: 'inherit',
+              transition: 'all 0.25s ease',
+              cursor: 'pointer',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.background = 'rgba(0,212,255,0.12)'
+              e.currentTarget.style.borderColor = 'rgba(0,212,255,0.55)'
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.background = 'rgba(0,212,255,0.06)'
+              e.currentTarget.style.borderColor = 'rgba(0,212,255,0.35)'
+            }}
           >
-            <button className="btn-primary" style={{ padding: '9px 20px', fontSize: '0.84rem', borderRadius: 10 }}>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
-                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
-              </svg>
-              <span>צרו קשר</span>
-            </button>
+            <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#00d4ff', boxShadow: '0 0 8px #00d4ff' }} />
+            <span>שיחת אבחון</span>
           </a>
         </div>
 
@@ -345,7 +243,7 @@ export default function Navbar() {
           className="md:hidden flex flex-col gap-1.5 p-2"
           onClick={() => setMenuOpen(v => !v)}
           aria-label="תפריט"
-          style={{ flexShrink: 0 }}
+          style={{ flexShrink: 0, background: 'none', border: 'none', cursor: 'pointer' }}
         >
           <span className={`block w-6 h-0.5 transition-transform duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} style={{ background: 'rgba(255,255,255,0.8)' }} />
           <span className={`block w-6 h-0.5 transition-opacity duration-300 ${menuOpen ? 'opacity-0' : ''}`} style={{ background: 'rgba(255,255,255,0.8)' }} />
@@ -363,24 +261,11 @@ export default function Navbar() {
       >
         <div style={{
           background: 'rgba(6,11,24,0.98)',
-          borderTop: '1px solid rgba(0,212,255,0.1)',
+          borderTop: '1px solid rgba(255,255,255,0.06)',
           padding: '12px 24px 20px',
           display: 'flex', flexDirection: 'column', gap: 2,
           direction: 'rtl',
         }}>
-
-          <Link
-            to="/"
-            onClick={() => setMenuOpen(false)}
-            style={{
-              padding: '12px 8px', color: NAV_LINK_ACTIVE,
-              fontSize: '1rem', fontWeight: 600,
-              textDecoration: 'none', display: 'block',
-              borderBottom: '1px solid rgba(255,255,255,0.06)',
-            }}
-          >
-            בית
-          </Link>
 
           {/* Services accordion */}
           <div>
@@ -389,12 +274,13 @@ export default function Navbar() {
               style={{
                 width: '100%', display: 'flex', alignItems: 'center',
                 justifyContent: 'space-between',
-                padding: '12px 8px',
+                padding: '14px 8px',
                 color: mobileServOpen || isServiceActive ? NAV_LINK_HOVER : NAV_LINK_ACTIVE,
-                fontSize: '1rem', fontWeight: 600,
+                fontSize: '1rem', fontWeight: 500,
                 background: 'none', border: 'none', cursor: 'pointer',
-                borderBottom: mobileServOpen ? 'none' : '1px solid rgba(255,255,255,0.06)',
+                borderBottom: mobileServOpen ? 'none' : '1px solid var(--hairline)',
                 direction: 'rtl',
+                fontFamily: 'inherit',
               }}
             >
               <span>שירותים</span>
@@ -409,91 +295,56 @@ export default function Navbar() {
               <div style={{
                 paddingRight: 12, paddingBottom: 8,
                 display: 'flex', flexDirection: 'column', gap: 2,
-                borderBottom: '1px solid rgba(255,255,255,0.06)',
+                borderBottom: '1px solid var(--hairline)',
                 borderRight: '2px solid rgba(0,212,255,0.2)',
               }}>
                 {SERVICE_LINKS.map((svc) => (
-                  <Link
-                    key={svc.path}
-                    to={svc.path}
-                    onClick={() => setMenuOpen(false)}
-                    style={{ textDecoration: 'none' }}
-                  >
-                    <div style={{
-                      display: 'flex', alignItems: 'center', gap: 10,
-                      padding: '9px 8px', borderRadius: 8,
-                      direction: 'rtl',
-                    }}>
-                      <div style={{
-                        width: 28, height: 28, borderRadius: 7, flexShrink: 0,
-                        background: `${svc.color}18`,
-                        border: `1px solid ${svc.color}30`,
-                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        color: svc.color,
-                      }}>
-                        {svc.icon}
-                      </div>
+                  <Link key={svc.path} to={svc.path} onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 8px', direction: 'rtl' }}>
+                      <div style={{ width: 6, height: 6, borderRadius: '50%', background: svc.color, flexShrink: 0 }} />
                       <div>
-                        <p style={{ color: NAV_LINK_ACTIVE, fontSize: '0.88rem', fontWeight: 600, margin: 0 }}>
-                          {svc.label}
-                        </p>
-                        <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.72rem', margin: 0 }}>
-                          {svc.desc}
-                        </p>
+                        <p style={{ color: NAV_LINK_ACTIVE, fontSize: '0.88rem', fontWeight: 500, margin: 0 }}>{svc.label}</p>
+                        <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.72rem', margin: 0 }}>{svc.desc}</p>
                       </div>
                     </div>
                   </Link>
                 ))}
-                <Link
-                  to="/services"
-                  onClick={() => setMenuOpen(false)}
-                  style={{ textDecoration: 'none', padding: '8px 8px', color: '#00d4ff', fontSize: '0.8rem', fontWeight: 700 }}
-                >
-                  לכל השירותים ←
-                </Link>
               </div>
             </div>
           </div>
 
-          {NAV_LINKS.filter(l => l.label !== 'בית').map((link) => {
-            const href = isHome && link.hash ? link.hash : link.path
-            return link.hash && isHome ? (
-              <a
-                key={link.label}
-                href={href}
-                onClick={(e) => handleHashNav(link.hash, e)}
-                style={{
-                  padding: '12px 8px', color: NAV_LINK_ACTIVE,
-                  fontSize: '1rem', fontWeight: 600,
-                  textDecoration: 'none', display: 'block',
-                  borderBottom: '1px solid rgba(255,255,255,0.06)',
-                }}
-              >
-                {link.label}
-              </a>
-            ) : (
-              <Link
-                key={link.label}
-                to={link.path}
-                onClick={() => setMenuOpen(false)}
-                style={{
-                  padding: '12px 8px', color: NAV_LINK_ACTIVE,
-                  fontSize: '1rem', fontWeight: 600,
-                  textDecoration: 'none', display: 'block',
-                  borderBottom: '1px solid rgba(255,255,255,0.06)',
-                }}
-              >
-                {link.label}
-              </Link>
-            )
-          })}
+          {NAV_LINKS.map((link) => (
+            <a
+              key={link.label}
+              href={isHome ? link.hash : `/${link.hash}`}
+              onClick={(e) => { isHome && handleHashNav(link.hash, e); setMenuOpen(false) }}
+              style={{
+                padding: '14px 8px', color: NAV_LINK_ACTIVE,
+                fontSize: '1rem', fontWeight: 500,
+                textDecoration: 'none', display: 'block',
+                borderBottom: '1px solid var(--hairline)',
+              }}
+            >
+              {link.label}
+            </a>
+          ))}
 
-          <div style={{ paddingTop: 12 }}>
-            <Link to="/contact" onClick={() => setMenuOpen(false)} style={{ textDecoration: 'none' }}>
-              <button className="btn-primary" style={{ width: '100%', justifyContent: 'center', fontSize: '0.95rem' }}>
-                <span>קבלו אבחון חינם</span>
-              </button>
-            </Link>
+          <div style={{ paddingTop: 16 }}>
+            <a
+              href="#cta"
+              onClick={(e) => { e.preventDefault(); setMenuOpen(false); document.querySelector('#cta')?.scrollIntoView({ behavior: 'smooth' }) }}
+              style={{
+                textDecoration: 'none', width: '100%',
+                display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+                padding: '14px 22px',
+                border: '1px solid rgba(0,212,255,0.4)',
+                background: 'rgba(0,212,255,0.08)',
+                borderRadius: 100, color: '#E8F4FF', fontSize: '0.95rem', fontWeight: 500,
+              }}
+            >
+              <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#00d4ff', boxShadow: '0 0 10px #00d4ff' }} />
+              <span>שיחת אבחון</span>
+            </a>
           </div>
         </div>
       </div>

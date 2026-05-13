@@ -38,12 +38,12 @@ const IconCode = () => (
 )
 
 const features = [
-  { icon: <IconLayers />,        color: '#00c8ff', title: 'מבנה CRO מוכח',             desc: 'כותרת → כאב → הבטחה → הוכחה → CTA. מבנה שנבדק על אלפי עמודים.' },
-  { icon: <IconMessageCircle />, color: '#4d9fff', title: 'כותרת שפוגעת בכאב',         desc: '3 שניות להחליט אם להישאר — הכותרת שלנו מדברת ישיר לקהל.' },
-  { icon: <IconTarget />,        color: '#a07dff', title: 'Social Proof ישראלית',       desc: 'ביקורות, תוצאות, ולוגואים — ישראלים קונים מ"ראיתי שהם עשו לחבר שלי".' },
-  { icon: <IconBarChart />,      color: '#00d478', title: 'A/B Testing',                desc: 'בודקים כותרות ו-CTAs עד שמוצאים מה עובד יותר.' },
-  { icon: <IconZap />,           color: '#ffb347', title: 'מהירות קריטית',              desc: '95+ PageSpeed — לא מאבדים גולשים בגלל טעינה איטית.' },
-  { icon: <IconCode />,          color: '#00d4b8', title: 'Tracking מלא',               desc: 'Meta Pixel, GTM — כל ליד מיוחס לקמפיין הנכון.' },
+  { icon: <IconLayers />,        color: '#22D3EE', title: 'מבנה CRO מוכח',             desc: 'כותרת → כאב → הבטחה → הוכחה → CTA. מבנה שנבדק על אלפי עמודים.' },
+  { icon: <IconMessageCircle />, color: '#3D8BFF', title: 'כותרת שפוגעת בכאב',         desc: '3 שניות להחליט אם להישאר — הכותרת שלנו מדברת ישיר לקהל.' },
+  { icon: <IconTarget />,        color: '#22D3EE', title: 'Social Proof ישראלית',       desc: 'ביקורות, תוצאות, ולוגואים — ישראלים קונים מ"ראיתי שהם עשו לחבר שלי".' },
+  { icon: <IconBarChart />,      color: '#3D8BFF', title: 'A/B Testing',                desc: 'בודקים כותרות ו-CTAs עד שמוצאים מה עובד יותר.' },
+  { icon: <IconZap />,           color: '#22D3EE', title: 'מהירות קריטית',              desc: '95+ PageSpeed — לא מאבדים גולשים בגלל טעינה איטית.' },
+  { icon: <IconCode />,          color: '#3D8BFF', title: 'Tracking מלא',               desc: 'Meta Pixel, GTM — כל ליד מיוחס לקמפיין הנכון.' },
 ]
 
 const processSteps = [
@@ -54,21 +54,21 @@ const processSteps = [
 ]
 
 const businessTypes = [
-  { icon: '🏥', label: 'קליניקות ורופאים' },
-  { icon: '⚖️', label: 'עורכי דין' },
-  { icon: '🏠', label: 'סוכני נדל"ן' },
-  { icon: '🍽️', label: 'מסעדות ובתי קפה' },
-  { icon: '🛋️', label: 'מעצבי פנים' },
-  { icon: '💼', label: 'יועצי עסקים' },
-  { icon: '💄', label: 'קוסמטיקה ויופי' },
-  { icon: '🏗️', label: 'חברות בנייה' },
-  { icon: '📚', label: 'בתי ספר וקורסים' },
-  { icon: '📐', label: 'אדריכלים' },
-  { icon: '🧘', label: 'פיזיותרפיסטים ומאמנים' },
-  { icon: '✂️', label: 'מספרות וסטודיו יופי' },
-  { icon: '🔨', label: 'שיפוצים וקבלנות' },
-  { icon: '📸', label: 'צלמים ואירועים' },
-  { icon: '🌿', label: 'טיפול ורפואה אלטרנטיבית' },
+  { label: 'קליניקות ורופאים' },
+  { label: 'עורכי דין' },
+  { label: 'סוכני נדל"ן' },
+  { label: 'מסעדות ובתי קפה' },
+  { label: 'מעצבי פנים' },
+  { label: 'יועצי עסקים' },
+  { label: 'קוסמטיקה ויופי' },
+  { label: 'חברות בנייה' },
+  { label: 'בתי ספר וקורסים' },
+  { label: 'אדריכלים' },
+  { label: 'פיזיותרפיסטים ומאמנים' },
+  { label: 'מספרות וסטודיו יופי' },
+  { label: 'שיפוצים וקבלנות' },
+  { label: 'צלמים ואירועים' },
+  { label: 'טיפול ורפואה אלטרנטיבית' },
 ]
 
 const projects = [
@@ -119,16 +119,16 @@ export default function LandingPagesPage() {
       {/* על השירות */}
       <section style={{ padding: 'clamp(56px,8vw,96px) 0', direction: 'rtl' }}>
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="font-black" style={{ fontSize: 'clamp(1.5rem,3vw,2.2rem)', letterSpacing: '-0.02em', color: '#0a0f1e', marginBottom: 24 }}>
+          <h2 className="font-black" style={{ fontSize: 'clamp(1.5rem,3vw,2.2rem)', letterSpacing: '-0.02em', color: 'var(--ink-100)', marginBottom: 24 }}>
             דף נחיתה לקמפיין Meta ו-Google — מה ההבדל?
           </h2>
-          <p style={{ color: '#4a5d7a', fontSize: '1rem', lineHeight: 1.9, marginBottom: 32 }}>
+          <p style={{ color: 'var(--ink-300)', fontSize: '1rem', lineHeight: 1.9, marginBottom: 32 }}>
             עסקים רבים בישראל שולחים תנועה ממומנת — Meta Ads, Google Ads — ישירות לדף הבית שלהם. זה הטעות הנפוצה ביותר בפרסום דיגיטלי. דף הבית לא ממיר תנועה ממומנת כי הוא כללי מדי. landing page ישראל שעובד הוא דף שממוקד למסר אחד, לקהל אחד, ולפעולה אחת. הוא מוריד את עלות לליד כי שיעור ההמרה שלו גבוה יותר — ולכן אתם משלמים פחות על כל ליד שמגיע. כשמריצים קמפיין Meta Ads בישראל עם דף נחיתה ממוקד, ההבדל בעלות לליד יכול להיות משמעותי מאוד לעומת שליחה לדף כללי.
           </p>
-          <h3 className="font-black" style={{ fontSize: 'clamp(1.2rem,2.2vw,1.7rem)', letterSpacing: '-0.02em', color: '#0a0f1e', marginBottom: 16 }}>
+          <h3 className="font-black" style={{ fontSize: 'clamp(1.2rem,2.2vw,1.7rem)', letterSpacing: '-0.02em', color: 'var(--ink-100)', marginBottom: 16 }}>
             מבנה CRO שנבדק — מהכותרת ועד הטופס
           </h3>
-          <p style={{ color: '#4a5d7a', fontSize: '1rem', lineHeight: 1.9 }}>
+          <p style={{ color: 'var(--ink-300)', fontSize: '1rem', lineHeight: 1.9 }}>
             אנחנו בונים כל דף לפי מסגרת AIDA — Attention, Interest, Desire, Action. הכותרת תופסת את תשומת הלב, הגוף מדבר לכאב ומציג את הפתרון, ה-CTA מוביל לפעולה. אנחנו כותבים את הקופי בעברית שמדברת לקהל הישראלי — ישיר, ברור, וללא עודף מילים. בנוסף אנחנו מריצים A/B testing על הכותרת וה-CTA, ומתחברים לקמפיין כדי שהמסר בדף יהיה זהה למסר במודעה. זה מה שמוריד עלות לליד ומגדיל המרות.
           </p>
         </div>
@@ -139,7 +139,7 @@ export default function LandingPagesPage() {
         <div className="max-w-6xl mx-auto px-6">
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
             <div className="tag-pill" style={{ marginBottom: 16, display: 'inline-flex' }}>מה כולל הפרויקט</div>
-            <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.2vw,2.4rem)', letterSpacing: '-0.02em', color: '#0a0f1e' }}>
+            <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.2vw,2.4rem)', letterSpacing: '-0.02em', color: 'var(--ink-100)' }}>
               דף שבנוי <span className="gradient-text">להמרה</span>
             </h2>
           </div>
@@ -158,8 +158,8 @@ export default function LandingPagesPage() {
                 <div style={{ width: 44, height: 44, borderRadius: 12, background: `${f.color}18`, border: `1px solid ${f.color}30`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: f.color, marginBottom: 16 }}>
                   {f.icon}
                 </div>
-                <h3 style={{ color: '#ffffff', fontWeight: 700, fontSize: '1rem', marginBottom: 8 }}>{f.title}</h3>
-                <p style={{ color: '#8ba3c7', fontSize: '0.87rem', lineHeight: 1.65, margin: 0 }}>{f.desc}</p>
+                <h3 style={{ color: 'var(--ink-100)', fontWeight: 700, fontSize: '1rem', marginBottom: 8 }}>{f.title}</h3>
+                <p style={{ color: 'var(--ink-300)', fontSize: '0.87rem', lineHeight: 1.65, margin: 0 }}>{f.desc}</p>
               </div>
             ))}
           </div>
@@ -171,7 +171,7 @@ export default function LandingPagesPage() {
         <div className="max-w-5xl mx-auto px-6">
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
             <div className="tag-pill" style={{ marginBottom: 16, display: 'inline-flex' }}>תהליך העבודה</div>
-            <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.2vw,2.4rem)', letterSpacing: '-0.02em', color: '#0a0f1e' }}>
+            <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.2vw,2.4rem)', letterSpacing: '-0.02em', color: 'var(--ink-100)' }}>
               מהבריף <span className="gradient-text">עד ההשקה</span>
             </h2>
           </div>
@@ -187,12 +187,12 @@ export default function LandingPagesPage() {
                   transition: `opacity 0.5s ease ${i * 80}ms, transform 0.5s ease ${i * 80}ms`,
                 }}
               >
-                <div style={{ width: 44, height: 44, borderRadius: 12, background: 'rgba(0,200,255,0.1)', border: '1px solid rgba(0,200,255,0.28)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '0.82rem', color: '#00c8ff', flexShrink: 0 }}>
+                <div style={{ width: 44, height: 44, borderRadius: 12, background: 'rgba(34,211,238,0.10)', border: '1px solid rgba(34,211,238,0.28)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '0.82rem', color: '#22D3EE', flexShrink: 0 }}>
                   {step.num}
                 </div>
                 <div>
-                  <h3 style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.95rem', marginBottom: 5 }}>{step.title}</h3>
-                  <p style={{ color: '#8ba3c7', fontSize: '0.85rem', lineHeight: 1.6, margin: 0 }}>{step.desc}</p>
+                  <h3 style={{ color: 'var(--ink-100)', fontWeight: 700, fontSize: '0.95rem', marginBottom: 5 }}>{step.title}</h3>
+                  <p style={{ color: 'var(--ink-300)', fontSize: '0.85rem', lineHeight: 1.6, margin: 0 }}>{step.desc}</p>
                 </div>
               </div>
             ))}
@@ -204,15 +204,14 @@ export default function LandingPagesPage() {
       <section style={{ padding: 'clamp(48px,7vw,80px) 0', direction: 'rtl', background: 'rgba(26,111,255,0.025)', borderTop: '1px solid rgba(26,111,255,0.07)', borderBottom: '1px solid rgba(26,111,255,0.07)' }}>
         <div className="max-w-5xl mx-auto px-6">
           <div style={{ textAlign: 'center', marginBottom: 40 }}>
-            <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,2.8vw,2rem)', letterSpacing: '-0.02em', color: '#0a0f1e', marginBottom: 12 }}>
-              מי נהנה מ<span className="gradient-text">השירות הזה?</span>
+            <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,2.8vw,2rem)', letterSpacing: '-0.02em', color: 'var(--ink-100)', marginBottom: 12 }}>
+              מי נהנה מ<span className="gradient-accent">השירות הזה?</span>
             </h2>
-            <p style={{ color: '#4a5d7a', fontSize: '0.95rem' }}>כל עסק שמריץ פרסום ממומן — ייהנה מדף נחיתה ממוקד</p>
+            <p style={{ color: 'var(--ink-300)', fontSize: '0.95rem' }}>כל עסק שמריץ פרסום ממומן — ייהנה מדף נחיתה ממוקד</p>
           </div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, justifyContent: 'center' }}>
             {businessTypes.map((type, i) => (
-              <div key={i} style={{ padding: '10px 18px', borderRadius: 100, background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(10,15,30,0.1)', boxShadow: '0 2px 8px rgba(0,0,0,0.05)', fontSize: '0.88rem', fontWeight: 600, color: '#0a0f1e', display: 'flex', alignItems: 'center', gap: 8 }}>
-                <span style={{ color: '#1a6fff', fontSize: '1rem' }}>{type.icon}</span>
+              <div key={i} style={{ padding: '8px 16px', borderRadius: 100, background: 'rgba(34,211,238,0.06)', border: '1px solid rgba(34,211,238,0.18)', fontSize: '0.88rem', fontWeight: 600, color: 'var(--ink-300)' }}>
                 {type.label}
               </div>
             ))}
@@ -225,10 +224,10 @@ export default function LandingPagesPage() {
         <div className="max-w-6xl mx-auto px-6">
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
             <div className="tag-pill" style={{ marginBottom: 16, display: 'inline-flex' }}>עבודות</div>
-            <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.2vw,2.4rem)', letterSpacing: '-0.02em', color: '#0a0f1e' }}>
+            <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.2vw,2.4rem)', letterSpacing: '-0.02em', color: 'var(--ink-100)' }}>
               דפי נחיתה <span className="gradient-text">שבנינו</span>
             </h2>
-            <p style={{ color: '#4a5d7a', fontSize: '0.98rem', lineHeight: 1.75, maxWidth: 580, margin: '16px auto 0' }}>
+            <p style={{ color: 'var(--ink-300)', fontSize: '0.98rem', lineHeight: 1.75, maxWidth: 580, margin: '16px auto 0' }}>
               לחצו על כל דף כדי לראות אותו בפעולה
             </p>
           </div>
@@ -251,9 +250,9 @@ export default function LandingPagesPage() {
                     <div className="tag-pill">{p.niche}</div>
                     <span style={{
                       fontSize: '0.72rem', fontWeight: 700, padding: '3px 10px', borderRadius: 100,
-                      background: p.live ? 'rgba(0,212,120,0.12)' : 'rgba(26,111,255,0.1)',
-                      border: `1px solid ${p.live ? 'rgba(0,212,120,0.3)' : 'rgba(26,111,255,0.2)'}`,
-                      color: p.live ? '#00d478' : '#4d9fff',
+                      background: p.live ? 'rgba(34,211,238,0.10)' : 'rgba(26,111,255,0.1)',
+                      border: `1px solid ${p.live ? 'rgba(34,211,238,0.28)' : 'rgba(26,111,255,0.2)'}`,
+                      color: p.live ? '#22D3EE' : '#3D8BFF',
                     }}>
                       {p.live ? 'Live' : 'Demo'}
                     </span>
@@ -268,7 +267,7 @@ export default function LandingPagesPage() {
                       <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
                     </svg>
                   </div>
-                  <h3 style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.98rem', marginBottom: 10 }}>{p.title}</h3>
+                  <h3 style={{ color: 'var(--ink-100)', fontWeight: 700, fontSize: '0.98rem', marginBottom: 10 }}>{p.title}</h3>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#4d9fff', fontSize: '0.82rem', fontWeight: 600 }}>
                     <span>כניסה לדף</span>
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -286,15 +285,15 @@ export default function LandingPagesPage() {
       <section style={{ padding: 'clamp(40px,6vw,72px) 0', direction: 'rtl' }}>
         <div className="max-w-3xl mx-auto px-6">
           <div style={{ textAlign: 'center', marginBottom: 40 }}>
-            <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,3vw,2rem)', letterSpacing: '-0.02em', color: '#0a0f1e' }}>
+            <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,3vw,2rem)', letterSpacing: '-0.02em', color: 'var(--ink-100)' }}>
               שאלות <span className="gradient-text">נפוצות</span>
             </h2>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
             {faqs.map((faq, i) => (
               <div key={i} className="glass-card" style={{ padding: '22px 24px' }}>
-                <h3 style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.95rem', marginBottom: 8 }}>{faq.q}</h3>
-                <p style={{ color: '#8ba3c7', fontSize: '0.88rem', lineHeight: 1.65, margin: 0 }}>{faq.a}</p>
+                <h3 style={{ color: 'var(--ink-100)', fontWeight: 700, fontSize: '0.95rem', marginBottom: 8 }}>{faq.q}</h3>
+                <p style={{ color: 'var(--ink-300)', fontSize: '0.88rem', lineHeight: 1.65, margin: 0 }}>{faq.a}</p>
               </div>
             ))}
           </div>
@@ -305,10 +304,10 @@ export default function LandingPagesPage() {
       <section style={{ padding: 'clamp(40px,6vw,72px) 0', direction: 'rtl' }}>
         <div className="max-w-3xl mx-auto px-6">
           <div style={{ textAlign: 'center', marginBottom: 36 }}>
-            <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,3vw,2rem)', letterSpacing: '-0.02em', color: '#0a0f1e', marginBottom: 12 }}>
+            <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,3vw,2rem)', letterSpacing: '-0.02em', color: 'var(--ink-100)', marginBottom: 12 }}>
               רוצים דף שמוריד את <span className="gradient-text">עלות הליד?</span>
             </h2>
-            <p style={{ color: '#4a5d7a', fontSize: '0.95rem', lineHeight: 1.65 }}>
+            <p style={{ color: 'var(--ink-300)', fontSize: '0.95rem', lineHeight: 1.65 }}>
               ספרו לנו על הקמפיין — ונגיד לכם מה הדף שלכם צריך לשנות.
             </p>
           </div>

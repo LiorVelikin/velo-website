@@ -15,7 +15,7 @@ export default function PageHero({ tag, title, accent, subtitle, children }) {
     return (
       <>
         {parts[0]}
-        <span className="gradient-text">{accent}</span>
+        <span className="gradient-accent">{accent}</span>
         {parts[1]}
       </>
     )
@@ -132,7 +132,7 @@ export default function PageHero({ tag, title, accent, subtitle, children }) {
             fontSize: 'clamp(2.4rem, 5vw, 4rem)',
             letterSpacing: '-0.03em',
             marginBottom: subtitle ? 24 : 0,
-            color: '#0a0f1e',
+            color: 'var(--ink-100)',
             lineHeight: 1.18,
             opacity: visible ? 1 : 0,
             transform: visible ? 'none' : 'translateY(18px)',
@@ -144,7 +144,7 @@ export default function PageHero({ tag, title, accent, subtitle, children }) {
 
         {subtitle && (
           <p style={{
-            color: '#4a5d7a',
+            color: 'var(--ink-300)',
             fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
             lineHeight: 1.7,
             maxWidth: 680,

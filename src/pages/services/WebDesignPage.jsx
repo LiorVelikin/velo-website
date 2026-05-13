@@ -38,12 +38,12 @@ const IconLayers = () => (
 )
 
 const features = [
-  { icon: <IconTarget />,     color: '#4d9fff', title: 'עיצוב ממוקד המרות',   desc: 'כל עמוד בנוי עם מסלול ברור לפעולה — מהכניסה ועד ליצירת הקשר.' },
-  { icon: <IconSmartphone />, color: '#00c8ff', title: 'מובייל-פירסט',        desc: 'עובד מושלם על כל מסך — מהטלפון ועד הדסקטופ.' },
-  { icon: <IconZap />,        color: '#00d4b8', title: 'מהירות טעינה',        desc: 'מתחת ל-2 שניות, PageSpeed גבוה — כי גולשים לא מחכים.' },
-  { icon: <IconSearch />,     color: '#a07dff', title: 'SEO מובנה',            desc: 'מבנה נכון, schema, meta tags מהיום הראשון.' },
-  { icon: <IconBarChart />,   color: '#ffb347', title: 'אנליטיקס מלא',        desc: 'Google Analytics, Meta Pixel, כלי חום — תדעו מה עובד.' },
-  { icon: <IconLayers />,     color: '#00d478', title: 'מוכן לצמיחה',         desc: 'אפשר להוסיף ולשנות בלי לבנות מחדש.' },
+  { icon: <IconTarget />,     color: '#22D3EE', title: 'עיצוב ממוקד המרות',   desc: 'כל עמוד בנוי עם מסלול ברור לפעולה — מהכניסה ועד ליצירת הקשר.' },
+  { icon: <IconSmartphone />, color: '#3D8BFF', title: 'מובייל-פירסט',        desc: 'עובד מושלם על כל מסך — מהטלפון ועד הדסקטופ.' },
+  { icon: <IconZap />,        color: '#22D3EE', title: 'מהירות טעינה',        desc: 'מתחת ל-2 שניות, PageSpeed גבוה — כי גולשים לא מחכים.' },
+  { icon: <IconSearch />,     color: '#3D8BFF', title: 'SEO מובנה',            desc: 'מבנה נכון, schema, meta tags מהיום הראשון.' },
+  { icon: <IconBarChart />,   color: '#22D3EE', title: 'אנליטיקס מלא',        desc: 'Google Analytics, Meta Pixel, כלי חום — תדעו מה עובד.' },
+  { icon: <IconLayers />,     color: '#3D8BFF', title: 'מוכן לצמיחה',         desc: 'אפשר להוסיף ולשנות בלי לבנות מחדש.' },
 ]
 
 const processSteps = [
@@ -55,21 +55,21 @@ const processSteps = [
 ]
 
 const businessTypes = [
-  { icon: '🏥', label: 'קליניקות ורופאים' },
-  { icon: '⚖️', label: 'עורכי דין' },
-  { icon: '🏠', label: 'סוכני נדל"ן' },
-  { icon: '🍽️', label: 'מסעדות ובתי קפה' },
-  { icon: '🛋️', label: 'מעצבי פנים' },
-  { icon: '💼', label: 'יועצי עסקים' },
-  { icon: '💄', label: 'קוסמטיקה ויופי' },
-  { icon: '🏗️', label: 'חברות בנייה' },
-  { icon: '📚', label: 'בתי ספר וקורסים' },
-  { icon: '📐', label: 'אדריכלים' },
-  { icon: '🧘', label: 'פיזיותרפיסטים ומאמנים' },
-  { icon: '✂️', label: 'מספרות וסטודיו יופי' },
-  { icon: '🔨', label: 'שיפוצים וקבלנות' },
-  { icon: '📸', label: 'צלמים ואירועים' },
-  { icon: '🌿', label: 'טיפול ורפואה אלטרנטיבית' },
+  { label: 'קליניקות ורופאים' },
+  { label: 'עורכי דין' },
+  { label: 'סוכני נדל"ן' },
+  { label: 'מסעדות ובתי קפה' },
+  { label: 'מעצבי פנים' },
+  { label: 'יועצי עסקים' },
+  { label: 'קוסמטיקה ויופי' },
+  { label: 'חברות בנייה' },
+  { label: 'בתי ספר וקורסים' },
+  { label: 'אדריכלים' },
+  { label: 'פיזיותרפיסטים ומאמנים' },
+  { label: 'מספרות וסטודיו יופי' },
+  { label: 'שיפוצים וקבלנות' },
+  { label: 'צלמים ואירועים' },
+  { label: 'טיפול ורפואה אלטרנטיבית' },
 ]
 
 const projects = [
@@ -154,16 +154,16 @@ export default function WebDesignPage() {
       {/* על השירות */}
       <section style={{ padding: 'clamp(56px,8vw,96px) 0', direction: 'rtl' }}>
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="font-black" style={{ fontSize: 'clamp(1.5rem,3vw,2.2rem)', letterSpacing: '-0.02em', color: '#0a0f1e', marginBottom: 24 }}>
+          <h2 className="font-black" style={{ fontSize: 'clamp(1.5rem,3vw,2.2rem)', letterSpacing: '-0.02em', color: 'var(--ink-100)', marginBottom: 24 }}>
             בניית אתר לעסק בישראל — יותר מכרטיס ביקור
           </h2>
-          <p style={{ color: '#4a5d7a', fontSize: '1rem', lineHeight: 1.9, marginBottom: 32 }}>
+          <p style={{ color: 'var(--ink-300)', fontSize: '1rem', lineHeight: 1.9, marginBottom: 32 }}>
             רוב האתרים לעסקים בישראל נראים בסדר — אבל לא עושים כלום. גולש נכנס, לא מבין מה מציעים לו, ויוצא. בניית אתר לעסק היא לא עוד משימה טכנית — זה כלי מכירה. אתר עסקי ממיר צריך לענות על שלוש שאלות תוך שלוש שניות: מי אתם, מה אתם מציעים, ולמה לפנות אליכם ולא למתחרה. עיצוב אתרים בישראל בשנת 2025 אומר גם מהירות טעינה, מותאם למובייל לחלוטין, ונוכחות בגוגל — כי 70% מהחיפושים המקומיים נעשים מהטלפון, ועסק שלא מופיע בעמוד הראשון פשוט לא קיים עבור הלקוח הפוטנציאלי.
           </p>
-          <h3 className="font-black" style={{ fontSize: 'clamp(1.2rem,2.2vw,1.7rem)', letterSpacing: '-0.02em', color: '#0a0f1e', marginBottom: 16 }}>
+          <h3 className="font-black" style={{ fontSize: 'clamp(1.2rem,2.2vw,1.7rem)', letterSpacing: '-0.02em', color: 'var(--ink-100)', marginBottom: 16 }}>
             אתר שמייצג את העסק שלכם ומביא לידים
           </h3>
-          <p style={{ color: '#4a5d7a', fontSize: '1rem', lineHeight: 1.9 }}>
+          <p style={{ color: 'var(--ink-300)', fontSize: '1rem', lineHeight: 1.9 }}>
             ב-VELO DIGITAL אנחנו מתחילים מאסטרטגיה — מי הלקוח, מה הכאב שלו, ומה גורם לו לבחור בכם ולא במתחרה בתל אביב או בכל עיר אחרת. רק אחרי שאנחנו מבינים את זה, אנחנו ניגשים לעיצוב. אנחנו בונים ב-React, Next.js ו-WordPress תלוי בצרכים, עם SEO מובנה מהיום הראשון — מבנה URL נכון, schema markup, meta tags, ו-Core Web Vitals. כי אתר שלא נמצא בגוגל לא יכול להביא לקוחות, לא משנה כמה הוא יפה.
           </p>
         </div>
@@ -174,7 +174,7 @@ export default function WebDesignPage() {
         <div className="max-w-6xl mx-auto px-6">
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
             <div className="tag-pill" style={{ marginBottom: 16, display: 'inline-flex' }}>מה כולל הפרויקט</div>
-            <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.2vw,2.4rem)', letterSpacing: '-0.02em', color: '#0a0f1e' }}>
+            <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.2vw,2.4rem)', letterSpacing: '-0.02em', color: 'var(--ink-100)' }}>
               אתר שבנוי <span className="gradient-text">לתוצאות</span>
             </h2>
           </div>
@@ -193,8 +193,8 @@ export default function WebDesignPage() {
                 <div style={{ width: 44, height: 44, borderRadius: 12, background: `${f.color}18`, border: `1px solid ${f.color}30`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: f.color, marginBottom: 16 }}>
                   {f.icon}
                 </div>
-                <h3 style={{ color: '#ffffff', fontWeight: 700, fontSize: '1rem', marginBottom: 8 }}>{f.title}</h3>
-                <p style={{ color: '#8ba3c7', fontSize: '0.87rem', lineHeight: 1.65, margin: 0 }}>{f.desc}</p>
+                <h3 style={{ color: 'var(--ink-100)', fontWeight: 700, fontSize: '1rem', marginBottom: 8 }}>{f.title}</h3>
+                <p style={{ color: 'var(--ink-300)', fontSize: '0.87rem', lineHeight: 1.65, margin: 0 }}>{f.desc}</p>
               </div>
             ))}
           </div>
@@ -206,10 +206,10 @@ export default function WebDesignPage() {
         <div className="max-w-5xl mx-auto px-6">
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
             <div className="tag-pill" style={{ marginBottom: 16, display: 'inline-flex' }}>תהליך העבודה</div>
-            <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.2vw,2.4rem)', letterSpacing: '-0.02em', color: '#0a0f1e' }}>
+            <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.2vw,2.4rem)', letterSpacing: '-0.02em', color: 'var(--ink-100)' }}>
               מהאסטרטגיה <span className="gradient-text">עד ההשקה</span>
             </h2>
-            <p style={{ color: '#4a5d7a', fontSize: '0.98rem', lineHeight: 1.75, maxWidth: 580, margin: '16px auto 0' }}>
+            <p style={{ color: 'var(--ink-300)', fontSize: '0.98rem', lineHeight: 1.75, maxWidth: 580, margin: '16px auto 0' }}>
               5 שלבים מוכחים — שקיפות מלאה בכל אחד מהם
             </p>
           </div>
@@ -229,8 +229,8 @@ export default function WebDesignPage() {
                   {step.num}
                 </div>
                 <div>
-                  <h3 style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.95rem', marginBottom: 5 }}>{step.title}</h3>
-                  <p style={{ color: '#8ba3c7', fontSize: '0.85rem', lineHeight: 1.6, margin: 0 }}>{step.desc}</p>
+                  <h3 style={{ color: 'var(--ink-100)', fontWeight: 700, fontSize: '0.95rem', marginBottom: 5 }}>{step.title}</h3>
+                  <p style={{ color: 'var(--ink-300)', fontSize: '0.85rem', lineHeight: 1.6, margin: 0 }}>{step.desc}</p>
                 </div>
               </div>
             ))}
@@ -242,15 +242,14 @@ export default function WebDesignPage() {
       <section style={{ padding: 'clamp(48px,7vw,80px) 0', direction: 'rtl', background: 'rgba(26,111,255,0.025)', borderTop: '1px solid rgba(26,111,255,0.07)', borderBottom: '1px solid rgba(26,111,255,0.07)' }}>
         <div className="max-w-5xl mx-auto px-6">
           <div style={{ textAlign: 'center', marginBottom: 40 }}>
-            <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,2.8vw,2rem)', letterSpacing: '-0.02em', color: '#0a0f1e', marginBottom: 12 }}>
-              מי נהנה מ<span className="gradient-text">השירות הזה?</span>
+            <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,2.8vw,2rem)', letterSpacing: '-0.02em', color: 'var(--ink-100)', marginBottom: 12 }}>
+              מי נהנה מ<span className="gradient-accent">השירות הזה?</span>
             </h2>
-            <p style={{ color: '#4a5d7a', fontSize: '0.95rem' }}>עבדנו עם מגוון תחומים — כולם נהנים מאתר שמביא לקוחות</p>
+            <p style={{ color: 'var(--ink-300)', fontSize: '0.95rem' }}>עבדנו עם מגוון תחומים — כולם נהנים מאתר שמביא לקוחות</p>
           </div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, justifyContent: 'center' }}>
             {businessTypes.map((type, i) => (
-              <div key={i} style={{ padding: '10px 18px', borderRadius: 100, background: 'rgba(255,255,255,0.7)', border: '1px solid rgba(10,15,30,0.1)', boxShadow: '0 2px 8px rgba(0,0,0,0.05)', fontSize: '0.88rem', fontWeight: 600, color: '#0a0f1e', display: 'flex', alignItems: 'center', gap: 8 }}>
-                <span style={{ color: '#1a6fff', fontSize: '1rem' }}>{type.icon}</span>
+              <div key={i} style={{ padding: '8px 16px', borderRadius: 100, background: 'rgba(34,211,238,0.06)', border: '1px solid rgba(34,211,238,0.18)', fontSize: '0.88rem', fontWeight: 600, color: 'var(--ink-300)' }}>
                 {type.label}
               </div>
             ))}
@@ -263,10 +262,10 @@ export default function WebDesignPage() {
         <div className="max-w-6xl mx-auto px-6">
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
             <div className="tag-pill" style={{ marginBottom: 16, display: 'inline-flex' }}>עבודות נבחרות</div>
-            <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.2vw,2.4rem)', letterSpacing: '-0.02em', color: '#0a0f1e' }}>
+            <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.2vw,2.4rem)', letterSpacing: '-0.02em', color: 'var(--ink-100)' }}>
               אתרים <span className="gradient-text">שבנינו</span>
             </h2>
-            <p style={{ color: '#4a5d7a', fontSize: '0.98rem', lineHeight: 1.75, maxWidth: 580, margin: '16px auto 0' }}>
+            <p style={{ color: 'var(--ink-300)', fontSize: '0.98rem', lineHeight: 1.75, maxWidth: 580, margin: '16px auto 0' }}>
               לחצו לכניסה לכל אתר — ראו בעצמכם את האיכות
             </p>
           </div>
@@ -276,7 +275,7 @@ export default function WebDesignPage() {
                 <div className="glass-card" style={{ padding: '28px 26px', cursor: 'pointer', height: '100%' }}>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
                     <div className="tag-pill">{p.niche}</div>
-                    <span style={{ color: p.live ? '#00d478' : '#4d9fff', fontSize: '0.72rem', fontWeight: 700, background: p.live ? 'rgba(0,212,120,0.1)' : 'rgba(26,111,255,0.1)', border: `1px solid ${p.live ? 'rgba(0,212,120,0.25)' : 'rgba(26,111,255,0.2)'}`, padding: '3px 10px', borderRadius: 100 }}>
+                    <span style={{ color: p.live ? '#22D3EE' : '#3D8BFF', fontSize: '0.72rem', fontWeight: 700, background: p.live ? 'rgba(34,211,238,0.10)' : 'rgba(26,111,255,0.1)', border: `1px solid ${p.live ? 'rgba(34,211,238,0.25)' : 'rgba(26,111,255,0.2)'}`, padding: '3px 10px', borderRadius: 100 }}>
                       {p.live ? '● Live' : 'דמו'}
                     </span>
                   </div>
@@ -284,8 +283,8 @@ export default function WebDesignPage() {
                     <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px)', backgroundSize: '24px 24px' }} />
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke={p.accent} strokeWidth="1.5" opacity="0.5" style={{ position: 'relative' }}><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
                   </div>
-                  <h3 style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.98rem', marginBottom: 6 }}>{p.title}</h3>
-                  <p style={{ color: '#8ba3c7', fontSize: '0.85rem', lineHeight: 1.6, margin: 0 }}>{p.desc}</p>
+                  <h3 style={{ color: 'var(--ink-100)', fontWeight: 700, fontSize: '0.98rem', marginBottom: 6 }}>{p.title}</h3>
+                  <p style={{ color: 'var(--ink-300)', fontSize: '0.85rem', lineHeight: 1.6, margin: 0 }}>{p.desc}</p>
                   <div style={{ marginTop: 14, display: 'flex', alignItems: 'center', gap: 6, color: p.accent, fontSize: '0.82rem', fontWeight: 700 }}>
                     <span>כניסה לאתר</span>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
@@ -301,15 +300,15 @@ export default function WebDesignPage() {
       <section style={{ padding: 'clamp(40px,6vw,72px) 0', direction: 'rtl' }}>
         <div className="max-w-3xl mx-auto px-6">
           <div style={{ textAlign: 'center', marginBottom: 40 }}>
-            <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,3vw,2rem)', letterSpacing: '-0.02em', color: '#0a0f1e' }}>
+            <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,3vw,2rem)', letterSpacing: '-0.02em', color: 'var(--ink-100)' }}>
               שאלות <span className="gradient-text">נפוצות</span>
             </h2>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
             {faqs.map((faq, i) => (
               <div key={i} className="glass-card" style={{ padding: '22px 24px' }}>
-                <h3 style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.95rem', marginBottom: 8 }}>{faq.q}</h3>
-                <p style={{ color: '#8ba3c7', fontSize: '0.88rem', lineHeight: 1.65, margin: 0 }}>{faq.a}</p>
+                <h3 style={{ color: 'var(--ink-100)', fontWeight: 700, fontSize: '0.95rem', marginBottom: 8 }}>{faq.q}</h3>
+                <p style={{ color: 'var(--ink-300)', fontSize: '0.88rem', lineHeight: 1.65, margin: 0 }}>{faq.a}</p>
               </div>
             ))}
           </div>
@@ -320,10 +319,10 @@ export default function WebDesignPage() {
       <section style={{ padding: 'clamp(40px,6vw,72px) 0', direction: 'rtl' }}>
         <div className="max-w-3xl mx-auto px-6">
           <div style={{ textAlign: 'center', marginBottom: 36 }}>
-            <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,3vw,2rem)', letterSpacing: '-0.02em', color: '#0a0f1e', marginBottom: 12 }}>
+            <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,3vw,2rem)', letterSpacing: '-0.02em', color: 'var(--ink-100)', marginBottom: 12 }}>
               מוכנים לאתר שמביא <span className="gradient-text">תוצאות אמיתיות?</span>
             </h2>
-            <p style={{ color: '#4a5d7a', fontSize: '0.95rem', lineHeight: 1.65 }}>
+            <p style={{ color: 'var(--ink-300)', fontSize: '0.95rem', lineHeight: 1.65 }}>
               ספרו לנו על העסק — ונגיד לכם בדיוק מה האתר שלכם צריך לשנות.
             </p>
           </div>

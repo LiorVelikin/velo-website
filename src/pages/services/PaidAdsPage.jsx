@@ -52,11 +52,11 @@ const channels = [
   },
   {
     name: 'Google Ads (Search + Display)',
-    colorPrimary: '#00d478',
-    colorBg: 'rgba(0,212,120,0.08)',
-    colorBorder: 'rgba(0,212,120,0.2)',
+    colorPrimary: '#22D3EE',
+    colorBg: 'rgba(34,211,238,0.08)',
+    colorBorder: 'rgba(34,211,238,0.2)',
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00d478" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
       </svg>
     ),
@@ -64,11 +64,11 @@ const channels = [
   },
   {
     name: 'TikTok Ads',
-    colorPrimary: '#a07dff',
-    colorBg: 'rgba(160,125,255,0.08)',
-    colorBorder: 'rgba(160,125,255,0.2)',
+    colorPrimary: '#3D8BFF',
+    colorBg: 'rgba(61,139,255,0.08)',
+    colorBorder: 'rgba(61,139,255,0.2)',
     icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a07dff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3D8BFF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/>
       </svg>
     ),
@@ -77,12 +77,12 @@ const channels = [
 ]
 
 const features = [
-  { icon: <IconTarget />,    color: '#4d9fff', title: 'מיקוד מדויק לקהל ישראלי',    desc: 'Targeting לפי גיל, מיקום גיאוגרפי, תחומי עניין ו-Lookalike בישראל.' },
-  { icon: <IconZap />,       color: '#00c8ff', title: 'קריאייטיב שממיר',             desc: 'טקסטים, תמונות וסרטונים שתופסים את תשומת הלב ולא נראים כמו פרסומת.' },
-  { icon: <IconCode />,      color: '#00d4b8', title: 'Pixel ו-Tracking מלא',        desc: 'Meta Pixel, Conversions API, GTM — כל ליד מיוחס לקמפיין הנכון.' },
-  { icon: <IconRefreshCw />, color: '#a07dff', title: 'Retargeting',                  desc: 'מחזיר לידים שעזבו — עם מסר ממוקד שמקרב לסגירה.' },
-  { icon: <IconBarChart />,  color: '#ffb347', title: 'A/B Testing על קריאייטיב',    desc: 'בודקים גרסאות מרובות של מודעות ומשאירים רק מה שממיר.' },
-  { icon: <IconSearch />,    color: '#00d478', title: 'דיווח שבועי שקוף',            desc: 'דוח ברור — כמה הוצאנו, כמה לידים הגיעו, עלות לליד, ומה הלאה.' },
+  { icon: <IconTarget />,    color: '#22D3EE', title: 'מיקוד מדויק לקהל ישראלי',    desc: 'Targeting לפי גיל, מיקום גיאוגרפי, תחומי עניין ו-Lookalike בישראל.' },
+  { icon: <IconZap />,       color: '#3D8BFF', title: 'קריאייטיב שממיר',             desc: 'טקסטים, תמונות וסרטונים שתופסים את תשומת הלב ולא נראים כמו פרסומת.' },
+  { icon: <IconCode />,      color: '#22D3EE', title: 'Pixel ו-Tracking מלא',        desc: 'Meta Pixel, Conversions API, GTM — כל ליד מיוחס לקמפיין הנכון.' },
+  { icon: <IconRefreshCw />, color: '#3D8BFF', title: 'Retargeting',                  desc: 'מחזיר לידים שעזבו — עם מסר ממוקד שמקרב לסגירה.' },
+  { icon: <IconBarChart />,  color: '#22D3EE', title: 'A/B Testing על קריאייטיב',    desc: 'בודקים גרסאות מרובות של מודעות ומשאירים רק מה שממיר.' },
+  { icon: <IconSearch />,    color: '#3D8BFF', title: 'דיווח שבועי שקוף',            desc: 'דוח ברור — כמה הוצאנו, כמה לידים הגיעו, עלות לליד, ומה הלאה.' },
 ]
 
 const processSteps = [
@@ -138,27 +138,27 @@ export default function PaidAdsPage() {
       {/* על השירות */}
       <section style={{ padding: 'clamp(56px,8vw,96px) 0', direction: 'rtl' }}>
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="font-black" style={{ fontSize: 'clamp(1.5rem,3vw,2.2rem)', letterSpacing: '-0.02em', color: '#0a0f1e', marginBottom: 24 }}>
+          <h2 className="font-black" style={{ fontSize: 'clamp(1.5rem,3vw,2.2rem)', letterSpacing: '-0.02em', color: 'var(--ink-100)', marginBottom: 24 }}>
             פרסום ממומן בישראל — Meta Ads ו-Google Ads
           </h2>
-          <p style={{ color: '#4a5d7a', fontSize: '1rem', lineHeight: 1.9, marginBottom: 32 }}>
+          <p style={{ color: 'var(--ink-300)', fontSize: '1rem', lineHeight: 1.9, marginBottom: 32 }}>
             ניהול קמפיינים ממומנים בישראל הוא תחום שבו רוב העסקים שורפים כסף בלי לדעת למה. הפרסום ממומן עובד — כשהוא מנוהל נכון. הבעיות הנפוצות: קהל יעד רחב מדי שלא ממיר, קריאייטיב גנרי שאנשים מדלגים עליו, חוסר מעקב שמונע אופטימיזציה, ואין ריטרגטינג ללידים חמים שעזבו. ניהול Meta Ads מקצועי בישראל אומר לבנות פאנל שלם — מהמודעה הראשונה ועד לסגירה — עם מדידה בכל שלב.
           </p>
-          <h3 className="font-black" style={{ fontSize: 'clamp(1.2rem,2.2vw,1.7rem)', letterSpacing: '-0.02em', color: '#0a0f1e', marginBottom: 16 }}>
+          <h3 className="font-black" style={{ fontSize: 'clamp(1.2rem,2.2vw,1.7rem)', letterSpacing: '-0.02em', color: 'var(--ink-100)', marginBottom: 16 }}>
             מקריאייטיב למיקוד — קמפיין שלם שעובד ביחד
           </h3>
-          <p style={{ color: '#4a5d7a', fontSize: '1rem', lineHeight: 1.9 }}>
+          <p style={{ color: 'var(--ink-300)', fontSize: '1rem', lineHeight: 1.9 }}>
             ב-VELO אנחנו מנהלים את הפאנל המלא: קריאייטיב שמשיג תשומת לב, מיקוד מדויק לקהל הישראלי הרלוונטי, דף נחיתה שממיר, tracking שמיחס כל ליד לקמפיין הנכון, ריטרגטינג שמחזיר לידים שעזבו, ואופטימיזציה שוטפת לפי ביצועים. הכל מלווה בדיווח שבועי שקוף — כמה הוצאנו, כמה לידים הגיעו, ועלות לליד.
           </p>
         </div>
       </section>
 
       {/* Channels */}
-      <section ref={channelsRef} style={{ padding: 'clamp(56px,8vw,96px) 0', direction: 'rtl', background: 'rgba(0,212,120,0.02)', borderTop: '1px solid rgba(0,212,120,0.07)', borderBottom: '1px solid rgba(0,212,120,0.07)' }}>
+      <section ref={channelsRef} style={{ padding: 'clamp(56px,8vw,96px) 0', direction: 'rtl', background: 'rgba(34,211,238,0.02)', borderTop: '1px solid rgba(34,211,238,0.07)', borderBottom: '1px solid rgba(34,211,238,0.07)' }}>
         <div className="max-w-6xl mx-auto px-6">
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
             <div className="tag-pill" style={{ marginBottom: 16, display: 'inline-flex' }}>ערוצי פרסום</div>
-            <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.2vw,2.4rem)', letterSpacing: '-0.02em', color: '#0a0f1e' }}>
+            <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.2vw,2.4rem)', letterSpacing: '-0.02em', color: 'var(--ink-100)' }}>
               הפלטפורמות שאנחנו <span className="gradient-text">שולטים בהן</span>
             </h2>
           </div>
@@ -178,7 +178,7 @@ export default function PaidAdsPage() {
                   {ch.icon}
                 </div>
                 <h3 style={{ color: ch.colorPrimary, fontWeight: 800, fontSize: '0.98rem', marginBottom: 10 }}>{ch.name}</h3>
-                <p style={{ color: '#8ba3c7', fontSize: '0.87rem', lineHeight: 1.65, margin: 0 }}>{ch.desc}</p>
+                <p style={{ color: 'var(--ink-300)', fontSize: '0.87rem', lineHeight: 1.65, margin: 0 }}>{ch.desc}</p>
               </div>
             ))}
           </div>
@@ -190,7 +190,7 @@ export default function PaidAdsPage() {
         <div className="max-w-6xl mx-auto px-6">
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
             <div className="tag-pill" style={{ marginBottom: 16, display: 'inline-flex' }}>מה כולל הניהול</div>
-            <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.2vw,2.4rem)', letterSpacing: '-0.02em', color: '#0a0f1e' }}>
+            <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.2vw,2.4rem)', letterSpacing: '-0.02em', color: 'var(--ink-100)' }}>
               ניהול <span className="gradient-text">קמפיין שלם</span>
             </h2>
           </div>
@@ -209,8 +209,8 @@ export default function PaidAdsPage() {
                 <div style={{ width: 44, height: 44, borderRadius: 12, background: `${f.color}18`, border: `1px solid ${f.color}30`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: f.color, marginBottom: 16 }}>
                   {f.icon}
                 </div>
-                <h3 style={{ color: '#ffffff', fontWeight: 700, fontSize: '1rem', marginBottom: 8 }}>{f.title}</h3>
-                <p style={{ color: '#8ba3c7', fontSize: '0.87rem', lineHeight: 1.65, margin: 0 }}>{f.desc}</p>
+                <h3 style={{ color: 'var(--ink-100)', fontWeight: 700, fontSize: '1rem', marginBottom: 8 }}>{f.title}</h3>
+                <p style={{ color: 'var(--ink-300)', fontSize: '0.87rem', lineHeight: 1.65, margin: 0 }}>{f.desc}</p>
               </div>
             ))}
           </div>
@@ -218,11 +218,11 @@ export default function PaidAdsPage() {
       </section>
 
       {/* Process */}
-      <section ref={processRef} style={{ padding: 'clamp(56px,8vw,96px) 0', direction: 'rtl', background: 'rgba(0,212,120,0.02)', borderTop: '1px solid rgba(0,212,120,0.06)', borderBottom: '1px solid rgba(0,212,120,0.06)' }}>
+      <section ref={processRef} style={{ padding: 'clamp(56px,8vw,96px) 0', direction: 'rtl', background: 'rgba(34,211,238,0.02)', borderTop: '1px solid rgba(34,211,238,0.06)', borderBottom: '1px solid rgba(34,211,238,0.06)' }}>
         <div className="max-w-5xl mx-auto px-6">
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
             <div className="tag-pill" style={{ marginBottom: 16, display: 'inline-flex' }}>תהליך העבודה</div>
-            <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.2vw,2.4rem)', letterSpacing: '-0.02em', color: '#0a0f1e' }}>
+            <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.2vw,2.4rem)', letterSpacing: '-0.02em', color: 'var(--ink-100)' }}>
               מהאבחון <span className="gradient-text">לתוצאות</span>
             </h2>
           </div>
@@ -238,12 +238,12 @@ export default function PaidAdsPage() {
                   transition: `opacity 0.5s ease ${i * 80}ms, transform 0.5s ease ${i * 80}ms`,
                 }}
               >
-                <div style={{ width: 44, height: 44, borderRadius: 12, background: 'rgba(0,212,120,0.12)', border: '1px solid rgba(0,212,120,0.28)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '0.82rem', color: '#00d478', flexShrink: 0 }}>
+                <div style={{ width: 44, height: 44, borderRadius: 12, background: 'rgba(34,211,238,0.10)', border: '1px solid rgba(34,211,238,0.28)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '0.82rem', color: '#22D3EE', flexShrink: 0 }}>
                   {step.num}
                 </div>
                 <div>
-                  <h3 style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.95rem', marginBottom: 5 }}>{step.title}</h3>
-                  <p style={{ color: '#8ba3c7', fontSize: '0.85rem', lineHeight: 1.6, margin: 0 }}>{step.desc}</p>
+                  <h3 style={{ color: 'var(--ink-100)', fontWeight: 700, fontSize: '0.95rem', marginBottom: 5 }}>{step.title}</h3>
+                  <p style={{ color: 'var(--ink-300)', fontSize: '0.85rem', lineHeight: 1.6, margin: 0 }}>{step.desc}</p>
                 </div>
               </div>
             ))}
@@ -256,10 +256,10 @@ export default function PaidAdsPage() {
         <div className="max-w-6xl mx-auto px-6">
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
             <div className="tag-pill" style={{ marginBottom: 16, display: 'inline-flex' }}>עבודות</div>
-            <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.2vw,2.4rem)', letterSpacing: '-0.02em', color: '#0a0f1e' }}>
+            <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.2vw,2.4rem)', letterSpacing: '-0.02em', color: 'var(--ink-100)' }}>
               פרויקטים <span className="gradient-text">נבחרים</span>
             </h2>
-            <p style={{ color: '#4a5d7a', fontSize: '0.98rem', lineHeight: 1.75, maxWidth: 580, margin: '16px auto 0' }}>
+            <p style={{ color: 'var(--ink-300)', fontSize: '0.98rem', lineHeight: 1.75, maxWidth: 580, margin: '16px auto 0' }}>
               דפי נחיתה שבנינו לקמפיינים — לחצו לצפייה
             </p>
           </div>
@@ -274,7 +274,7 @@ export default function PaidAdsPage() {
                 >
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
                     <div className="tag-pill">{p.niche}</div>
-                    <span style={{ fontSize: '0.72rem', fontWeight: 700, padding: '3px 10px', borderRadius: 100, background: p.live ? 'rgba(0,212,120,0.12)' : 'rgba(26,111,255,0.1)', border: `1px solid ${p.live ? 'rgba(0,212,120,0.3)' : 'rgba(26,111,255,0.2)'}`, color: p.live ? '#00d478' : '#4d9fff' }}>
+                    <span style={{ fontSize: '0.72rem', fontWeight: 700, padding: '3px 10px', borderRadius: 100, background: p.live ? 'rgba(34,211,238,0.10)' : 'rgba(26,111,255,0.1)', border: `1px solid ${p.live ? 'rgba(34,211,238,0.28)' : 'rgba(26,111,255,0.2)'}`, color: p.live ? '#22D3EE' : '#3D8BFF' }}>
                       {p.live ? 'Live' : 'Demo'}
                     </span>
                   </div>
@@ -283,7 +283,7 @@ export default function PaidAdsPage() {
                       <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
                     </svg>
                   </div>
-                  <h3 style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.98rem', marginBottom: 10 }}>{p.title}</h3>
+                  <h3 style={{ color: 'var(--ink-100)', fontWeight: 700, fontSize: '0.98rem', marginBottom: 10 }}>{p.title}</h3>
                   <div style={{ display: 'flex', alignItems: 'center', gap: 6, color: '#4d9fff', fontSize: '0.82rem', fontWeight: 600 }}>
                     <span>כניסה לדף</span>
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -301,15 +301,15 @@ export default function PaidAdsPage() {
       <section style={{ padding: 'clamp(40px,6vw,72px) 0', direction: 'rtl' }}>
         <div className="max-w-3xl mx-auto px-6">
           <div style={{ textAlign: 'center', marginBottom: 40 }}>
-            <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,3vw,2rem)', letterSpacing: '-0.02em', color: '#0a0f1e' }}>
+            <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,3vw,2rem)', letterSpacing: '-0.02em', color: 'var(--ink-100)' }}>
               שאלות <span className="gradient-text">נפוצות</span>
             </h2>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
             {faqs.map((faq, i) => (
               <div key={i} className="glass-card" style={{ padding: '22px 24px' }}>
-                <h3 style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.95rem', marginBottom: 8 }}>{faq.q}</h3>
-                <p style={{ color: '#8ba3c7', fontSize: '0.88rem', lineHeight: 1.65, margin: 0 }}>{faq.a}</p>
+                <h3 style={{ color: 'var(--ink-100)', fontWeight: 700, fontSize: '0.95rem', marginBottom: 8 }}>{faq.q}</h3>
+                <p style={{ color: 'var(--ink-300)', fontSize: '0.88rem', lineHeight: 1.65, margin: 0 }}>{faq.a}</p>
               </div>
             ))}
           </div>
@@ -320,10 +320,10 @@ export default function PaidAdsPage() {
       <section style={{ padding: 'clamp(40px,6vw,72px) 0', direction: 'rtl' }}>
         <div className="max-w-3xl mx-auto px-6">
           <div style={{ textAlign: 'center', marginBottom: 36 }}>
-            <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,3vw,2rem)', letterSpacing: '-0.02em', color: '#0a0f1e', marginBottom: 12 }}>
+            <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,3vw,2rem)', letterSpacing: '-0.02em', color: 'var(--ink-100)', marginBottom: 12 }}>
               רוצים פרסום שמביא <span className="gradient-text">לידים — לא עלויות?</span>
             </h2>
-            <p style={{ color: '#4a5d7a', fontSize: '0.95rem', lineHeight: 1.65 }}>
+            <p style={{ color: 'var(--ink-300)', fontSize: '0.95rem', lineHeight: 1.65 }}>
               ספרו לנו על העסק — ונגיד לכם מה צריך לשנות בקמפיין.
             </p>
           </div>

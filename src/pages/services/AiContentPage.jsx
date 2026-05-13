@@ -30,25 +30,25 @@ const IconEdit = () => (
 const contentTypes = [
   {
     icon: <IconVideo />,
-    color: '#4d9fff',
+    color: '#22D3EE',
     title: 'UGC & Ads Creatives',
     desc: 'סרטוני פרסומת שנראים אמיתיים, טבעיים, ומושלמים ל-Meta Ads. UGC שמביא לקוחות כי הוא נראה כמו המלצה — לא פרסומת מלוטשת.',
   },
   {
     icon: <IconPlay />,
-    color: '#a07dff',
+    color: '#3D8BFF',
     title: 'Reels & Short Video',
     desc: 'תוכן קצר לאינסטגרם, TikTok ו-YouTube Shorts — פורמט שהאלגוריתם אוהב ושהקהל צורך.',
   },
   {
     icon: <IconImage />,
-    color: '#00d4b8',
+    color: '#22D3EE',
     title: 'תמונות וויזואל',
     desc: 'עיצוב פוסטים, statics, וקריאייטיב לקמפיינים — ויזואל שמשקף את המותג ומושך את העין בפיד.',
   },
   {
     icon: <IconEdit />,
-    color: '#ffb347',
+    color: '#3D8BFF',
     title: 'קופי ותוכן כתוב',
     desc: 'כיתובים לפוסטים, כתבות, תיאורי מוצר, ותוכן SEO — כתיבה בעברית שמדברת לקהל הישראלי.',
   },
@@ -101,16 +101,16 @@ export default function AiContentPage() {
       {/* על השירות */}
       <section style={{ padding: 'clamp(56px,8vw,96px) 0', direction: 'rtl' }}>
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="font-black" style={{ fontSize: 'clamp(1.5rem,3vw,2.2rem)', letterSpacing: '-0.02em', color: '#0a0f1e', marginBottom: 24 }}>
+          <h2 className="font-black" style={{ fontSize: 'clamp(1.5rem,3vw,2.2rem)', letterSpacing: '-0.02em', color: 'var(--ink-100)', marginBottom: 24 }}>
             הפקת תוכן לרשתות חברתיות — האתגר של העסק הישראלי
           </h2>
-          <p style={{ color: '#4a5d7a', fontSize: '1rem', lineHeight: 1.9, marginBottom: 32 }}>
+          <p style={{ color: 'var(--ink-300)', fontSize: '1rem', lineHeight: 1.9, marginBottom: 32 }}>
             האלגוריתמים של Meta, Instagram ו-TikTok מתגמלים עקביות. עסק שמפרסם פעם בשבוע לא מגיע לקהל — עסק שמפרסם כל יום כן. הבעיה: הפקת תוכן שיווקי לרשתות חברתיות בצורה מסורתית — צלם, עורך, קופירייטר — עולה הרבה ולוקח זמן רב. רוב העסקים הקטנים בישראל לא יכולים לעמוד בנפח ובעלות הזה. כלי ה-AI שינו את המשוואה הזו לחלוטין. אנחנו מביאים את הטכנולוגיה הזו לעסקים ישראלים — עם creative direction אנושי שמבטיח שהתוכן שיווקי לעסקים ייראה מקצועי, ממותג, ולא גנרי.
           </p>
-          <h3 className="font-black" style={{ fontSize: 'clamp(1.2rem,2.2vw,1.7rem)', letterSpacing: '-0.02em', color: '#0a0f1e', marginBottom: 16 }}>
+          <h3 className="font-black" style={{ fontSize: 'clamp(1.2rem,2.2vw,1.7rem)', letterSpacing: '-0.02em', color: 'var(--ink-100)', marginBottom: 16 }}>
             UGC, Reels וקופי — הכל בשבריר מהעלות הרגילה
           </h3>
-          <p style={{ color: '#4a5d7a', fontSize: '1rem', lineHeight: 1.9 }}>
+          <p style={{ color: 'var(--ink-300)', fontSize: '1rem', lineHeight: 1.9 }}>
             אנחנו מפיקים UGC לקמפיינים ב-Meta שנראים כמו המלצה אמיתית — לא פרסומת מלוטשת. מפיקים Reels וסרטונים קצרים לאינסטגרם ו-TikTok בפורמט שהאלגוריתם אוהב. כותבים קופי בעברית שמדבר ישיר לקהל הישראלי — בלי תרגומים מאנגלית ובלי ז'רגון שאנשים לא מבינים. מסיימים עם לוח תוכן חודשי מסודר שמאפשר לכם לפרסם בעקביות בלי לחשוב כל פעם מה להעלות.
           </p>
         </div>
@@ -121,10 +121,10 @@ export default function AiContentPage() {
         <div className="max-w-6xl mx-auto px-6">
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
             <div className="tag-pill" style={{ marginBottom: 16, display: 'inline-flex' }}>סוגי תוכן</div>
-            <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.2vw,2.4rem)', letterSpacing: '-0.02em', color: '#0a0f1e' }}>
+            <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.2vw,2.4rem)', letterSpacing: '-0.02em', color: 'var(--ink-100)' }}>
               מה אנחנו <span className="gradient-text">מפיקים</span>
             </h2>
-            <p style={{ color: '#4a5d7a', fontSize: '0.98rem', lineHeight: 1.75, maxWidth: 580, margin: '16px auto 0' }}>
+            <p style={{ color: 'var(--ink-300)', fontSize: '0.98rem', lineHeight: 1.75, maxWidth: 580, margin: '16px auto 0' }}>
               כל סוג תוכן מותאם לפלטפורמה, לקהל, ולמטרה השיווקית
             </p>
           </div>
@@ -143,8 +143,8 @@ export default function AiContentPage() {
                 <div style={{ width: 52, height: 52, borderRadius: 14, background: `${ct.color}18`, border: `1px solid ${ct.color}30`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: ct.color, marginBottom: 20 }}>
                   {ct.icon}
                 </div>
-                <h3 style={{ color: '#ffffff', fontWeight: 700, fontSize: '1.1rem', marginBottom: 10 }}>{ct.title}</h3>
-                <p style={{ color: '#8ba3c7', fontSize: '0.9rem', lineHeight: 1.7, margin: 0 }}>{ct.desc}</p>
+                <h3 style={{ color: 'var(--ink-100)', fontWeight: 700, fontSize: '1.1rem', marginBottom: 10 }}>{ct.title}</h3>
+                <p style={{ color: 'var(--ink-300)', fontSize: '0.9rem', lineHeight: 1.7, margin: 0 }}>{ct.desc}</p>
               </div>
             ))}
           </div>
@@ -156,7 +156,7 @@ export default function AiContentPage() {
         <div className="max-w-5xl mx-auto px-6">
           <div style={{ textAlign: 'center', marginBottom: 52 }}>
             <div className="tag-pill" style={{ marginBottom: 16, display: 'inline-flex' }}>תהליך העבודה</div>
-            <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.2vw,2.4rem)', letterSpacing: '-0.02em', color: '#0a0f1e' }}>
+            <h2 className="font-black" style={{ fontSize: 'clamp(1.6rem,3.2vw,2.4rem)', letterSpacing: '-0.02em', color: 'var(--ink-100)' }}>
               מהבריף <span className="gradient-text">לפרסום</span>
             </h2>
           </div>
@@ -176,8 +176,8 @@ export default function AiContentPage() {
                   {step.num}
                 </div>
                 <div>
-                  <h3 style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.95rem', marginBottom: 5 }}>{step.title}</h3>
-                  <p style={{ color: '#8ba3c7', fontSize: '0.85rem', lineHeight: 1.6, margin: 0 }}>{step.desc}</p>
+                  <h3 style={{ color: 'var(--ink-100)', fontWeight: 700, fontSize: '0.95rem', marginBottom: 5 }}>{step.title}</h3>
+                  <p style={{ color: 'var(--ink-300)', fontSize: '0.85rem', lineHeight: 1.6, margin: 0 }}>{step.desc}</p>
                 </div>
               </div>
             ))}
@@ -192,15 +192,15 @@ export default function AiContentPage() {
       <section style={{ padding: 'clamp(40px,6vw,72px) 0', direction: 'rtl' }}>
         <div className="max-w-3xl mx-auto px-6">
           <div style={{ textAlign: 'center', marginBottom: 40 }}>
-            <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,3vw,2rem)', letterSpacing: '-0.02em', color: '#0a0f1e' }}>
+            <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,3vw,2rem)', letterSpacing: '-0.02em', color: 'var(--ink-100)' }}>
               שאלות <span className="gradient-text">נפוצות</span>
             </h2>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
             {faqs.map((faq, i) => (
               <div key={i} className="glass-card" style={{ padding: '22px 24px' }}>
-                <h3 style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.95rem', marginBottom: 8 }}>{faq.q}</h3>
-                <p style={{ color: '#8ba3c7', fontSize: '0.88rem', lineHeight: 1.65, margin: 0 }}>{faq.a}</p>
+                <h3 style={{ color: 'var(--ink-100)', fontWeight: 700, fontSize: '0.95rem', marginBottom: 8 }}>{faq.q}</h3>
+                <p style={{ color: 'var(--ink-300)', fontSize: '0.88rem', lineHeight: 1.65, margin: 0 }}>{faq.a}</p>
               </div>
             ))}
           </div>
@@ -211,10 +211,10 @@ export default function AiContentPage() {
       <section style={{ padding: 'clamp(40px,6vw,72px) 0', direction: 'rtl' }}>
         <div className="max-w-3xl mx-auto px-6">
           <div style={{ textAlign: 'center', marginBottom: 36 }}>
-            <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,3vw,2rem)', letterSpacing: '-0.02em', color: '#0a0f1e', marginBottom: 12 }}>
+            <h2 className="font-black" style={{ fontSize: 'clamp(1.4rem,3vw,2rem)', letterSpacing: '-0.02em', color: 'var(--ink-100)', marginBottom: 12 }}>
               רוצים תוכן שעובד <span className="gradient-text">בשבילכם?</span>
             </h2>
-            <p style={{ color: '#4a5d7a', fontSize: '0.95rem', lineHeight: 1.65 }}>
+            <p style={{ color: 'var(--ink-300)', fontSize: '0.95rem', lineHeight: 1.65 }}>
               ספרו לנו על העסק והפלטפורמות — ונציג מה אנחנו יכולים להפיק עבורכם.
             </p>
           </div>
