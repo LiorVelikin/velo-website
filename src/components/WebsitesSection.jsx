@@ -40,22 +40,17 @@ const PORTFOLIO = [
   Tops and lefts are deliberately staggered so no three items align.
 */
 /*
-  Vertical waterfall — laptops centred in the canvas, stacked top→bottom with
-  keyboard-area overlap. Giant portrait iPhones anchor left/right edges at the
-  same visual scale as the laptops.
-
-  Order: Zano → COCO (overlaps Zano keyboard) → Zenora monitor → Lilach
-  iPhones: 46–48 % wide (same presence as the ~60 % wide laptops)
+  3-screen vertical waterfall — all centred on the canvas.
+  Each laptop/monitor is ~70 % wide (centre = 50 %).
+  Small gap (~5 %) between each so they breathe without floating apart.
+  Giant portrait iPhones (50–52 %) on the edges, same visual weight as screens.
 */
 const LAYOUT = [
-  /* ── centred laptop waterfall ── */
-  { i: 0, left: '19%', top:  '1%', w: '62%', rot: -1.5, z: 3, delay: 0.18 }, // Zano
-  { i: 1, left: '21%', top: '17%', w: '58%', rot:  1.0, z: 4, delay: 0.22 }, // COCO (overlaps Zano keyboard)
-  { i: 3, left: '20%', top: '36%', w: '60%', rot: -0.8, z: 3, delay: 0.30 }, // Zenora monitor
-  { i: 2, left: '20%', top: '52%', w: '60%', rot:  1.2, z: 4, delay: 0.36 }, // Lilach
-  /* ── large portrait iPhones on the edges ── */
-  { i: 4, left: '-8%', top:  '8%', w: '46%', rot: -4,   z: 6, delay: 0.20 }, // left edge
-  { i: 5, left: '62%', top: '24%', w: '44%', rot:  3,   z: 6, delay: 0.26 }, // right edge
+  { i: 0, left: '14%', top:  '1%', w: '72%', rot: -1.5, z: 3, delay: 0.18 }, // Zano
+  { i: 1, left: '16%', top: '30%', w: '68%', rot:  1.0, z: 4, delay: 0.22 }, // COCO
+  { i: 3, left: '16%', top: '58%', w: '68%', rot: -0.8, z: 3, delay: 0.30 }, // Zenora monitor
+  { i: 4, left: '-8%', top:  '5%', w: '52%', rot:  -4,  z: 6, delay: 0.20 }, // left iPhone
+  { i: 5, left: '56%', top: '20%', w: '50%', rot:   3,  z: 6, delay: 0.26 }, // right iPhone
 ]
 
 /* Single portfolio item — just the image, no badges */
@@ -172,7 +167,7 @@ export default function WebsitesSection() {
             style={{
               position: 'relative',
               order: 1,
-              minHeight: 'clamp(740px, 95vw, 1000px)',
+              minHeight: 'clamp(800px, 102vw, 1060px)',
             }}
           >
             {/* Ambient glow */}
