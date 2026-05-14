@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState, useCallback } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useMotionValue, useTransform, animate } from 'framer-motion'
 import IPhoneMockup from './IPhoneMockup'
 
 const BASE = import.meta.env.BASE_URL
@@ -83,6 +83,37 @@ function PhoneContent({ tile, phoneScale }) {
 }
 
 /*
+  Each phone orbits clockwise (parent rotates).
+  counter-rotation via useTransform keeps the phone visually upright.
+  Hover scales the phone up independently.
+*/
+function PhoneOrbit({ left, top, w, rot, z, delay, tile, parentRotation, scaleFor, inView }) {
+  const ps = scaleFor(w)
+  const counterRot = useTransform(parentRotation, v => rot - v)
+  return (
+    <div style={{ position: 'absolute', left, top, zIndex: z }}>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.85 }}
+        animate={inView ? { opacity: 1, scale: 1 } : {}}
+        transition={{ duration: 0.5, delay }}
+        whileHover={{ scale: 1.14, transition: HOVER_SPRING }}
+        style={{ willChange: 'transform' }}
+      >
+        <motion.div style={{ rotate: counterRot }}>
+          <IPhoneMockup
+            model="15-pro" color="space-black" scale={ps} safeArea={false}
+            shadow={`0 ${Math.round(40/ps)}px ${Math.round(80/ps)}px rgba(0,0,0,0.65), 0 ${Math.round(6/ps)}px ${Math.round(18/ps)}px rgba(0,0,0,0.45)`}
+            innerShadow showHomeIndicator
+          >
+            <PhoneContent tile={tile} phoneScale={ps} />
+          </IPhoneMockup>
+        </motion.div>
+      </motion.div>
+    </div>
+  )
+}
+
+/*
   True circle — 8 phones on a ring of radius 26 %, centre (52 %, 35 %).
   Positions computed via: left = cx + r·sin(θ), top = cy − r·cos(θ).
   Right edge of rightmost phone lands at exactly 100 % (no hard clip on right).
@@ -126,6 +157,19 @@ export default function AiContentReel() {
     [colW]
   )
 
+  /* Clockwise orbit — drives all phone positions around the circle */
+  const orbitRotation = useMotionValue(0)
+  useEffect(() => {
+    if (!inView) return
+    const controls = animate(orbitRotation, 360, {
+      duration: 40,
+      repeat: Infinity,
+      ease: 'linear',
+      repeatType: 'loop',
+    })
+    return controls.stop
+  }, [inView])
+
   return (
     <section
       id="ai-content"
@@ -157,43 +201,20 @@ export default function AiContentReel() {
               filter: 'blur(55px)', pointerEvents: 'none',
             }} />
 
-            {/* Slow clockwise drift for the whole cluster */}
+            {/* Clockwise orbit ring — phones rotate as a unit, each counter-rotates to stay upright */}
             <motion.div
-              style={{ position: 'absolute', inset: 0, transformOrigin: '52% 35%' }}
-              animate={inView ? { rotate: [0, 5, 0, -2, 0] } : {}}
-              transition={{ duration: 28, repeat: Infinity, ease: 'easeInOut', repeatDelay: 1 }}
+              style={{ position: 'absolute', inset: 0, transformOrigin: '52% 35%', rotate: orbitRotation }}
             >
-              {LAYOUT.map(({ i, left, top, w, rot, z, delay }) => {
-                const ps = scaleFor(w)
-                return (
-                  <motion.div
-                    key={i}
-                    whileHover={{ y: -6, transition: HOVER_SPRING }}
-                    initial={{ opacity: 0, y: 24 }}
-                    animate={inView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ ...SPRING, delay }}
-                    style={{
-                      position: 'absolute',
-                      left, top,
-                      zIndex: z,
-                      rotate: rot,
-                      willChange: 'transform',
-                    }}
-                  >
-                    <IPhoneMockup
-                      model="15-pro"
-                      color="space-black"
-                      scale={ps}
-                      safeArea={false}
-                      shadow={`0 ${Math.round(40/ps)}px ${Math.round(80/ps)}px rgba(0,0,0,0.65), 0 ${Math.round(6/ps)}px ${Math.round(18/ps)}px rgba(0,0,0,0.45)`}
-                      innerShadow
-                      showHomeIndicator
-                    >
-                      <PhoneContent tile={REEL[i]} phoneScale={ps} />
-                    </IPhoneMockup>
-                  </motion.div>
-                )
-              })}
+              {LAYOUT.map(({ i, left, top, w, rot, z, delay }) => (
+                <PhoneOrbit
+                  key={i}
+                  left={left} top={top} w={w} rot={rot} z={z} delay={delay}
+                  tile={REEL[i]}
+                  parentRotation={orbitRotation}
+                  scaleFor={scaleFor}
+                  inView={inView}
+                />
+              ))}
             </motion.div>
           </motion.div>
 

@@ -40,17 +40,19 @@ const PORTFOLIO = [
   Tops and lefts are deliberately staggered so no three items align.
 */
 /*
-  3-screen vertical waterfall — all centred on the canvas.
-  Each laptop/monitor is ~70 % wide (centre = 50 %).
-  Small gap (~5 %) between each so they breathe without floating apart.
-  Giant portrait iPhones (50–52 %) on the edges, same visual weight as screens.
+  2×2 laptop/monitor grid — each cell 48 % wide, 4 % gutter.
+  2 large portrait iPhones in the lower portion of the canvas.
+  All items as big as possible; iPhones at 42–44 % width.
 */
 const LAYOUT = [
-  { i: 0, left: '14%', top:  '1%', w: '72%', rot: -1.5, z: 3, delay: 0.18 }, // Zano
-  { i: 1, left: '16%', top: '30%', w: '68%', rot:  1.0, z: 4, delay: 0.22 }, // COCO
-  { i: 3, left: '16%', top: '58%', w: '68%', rot: -0.8, z: 3, delay: 0.30 }, // Zenora monitor
-  { i: 4, left: '-8%', top:  '5%', w: '52%', rot:  -4,  z: 6, delay: 0.20 }, // left iPhone
-  { i: 5, left: '56%', top: '20%', w: '50%', rot:   3,  z: 6, delay: 0.26 }, // right iPhone
+  /* ── 2×2 grid ── */
+  { i: 0, left:  '0%', top:  '2%', w: '48%', rot: -1.5, z: 3, delay: 0.18 }, // Zano TL
+  { i: 1, left: '52%', top:  '4%', w: '48%', rot:  1.0, z: 4, delay: 0.22 }, // COCO TR
+  { i: 3, left:  '0%', top: '28%', w: '48%', rot: -1.0, z: 3, delay: 0.28 }, // Zenora BL
+  { i: 2, left: '52%', top: '30%', w: '47%', rot:  1.2, z: 4, delay: 0.32 }, // Lilach BR
+  /* ── iPhones — lower portion ── */
+  { i: 4, left: '-2%', top: '56%', w: '44%', rot: -3,   z: 5, delay: 0.20 }, // left
+  { i: 5, left: '54%', top: '53%', w: '42%', rot:  3,   z: 5, delay: 0.26 }, // right
 ]
 
 /* Single portfolio item — just the image, no badges */
@@ -167,7 +169,7 @@ export default function WebsitesSection() {
             style={{
               position: 'relative',
               order: 1,
-              minHeight: 'clamp(800px, 102vw, 1060px)',
+              minHeight: 'clamp(820px, 105vw, 1080px)',
             }}
           >
             {/* Ambient glow */}
