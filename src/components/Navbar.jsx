@@ -205,36 +205,37 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Desktop CTA — minimal hairline button matching Aurora */}
+        {/* Desktop CTA — blue gradient pill */}
         <div className="hidden md:flex items-center gap-3">
           <a
             href="#cta"
             onClick={(e) => { e.preventDefault(); document.querySelector('#cta')?.scrollIntoView({ behavior: 'smooth' }) }}
             style={{
               textDecoration: 'none',
-              display: 'inline-flex', alignItems: 'center', gap: 8,
-              padding: '9px 18px',
-              border: '1px solid rgba(0,212,255,0.35)',
-              background: 'rgba(0,212,255,0.06)',
+              display: 'inline-flex', alignItems: 'center',
+              padding: '9px 22px',
+              background: 'linear-gradient(135deg, #22D3EE 0%, #1A6FFF 100%)',
+              border: 'none',
               borderRadius: 100,
-              color: '#E8F4FF',
+              color: '#fff',
               fontSize: '0.82rem',
-              fontWeight: 500,
+              fontWeight: 600,
               fontFamily: 'inherit',
-              transition: 'all 0.25s ease',
+              letterSpacing: '0.01em',
+              boxShadow: '0 2px 16px rgba(26,111,255,0.35)',
+              transition: 'box-shadow 0.25s ease, transform 0.25s ease',
               cursor: 'pointer',
             }}
             onMouseEnter={e => {
-              e.currentTarget.style.background = 'rgba(0,212,255,0.12)'
-              e.currentTarget.style.borderColor = 'rgba(0,212,255,0.55)'
+              e.currentTarget.style.boxShadow = '0 4px 28px rgba(26,111,255,0.55)'
+              e.currentTarget.style.transform = 'translateY(-1px)'
             }}
             onMouseLeave={e => {
-              e.currentTarget.style.background = 'rgba(0,212,255,0.06)'
-              e.currentTarget.style.borderColor = 'rgba(0,212,255,0.35)'
+              e.currentTarget.style.boxShadow = '0 2px 16px rgba(26,111,255,0.35)'
+              e.currentTarget.style.transform = 'none'
             }}
           >
-            <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#00d4ff', boxShadow: '0 0 8px #00d4ff' }} />
-            <span>שיחת אבחון</span>
+            צרו קשר
           </a>
         </div>
 
@@ -335,15 +336,15 @@ export default function Navbar() {
               onClick={(e) => { e.preventDefault(); setMenuOpen(false); document.querySelector('#cta')?.scrollIntoView({ behavior: 'smooth' }) }}
               style={{
                 textDecoration: 'none', width: '100%',
-                display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 8,
+                display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                 padding: '14px 22px',
-                border: '1px solid rgba(0,212,255,0.4)',
-                background: 'rgba(0,212,255,0.08)',
-                borderRadius: 100, color: '#E8F4FF', fontSize: '0.95rem', fontWeight: 500,
+                background: 'linear-gradient(135deg, #22D3EE 0%, #1A6FFF 100%)',
+                border: 'none',
+                borderRadius: 100, color: '#fff', fontSize: '0.95rem', fontWeight: 600,
+                boxShadow: '0 2px 20px rgba(26,111,255,0.4)',
               }}
             >
-              <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#00d4ff', boxShadow: '0 0 10px #00d4ff' }} />
-              <span>שיחת אבחון</span>
+              צרו קשר
             </a>
           </div>
         </div>

@@ -83,24 +83,25 @@ function PhoneContent({ tile, phoneScale }) {
 }
 
 /*
-  Circular arrangement — 8 phones in an oval ring + 1 centre hero.
-  Cluster is biased to the right half of the collage column (away from text).
-  Ellipse centre ≈ (52 %, 38 %), rx ≈ 24 %, ry ≈ 22 %.
+  True circle — 8 phones on a ring of radius 26 %, centre (52 %, 35 %).
+  Positions computed via: left = cx + r·sin(θ), top = cy − r·cos(θ).
+  Right edge of rightmost phone lands at exactly 100 % (no hard clip on right).
+  Bottom phones overflow ~3 % (clipped by section overflow:hidden).
   Front phones (z ≥ 5): ai-avatar-1 (right), lifestyle (lower-right),
   maya-ugc (bottom), HERO luxury-unboxing (centre).
 */
 const LAYOUT = [
-  /* ring — clockwise from top */
-  { i: 1, left: '52%', top: '16%', w: '21%', rot:  2, z: 2, delay: 0.26 }, // top
-  { i: 8, left: '67%', top: '21%', w: '21%', rot:  6, z: 3, delay: 0.18 }, // top-right
-  { i: 0, left: '76%', top: '34%', w: '22%', rot:  9, z: 6, delay: 0.24 }, // right (AI front)
-  { i: 6, left: '73%', top: '49%', w: '22%', rot:  5, z: 5, delay: 0.28 }, // lower-right (lifestyle)
-  { i: 3, left: '60%', top: '59%', w: '23%', rot:  2, z: 5, delay: 0.32 }, // bottom-right (ugc front)
-  { i: 4, left: '44%', top: '58%', w: '21%', rot: -3, z: 3, delay: 0.38 }, // bottom-left
-  { i: 5, left: '31%', top: '48%', w: '21%', rot: -5, z: 2, delay: 0.44 }, // left
-  { i: 2, left: '28%', top: '34%', w: '21%', rot: -8, z: 2, delay: 0.36 }, // upper-left
+  /* ring — clockwise from top (θ = 0° … 320°, Δ = 40°) */
+  { i: 1, left: '52%', top:  '9%', w: '21%', rot:  2, z: 2, delay: 0.26 }, //  0° top
+  { i: 8, left: '69%', top: '15%', w: '21%', rot:  6, z: 3, delay: 0.18 }, // 40° top-right
+  { i: 0, left: '78%', top: '31%', w: '22%', rot:  9, z: 6, delay: 0.24 }, // 80° right (AI front)
+  { i: 6, left: '75%', top: '48%', w: '22%', rot:  5, z: 5, delay: 0.28 }, // 120° lower-right (lifestyle)
+  { i: 3, left: '61%', top: '59%', w: '23%', rot:  2, z: 5, delay: 0.32 }, // 160° bottom (ugc front)
+  { i: 4, left: '43%', top: '59%', w: '21%', rot: -3, z: 3, delay: 0.38 }, // 200° bottom-left
+  { i: 5, left: '30%', top: '48%', w: '21%', rot: -5, z: 2, delay: 0.44 }, // 240° left
+  { i: 2, left: '26%', top: '31%', w: '21%', rot: -8, z: 2, delay: 0.36 }, // 280° upper-left
   /* centre hero */
-  { i: 7, left: '40%', top: '26%', w: '26%', rot: -1, z: 8, delay: 0.20 },
+  { i: 7, left: '40%', top: '22%', w: '26%', rot: -1, z: 8, delay: 0.20 },
 ]
 
 export default function AiContentReel() {
@@ -158,7 +159,7 @@ export default function AiContentReel() {
 
             {/* Slow clockwise drift for the whole cluster */}
             <motion.div
-              style={{ position: 'absolute', inset: 0, transformOrigin: '52% 38%' }}
+              style={{ position: 'absolute', inset: 0, transformOrigin: '52% 35%' }}
               animate={inView ? { rotate: [0, 5, 0, -2, 0] } : {}}
               transition={{ duration: 28, repeat: Infinity, ease: 'easeInOut', repeatDelay: 1 }}
             >
