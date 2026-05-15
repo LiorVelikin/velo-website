@@ -83,13 +83,13 @@ function PhoneContent({ tile, phoneScale }) {
 }
 
 /*
-  Each phone orbits clockwise (parent rotates).
-  counter-rotation via useTransform keeps the phone visually upright.
+  Each phone spins clockwise in place around its own centre.
+  selfRot = initial tilt + shared clock value → continuous clockwise spin.
   Hover scales the phone up independently.
 */
-function PhoneOrbit({ left, top, w, rot, z, delay, tile, parentRotation, scaleFor, inView }) {
+function PhoneOrbit({ left, top, w, rot, z, delay, tile, clockRotation, scaleFor, inView }) {
   const ps = scaleFor(w)
-  const counterRot = useTransform(parentRotation, v => rot - v)
+  const selfRot = useTransform(clockRotation, v => rot + v)
   return (
     <div style={{ position: 'absolute', left, top, zIndex: z }}>
       <motion.div
@@ -99,7 +99,7 @@ function PhoneOrbit({ left, top, w, rot, z, delay, tile, parentRotation, scaleFo
         whileHover={{ scale: 1.14, transition: HOVER_SPRING }}
         style={{ willChange: 'transform' }}
       >
-        <motion.div style={{ rotate: counterRot }}>
+        <motion.div style={{ rotate: selfRot }}>
           <IPhoneMockup
             model="15-pro" color="space-black" scale={ps} safeArea={false}
             shadow={`0 ${Math.round(40/ps)}px ${Math.round(80/ps)}px rgba(0,0,0,0.65), 0 ${Math.round(6/ps)}px ${Math.round(18/ps)}px rgba(0,0,0,0.45)`}
@@ -201,21 +201,19 @@ export default function AiContentReel() {
               filter: 'blur(55px)', pointerEvents: 'none',
             }} />
 
-            {/* Clockwise orbit ring — phones rotate as a unit, each counter-rotates to stay upright */}
-            <motion.div
-              style={{ position: 'absolute', inset: 0, transformOrigin: '52% 35%', rotate: orbitRotation }}
-            >
+            {/* Each phone spins clockwise in place — no group orbit */}
+            <div style={{ position: 'absolute', inset: 0 }}>
               {LAYOUT.map(({ i, left, top, w, rot, z, delay }) => (
                 <PhoneOrbit
                   key={i}
                   left={left} top={top} w={w} rot={rot} z={z} delay={delay}
                   tile={REEL[i]}
-                  parentRotation={orbitRotation}
+                  clockRotation={orbitRotation}
                   scaleFor={scaleFor}
                   inView={inView}
                 />
               ))}
-            </motion.div>
+            </div>
           </motion.div>
 
           {/* ── TEXT COLUMN ── */}
