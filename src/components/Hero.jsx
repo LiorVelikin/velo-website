@@ -98,7 +98,7 @@ export default function Hero() {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.6 }}
+          transition={{ delay: 0.35, duration: 0.4 }}
           style={{
             color: 'var(--ink-500)',
             fontSize: '0.88rem',

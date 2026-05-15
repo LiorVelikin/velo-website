@@ -69,7 +69,7 @@ function FAQItem({ faq, index, isOpen, onToggle }) {
           textAlign: 'right',
           flex: 1,
           letterSpacing: '-0.015em',
-          transition: 'color 0.2s ease',
+          transition: 'color 0.18s cubic-bezier(0.23,1,0.32,1)',
         }}>
           {faq.q}
         </span>
@@ -84,7 +84,7 @@ function FAQItem({ faq, index, isOpen, onToggle }) {
             border: `1px solid ${isOpen ? 'rgba(34,211,238,0.35)' : 'rgba(245,245,247,0.1)'}`,
             borderRadius: '50%',
             color: isOpen ? '#22D3EE' : 'rgba(245,245,247,0.4)',
-            transition: 'background 0.2s ease, border-color 0.2s ease, color 0.2s ease',
+            transition: 'background 0.18s cubic-bezier(0.23,1,0.32,1), border-color 0.18s, color 0.18s',
           }}
         >
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
@@ -139,7 +139,7 @@ export default function FAQSection() {
           ref={headerRef}
           initial={{ opacity: 0, y: 20 }}
           animate={headerInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.38, ease: [0.23, 1, 0.32, 1] }}
           style={{ marginBottom: 48, textAlign: 'right' }}
         >
           <h2 style={{

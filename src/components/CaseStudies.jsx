@@ -135,7 +135,7 @@ export default function CaseStudies() {
           ref={headerRef}
           initial={{ opacity: 0, y: 18 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.38, ease: [0.23, 1, 0.32, 1] }}
           style={{
             marginBottom: 48,
             display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end',
