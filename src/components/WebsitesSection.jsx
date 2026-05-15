@@ -45,7 +45,7 @@ const PORTFOLIO = [
 */
 const LAYOUT = [
   { i: 0, left: '12%', top:  '2%', w: '75%', rot: -1.0, z: 3, delay: 0.18 }, // Zano — top row (wide)
-  { i: 1, left:  '2%', top: '47%', w: '49%', rot:  1.0, z: 4, delay: 0.22 }, // Geva — second row left
+  { i: 1, left: '10%', top: '46%', w: '72%', rot:  1.0, z: 4, delay: 0.22 }, // Geva — second row (wide, like Zano)
   { i: 3, left: '48%', top: '44%', w: '50%', rot: -0.8, z: 3, delay: 0.30 }, // Zenora — second row right (same line as Geva)
   { i: 4, left: '-8%', top:  '5%', w: '52%', rot:  -4,  z: 6, delay: 0.20 }, // left iPhone
   { i: 5, left: '56%', top: '22%', w: '50%', rot:   3,  z: 6, delay: 0.26 }, // right iPhone
@@ -165,7 +165,7 @@ export default function WebsitesSection() {
             style={{
               position: 'relative',
               order: 1,
-              minHeight: 'clamp(780px, 98vw, 1020px)',
+              minHeight: 'clamp(860px, 108vw, 1100px)',
             }}
           >
             {/* Ambient glow */}
