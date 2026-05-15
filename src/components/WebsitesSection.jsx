@@ -19,7 +19,7 @@ const TECH_STACK = ['Figma', 'Shopify', 'Next.js', 'Webflow', 'Framer', 'WordPre
 const PORTFOLIO = [
   { src: `${BASE}images/portfolio/zano-laptop.png`,    name: 'Zano Studio',   label: 'Next.js'   },
   { src: `${BASE}images/portfolio/coco-laptop.png`,    name: 'COCO',          label: 'Shopify'   },
-  { src: `${BASE}images/portfolio/beauty-laptop.png`,  name: 'Lilach',        label: 'WordPress' },
+  { src: `${BASE}images/portfolio/beauty-laptop.png`,  name: 'Dr. Skin',      label: 'WordPress' },
   { src: `${BASE}images/portfolio/zenora-monitor.png`, name: 'Zenora',        label: 'Shopify'   },
   { src: `${BASE}images/portfolio/zenora-phone-1.png`, name: 'Zenora Mobile', label: 'Mobile'    },
   { src: `${BASE}images/portfolio/zenora-phone-2.png`, name: 'Zenora Mobile', label: 'Mobile'    },
@@ -40,19 +40,24 @@ const PORTFOLIO = [
   Tops and lefts are deliberately staggered so no three items align.
 */
 /*
-  2×2 laptop/monitor grid — each cell 48 % wide, 4 % gutter.
-  2 large portrait iPhones in the lower portion of the canvas.
-  All items as big as possible; iPhones at 42–44 % width.
+  2 × 2 aligned laptop/monitor grid filling the collage column,
+  with two large portrait iPhones anchoring the left and right edges.
+
+  Laptop grid:
+    top-left  (Zano)   | top-right  (COCO)
+    bottom-left (Beauty)| bottom-right (Zenora monitor)
+  Each cell ≈ 48 % wide; slight rotation for depth.
+  iPhones: 30–32 % wide, tall portrait, z:5.
 */
 const LAYOUT = [
-  /* ── 2×2 grid ── */
-  { i: 0, left:  '0%', top:  '2%', w: '48%', rot: -1.5, z: 3, delay: 0.18 }, // Zano TL
-  { i: 1, left: '52%', top:  '4%', w: '48%', rot:  1.0, z: 4, delay: 0.22 }, // COCO TR
-  { i: 3, left:  '0%', top: '28%', w: '48%', rot: -1.0, z: 3, delay: 0.28 }, // Zenora BL
-  { i: 2, left: '52%', top: '30%', w: '47%', rot:  1.2, z: 4, delay: 0.32 }, // Lilach BR
-  /* ── iPhones — lower portion ── */
-  { i: 4, left: '-2%', top: '56%', w: '44%', rot: -3,   z: 5, delay: 0.20 }, // left
-  { i: 5, left: '54%', top: '53%', w: '42%', rot:  3,   z: 5, delay: 0.26 }, // right
+  /* ── 2 × 2 laptop grid ── */
+  { i: 0, left:  '8%', top:  '1%', w: '50%', rot: -1.5, z: 3, delay: 0.18 }, // Zano top-left
+  { i: 1, left: '48%', top:  '4%', w: '48%', rot:  1.0, z: 4, delay: 0.22 }, // COCO top-right
+  { i: 2, left:  '4%', top: '50%', w: '52%', rot: -1.0, z: 4, delay: 0.28 }, // Beauty bottom-left
+  { i: 3, left: '44%', top: '52%', w: '48%', rot:  1.5, z: 3, delay: 0.34 }, // Monitor bottom-right
+  /* ── iPhones on the edges ── */
+  { i: 4, left: '-6%', top: '16%', w: '32%', rot: -4,   z: 5, delay: 0.20 }, // left edge
+  { i: 5, left: '70%', top: '30%', w: '29%', rot:  3,   z: 5, delay: 0.26 }, // right edge
 ]
 
 /* Single portfolio item — just the image, no badges */
@@ -169,7 +174,7 @@ export default function WebsitesSection() {
             style={{
               position: 'relative',
               order: 1,
-              minHeight: 'clamp(820px, 105vw, 1080px)',
+              minHeight: 'clamp(580px, 74vw, 820px)',
             }}
           >
             {/* Ambient glow */}
