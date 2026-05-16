@@ -72,7 +72,7 @@ export default function Navbar() {
     <header
       style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50,
-        transition: 'all 0.45s cubic-bezier(0.16,1,0.3,1)',
+        transition: 'height 0.45s cubic-bezier(0.16,1,0.3,1), background 0.45s cubic-bezier(0.16,1,0.3,1), backdrop-filter 0.45s, border-color 0.45s',
         height: scrolled ? '64px' : '88px',
         display: 'flex', flexDirection: 'column', justifyContent: 'center',
         background: scrolled
@@ -156,7 +156,7 @@ export default function Navbar() {
                       padding: '12px 14px', borderRadius: 10,
                       background: hoveredSvc === svc.path ? `${svc.color}10` : 'transparent',
                       border: hoveredSvc === svc.path ? `1px solid ${svc.color}25` : '1px solid transparent',
-                      transition: 'all 0.18s ease',
+                      transition: 'background 0.18s ease, border-color 0.18s ease',
                       direction: 'rtl',
                     }}>
                       <div style={{

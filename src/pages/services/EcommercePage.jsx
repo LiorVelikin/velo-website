@@ -253,7 +253,7 @@ export default function EcommercePage() {
                     border: 'none',
                     cursor: 'pointer',
                     padding: 0,
-                    transition: 'all 0.3s cubic-bezier(0.16,1,0.3,1)',
+                    transition: 'background 0.3s cubic-bezier(0.16,1,0.3,1), transform 0.3s cubic-bezier(0.16,1,0.3,1)',
                   }}
                 />
               ))}
