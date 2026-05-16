@@ -212,8 +212,8 @@ export default function Navbar() {
             onClick={(e) => { e.preventDefault(); document.querySelector('#cta')?.scrollIntoView({ behavior: 'smooth' }) }}
             style={{
               textDecoration: 'none',
-              display: 'inline-flex', alignItems: 'center',
-              padding: '9px 22px',
+              display: 'inline-flex', alignItems: 'center', gap: 7,
+              padding: '9px 20px 9px 16px',
               background: 'linear-gradient(135deg, #22D3EE 0%, #1A6FFF 100%)',
               border: 'none',
               borderRadius: 100,
@@ -235,6 +235,7 @@ export default function Navbar() {
               e.currentTarget.style.transform = 'none'
             }}
           >
+            <span className="nav-pulse-dot" />
             צרו קשר
           </a>
         </div>
