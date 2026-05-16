@@ -1,4 +1,3 @@
-import { useRef } from 'react'
 import { motion } from 'framer-motion'
 import HeroGradientAnimation from './HeroGradientAnimation'
 
@@ -17,6 +16,7 @@ export default function Hero() {
   const scrollToCta  = (e) => { e.preventDefault(); document.querySelector('#cta')?.scrollIntoView({ behavior: 'smooth' }) }
 
   return (
+  <>
     <section
       id="hero"
       style={{
@@ -33,7 +33,7 @@ export default function Hero() {
       <HeroGradientAnimation />
 
       <div style={{
-        maxWidth: 1100, margin: '0 auto',
+        maxWidth: 800, margin: '0 auto',
         padding: '0 clamp(20px, 5vw, 48px)',
         position: 'relative', zIndex: 5,
         textAlign: 'center',
@@ -46,16 +46,16 @@ export default function Hero() {
           transition={{ ...SPRING, delay: 0.05 }}
           style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(2.6rem, 7vw, 5.8rem)',
+            fontSize: 'clamp(2rem, 4.5vw, 3.6rem)',
             fontWeight: 800,
             letterSpacing: '-0.045em',
-            lineHeight: 1.02,
+            lineHeight: 1.08,
             color: 'var(--ink-100)',
-            maxWidth: 980,
+            maxWidth: 700,
             margin: '0 auto 26px',
           }}
         >
-          השיווק הדיגיטלי שלך, <br />
+          שיווק דיגיטלי מבוסס תוצאות <br />
           <span className="gradient-accent">תחת קורת גג אחת.</span>
         </motion.h1>
 
@@ -98,57 +98,60 @@ export default function Hero() {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.35, duration: 0.4 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
           style={{
             color: 'var(--ink-500)',
             fontSize: '0.88rem',
-            margin: '0 0 56px',
+            margin: 0,
           }}
         >
-          פגישת ייעוץ ראשונית — חינם, ללא התחייבות.
+          פגישת אפיון חינם וללא התחייבות.
         </motion.p>
-
-        {/* Client brands strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.55, duration: 0.8 }}
-        >
-          <p style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: '0.65rem',
-            letterSpacing: '0.14em',
-            textTransform: 'uppercase',
-            color: 'var(--ink-500)',
-            marginBottom: 16,
-          }}>
-            עבדנו עם
-          </p>
-          <div style={{
-            display: 'flex',
-            gap: 'clamp(18px, 4vw, 44px)',
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-          }}>
-            {CLIENTS.map((name) => (
-              <span
-                key={name}
-                style={{
-                  fontFamily: 'var(--font-body)',
-                  fontSize: 'clamp(0.78rem, 1.2vw, 0.92rem)',
-                  fontWeight: 600,
-                  letterSpacing: '0.02em',
-                  color: 'rgba(245,245,247,0.22)',
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                {name}
-              </span>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
+
+    {/* Client brands strip — intentionally below the fold */}
+    <div style={{ padding: 'clamp(40px, 6vw, 64px) 0', textAlign: 'center', direction: 'rtl' }}>
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.6, duration: 0.7 }}
+      >
+        <p style={{
+          fontFamily: 'var(--font-mono)',
+          fontSize: '0.65rem',
+          letterSpacing: '0.14em',
+          textTransform: 'uppercase',
+          color: 'var(--ink-500)',
+          marginBottom: 16,
+        }}>
+          עבדנו עם
+        </p>
+        <div style={{
+          display: 'flex',
+          gap: 'clamp(18px, 4vw, 44px)',
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+        }}>
+          {CLIENTS.map((name) => (
+            <span
+              key={name}
+              style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: 'clamp(0.78rem, 1.2vw, 0.92rem)',
+                fontWeight: 600,
+                letterSpacing: '0.02em',
+                color: 'rgba(245,245,247,0.22)',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              {name}
+            </span>
+          ))}
+        </div>
+      </motion.div>
+    </div>
+  </>
   )
 }
