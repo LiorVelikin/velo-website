@@ -86,7 +86,7 @@ export default function Footer() {
                     fontSize: '0.7rem',
                     fontWeight: 500,
                     textDecoration: 'none',
-                    transition: 'border-color 0.18s cubic-bezier(0.23,1,0.32,1), color 0.18s',
+                    transition: 'border-color 0.2s, color 0.2s',
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.borderColor = 'rgba(0,212,255,0.4)'

@@ -92,7 +92,7 @@ function Step({ step, index }) {
         boxShadow: `0 0 18px ${step.color}80`,
         marginTop: 16,
         opacity: inView ? 1 : 0,
-        transition: 'opacity 0.35s cubic-bezier(0.23,1,0.32,1)',
+        transition: 'opacity 0.6s ease',
       }} />
     </motion.div>
   )
@@ -109,7 +109,7 @@ export default function ProcessSection() {
           ref={headerRef}
           initial={{ opacity: 0, y: 18 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.38, ease: [0.23, 1, 0.32, 1] }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           style={{ marginBottom: 48 }}
         >
           <h2 style={{

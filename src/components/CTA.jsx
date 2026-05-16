@@ -11,8 +11,8 @@ function SuccessState() {
   return (
     <div style={{ textAlign: 'center', padding: '52px 24px', direction: 'rtl' }}>
       <motion.div
-        initial={{ scale: 0.7, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
         transition={{ type: 'spring', stiffness: 280, damping: 22 }}
         style={{ display: 'flex', justifyContent: 'center', marginBottom: 24 }}
       >
@@ -78,7 +78,7 @@ export default function CTA() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.38, ease: [0.23, 1, 0.32, 1] }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           style={{ textAlign: 'right', marginBottom: 56, maxWidth: 720 }}
         >
           <h2 style={{
@@ -194,7 +194,7 @@ export default function CTA() {
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={inView ? { opacity: 1 } : {}}
-                transition={{ delay: 0.42, duration: 0.32 }}
+                transition={{ delay: 0.55, duration: 0.5 }}
               >
                 <button type="submit" className="btn-aurora" style={{ width: '100%', justifyContent: 'center' }}>
                   <span>קבעו פגישת ייעוץ</span>
