@@ -153,12 +153,9 @@ function ResultCard({ card, triggered, index, visible }) {
         <span style={{
           fontSize: 'clamp(50px, 5.5vw, 64px)',
           fontWeight: 900,
-          fontFamily: 'Inter, sans-serif',
+          fontFamily: 'var(--font-display)',
           letterSpacing: '-0.04em',
-          background: 'linear-gradient(135deg, #1a6fff 0%, #00c8ff 100%)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          backgroundClip: 'text',
+          color: 'var(--cyan)',
         }}>
           {card.prefix}{displayNum}{card.suffix}
         </span>

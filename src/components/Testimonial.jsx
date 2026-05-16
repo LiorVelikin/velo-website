@@ -45,9 +45,7 @@ export default function Testimonial() {
           <span
             className="absolute -top-6 right-6 text-[120px] font-black leading-none pointer-events-none select-none"
             style={{
-              background: 'linear-gradient(135deg,rgba(26,111,255,0.2),rgba(0,212,255,0.1))',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
+              color: 'rgba(26,111,255,0.18)',
             }}
           >
             "

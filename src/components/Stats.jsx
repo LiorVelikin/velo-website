@@ -116,14 +116,11 @@ function StatCard({ stat, index }) {
       <div style={{
         fontSize: 'clamp(2.2rem, 4vw, 3rem)',
         fontWeight: 900,
-        fontFamily: 'Inter, sans-serif',
+        fontFamily: 'var(--font-display)',
         letterSpacing: '-0.04em',
         lineHeight: 1,
         marginBottom: 8,
-        background: 'linear-gradient(135deg, #1a6fff 0%, #00c8ff 100%)',
-        WebkitBackgroundClip: 'text',
-        WebkitTextFillColor: 'transparent',
-        backgroundClip: 'text',
+        color: 'var(--cyan)',
       }}>
         {stat.prefix}{count}{stat.suffix}
       </div>

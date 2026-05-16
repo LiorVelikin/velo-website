@@ -154,14 +154,11 @@ export default function MethodSection() {
               />
             ) : (
               <span style={{
-                fontFamily: 'Inter, sans-serif',
+                fontFamily: 'var(--font-display)',
                 fontWeight: 800,
                 fontSize: 'clamp(1.6rem,3.5vw,2.4rem)',
                 letterSpacing: '0.18em',
-                background: 'linear-gradient(90deg,#1a6fff,#00d4ff,#fff)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
+                color: 'var(--cyan)',
               }}>VELOCITY</span>
             )}
           </div>
@@ -204,10 +201,7 @@ export default function MethodSection() {
               fontWeight: 800,
               lineHeight: 1.45,
               letterSpacing: '-0.02em',
-              background: 'linear-gradient(90deg, #0a0f1e 0%, #1a6fff 60%, #00d4ff 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
+              color: 'var(--ink-100)',
             }}>
               כשכל החלקים עובדים יחד —<br />
               התוצאות הופכות להיות צפויות, ולא מקריות.
