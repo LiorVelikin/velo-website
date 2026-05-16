@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState, useCallback } from 'react'
-import { motion, useInView, useMotionValue, useTransform, animate } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import IPhoneMockup from './IPhoneMockup'
 
 const BASE = import.meta.env.BASE_URL
@@ -83,13 +83,14 @@ function PhoneContent({ tile, phoneScale }) {
 }
 
 /*
-  Each phone spins clockwise in place around its own centre.
-  selfRot = initial tilt + shared clock value → continuous clockwise spin.
-  Hover scales the phone up independently.
+  Each phone floats gently in place (no orbit, no spin).
+  phase staggers the float timing so phones bob at different rhythms.
+  Hover scales the phone up.
 */
-function PhoneOrbit({ left, top, w, rot, z, delay, tile, clockRotation, scaleFor, inView }) {
+function PhoneOrbit({ left, top, w, rot, z, delay, tile, scaleFor, inView, phase }) {
   const ps = scaleFor(w)
-  const selfRot = useTransform(clockRotation, v => rot + v)
+  const floatDuration = 2.6 + phase * 0.38
+  const floatDelay    = phase * 0.28
   return (
     <div style={{ position: 'absolute', left, top, zIndex: z }}>
       <motion.div
@@ -99,7 +100,11 @@ function PhoneOrbit({ left, top, w, rot, z, delay, tile, clockRotation, scaleFor
         whileHover={{ scale: 1.14, transition: HOVER_SPRING }}
         style={{ willChange: 'transform' }}
       >
-        <motion.div style={{ rotate: selfRot }}>
+        <motion.div
+          animate={inView ? { y: [0, -10, 0] } : {}}
+          transition={{ repeat: Infinity, duration: floatDuration, ease: 'easeInOut', delay: floatDelay }}
+          style={{ rotate: rot }}
+        >
           <IPhoneMockup
             model="15-pro" color="space-black" scale={ps} safeArea={false}
             shadow={`0 ${Math.round(40/ps)}px ${Math.round(80/ps)}px rgba(0,0,0,0.65), 0 ${Math.round(6/ps)}px ${Math.round(18/ps)}px rgba(0,0,0,0.45)`}
@@ -122,17 +127,17 @@ function PhoneOrbit({ left, top, w, rot, z, delay, tile, clockRotation, scaleFor
   maya-ugc (bottom), HERO luxury-unboxing (centre).
 */
 const LAYOUT = [
-  /* ring — clockwise from top (θ = 0° … 320°, Δ = 40°), all uniform 22 % */
-  { i: 1, left: '52%', top:  '9%', w: '22%', rot:  2, z: 2, delay: 0.26 }, //  0° top
-  { i: 8, left: '69%', top: '15%', w: '22%', rot:  6, z: 3, delay: 0.18 }, // 40° top-right
-  { i: 0, left: '78%', top: '31%', w: '22%', rot:  9, z: 6, delay: 0.24 }, // 80° right (AI front)
-  { i: 6, left: '75%', top: '48%', w: '22%', rot:  5, z: 5, delay: 0.28 }, // 120° lower-right (lifestyle)
-  { i: 3, left: '61%', top: '59%', w: '22%', rot:  2, z: 5, delay: 0.32 }, // 160° bottom (ugc front)
-  { i: 4, left: '43%', top: '59%', w: '22%', rot: -3, z: 3, delay: 0.38 }, // 200° bottom-left
-  { i: 5, left: '30%', top: '48%', w: '22%', rot: -5, z: 2, delay: 0.44 }, // 240° left
-  { i: 2, left: '26%', top: '31%', w: '22%', rot: -8, z: 2, delay: 0.36 }, // 280° upper-left
-  /* centre hero — larger to anchor the composition */
-  { i: 7, left: '40%', top: '22%', w: '26%', rot: -1, z: 8, delay: 0.20 },
+  /* ring — clockwise from top (θ = 0° … 320°, Δ = 40°), uniform 24 % */
+  { i: 1, left: '52%', top:  '9%', w: '24%', rot:  2, z: 2, delay: 0.26 }, //  0° top
+  { i: 8, left: '69%', top: '15%', w: '24%', rot:  6, z: 3, delay: 0.18 }, // 40° top-right
+  { i: 0, left: '78%', top: '31%', w: '24%', rot:  9, z: 6, delay: 0.24 }, // 80° right
+  { i: 6, left: '75%', top: '48%', w: '24%', rot:  5, z: 5, delay: 0.28 }, // 120° lower-right
+  { i: 3, left: '61%', top: '59%', w: '24%', rot:  2, z: 5, delay: 0.32 }, // 160° bottom
+  { i: 4, left: '43%', top: '59%', w: '24%', rot: -3, z: 3, delay: 0.38 }, // 200° bottom-left
+  { i: 5, left: '30%', top: '48%', w: '24%', rot: -5, z: 2, delay: 0.44 }, // 240° left
+  { i: 2, left: '26%', top: '31%', w: '24%', rot: -8, z: 2, delay: 0.36 }, // 280° upper-left
+  /* centre hero */
+  { i: 7, left: '40%', top: '22%', w: '28%', rot: -1, z: 8, delay: 0.20 },
 ]
 
 export default function AiContentReel() {
@@ -156,19 +161,6 @@ export default function AiContentReel() {
     (pct) => (colW * parseFloat(pct) / 100) / PHONE_OUTER_W,
     [colW]
   )
-
-  /* Clockwise orbit — drives all phone positions around the circle */
-  const orbitRotation = useMotionValue(0)
-  useEffect(() => {
-    if (!inView) return
-    const controls = animate(orbitRotation, 360, {
-      duration: 80,
-      repeat: Infinity,
-      ease: 'linear',
-      repeatType: 'loop',
-    })
-    return controls.stop
-  }, [inView])
 
   return (
     <section
@@ -201,16 +193,16 @@ export default function AiContentReel() {
               filter: 'blur(55px)', pointerEvents: 'none',
             }} />
 
-            {/* Each phone spins clockwise in place — no group orbit */}
+            {/* Phones float in place — staggered bob via phase index */}
             <div style={{ position: 'absolute', inset: 0 }}>
-              {LAYOUT.map(({ i, left, top, w, rot, z, delay }) => (
+              {LAYOUT.map(({ i, left, top, w, rot, z, delay }, idx) => (
                 <PhoneOrbit
                   key={i}
                   left={left} top={top} w={w} rot={rot} z={z} delay={delay}
                   tile={REEL[i]}
-                  clockRotation={orbitRotation}
                   scaleFor={scaleFor}
                   inView={inView}
+                  phase={idx}
                 />
               ))}
             </div>

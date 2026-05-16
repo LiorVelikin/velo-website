@@ -45,10 +45,10 @@ const PORTFOLIO = [
 */
 const LAYOUT = [
   { i: 0, left: '12%', top:  '2%', w: '75%', rot: -1.0, z: 3, delay: 0.18 }, // Zano — top row (wide)
-  { i: 1, left: '-2%', top: '47%', w: '52%', rot:  1.0, z: 4, delay: 0.22 }, // Geva — second row left
-  { i: 3, left: '51%', top: '43%', w: '52%', rot: -0.8, z: 3, delay: 0.30 }, // Zenora — second row right, same size as Geva
-  { i: 4, left: '-8%', top:  '5%', w: '52%', rot:  -4,  z: 6, delay: 0.20 }, // left iPhone
-  { i: 5, left: '56%', top: '22%', w: '50%', rot:   3,  z: 6, delay: 0.26 }, // right iPhone
+  { i: 1, left: '-2%', top: '47%', w: '52%', rot:  1.0, z: 7, delay: 0.22 }, // Geva — front layer, bottom-left (above iPhone)
+  { i: 3, left: '51%', top: '43%', w: '52%', rot: -0.8, z: 3, delay: 0.30 }, // Zenora — bottom-right
+  { i: 4, left: '-8%', top:  '5%', w: '52%', rot:  -4,  z: 5, delay: 0.20 }, // left iPhone — behind Geva
+  { i: 5, left: '56%', top: '22%', w: '50%', rot:   3,  z: 8, delay: 0.26 }, // right iPhone — topmost
 ]
 
 /* Single portfolio item — just the image, no badges */
